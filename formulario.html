@@ -2,10 +2,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- BootstrapCDN CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS Próprio -->
+    <link rel="stylesheet" href="css/formulario.css">
 
     <title>Estágio</title>
 </head>
@@ -534,6 +534,39 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="form-row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
+                                        <textarea class="form-control" id="inputAtividadesDesenvolvidas" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
+                                        <textarea class="form-control" id="inputAreasConhecimento" rows="2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
+                                        <textarea class="form-control" id="inputObjetivos" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 offset-md-4">
+                            <button class="btn btn-success" type="submit" id="botaoConfirmar">Confirmar</button>
                         </div>
                     </div>
                 </form>
@@ -541,8 +574,16 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- JQuery Mask Plugin -->
+    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
+    <!-- Javascript Próprio -->
+    <script type="text/javascript" src="js/formulario.js"></script>
 </body>
 
 </html>

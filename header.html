@@ -64,8 +64,8 @@
    		</ul>
    	</nav>
    	<div class="botao row align-items-center">
-            <button type="button" id="sidebarCollapse" class="btn btn-info">
-   			<i class="fa fa-align-justify"></i> 
+            <button type="button" id="sidebarCollapse" class="btn btn-dark">
+   			<span class="chevron_tg fa fa-chevron-left "></span> 
    		   </button>
         </div>
        
@@ -98,6 +98,7 @@
 	    $(document).ready(function(){
 			$('#sidebarCollapse').on('click',function(){
 				$('#sidebar').toggleClass('active');
+				$('.chevron_tg').toggleClass('fa-chevron-left fa-chevron-right');
 			});
 		});  
 	</script>

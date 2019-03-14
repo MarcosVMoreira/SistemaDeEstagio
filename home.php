@@ -9,7 +9,7 @@ include("header.html");
                 </div>
             </div>  
             <h5 class="mt-4">Dados Gerais</h5>
-            <table class="table table-striped col-md-10">
+            <table class="table table-hover table-striped col-md-10">
                 <tbody>
                     <tr>
                         <th class="alinhar">Nome Completo</th>

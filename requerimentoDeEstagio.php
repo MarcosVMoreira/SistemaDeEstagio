@@ -2,6 +2,81 @@
 
 include_once("conexao.php");
 
+$query = "SELECT * FROM alunos";
+if ($result = $conexao->query($query)) {
+    $resultado = $result->fetch_assoc();
+    
+    if (empty($resultado)) {
+        $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
+        header("Location: login.php");
+    } else {
+        $rgAluno = $resultado["rg"];
+        $cpfAluno = $resultado["cpf"];
+        $nomeAluno = $resultado["nome"];
+        $cidadeAluno = $resultado["cidade"];
+        $ufAluno = $resultado["uf"];
+        $cepAluno = $resultado["cep"];
+        $enderecoAluno = $resultado["endereco"];
+        $bairroAluno = $resultado["bairro"];
+        $numeroAluno = $resultado["numero"];
+        $cursoAluno = $resultado["curso"];
+        $raAluno = $resultado["ra"];
+        $telefoneFixoAluno = $resultado["telefoneFixo"];
+        $telefoneCelularAluno = $resultado["telefoneCelular"];
+        $emailAluno = $resultado["email"];
+        $dataNascimentoAluno = $resultado["dataNascimento"];
+        $tipoEstagio = $resultado["tipoEstagio"];
+        $nomeSeguradora = $resultado["nomeSeguradora"];
+        $valorBolsa = $resultado["valorBolsa"];
+        $beneficios = $resultado["beneficios"];
+        $numeroApoliceSeguros = $resultado["numeroApolicesSeguros"];
+        $periodoAno = $resultado["periodoAno"];
+    }
+}
+
+$query = "SELECT * FROM concedentes";
+if ($result = $conexao->query($query)) {
+    $resultado = $result->fetch_assoc();
+    
+    if (empty($resultado)) {
+        $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
+        header("Location: login.php");
+    } else {
+        $cnpjCpfConcedente = $resultado["cnpjCpf"];
+        $nomeConcedente = $resultado["nome"];
+        $cidadeConcedente = $resultado["cidade"];
+        $ufConcedente = $resultado["uf"];
+        $cepConcedente = $resultado["cep"];
+        $enderecoConcedente = $resultado["endereco"];
+        $bairroConcedente = $resultado["bairro"];
+        $supervisorNome = $resultado["supervisorNome"];
+        $supervisorCargo = $resultado["supervisorCargo"];
+        $responsavelTceNome = $resultado["responsavelTceNome"];
+        $responsavelTceCargo = $resultado["responsavelTceCargo"];
+        $representanteEmpresaNome = $resultado["representanteEmpresaNome"];
+        $representanteEmpresaCargo = $resultado["representanteEmpresaCargo"];
+        $emailConcedente = $resultado["email"];
+        $telefoneConcedente = $resultado["telefone"];
+    }
+}
+
+$query = "SELECT * FROM estagio";
+if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
+            header("Location: login.php");
+        } else {
+            $cargaHorariaDiaria = $resultado["cargaHorariaDiaria"];
+            $horarioEstagio = $resultado["horarioEstagio"];
+            $dataInicial = $resultado["dataInicial"];
+            $dataFinal = $resultado["dataFinal"];
+            $diasSemana = $resultado["diasSemana"];
+            $cargaHorariaTotal = $resultado["cargaHorariaTotal"];
+    }
+}   
+
 // reference the Dompdf namespace
 use Dompdf\Dompdf;
 
@@ -12,9 +87,7 @@ require_once 'PDFs/dompdf/autoload.inc.php';
 /* Cria a instância */
 $dompdf = new DOMPDF();
 
-
-/* Carrega seu HTML */
-$dompdf->load_html('<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+$string = '<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style type="text/css">
 <!--
 span.cls_002{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
@@ -62,8 +135,8 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 <div class="cls_007" style="position:absolute;left:42.60px;top:357.50px"><span class="cls_007">Em ambos os estágios, a carga horária diária não pode exceder </span><span class="cls_006">06 (seis) horas </span><span class="cls_007">e a carga horária semanal não pode exceder </span><span class="cls_006">30</span></div>
 <div class="cls_006" style="position:absolute;left:42.60px;top:370.80px"><span class="cls_006">(trinta) horas</span><span class="cls_007">.</span></div>
 <div class="cls_005" style="position:absolute;left:210.70px;top:389.80px"><span class="cls_005">DADOS DA CONCEDENTE</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:432.00px"><span class="cls_003">Nome da empresa/escola em que pretende estagiar:</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:460.40px"><span class="cls_003">CNPJ/CPF:</span></div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:432.00px"><span class="cls_003">Nome da empresa/escola em que pretende estagiar:</span> '.$nomeConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:460.40px"><span class="cls_003">CNPJ/CPF:</span> '.$cnpjCpfConcedente'</div>
 <div class="cls_003" style="position:absolute;left:44.70px;top:488.70px"><span class="cls_003">Endereço:</span></div>
 <div class="cls_003" style="position:absolute;left:338.70px;top:488.70px"><span class="cls_003">Bairro</span></div>
 <div class="cls_003" style="position:absolute;left:44.70px;top:517.10px"><span class="cls_003">CEP:</span></div>
@@ -120,9 +193,10 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 <div class="cls_007" style="position:absolute;left:42.60px;top:522.40px"><span class="cls_007">Carga horária diária:  ________ (no máximo 6 horas por dia e 30 horas por semana). Carga horária total: _______________ .</span></div>
 </div>
 
+</body></html>';
 
-
-</body></html>');
+/* Carrega seu HTML */
+$dompdf->load_html($string);
 
 /* Renderiza */
 $dompdf->render();

@@ -657,3 +657,19 @@ body {
 }
 
 /*----------------Fim do estilo da sidebar----------------*/
+
+/*--------------- Inicio Cadastro --------------------*/
+
+.card {
+    margin-bottom: 1em;
+    background: #f6f6f6;
+}
+
+#botaoConfirmar {
+    width: 100%;
+}
+
+.container-fluid{
+    background: #e2e2e2;
+}
+/*---------------------Fim Cadastro-------------------*/

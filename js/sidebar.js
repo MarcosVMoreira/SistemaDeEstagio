@@ -23,31 +23,37 @@ $(document).ready(function () {
     });
 
     $("#close-sidebar").click(function () {
-        //$(".page-wrapper").removeClass("toggled");
-        
-        $("#sidebar").animate({
-            left: '-250px'
-        }, 40);
-        
-        $(".page-content").css("padding-left", 0);
-        
-        $("#show-sidebar").animate({
-            left: '0px'
-        }, 10);
+        fechaSideBar();
     });
 
     $("#show-sidebar").click(function () {
         //$(".page-wrapper").addClass("toggled");
-        
+
         $("#sidebar").animate({
             left: '0px'
         }, 40);
-        
-        $(".page-content").css("padding-left", "300px");
-        
+
+        $(".page-content").css("padding-left", "250px");
+
         $("#show-sidebar").animate({
             left: '-40px'
         }, 40);
     });
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        fechaSideBar();
+    }
+
+    function fechaSideBar() {
+        $("#sidebar").animate({
+            left: '-250px'
+        }, 40);
+
+        $(".page-content").css("padding-left", 0);
+
+        $("#show-sidebar").animate({
+            left: '0px'
+        }, 10);
+    }
 
 });

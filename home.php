@@ -1,15 +1,17 @@
 <?php
-include("header.html");
+    include("header.html");
 ?>
 
-       <div class="container">			
-            <div class="row">
-                <div class="mt-3 ml-2">
-                    <h2>Otávio Messias Palma (14161000236)</h2>
-                </div>
-            </div>  
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 mt-3 ml-2">
+            <h2>Otávio Messias Palma (14161000236)</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
             <h5 class="mt-4">Dados Gerais</h5>
-            <table class="table table-hover table-striped col-md-10">
+            <table class="table table-hover table-striped">
                 <tbody>
                     <tr>
                         <th class="alinhar">Nome Completo</th>
@@ -56,6 +58,9 @@ include("header.html");
                 </tbody>
             </table>
         </div>
-   	</div>
-  </body>
-</html>
+    </div>
+</div>
+
+<?php
+    include("footer.html");
+?>

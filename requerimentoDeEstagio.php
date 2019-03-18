@@ -135,27 +135,27 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 <div class="cls_007" style="position:absolute;left:42.60px;top:357.50px"><span class="cls_007">Em ambos os estágios, a carga horária diária não pode exceder </span><span class="cls_006">06 (seis) horas </span><span class="cls_007">e a carga horária semanal não pode exceder </span><span class="cls_006">30</span></div>
 <div class="cls_006" style="position:absolute;left:42.60px;top:370.80px"><span class="cls_006">(trinta) horas</span><span class="cls_007">.</span></div>
 <div class="cls_005" style="position:absolute;left:210.70px;top:389.80px"><span class="cls_005">DADOS DA CONCEDENTE</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:432.00px"><span class="cls_003">Nome da empresa/escola em que pretende estagiar:</span> '.$nomeConcedente.'</div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:460.40px"><span class="cls_003">CNPJ/CPF:</span> '.$cnpjCpfConcedente'</div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:488.70px"><span class="cls_003">Endereço:</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:488.70px"><span class="cls_003">Bairro</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:517.10px"><span class="cls_003">CEP:</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:517.10px"><span class="cls_003">Cidade</span></div>
-<div class="cls_003" style="position:absolute;left:502.90px;top:517.10px"><span class="cls_003">UF:</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:545.40px"><span class="cls_003">Telefone:</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:545.40px"><span class="cls_003">E-mail:</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:573.80px"><span class="cls_003">Representante legal da empresa:</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:573.80px"><span class="cls_003">Cargo:</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:602.10px"><span class="cls_003">Responsável pela assinatura do Termo de Compromisso de Estágio (TCE)</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:602.10px"><span class="cls_003">Cargo:</span></div>
-<div class="cls_003" style="position:absolute;left:44.70px;top:630.50px"><span class="cls_003">Supervisor do estágio:</span></div>
-<div class="cls_003" style="position:absolute;left:338.70px;top:630.50px"><span class="cls_003">Cargo:</span></div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:432.00px"><span class="cls_003"><b>Nome da empresa/escola em que pretende estagiar:</b></span><br/>'.$nomeConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:460.40px"><span class="cls_003"><b>CNPJ/CPF:</b></span><br/>'.$cnpjCpfConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:488.70px"><span class="cls_003"><b>Endereço:</b></span><br/>'.$enderecoConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:488.70px"><span class="cls_003"><b>Bairro:</b></span><br/>'.$bairroConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:517.10px"><span class="cls_003"><b>CEP:</b></span><br/>'.$cepConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:517.10px"><span class="cls_003"><b>Cidade:</b></span><br/>'.$cidadeConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:502.90px;top:517.10px"><span class="cls_003"><b>UF:</b></span><br/>'.$ufConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:545.40px"><span class="cls_003"><b>Telefone:</b></span><br/>'.$telefoneConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:545.40px"><span class="cls_003"><b>E-mail:</b></span><br/>'.$emailConcedente.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:573.80px"><span class="cls_003"><b>Representante legal da empresa:</b></span><br/>'.$representanteEmpresaNome.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:573.80px"><span class="cls_003"><b>Cargo:</b></span><br/>'.$representanteEmpresaCargo.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:602.10px"><span class="cls_003"><b>Responsável pela assinatura do Termo de Compromisso de Estágio (TCE):</b></span><br/>'.$responsavelTceNome.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:602.10px"><span class="cls_003"><b>Cargo:</b></span><br/>'.$responsavelTceCargo.'</div>
+<div class="cls_003" style="position:absolute;left:44.70px;top:630.50px"><span class="cls_003"><b>Supervisor do estágio:</b></span><br/>'.$supervisorNome.'</div>
+<div class="cls_003" style="position:absolute;left:338.70px;top:630.50px"><span class="cls_003"><b>Cargo:</b></span><br/>'.$supervisorCargo.'</div>
 <div class="cls_005" style="position:absolute;left:213.30px;top:665.30px"><span class="cls_005">DADOS DO ESTAGIÁRIO</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:698.60px"><span class="cls_003">Nome do aluno(a):</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:726.90px"><span class="cls_003">Curso:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:726.90px"><span class="cls_003">Matrícula (R.A):</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:755.30px"><span class="cls_003">Endereço:</span></div>
-<div class="cls_007" style="position:absolute;left:337.10px;top:755.20px"><span class="cls_007">N</span><span class="cls_009"><sup>o</sup></span><span class="cls_007">:</span></div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:698.60px"><span class="cls_003"><b>Nome do aluno(a):</b></span><br/>'.$nomeAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:726.90px"><span class="cls_003"><b>Curso:</b></span><br/>'.$cursoAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:726.90px"><span class="cls_003"><b>Matrícula (R.A):</b></span><br/>'.$raAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:755.30px"><span class="cls_003"><b>Endereço:</b></span><br/>'.$enderecoAluno.'</div>
+<div class="cls_007" style="position:absolute;left:337.10px;top:755.20px"><span class="cls_007"><b>N</span><span class="cls_009"><sup>o</sup></span><span class="cls_007">:</b></span><br/>'.$numeroAluno.'</div>
 </div>
 <h1 style = "page-break-before: always;">
 </h1>
@@ -167,30 +167,25 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 <div class="cls_002" style="position:absolute;left:71.80px;top:99.80px"><span class="cls_002">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>
 <div class="cls_003" style="position:absolute;left:124.60px;top:108.90px"><span class="cls_003">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
 <div class="cls_003" style="position:absolute;left:177.90px;top:119.20px"><span class="cls_003">Telefone: (35) 3697-4950 /  </span><a href="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</a> </div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:141.60px"><span class="cls_003">Bairro:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:141.60px"><span class="cls_003">CEP:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:170.00px"><span class="cls_003">Cidade:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:170.00px"><span class="cls_003">UF:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:198.30px"><span class="cls_003">Telefone fixo:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:198.30px"><span class="cls_003">Celular:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:226.70px"><span class="cls_003">E-mail:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:226.70px"><span class="cls_003">Data de Nascimento:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:255.00px"><span class="cls_003">CPF:</span></div>
-<div class="cls_003" style="position:absolute;left:337.10px;top:255.00px"><span class="cls_003">RG:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:283.40px"><span class="cls_003">Assinale o tipo de estágio que fará:</span></div>
-<div class="cls_003" style="position:absolute;left:198.09px;top:299.70px"><span class="cls_003">(</span></div>
-<div class="cls_003" style="position:absolute;left:216.86px;top:299.70px"><span class="cls_003">) Estágio obrigatório</span></div>
-<div class="cls_003" style="position:absolute;left:378.80px;top:299.70px"><span class="cls_003">(</span></div>
-<div class="cls_003" style="position:absolute;left:399.76px;top:299.70px"><span class="cls_003">) Estágio não-obrigatório</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:326.10px"><span class="cls_003">Caso tenha assinalado a opção “estágio não-obrigatório”, informe os dados a seguir:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:358.80px"><span class="cls_003">Valor da bolsa de estágio: R$</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:375.20px"><span class="cls_003">Benefícios:</span></div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:141.60px"><span class="cls_003"><b>Bairro:</b></span><br/>'.$bairroAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:141.60px"><span class="cls_003"><b>CEP:</b></span><br/>'.$cepAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:170.00px"><span class="cls_003"><b>Cidade:</b></span><br/>'.$cidadeAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:170.00px"><span class="cls_003"><b>UF:</b></span><br/>'.$ufAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:198.30px"><span class="cls_003"><b>Telefone fixo:</b></span><br/>'.$telefoneFixoAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:198.30px"><span class="cls_003"><b>Celular:</b></span><br/>'.$telefoneCelularAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:226.70px"><span class="cls_003"><b>E-mail:</b></span><br/>'.$emailAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:226.70px"><span class="cls_003"><b>Data de Nascimento:</b></span><br/>'.$dataNascimentoAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:255.00px"><span class="cls_003"><b>CPF:</b></span><br/>'.$cpfAluno.'</div>
+<div class="cls_003" style="position:absolute;left:337.10px;top:255.00px"><span class="cls_003"><b>RG:</b></span><br/>'.$rgAluno.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:283.40px"><span class="cls_003"><b>Tipo de estágio:</b></span> '.$tipoEstagio.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:330.00px"><span class="cls_003"><b>Valor da bolsa de estágio:</b> R$</span>'.$valorBolsa.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:375.20px"><span class="cls_003"><b>Benefícios:</b></span> '.$beneficios.'</div>
 <div class="cls_003" style="position:absolute;left:45.40px;top:391.50px"><span class="cls_003">(*O auxílio-transporte é obrigatório. Especificar se o estagiário terá outros benefícios como vale-alimentação, plano de saúde, etc).</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:407.90px"><span class="cls_003">Nome da seguradora:</span></div>
-<div class="cls_003" style="position:absolute;left:45.40px;top:424.20px"><span class="cls_003">Número da apólice de seguros:</span></div>
-<div class="cls_007" style="position:absolute;left:42.60px;top:475.80px"><span class="cls_007">Período do estágio:  ____/____/___  a ___/____/____. Dias da semana em que será feito o estágio: ____________________ .</span></div>
-<div class="cls_007" style="position:absolute;left:42.60px;top:499.10px"><span class="cls_007">Horário do estágio: ___________________________________________ (especificar caso haja horário de almoço/intervalo).</span></div>
-<div class="cls_007" style="position:absolute;left:42.60px;top:522.40px"><span class="cls_007">Carga horária diária:  ________ (no máximo 6 horas por dia e 30 horas por semana). Carga horária total: _______________ .</span></div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:407.90px"><span class="cls_003"><b>Nome da seguradora:</b></span> '.$nomeSeguradora.'</div>
+<div class="cls_003" style="position:absolute;left:45.40px;top:424.20px"><span class="cls_003"><b>Número da apólice de seguros:</b></span>  '.$numeroApoliceSeguros.'</div>
+<div class="cls_007" style="position:absolute;left:42.60px;top:475.80px"><span class="cls_007"><b>Período do estágio:</b>  '.$dataInicial.'  a '.$dataFinal.'.<br/><b>Dias da semana em que será feito o estágio:</b> '.$diasSemana.'.</span></div>
+<div class="cls_007" style="position:absolute;left:42.60px;top:499.10px"><span class="cls_007"><b>Horário do estágio:</b> '.$horarioEstagio.' (especificar caso haja horário de almoço/intervalo).</span></div>
+<div class="cls_007" style="position:absolute;left:42.60px;top:522.40px"><span class="cls_007"><b>Carga horária diária:</b>  '.$cargaHorariaDiaria.' horas (No máximo 6 horas por dia e 30 horas por semana). <b>Carga horária total:</b> '.$cargaHorariaTotal.' horas.</span></div>
 </div>
 
 </body></html>';

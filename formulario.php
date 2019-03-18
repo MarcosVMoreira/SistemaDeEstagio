@@ -1,20 +1,12 @@
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- CSS Próprio -->
+<?php
+    include("header.html");
+?>
+    <!-- CSS do Formulário -->
     <link rel="stylesheet" href="css/formulario.css">
-
-    <title>Estágio</title>
-</head>
-
-<body>
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+            <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                 <form>
                     <div class="card">
                         <div class="card-header">
@@ -493,28 +485,28 @@
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputHorasDiarias">Horário de entrada</label>
-                                        <input type="text" class="form-control" id="inputHorasDiarias">
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputHorasDiarias">Horário de saída</label>
-                                        <input type="text" class="form-control" id="inputHorasDiarias">
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputHorasDiarias">Horas diárias</label>
-                                        <input type="text" class="form-control" id="inputHorasDiarias">
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputHorasSemanais">Horas semanais</label>
-                                        <input type="text" class="form-control" id="inputHorasSemanais">
+                                        <input type="time" class="form-control" id="inputHorasSemanais">
                                     </div>
                                 </div>
                             </div>
@@ -574,16 +566,6 @@
         </div>
     </div>
 
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- JQuery Mask Plugin -->
-    <script type="text/javascript" src="js/jquery.mask.min.js"></script>
-    <!-- Javascript Próprio -->
-    <script type="text/javascript" src="js/formulario.js"></script>
-</body>
-
-</html>
+<?php
+    include("footer.html");
+?>

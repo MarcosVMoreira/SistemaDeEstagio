@@ -2,9 +2,9 @@
     include("header.html");
 ?>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12 mt-3 ml-2">
+        <div class="col-sm-12 mt-3">
             <h2>Otávio Messias Palma (14161000236)</h2>
         </div>
     </div>

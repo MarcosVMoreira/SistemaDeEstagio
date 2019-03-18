@@ -3,7 +3,7 @@
 use Dompdf\Dompdf;
 
 // include autoloader
-require_once 'dompdf/autoload.inc.php';
+require_once 'PDFs\dompdf/autoload.inc.php';
 
 
 /* Cria a instância */
@@ -42,7 +42,7 @@ div.cls_010{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weigh
 <body>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img src="b46014d0-467f-11e9-9d71-0cc47a792c0a_id_b46014d0-467f-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=842></div>
+<img src="PDFs/b46014d0-467f-11e9-9d71-0cc47a792c0a_id_b46014d0-467f-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=842></div>
 <div style="position:absolute;left:244.90px;top:91.30px" class="cls_002"><span class="cls_002">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div style="position:absolute;left:182.30px;top:100.50px" class="cls_002"><span class="cls_002">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div style="position:absolute;left:71.80px;top:109.70px" class="cls_002"><span class="cls_002">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>
@@ -93,7 +93,7 @@ div.cls_010{font-family:Times,serif;font-size:12.1px;color:rgb(0,0,0);font-weigh
 </h1>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img src="b46014d0-467f-11e9-9d71-0cc47a792c0a_id_b46014d0-467f-11e9-9d71-0cc47a792c0a_files/background2.jpg" width=595 height=842></div>
+<img src="PDFs/b46014d0-467f-11e9-9d71-0cc47a792c0a_id_b46014d0-467f-11e9-9d71-0cc47a792c0a_files/background2.jpg" width=595 height=842></div>
 <div style="position:absolute;left:244.90px;top:91.30px" class="cls_002"><span class="cls_002">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div style="position:absolute;left:182.30px;top:100.50px" class="cls_002"><span class="cls_002">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div style="position:absolute;left:71.80px;top:109.70px" class="cls_002"><span class="cls_002">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>

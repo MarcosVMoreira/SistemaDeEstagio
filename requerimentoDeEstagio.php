@@ -40,7 +40,7 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 <body>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img width="595" height="842" src="5639080e-4421-11e9-9d71-0cc47a792c0a_id_5639080e-4421-11e9-9d71-0cc47a792c0a_files/background1.jpg"></div>
+<img width="595" height="842" src="PDFs/5639080e-4421-11e9-9d71-0cc47a792c0a_id_5639080e-4421-11e9-9d71-0cc47a792c0a_files/background1.jpg"></div>
 <div class="cls_002" style="position:absolute;left:244.90px;top:81.40px"><span class="cls_002">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div class="cls_002" style="position:absolute;left:182.30px;top:90.60px"><span class="cls_002">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div class="cls_002" style="position:absolute;left:71.80px;top:99.80px"><span class="cls_002">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>
@@ -88,7 +88,7 @@ div.cls_009{font-family:Times,serif;font-size:5.9px;color:rgb(0,0,0);font-weight
 </h1>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img width="595" height="842" src="5639080e-4421-11e9-9d71-0cc47a792c0a_id_5639080e-4421-11e9-9d71-0cc47a792c0a_files/background2.jpg"></div>
+<img width="595" height="842" src="PDFs/5639080e-4421-11e9-9d71-0cc47a792c0a_id_5639080e-4421-11e9-9d71-0cc47a792c0a_files/background2.jpg"></div>
 <div class="cls_002" style="position:absolute;left:244.90px;top:81.40px"><span class="cls_002">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div class="cls_002" style="position:absolute;left:182.30px;top:90.60px"><span class="cls_002">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div class="cls_002" style="position:absolute;left:71.80px;top:99.80px"><span class="cls_002">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>

@@ -3,7 +3,7 @@
 use Dompdf\Dompdf;
 
 // include autoloader
-require_once 'dompdf/autoload.inc.php';
+require_once 'PDFs/dompdf/autoload.inc.php';
 
 
 /* Cria a instância */
@@ -32,7 +32,7 @@ div.cls_007{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight
 <body>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:842px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img src="3d217650-467c-11e9-9d71-0cc47a792c0a_id_3d217650-467c-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=842></div>
+<img src="PDFs/3d217650-467c-11e9-9d71-0cc47a792c0a_id_3d217650-467c-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=842></div>
 <div style="position:absolute;left:244.90px;top:92.00px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div style="position:absolute;left:182.30px;top:101.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div style="position:absolute;left:71.80px;top:110.40px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS -  CAMPUS POÇOS DE CALDAS</span></div>

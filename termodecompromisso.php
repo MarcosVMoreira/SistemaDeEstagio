@@ -3,7 +3,7 @@
 use Dompdf\Dompdf;
 
 // include autoloader
-require_once 'dompdf/autoload.inc.php';
+require_once 'PDFs/dompdf/autoload.inc.php';
 
 
 /* Cria a instância */
@@ -40,7 +40,7 @@ div.cls_004{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight
 <body>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img src="f3802a08-499d-11e9-9d71-0cc47a792c0a_id_f3802a08-499d-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=841></div>
+<img src="PDFs/f3802a08-499d-11e9-9d71-0cc47a792c0a_id_f3802a08-499d-11e9-9d71-0cc47a792c0a_files/background1.jpg" width=595 height=841></div>
 <div style="position:absolute;left:237.12px;top:87.64px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
 <div style="position:absolute;left:161.88px;top:98.08px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
 <div style="position:absolute;left:63.00px;top:108.40px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS- CAMPUS POÇOS</span></div>
@@ -115,7 +115,7 @@ div.cls_004{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight
 </div>
 <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
 <div style="position:absolute;left:0px;top:0px">
-<img src="f3802a08-499d-11e9-9d71-0cc47a792c0a_id_f3802a08-499d-11e9-9d71-0cc47a792c0a_files/background2.jpg" width=595 height=841></div>
+<img src="PDFs/f3802a08-499d-11e9-9d71-0cc47a792c0a_id_f3802a08-499d-11e9-9d71-0cc47a792c0a_files/background2.jpg" width=595 height=841></div>
 <div style="position:absolute;left:42.48px;top:31.36px" class="cls_006"><span class="cls_006">CLÁUSULA QUARTA: DA RESCISÃO -</span><span class="cls_003"> O presente Termo de Compromisso ficará rescindido nos seguintes casos:</span></div>
 <div style="position:absolute;left:60.48px;top:41.68px" class="cls_003"><span class="cls_003">a)   Ao término do estágio.</span></div>
 <div style="position:absolute;left:60.48px;top:52.00px" class="cls_003"><span class="cls_003">b)   Ao trancamento da matrícula pelo estagiário.</span></div>

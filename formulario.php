@@ -473,10 +473,24 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-12 col-md-4">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <label for="radioGroupPossuiExperiencia">Tipo de estágio</label>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-sm-12">
                                     <div class="form-group">
-                                        <label for="inputValorBolsa">Valor da bolsa</label>
-                                        <input type="text" class="form-control" id="inputValorBolsa">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="nao" checked>
+                                            <label class="form-check-label" for="inlineRadio1">Estágio obrigatório</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="sim">
+                                            <label class="form-check-label" for="inlineRadio2">Estágio não obrigatório</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

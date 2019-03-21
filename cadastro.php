@@ -6,7 +6,7 @@
 
 <div class="container-fluid">
     <div class="row pt-5">
-        <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+        <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <form>
                 <div class="card">
                     <div class="card-header">

@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row pt-5">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form>
+            <form id="formCadastro">
                 <div class="card">
                     <div class="card-header">
                         Dados Pessoais
@@ -201,6 +201,12 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="form-row">
+                            <div class="col-sm-12">
+                                <span id="mensagemErro"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
@@ -214,6 +220,8 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript" src="js/cadastro.js"></script>
 
 <?php
     include("footer.html");

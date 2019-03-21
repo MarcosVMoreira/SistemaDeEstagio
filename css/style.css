@@ -13,3 +13,25 @@ body {
     margin-bottom: 1em;
     background: #f6f6f6;
 }
+
+.form-control.form-invalido {
+    border: 1px solid red;
+}
+
+/*----- Estilos utilizados para os tooltips -----*/
+.tooltip-inner {
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+}
+
+.tooltip-inner .fa-exclamation {
+    background-color: #FFA300;
+    border-radius: 1px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    padding-top: 3px;
+    color: white;
+}
+/*----- Fim dos estilos utilizados para os tooltips -----*/

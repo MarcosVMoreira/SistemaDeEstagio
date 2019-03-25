@@ -1,45 +1,37 @@
 // Funções que podem vir a ser utilizadas em qualquer página do projeto
 
-function limpa_formulário_cep() {
+function limpa_formulario_cep(idEndereco, idBairro, idCidade) {
     //Limpa valores do formulário de cep.
-    document.getElementById("endereco").focus();
-    document.getElementById('endereco').value = ("");
-    document.getElementById("bairro").focus();
-    document.getElementById('bairro').value = ("");
-    document.getElementById("cidade").focus();
-    document.getElementById('cidade').value = ("");
-    document.getElementById("estado").focus();
-    document.getElementById('estado').value = ("");
-    document.getElementById("endereco").focus();
+    document.getElementById(idEndereco).focus();
+    document.getElementById(idEndereco).value = ("");
+    document.getElementById(idBairro).focus();
+    document.getElementById(idBairro).value = ("");
+    document.getElementById(idCidade).focus();
+    document.getElementById(idCidade).value = ("");
 }
 
-function meu_callback(conteudo) {
+function meu_callback(conteudo, idCep, idEndereco, idBairro, idCidade, idEstado) {
     if (!("erro" in conteudo)) {
         //Atualiza os campos com os valores.
-        document.getElementById("endereco").focus();
-        document.getElementById('endereco').value = (conteudo.logradouro);
-        document.getElementById("bairro").focus();
-        document.getElementById('bairro').value = (conteudo.bairro);
-        document.getElementById("cidade").focus();
-        document.getElementById('cidade').value = (conteudo.localidade);
-        document.getElementById("estado").focus();
-        document.getElementById('estado').value = (conteudo.uf);
-        document.getElementById("endereco").focus();
-    } //end if.
+        document.getElementById(idEndereco).focus();
+        document.getElementById(idEndereco).value = (conteudo.logradouro);
+        document.getElementById(idBairro).focus();
+        document.getElementById(idBairro).value = (conteudo.bairro);
+        document.getElementById(idCidade).focus();
+        document.getElementById(idCidade).value = (conteudo.localidade);
+    }
     else {
         //CEP não Encontrado.
-        document.getElementById("cep").style.border = "1px solid #ff0000";
-        document.getElementById("endereco").style.border = "1px solid #ff0000";
-        document.getElementById("bairro").style.border = "1px solid #ff0000";
-        document.getElementById("numero").style.border = "1px solid #ff0000";
-        document.getElementById("cidade").style.border = "1px solid #ff0000";
-        document.getElementById("estado").style.border = "1px solid #ff0000";
-        document.getElementById("submit").disabled = true;
+        
+        // Muda a cor da borda para vermelho
+        ($(idCep).addClass('form-invalido'));
+        
+        tooltip($(idCep), 'CEP inválido.');
         limpa_formulário_cep();
     }
 }
 
-function pesquisacep(valor, form) {
+function pesquisacep(valor, form, idCep, idEndereco, idBairro, idCidade, idEstado) {
 
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
@@ -59,23 +51,6 @@ function pesquisacep(valor, form) {
             document.getElementById("cidade").style.border = null;
             document.getElementById("estado").style.border = null;
 
-            //Verifica se outros campos são válidos para habilitar botão "Avançar".
-            if (document.getElementById("nome").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("municipioNascimento").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("nacionalidade").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("estadoNascimento").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("nomeMae").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("nomePai").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("endereco").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("numero").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("complemento").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("bairro").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("telefone").style.border != "1px solid rgb(255, 0, 0)" &&
-                document.getElementById("email").style.border != "1px solid rgb(255, 0, 0)") {
-
-                document.getElementById("submit").disabled = false;
-            }
-
             //Preenche os campos com "..." enquanto consulta webservice.
             document.getElementById("endereco").focus();
             document.getElementById('endereco').value = "...";
@@ -92,7 +67,7 @@ function pesquisacep(valor, form) {
             var script = document.createElement('script');
 
             //Sincroniza com o callback.
-            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback('+idCep+',';
 
             //Insere script no documento e carrega o conteúdo.
             document.body.appendChild(script);

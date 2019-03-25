@@ -66,7 +66,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCep">CEP</label>
-                                    <input type="text" class="form-control" id="inputCep" required>
+                                    <input type="text" class="form-control" id="inputCep" onblur="limpa_formulario_cep('inputEndereco', 'inputBairro', 'inputCidade')" required>
                                 </div>
                             </div>
 

@@ -1,3 +1,26 @@
+function validaNome() {
+    
+    // Verifica se o campo Nome está vazio
+    if ($('#inputNome').val() == ''){
+        
+        // Muda a cor da borda para vermelho
+        ($('#inputNome').addClass('form-invalido'));
+        
+        tooltip($('#inputNome'), 'Este campo não pode ficar vazio.');
+        
+    } else {
+        
+        // Nome válido, muda a cor da borda para a cor padrão
+        $('#inputNome').removeClass('form-invalido');
+        
+        //Remove o tooltip
+        $('#inputNome').tooltip('disable');
+        
+        return true;
+    }
+    
+}
+
 function validaSenha() {
 
     // Verificar se a senha possui menos de 8 dígitos
@@ -14,7 +37,7 @@ function validaSenha() {
         $('#inputSenha').removeClass('form-invalido');
 
         // Remove o tooltip
-        $('#inputSenha').tooltip('dispose');
+        $('#inputSenha').tooltip('disable');
 
         return true;
     }
@@ -37,14 +60,44 @@ function validaConfirmacaoSenha() {
         $('#inputConfirmarSenha').removeClass('form-invalido');
 
         // Remove o tooltip
-        $('#inputConfirmarSenha').tooltip('dispose');
+        $('#inputConfirmarSenha').tooltip('disable');
 
         return true;
     }
 }
 
 $(document).ready(function () {
+    
+    $('#inputCpf').mask('000.000.000-00');
+    $("#inputTelefone").mask("(00) 00000-0000");
+    $('#inputCep').mask('00000-000');
+    
+    // Quando tirarmos o foco do campo Nome, verifica se o nome é válido
+    $('#inputNome').focusout(function () {
+        validaNome();
+    })
+    
+    // Quando tirarmos o foco do campo CPF, verifica se o cpf é válido
+    $('#inputCpf').focusout(function (e) {
 
+        if(!validaCpf($('#inputCpf').val())) {
+            // Muda a cor da borda para vermelho
+            $(e.target).addClass('form-invalido');
+
+            // Tooltip
+            tooltip($(e.target), 'CPF inválido.');
+            
+        } else {
+            // CPF válido
+            $(e.target).removeClass('form-invalido');
+
+            // Remove o tooltip
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+    })
+    
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida
     $('#inputSenha').focusout(function () {
         validaSenha();
@@ -60,16 +113,16 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha() && validaConfirmacaoSenha()) {
+        if (validaSenha() && validaConfirmacaoSenha() && validaNome() && validaCpf($('#inputCpf').val())) {
             
-            console.log("certo");
+            //console.log("certo");
 
             // Submete o formulário
             this.submit();
 
         } else {
 
-            console.log("merda");
+            console.log("deu ruim");
             
             // Limpa os campos de senha
             $('#inputSenha').val('');

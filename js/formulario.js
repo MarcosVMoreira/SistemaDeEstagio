@@ -85,3 +85,86 @@ $(document).ready(function () {
             });
         });
 });
+
+$('#radioRemunerado').change(function(){
+        console.log("batata222");
+            $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">'
+            +'<div class="form-group">'
+                +'<label for="inputCompanhiaSeguro">Companhia de seguro</label>'
+               +'<input type="text" class="form-control" id="inputCompanhiaSeguro">'
+            +'</div>'
+        +'</div>'
+
+        +'<div id="divApolice" class="col-sm-12 col-md-4">'
+            +'<div class="form-group">'
+                +'<label for="inputNumeroApolice">Número da apólice</label>'
+                +'<input type="text" class="form-control" id="inputNumeroApolice">'
+            +'</div>'
+        +'</div>');
+        $('#checkboxValeTransporte').prop("checked",true);
+        $('#checkboxValeTransporte').prop("disabled",true);
+        $('#inputValorBolsa').prop("required",true);
+});
+
+$('#radioNaoRemunerado').change(function(){
+    console.log("batata");
+    $('#divSeguro').remove();
+    $('#divApolice').remove();
+    $('#checkboxValeTransporte').prop("checked",false);
+    $('#checkboxValeTransporte').prop("disabled",false);
+    $('#inputValorBolsa').prop("required",false);
+});
+
+$('#radioFixa').change(function(){
+    $('#inputDataFimEstagio').prop("disabled",true);
+    $('#divHorarios').append('<div id="horarioEntrada" class="col-sm-12 col-md-3">'
+    +'<div class="form-group">'
+        +'<label for="inputHorasDiarias">Horário de entrada</label>'
+        +'<input type="time" class="form-control" id="inputHorasDiarias">'
+    +'</div>'
++'</div>'
+
++'<div id="horarioSaida" class="col-sm-12 col-md-3">'
+    +'<div class="form-group">'
+        +'<label for="inputHorasDiarias">Horário de saída</label>'
+        +'<input type="time" class="form-control" id="inputHorasDiarias">'
+    +'</div>'
++'</div>'
+
++'<div id="horasDiarias" class="col-sm-12 col-md-3">'
+    +'<div class="form-group">'
+        +'<label for="inputHorasDiarias">Horas diárias</label>'
+        +'<input type="time" class="form-control" id="inputHorasDiarias">'
+    +'</div>'
++'</div>'
+
++'<div id="horasSemanais" class="col-sm-12 col-md-3">'
++'<div class="form-group">'
+        +'<label for="inputHorasSemanais">Horas semanais</label>'
+        +'<input type="time" class="form-control" id="inputHorasSemanais">'
+   + '</div>'
++'</div>');
+
+});
+
+$('#radioVariavel').change(function(){
+    $('#inputDataFimEstagio').prop("disabled",false);
+    $('#horarioEntrada').remove();
+    $('#horarioSaida').remove();
+    $('#horasDiarias').remove();
+    $('#horasSemanais').remove();
+});
+
+
+function telefoneFocusOut(event) {
+    var target, phone, element;
+    target = (event.currentTarget) ? event.currentTarget : event.srcElement;
+    phone = target.value.replace(/\D/g, '');
+    element = $(target);
+    element.unmask();
+    if (phone.length > 10) {
+        element.mask("(00) 00000-0000");
+    } else {
+        element.mask("(00) 0000-0000");
+    }
+}  

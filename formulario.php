@@ -469,7 +469,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputDataFimEstagio">Data de término</label>
-                                    <input type="date" class="form-control" id="inputDataFimEstagio" required>
+                                    <input type="date" class="form-control" id="inputDataFimEstagio" disabled>
                                 </div>
                             </div>
 
@@ -498,47 +498,93 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="inputHorasDiarias">Horário de entrada</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
+                                    <label for="inputValorBolsa">Valor da Bolsa</label>
+                                    <input type="text" class="form-control" id="inputValorBolsa">
                                 </div>
                             </div>
-
-                            <div class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasDiarias">Horário de saída</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasDiarias">Horas diárias</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasSemanais">Horas semanais</label>
-                                    <input type="time" class="form-control" id="inputHorasSemanais" required>
+                            <div class="col-sm-12 col-md-9">
+                                <label for="inputBeneficios">Benefícios</label>
+                                <div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="ValeTransporte" id="checkboxValeTransporte">
+                                        <label class="form-check-label" for="checkboxValeTransporte">
+                                             Vale Transporte
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="PlanoDeSaude" id="checkboxPlanoDeSaude">
+                                        <label class="form-check-label" for="checkboxPlanoDeSaude">
+                                             Plano de Saúde
+                                        </label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" value="ValeAlimentacao" id="checkboxValeAlimentacao">
+                                        <label class="form-check-label" for="checkboxValeAlimentacao">
+                                             Vale Alimentação
+                                        </label>
+                                    </div> 
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="col-sm-12 col-md-8">
+                            <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="inputCompanhiaSeguro">Companhia de seguro</label>
-                                    <input type="text" class="form-control" id="inputCompanhiaSeguro" required>
+                                    <label for="inputCargaHorariaMax">Carga horária máxima</label>
+                                    <input type="text" class="form-control" id="inputCargaHorariaMax">
                                 </div>
                             </div>
+                            <div class="col-sm-12 col-md-7">
+                                <label for="radioGroupCargaHoraria">Tipo de carga horária</label>
+                                <div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="nao" checked>
+                                                <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                 <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="sim">
+                                                <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <label for="inputNumeroApolice">Número da apólice</label>
-                                    <input type="text" class="form-control" id="inputNumeroApolice" required>
+                        <div class="form-row" id="divHorarios">
+                                <div id="horarioEntrada" class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="inputHorasDiarias">Horário de entrada</label>
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div id="horarioSaida" class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="inputHorasDiarias">Horário de saída</label>
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
+                                    </div>
+                                </div>
+
+                                <div id="horasDiarias" class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="inputHorasDiarias">Horas diárias</label>
+                                        <input type="time" class="form-control" id="inputHorasDiarias">
+                                    </div>
+                                </div>
+
+                                <div id="horasSemanais" class="col-sm-12 col-md-3">
+                                    <div class="form-group">
+                                        <label for="inputHorasSemanais">Horas semanais</label>
+                                        <input type="time" class="form-control" id="inputHorasSemanais">
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div id="divSeguro1"class="form-row">
+                            
                         </div>
 
                         <div class="form-row">

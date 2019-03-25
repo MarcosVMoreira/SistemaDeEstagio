@@ -40,8 +40,8 @@ $(document).ready(function () {
             } else {
                 element.mask("(00) 0000-0000");
             }
-        
-            if(!validaTelefone(phone)) {
+
+            if (!validaTelefone(phone)) {
                 $(target).addClass('form-invalido');
                 tooltip($(target), 'Digite um telefone válido.');
             } else {
@@ -60,9 +60,42 @@ $(document).ready(function () {
         }
     });
 
-    $('#inputCep').mask('00000-000', {
-        clearIfNotMatch: true
-    });
+    $('input[id^=inputCep]').mask('00000-000')
+        .focusout(function (e) {
+
+            var campoEndereco = $(e.target).parents('.form-row').find('input[id^=inputEndereco]');
+            var campoNumero = $(e.target).parents('.form-row').nextAll().find('input[id^=inputNumero]');
+            var campoBairro = $(e.target).parents('.form-row').nextAll().find('input[id^=inputBairro]');
+            var campoCidade = $(e.target).parents('.form-row').nextAll().find('input[id^=inputCidade]');
+            var selectEstado = $(e.target).parents('.form-row').nextAll().find('select[name^=selectEstado]');
+
+            campoEndereco.val('...');
+            campoBairro.val('...');
+            campoCidade.val('...');
+
+            pesquisaCep($(e.target).val(), function (dados) {
+                if (!dados.erro) {
+                    campoEndereco.val(dados.logradouro);
+                    campoBairro.val(dados.bairro);
+                    campoCidade.val(dados.localidade);
+                    selectEstado.val(dados.uf);
+
+                    $(e.target).removeClass('form-invalido');
+                    $(e.target).tooltip('disable');
+
+                    campoNumero.focus();
+
+                } else {
+                    campoEndereco.val('');
+                    campoBairro.val('');
+                    campoCidade.val('');
+                    selectEstado.val('AC')
+
+                    $(e.target).addClass('form-invalido');
+                    tooltip($(e.target), 'Digite um CEP válido.');
+                }
+            });
+        });
 
     $('#inputCnpj').mask('00.000.000/0000-00')
         .focusout(function (e) {
@@ -75,15 +108,11 @@ $(document).ready(function () {
                 $(e.target).tooltip('disable');
                 return true;
             };
-
-            $('#inputCepEmpresa').mask('00000-000', {
-                clearIfNotMatch: true
-            });
-
-            $('#inputValorBolsa').mask("#.##0,00", {
-                reverse: true
-            });
         });
+
+    $('#inputValorBolsa').mask("#.##0,00", {
+        reverse: true
+    });
 });
 
 $('#radioRemunerado').change(function(){

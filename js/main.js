@@ -31,7 +31,30 @@ function meu_callback(conteudo, idCep, idEndereco, idBairro, idCidade, idEstado)
     }
 }
 
-function pesquisacep(valor, form, idCep, idEndereco, idBairro, idCidade, idEstado) {
+function pesquisaCep(cep, callback) {
+
+    cep = cep.replace(/\D/g, '');
+
+    if (cep.length != 8) {
+        callback({
+            erro: 'Quantidade de dígitos inválida'
+        });
+
+    } else {
+        $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
+
+            if (!("erro" in dados)) {
+                callback(dados); // dados possui dados.logradouro, dados.bairro, dados.localidade, dados.uf e dados.ibge
+            } else {
+                callback({
+                    erro: 'CEP não encontrado'
+                });
+            }
+        });
+    }
+}
+
+function pesquisacep(valor, form) {
 
     //Nova variável "cep" somente com dígitos.
     var cep = valor.replace(/\D/g, '');
@@ -249,7 +272,7 @@ function validaEmail(email) {
 }
 
 function validaTelefone(telefone) {
-    
+
     var numeroTelefone = telefone.replace(/[^0-9]/g, '');
     if (numeroTelefone.length < 10) {
         return false;

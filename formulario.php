@@ -17,7 +17,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputNome">Nome completo</label>
-                                    <input type="text" class="form-control" id="inputNome">
+                                    <input type="text" class="form-control" id="inputNome" required>
                                     <!-- <small id="ajudaNome" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                 </div>
                             </div>
@@ -27,21 +27,21 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCpf">CPF</label>
-                                    <input type="text" class="form-control" id="inputCpf">
+                                    <input type="text" class="form-control" id="inputCpf" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputRg">RG</label>
-                                    <input type="text" class="form-control" id="inputRg">
+                                    <input type="text" class="form-control" id="inputRg" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputTelefone">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefone">
+                                    <input type="text" class="form-control" id="inputTelefone" required>
                                 </div>
                             </div>
                         </div>
@@ -50,14 +50,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputDataNascimento">Data de nascimento</label>
-                                    <input type="date" class="form-control" id="inputDataNascimento">
+                                    <input type="date" class="form-control" id="inputDataNascimento" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail">
+                                    <input type="email" class="form-control" id="inputEmail" required>
                                 </div>
                             </div>
                         </div>
@@ -66,14 +66,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputRA">Matrícula (R.A.)</label>
-                                    <input type="text" class="form-control" id="inputRA">
+                                    <input type="text" class="form-control" id="inputRA" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="selectCurso">Curso</label>
-                                    <select class="form-control" id="selectCurso">
+                                    <select class="form-control" id="selectCurso" required>
                                         <optgroup label="Técnicos Integrados">
                                             <option>Técnico em Informática</option>
                                             <option>Técnico em Eletrotécnica</option>
@@ -97,7 +97,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputAno">Módulo/Ano</label>
-                                    <input type="text" class="form-control" id="inputAno">
+                                    <input type="text" class="form-control" id="inputAno" required>
                                 </div>
                             </div>
                         </div>
@@ -106,14 +106,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCep">CEP</label>
-                                    <input type="text" class="form-control" id="inputCep">
+                                    <input type="text" class="form-control" id="inputCep" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEndereco">Endereço</label>
-                                    <input type="text" class="form-control" id="inputEndereco">
+                                    <input type="text" class="form-control" id="inputEndereco" required>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +122,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputNumero">Número</label>
-                                    <input type="text" class="form-control" id="inputNumero">
+                                    <input type="text" class="form-control" id="inputNumero" required>
                                 </div>
                             </div>
 
@@ -138,14 +138,21 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputBairro">Bairro</label>
-                                    <input type="text" class="form-control" id="inputBairro">
+                                    <input type="text" class="form-control" id="inputBairro" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="inputCidade">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCidade" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-2">
                                 <div class="form-group">
                                     <label for="selectEstado">Estado</label>
-                                    <select class="form-control" name="selectEstado">
+                                    <select class="form-control" name="selectEstado" required>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>
                                         <option value="AP">AP</option>
@@ -174,13 +181,6 @@
                                         <option value="SE">SE</option>
                                         <option value="TO">TO</option>
                                     </select>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="inputCidade">Cidade</label>
-                                    <input type="text" class="form-control" id="inputCidade">
                                 </div>
                             </div>
                         </div>
@@ -196,7 +196,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputNomeOrientador">Nome completo</label>
-                                    <input type="text" class="form-control" id="inputNomeOrientador">
+                                    <input type="text" class="form-control" id="inputNomeOrientador" required>
                                 </div>
                             </div>
                         </div>
@@ -205,14 +205,14 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputTelefoneOrientador">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefoneOrientador">
+                                    <input type="text" class="form-control" id="inputTelefoneOrientador" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputEmailOrientador">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailOrientador">
+                                    <input type="email" class="form-control" id="inputEmailOrientador" required>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +228,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputNomeEmpresa">Nome da empresa</label>
-                                    <input type="text" class="form-control" id="inputNomeEmpresa">
+                                    <input type="text" class="form-control" id="inputNomeEmpresa" required>
                                 </div>
                             </div>
                         </div>
@@ -237,21 +237,21 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCnpj">CNPJ</label>
-                                    <input type="text" class="form-control" id="inputCnpj">
+                                    <input type="text" class="form-control" id="inputCnpj" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputEmailEmpresa">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailEmpresa">
+                                    <input type="email" class="form-control" id="inputEmailEmpresa" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputTelefoneEmpresa">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefoneEmpresa">
+                                    <input type="text" class="form-control" id="inputTelefoneEmpresa" required>
                                 </div>
                             </div>
                         </div>
@@ -260,14 +260,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCepEmpresa">CEP</label>
-                                    <input type="text" class="form-control" id="inputCepEmpresa">
+                                    <input type="text" class="form-control" id="inputCepEmpresa" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEnderecoEmpresa">Endereço</label>
-                                    <input type="text" class="form-control" id="inputEnderecoEmpresa">
+                                    <input type="text" class="form-control" id="inputEnderecoEmpresa" required>
                                 </div>
                             </div>
                         </div>
@@ -276,7 +276,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputNumeroEmpresa">Número</label>
-                                    <input type="text" class="form-control" id="inputNumeroEmpresa">
+                                    <input type="text" class="form-control" id="inputNumeroEmpresa" required>
                                 </div>
                             </div>
 
@@ -292,14 +292,21 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputBairroEmpresa">Bairro</label>
-                                    <input type="text" class="form-control" id="inputBairroEmpresa">
+                                    <input type="text" class="form-control" id="inputBairroEmpresa" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-6">
+                                <div class="form-group">
+                                    <label for="inputCidadeEmpresa">Cidade</label>
+                                    <input type="text" class="form-control" id="inputCidadeEmpresa" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-4 col-md-2">
                                 <div class="form-group">
                                     <label for="selectEstadoEmpresa">Estado</label>
-                                    <select class="form-control" name="selectEstadoEmpresa">
+                                    <select class="form-control" name="selectEstadoEmpresa" required>
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>
                                         <option value="AP">AP</option>
@@ -330,27 +337,20 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="col-sm-12 col-md-6">
-                                <div class="form-group">
-                                    <label for="inputCidadeEmpresa">Cidade</label>
-                                    <input type="text" class="form-control" id="inputCidadeEmpresa">
-                                </div>
-                            </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputNomeRepresentante">Representante</label>
-                                    <input type="text" class="form-control" id="inputNomeRepresentante">
+                                    <input type="text" class="form-control" id="inputNomeRepresentante" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCargoRepresentante">Cargo</label>
-                                    <input type="text" class="form-control" id="inputCargoRepresentante">
+                                    <input type="text" class="form-control" id="inputCargoRepresentante" required>
                                 </div>
                             </div>
                         </div>
@@ -359,14 +359,14 @@
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputResponsavelAssTCE">Responsável pela assinatura do termo de compromisso</label>
-                                    <input type="text" class="form-control" id="inputResponsavelAssTCE">
+                                    <input type="text" class="form-control" id="inputResponsavelAssTCE" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCargoResponsavelAssTCE">Cargo</label>
-                                    <input type="text" class="form-control" id="inputCargoResponsavelAssTCE">
+                                    <input type="text" class="form-control" id="inputCargoResponsavelAssTCE" required>
                                 </div>
                             </div>
                         </div>
@@ -383,14 +383,14 @@
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputNomeSupervisor">Nome completo</label>
-                                    <input type="text" class="form-control" id="inputNomeSupervisor">
+                                    <input type="text" class="form-control" id="inputNomeSupervisor" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCargoSupervisor">Cargo</label>
-                                    <input type="text" class="form-control" id="inputCargoSupervisor">
+                                    <input type="text" class="form-control" id="inputCargoSupervisor" required>
                                 </div>
                             </div>
                         </div>
@@ -399,14 +399,14 @@
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEmailSupervisor">Email</label>
-                                    <input type="text" class="form-control" id="inputEmailSupervisor">
+                                    <input type="email" class="form-control" id="inputEmailSupervisor" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputTelefoneSupervisor">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefoneSupervisor">
+                                    <input type="text" class="form-control" id="inputTelefoneSupervisor" required>
                                 </div>
                             </div>
                         </div>
@@ -415,14 +415,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCpfSupervisor">CPF</label>
-                                    <input type="text" class="form-control" id="inputCpfSupervisor">
+                                    <input type="text" class="form-control" id="inputCpfSupervisor" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCursoSupervisor">Curso de formação</label>
-                                    <input type="text" class="form-control" id="inputCursoSupervisor">
+                                    <input type="text" class="form-control" id="inputCursoSupervisor" required>
                                 </div>
                             </div>
 
@@ -439,7 +439,7 @@
                                 <div class="form-group">
                                     <label for="radioGroupPossuiExperiencia">O(A) supervisor(a) de estágio possui experiência profissional na área do estágio?</label>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="sim">
+                                        <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="sim" required>
                                         <label class="form-check-label" for="inlineRadio1">Sim</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -462,14 +462,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputDataInicioEstagio">Data de início</label>
-                                    <input type="date" class="form-control" id="inputDataInicioEstagio">
+                                    <input type="date" class="form-control" id="inputDataInicioEstagio" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputDataFimEstagio">Data de término</label>
-                                    <input type="date" class="form-control" id="inputDataFimEstagio">
+                                    <input type="date" class="form-control" id="inputDataFimEstagio" required>
                                 </div>
                             </div>
 
@@ -484,12 +484,12 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="nao" checked>
-                                        <label class="form-check-label" for="inlineRadio1">Estágio obrigatório</label>
+                                        <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="nao" required>
+                                        <label class="form-check-label" for="radioNaoRemunerado">Estágio obrigatório</label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="sim">
-                                        <label class="form-check-label" for="inlineRadio2">Estágio não obrigatório</label>
+                                        <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
                                     </div>
                                 </div>
                             </div>
@@ -499,28 +499,28 @@
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="inputHorasDiarias">Horário de entrada</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
+                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="inputHorasDiarias">Horário de saída</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
+                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="inputHorasDiarias">Horas diárias</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
+                                    <input type="time" class="form-control" id="inputHorasDiarias" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="inputHorasSemanais">Horas semanais</label>
-                                    <input type="time" class="form-control" id="inputHorasSemanais">
+                                    <input type="time" class="form-control" id="inputHorasSemanais" required>
                                 </div>
                             </div>
                         </div>
@@ -529,14 +529,14 @@
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputCompanhiaSeguro">Companhia de seguro</label>
-                                    <input type="text" class="form-control" id="inputCompanhiaSeguro">
+                                    <input type="text" class="form-control" id="inputCompanhiaSeguro" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputNumeroApolice">Número da apólice</label>
-                                    <input type="text" class="form-control" id="inputNumeroApolice">
+                                    <input type="text" class="form-control" id="inputNumeroApolice" required>
                                 </div>
                             </div>
                         </div>
@@ -545,7 +545,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                    <textarea class="form-control" id="inputAtividadesDesenvolvidas" rows="3"></textarea>
+                                    <textarea class="form-control" id="inputAtividadesDesenvolvidas" rows="3" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -554,7 +554,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                    <textarea class="form-control" id="inputAreasConhecimento" rows="2"></textarea>
+                                    <textarea class="form-control" id="inputAreasConhecimento" rows="2" required></textarea>
                                 </div>
                             </div>
                         </div>
@@ -563,7 +563,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                    <textarea class="form-control" id="inputObjetivos" rows="3"></textarea>
+                                    <textarea class="form-control" id="inputObjetivos" rows="3" required></textarea>
                                 </div>
                             </div>
                         </div>

@@ -7,6 +7,7 @@ function tooltip(elemento, texto) {
         html: true,
         title: '<i class="fas fa-exclamation"></i>  ' + texto
     });
+    elemento.tooltip('enable');
     elemento.tooltip('show');
 }
 

@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     function fechaSideBar() {
         $("#sidebar").animate({
-            left: '-250px'
+            left: '-300px'
         }, 40);
 
         $(".page-content").css("padding-left", 0);

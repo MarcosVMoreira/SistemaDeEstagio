@@ -69,3 +69,18 @@ function validaCpf(cpf) {
         return false;
     }
 }
+
+// Retorna true se o email passado for válido
+function validaEmail(email) {
+
+    var emailFilter = /^.+@.+\..{2,}$/;
+    var illegalChars = /[\(\)\<\>\,\;\:\\\/\"\[\]]/;
+
+    // condição
+    if (!(emailFilter.test(email)) || email.match(illegalChars)) {
+        return false;
+    } else {
+        return true;
+    }
+
+}

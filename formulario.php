@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form>
+            <form id="formCadastro">
                 <div class="card">
                     <div class="card-header">
                         Dados do aluno

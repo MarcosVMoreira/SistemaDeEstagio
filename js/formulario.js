@@ -19,7 +19,7 @@ $(document).ready(function () {
 
                 return true;
             }
-        });
+    });
 
     $('input[id^=inputTelefone]').mask("(00) 00000-0000")
         .focusin(function (event) {
@@ -60,43 +60,6 @@ $(document).ready(function () {
         }
     });
 
-    $('input[id^=inputCep]').mask('00000-000')
-        .focusout(function (e) {
-
-            var campoEndereco = $(e.target).parents('.form-row').find('input[id^=inputEndereco]');
-            var campoNumero = $(e.target).parents('.form-row').nextAll().find('input[id^=inputNumero]');
-            var campoBairro = $(e.target).parents('.form-row').nextAll().find('input[id^=inputBairro]');
-            var campoCidade = $(e.target).parents('.form-row').nextAll().find('input[id^=inputCidade]');
-            var selectEstado = $(e.target).parents('.form-row').nextAll().find('select[name^=selectEstado]');
-
-            campoEndereco.val('...');
-            campoBairro.val('...');
-            campoCidade.val('...');
-
-            pesquisaCep($(e.target).val(), function (dados) {
-                if (!dados.erro) {
-                    campoEndereco.val(dados.logradouro);
-                    campoBairro.val(dados.bairro);
-                    campoCidade.val(dados.localidade);
-                    selectEstado.val(dados.uf);
-
-                    $(e.target).removeClass('form-invalido');
-                    $(e.target).tooltip('disable');
-
-                    campoNumero.focus();
-
-                } else {
-                    campoEndereco.val('');
-                    campoBairro.val('');
-                    campoCidade.val('');
-                    selectEstado.val('AC')
-
-                    $(e.target).addClass('form-invalido');
-                    tooltip($(e.target), 'Digite um CEP válido.');
-                }
-            });
-        });
-
     $('#inputCnpj').mask('00.000.000/0000-00')
         .focusout(function (e) {
             if (!validaCnpj($(e.target).val())) {
@@ -113,6 +76,30 @@ $(document).ready(function () {
     $('#inputValorBolsa').mask("#.##0,00", {
         reverse: true
     });
+    
+    $('#formCadastro').submit(function (evento) {
+
+        // Pausa a submissão do formulário
+        evento.preventDefault();
+
+        if (validaSenha() && validaConfirmacaoSenha() && validaNome() && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val())
+           && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
+            
+            //console.log("certo");
+
+            // Submete o formulário
+            this.submit();
+
+        } else {
+
+            console.log("deu ruim");
+            // Limpa os campos de senha
+            $('#inputSenha').val('');
+            $('#inputConfirmarSenha').val('');
+        }
+
+    })
+    
 });
 
 $('#radioRemunerado').change(function(){

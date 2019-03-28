@@ -1,5 +1,7 @@
 <?php
     include("header.html");
+
+    $test = false; // Definir como true para rodar os testes
 ?>
 <!-- CSS do Formulário -->
 <link rel="stylesheet" href="css/formulario.css">
@@ -508,21 +510,21 @@
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" value="ValeTransporte" id="checkboxValeTransporte">
                                         <label class="form-check-label" for="checkboxValeTransporte">
-                                             Vale Transporte
+                                            Vale Transporte
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" value="PlanoDeSaude" id="checkboxPlanoDeSaude">
                                         <label class="form-check-label" for="checkboxPlanoDeSaude">
-                                             Plano de Saúde
+                                            Plano de Saúde
                                         </label>
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="checkbox" value="ValeAlimentacao" id="checkboxValeAlimentacao">
                                         <label class="form-check-label" for="checkboxValeAlimentacao">
-                                             Vale Alimentação
+                                            Vale Alimentação
                                         </label>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -544,7 +546,7 @@
                                                 <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
                                             </div>
                                             <div class="form-check form-check-inline">
-                                                 <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="sim">
+                                                <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="sim">
                                                 <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
                                             </div>
                                         </div>
@@ -554,37 +556,37 @@
                         </div>
 
                         <div class="form-row" id="divHorarios">
-                                <div id="horarioEntrada" class="col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="inputHorasDiarias">Horário de entrada</label>
-                                        <input type="time" class="form-control" id="inputHorasDiarias">
-                                    </div>
+                            <div id="horarioEntrada" class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputHorasDiarias">Horário de entrada</label>
+                                    <input type="time" class="form-control" id="inputHorasDiarias">
                                 </div>
+                            </div>
 
-                                <div id="horarioSaida" class="col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="inputHorasDiarias">Horário de saída</label>
-                                        <input type="time" class="form-control" id="inputHorasDiarias">
-                                    </div>
+                            <div id="horarioSaida" class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputHorasDiarias">Horário de saída</label>
+                                    <input type="time" class="form-control" id="inputHorasDiarias">
                                 </div>
+                            </div>
 
-                                <div id="horasDiarias" class="col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="inputHorasDiarias">Horas diárias</label>
-                                        <input type="time" class="form-control" id="inputHorasDiarias">
-                                    </div>
+                            <div id="horasDiarias" class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputHorasDiarias">Horas diárias</label>
+                                    <input type="time" class="form-control" id="inputHorasDiarias">
                                 </div>
+                            </div>
 
-                                <div id="horasSemanais" class="col-sm-12 col-md-3">
-                                    <div class="form-group">
-                                        <label for="inputHorasSemanais">Horas semanais</label>
-                                        <input type="time" class="form-control" id="inputHorasSemanais">
-                                    </div>
+                            <div id="horasSemanais" class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputHorasSemanais">Horas semanais</label>
+                                    <input type="time" class="form-control" id="inputHorasSemanais">
                                 </div>
+                            </div>
                         </div>
 
-                        <div id="divSeguro1"class="form-row">
-                            
+                        <div id="divSeguro1" class="form-row">
+
                         </div>
 
                         <div class="form-row">
@@ -631,5 +633,12 @@
 <script type="text/javascript" src="js/formulario.js"></script>
 
 <?php
+
+    if($test) {
+        echo '<div id="qunit"></div>';
+        echo '<div id="qunit-fixture"></div>';
+        echo '<script type="text/javascript" src="js/teste-formulario.js"></script>';
+    }
+
     include("footer.html");
 ?>

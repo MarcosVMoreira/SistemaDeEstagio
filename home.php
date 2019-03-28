@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 mt-3">
-            <h2>Otávio Messias Palma (14161000236)</h2>
+            <h2 id="nome">Otávio Messias Palma (14161000236)</h2>
         </div>
     </div>
     <div class="row">

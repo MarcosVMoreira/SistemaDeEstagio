@@ -59,6 +59,10 @@ $(document).ready(function () {
             $(e.target).tooltip('disable');
         }
     });
+    
+    $('#inputCep').mask('00000-000').focusout(function (e){
+        validaCep(e.target);
+    });
 
     $('#inputCnpj').mask('00.000.000/0000-00')
         .focusout(function (e) {

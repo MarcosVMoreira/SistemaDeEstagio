@@ -1,5 +1,7 @@
 <?php
     include("header.html");
+
+    $test = true; // Definir como true para rodar os testes do main.js
 ?>
 
 <div class="container-fluid">
@@ -62,5 +64,12 @@
 </div>
 
 <?php
+
+    if($test) {
+        echo '<div id="qunit"></div>';
+        echo '<div id="qunit-fixture"></div>';
+        echo '<script type="text/javascript" src="js/teste-main.js"></script>';
+    }
+
     include("footer.html");
 ?>

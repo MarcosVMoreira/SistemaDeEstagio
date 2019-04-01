@@ -1,3 +1,4 @@
+/*
 function validaNome() {
     
     if ($('#inputNome').val() == ''){
@@ -16,10 +17,11 @@ function validaNome() {
     }
     
 }
+*/
 
-function validaSenha() {
+function validaSenha(senha) {
 
-    if ($('#inputSenha').val().length < 8) {
+    if (senha.length < 8) {
 
         $('#inputSenha').addClass('form-invalido');
 
@@ -34,9 +36,9 @@ function validaSenha() {
     }
 }
 
-function validaConfirmacaoSenha() {
+function validaConfirmacaoSenha(senha, senhaConfirmada) {
 
-    if ($('#inputConfirmarSenha').val() != $('#inputSenha').val()) {
+    if (senhaConfirmada != senha) {
 
         $('#inputSenha').addClass('form-invalido');
         $('#inputConfirmarSenha').addClass('form-invalido');
@@ -56,9 +58,11 @@ function validaConfirmacaoSenha() {
 
 $(document).ready(function () {
     
+    /*
     $('#inputNome').focusout(function () {
         validaNome();
     })
+    */
     
     $('#inputCpf').mask('000.000.000-00').focusout(function (e) {
 
@@ -117,13 +121,13 @@ $(document).ready(function () {
     });    
     
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida
-    $('#inputSenha').focusout(function () {
-        validaSenha();
+    $('#inputSenha').focusout(function (e) {
+        validaSenha(&(e.target).val());
     })
 
     // Quando tirarmos o foco do campo confirmação de senha, verifica se ela é válida
-    $('#inputConfirmarSenha').focusout(function () {
-        validaConfirmacaoSenha();
+    $('#inputConfirmarSenha').focusout(function (e) {
+        validaConfirmacaoSenha($('#inputSenha').val(), $(e.target).val());
     })
 
     $('#formCadastro').submit(function (evento) {
@@ -131,8 +135,7 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha() && validaConfirmacaoSenha() && validaNome() && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val())
-           && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
+        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputConfirmarSenha').val(), $('#inputConfirmarSenha').val()) && /* validaNome() && */ validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
             
             //console.log("certo");
 
@@ -147,5 +150,5 @@ $(document).ready(function () {
             $('#inputConfirmarSenha').val('');
         }
 
-    })
+    });
 });

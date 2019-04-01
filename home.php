@@ -69,6 +69,7 @@
         echo '<div id="qunit"></div>';
         echo '<div id="qunit-fixture"></div>';
         echo '<script type="text/javascript" src="js/teste-main.js"></script>';
+        echo '<script type="text/javascript" src="js/teste-cadastro.js"></script>';
     }
 
     include("footer.html");

@@ -39,7 +39,6 @@ function validaCep(id) {
 }
                   
 function pesquisaCep(cep, callback) {
-console.log("chegou aqui");
     cep = cep.replace(/\D/g, '');
 
     if (cep.length != 8) {

@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    
+    /*
+    $('#inputNome').focusout(function () {
+        validaNome();
+    })
+    */
 
     $('input[id^=inputCpf]').mask('000.000.000-00')
         .focusout(function (e) {
@@ -86,7 +92,7 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha() && validaConfirmacaoSenha() && validaNome() && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) &&
+        if (/* validaNome() && */ validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) &&
             $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
 
             //console.log("certo");

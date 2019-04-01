@@ -633,12 +633,5 @@
 <script type="text/javascript" src="js/formulario.js"></script>
 
 <?php
-
-    if($test) {
-        echo '<div id="qunit"></div>';
-        echo '<div id="qunit-fixture"></div>';
-        echo '<script type="text/javascript" src="js/teste-formulario.js"></script>';
-    }
-
     include("footer.html");
 ?>

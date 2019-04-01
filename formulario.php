@@ -9,7 +9,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form id="formCadastro">
+            <form id="formCadastro" method="post" action="formularioValidar.php">
                 <div class="card">
                     <div class="card-header">
                         Dados do aluno
@@ -19,8 +19,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputNome">Nome completo</label>
-                                    <input type="text" class="form-control" id="inputNome" required>
-                                    <!-- <small id="ajudaNome" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                    <input type="text" class="form-control" name="inputNome" id="inputNome" required>
                                 </div>
                             </div>
                         </div>
@@ -29,21 +28,21 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCpf">CPF</label>
-                                    <input type="text" class="form-control" id="inputCpf" required>
+                                    <input type="text" class="form-control" name="inputCpf" id="inputCpf" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputRg">RG</label>
-                                    <input type="text" class="form-control" id="inputRg" required>
+                                    <input type="text" class="form-control" name="inputRg" id="inputRg" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputTelefone">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefone" required>
+                                    <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" required>
                                 </div>
                             </div>
                         </div>
@@ -52,14 +51,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputDataNascimento">Data de nascimento</label>
-                                    <input type="date" class="form-control" id="inputDataNascimento" required>
+                                    <input type="date" class="form-control" name="inputDataNascimento" id="inputDataNascimento" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEmail">Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" required>
+                                    <input type="email" class="form-control" name="inputEmail" id="inputEmail" required>
                                 </div>
                             </div>
                         </div>
@@ -68,14 +67,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputRA">Matrícula (R.A.)</label>
-                                    <input type="text" class="form-control" id="inputRA" required>
+                                    <input type="text" class="form-control" name="inputRA" id="inputRA" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="selectCurso">Curso</label>
-                                    <select class="form-control" id="selectCurso" required>
+                                    <select class="form-control" name="selectCurso" id="selectCurso" required>
                                         <optgroup label="Técnicos Integrados">
                                             <option>Técnico em Informática</option>
                                             <option>Técnico em Eletrotécnica</option>
@@ -99,7 +98,7 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputAno">Módulo/Ano</label>
-                                    <input type="text" class="form-control" id="inputAno" required>
+                                    <input type="text" class="form-control" name="inputAno" id="inputAno" required>
                                 </div>
                             </div>
                         </div>
@@ -108,14 +107,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputCep">CEP</label>
-                                    <input type="text" class="form-control" id="inputCep" required>
+                                    <input type="text" class="form-control" name="inputCep" id="inputCep" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputEndereco">Endereço</label>
-                                    <input type="text" class="form-control" id="inputEndereco" required>
+                                    <input type="text" class="form-control" name="inputEndereco" id="inputEndereco" required>
                                 </div>
                             </div>
                         </div>
@@ -124,14 +123,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputNumero">Número</label>
-                                    <input type="text" class="form-control" id="inputNumero" required>
+                                    <input type="text" class="form-control" name="inputNumero" id="inputNumero" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-8">
                                 <div class="form-group">
                                     <label for="inputComplemento">Complemento</label>
-                                    <input type="text" class="form-control" id="inputComplemento">
+                                    <input type="text" class="form-control" name="inputComplemento" id="inputComplemento">
                                 </div>
                             </div>
                         </div>
@@ -140,14 +139,14 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputBairro">Bairro</label>
-                                    <input type="text" class="form-control" id="inputBairro" required>
+                                    <input type="text" class="form-control" name="inputBairro" id="inputBairro" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputCidade">Cidade</label>
-                                    <input type="text" class="form-control" id="inputCidade" required>
+                                    <input type="text" class="form-control" name="inputCidade" id="inputCidade" required>
                                 </div>
                             </div>
 
@@ -198,7 +197,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputNomeOrientador">Nome completo</label>
-                                    <input type="text" class="form-control" id="inputNomeOrientador" required>
+                                    <input type="text" class="form-control" name="inputNomeOrientador" id="inputNomeOrientador" required>
                                 </div>
                             </div>
                         </div>
@@ -207,14 +206,14 @@
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputTelefoneOrientador">Telefone</label>
-                                    <input type="text" class="form-control" id="inputTelefoneOrientador" required>
+                                    <input type="text" class="form-control" name="inputTelefoneOrientador" id="inputTelefoneOrientador" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12 col-md-6">
                                 <div class="form-group">
                                     <label for="inputEmailOrientador">Email</label>
-                                    <input type="email" class="form-control" id="inputEmailOrientador" required>
+                                    <input type="email" class="form-control" name="inputEmailOrientador" id="inputEmailOrientador" required>
                                 </div>
                             </div>
                         </div>

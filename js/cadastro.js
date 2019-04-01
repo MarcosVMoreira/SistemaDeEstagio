@@ -78,7 +78,7 @@ $(document).ready(function () {
 
             return true;
         }
-    })
+    });
 
     $("#inputTelefone").mask("(00) 00000-0000").focusout(function(e){
         

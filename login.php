@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+
+?>
 <!doctype html>
 
 <html lang="en">
@@ -18,7 +23,7 @@
 </head>
 
 <body class="text-center">
-    <form action="validaLogin.php" method="POST" id="registration-form" class="form-signin" onsubmit="">
+    <form action="loginValidar.php" method="POST" id="registration-form" class="form-signin" onsubmit="">
         <img class="mb-4" src="img/logo.jpg" alt="" width="72" height="72">
         <h1 class="h3 mb-3 font-weight-normal">Faça seu login</h1>
         <label for="inputRa" class="sr-only">RA</label>

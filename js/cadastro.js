@@ -122,7 +122,7 @@ $(document).ready(function () {
     
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida
     $('#inputSenha').focusout(function (e) {
-        validaSenha(&(e.target).val());
+        validaSenha($(e.target).val());
     })
 
     // Quando tirarmos o foco do campo confirmação de senha, verifica se ela é válida

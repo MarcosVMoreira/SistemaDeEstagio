@@ -7,7 +7,7 @@
 <div class="container-fluid">
     <div class="row pt-5">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form id="formCadastro">
+            <form action="cadastroValidar.php" method="POST" id="formCadastro" >
                 <div class="card">
                     <div class="card-header">
                         Dados Pessoais

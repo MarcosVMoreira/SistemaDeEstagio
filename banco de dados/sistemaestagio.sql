@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 01-Abr-2019 às 17:30
+-- Generation Time: 04-Abr-2019 às 18:35
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -53,7 +53,6 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   `numeroApolicesSeguros` varchar(45) DEFAULT NULL,
   `periodoAno` varchar(45) NOT NULL,
   `modalidade` varchar(45) NOT NULL,
-  `matriculado` varchar(45) NOT NULL,
   `complemento` varchar(45) DEFAULT NULL,
   `senha` varchar(45) NOT NULL,
   PRIMARY KEY (`ra`)
@@ -63,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 -- Extraindo dados da tabela `alunos`
 --
 
-INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `matriculado`, `complemento`, `senha`) VALUES
-('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', 'Sim', NULL, '');
+INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`) VALUES
+('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', NULL, '');
 
 -- --------------------------------------------------------
 

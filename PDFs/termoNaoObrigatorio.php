@@ -25,7 +25,7 @@ if ($result = $conexao->query($query)) {
         $nomeSeguradora = $resultado["nomeSeguradora"];
         $valorBolsa = $resultado["valorBolsa"];
         $beneficios = $resultado["beneficios"];
-        $matriculado = $resultado["matriculado"];
+        $cursoAluno = $resultado["curso"];
     }
 }
 
@@ -249,7 +249,7 @@ $string = '<html>
         <div style="position:absolute;left:294.48px;top:555.16px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'<b/></div>
         <div style="position:absolute;left:42.48px;top:571.72px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepAluno.'<b/></div>
         <div style="position:absolute;left:294.51px;top:571.72px" class="cls_003"><span class="cls_003">Cidade: <b>'.$cidadeAluno.' - '.$estadoAluno.'<b/></span> Fone: <b>'.$telefoneAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:587.20px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$matriculado.'<b/></div>
+        <div style="position:absolute;left:42.48px;top:587.20px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$cursoAluno.'<b/></div>
         <div style="position:absolute;left:42.48px;top:602.68px" class="cls_003"><span class="cls_003">CPF: </span><b>'.$cpfAluno.'<b/></div>
         <div style="position:absolute;left:294.52px;top:602.68px" class="cls_003"><span class="cls_003">RG: </span><b>'.$rgAluno.'<b/></div>
         <div style="position:absolute;left:42.48px;top:618.28px" class="cls_003"><span class="cls_003">Data de Nascimento: </span><b>'.$nascimentoAluno.'<b/></div>

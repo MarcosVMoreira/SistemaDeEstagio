@@ -377,9 +377,7 @@ $string = '<html>
         <div style="position:absolute;left:105.13px;top:527.44px" class="cls_003"><span class="cls_003">Coordenadora de Extensão</span></div>
         <div style="position:absolute;left:417.26px;top:527.44px" class="cls_003"><span class="cls_003">Diretor IFSULDEMINAS</span></div>
         <div style="position:absolute;left:415.08px;top:537.76px" class="cls_003"><span class="cls_003">Campus Poços de Caldas</span></div>
-        <div style="position:absolute;left:155.88px;top:599.80px" class="cls_003"><span class="cls_003">Poços de Caldas, …</span></div>
-        <div style="position:absolute;left:261.94px;top:599.80px" class="cls_003"><span class="cls_003">de …</span></div>
-        <div style="position:absolute;left:371.49px;top:599.80px" class="cls_003"><span class="cls_003">de …………….. .</span></div>
+        <div style="position:absolute;left:155.88px;top:599.80px" class="cls_003"><span class="cls_003">Poços de Caldas, .............. de ......................................... de ..........................</span></div>
     </div>
 
 </body>

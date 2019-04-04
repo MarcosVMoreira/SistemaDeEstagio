@@ -191,10 +191,10 @@ $string = '<html>
         <div style="position:absolute;left:470.50px;top:162.60px" class="cls_006"><span class="cls_006">FOLHA Nº
                 ______</span></div>
         <div style="position:absolute;left:25.40px;top:186.20px" class="cls_007"><span class="cls_007">Nome do(a)
-                Estagiário(a):</span><b>'.$nomeAluno.'</b></div>
+                Estagiário(a): </span><b>'.$nomeAluno.'</b></div>
         <div style="position:absolute;left:25.40px;top:210.20px" class="cls_007"><span class="cls_007">Curso:</span><br/><b>'.$cursoAluno.'</b></div>
         <div style="position:absolute;left:288.80px;top:210.20px" class="cls_007"><span class="cls_007">Módulo/Ano:</span><br/><b>'.$periodoAnoAluno.'</b></div>
-        <div style="position:absolute;left:362.90px;top:210.20px" class="cls_007"><span class="cls_007">Modalidade (Subsequente, Integrado ou Superior):</span><br/><b>'.$modalidadeAluno.'</b></div>
+        <div style="position:absolute;left:362.90px;top:210.20px" class="cls_007"><span class="cls_007">Modalidade:</span><br/><b>'.$modalidadeAluno.'</b></div>
         <div style="position:absolute;left:25.40px;top:239.90px" class="cls_007"><span class="cls_007">Empresa: </span><b>'.$nomeEmpresa.'</b></div>
         <div style="position:absolute;left:288.80px;top:239.90px" class="cls_007"><span class="cls_007">Período do estágio: </span><b>'.$dataInicialEstagio.'</b> a <b>'.$dataFinalEstagio.'</b></div>
         <div style="position:absolute;left:77.90px;top:277.60px" class="cls_008"><span class="cls_008">Presença</span></div>

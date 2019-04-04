@@ -199,15 +199,8 @@ $string = '<html>
         <div style="position:absolute;left:70.68px;top:161.20px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:123.84px;top:170.32px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:178.44px;top:180.64px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><span class="cls_011">https://portal.pcs.ifsuldeminas.edu.br</span><span class="cls_012">/</span></div>
-        <div style="position:absolute;left:122.40px;top:264.52px" class="cls_007"><span class="cls_007">DECLARAÇÃO DE CONCLUSÃO DE ESTÁGIO</span></div>
-        <div style="position:absolute;left:56.64px;top:341.80px" class="cls_006"><span class="cls_006">Declaramos que o(a) aluno(a) <b>'.$nomeAluno.'</b> de</span></div>
-        <div style="position:absolute;left:56.64px;top:362.44px" class="cls_006"><span class="cls_006">matrícula número <b>'.$raAluno.'</b>, cursando <b>'.$cursoAluno.'</b></span></div>
-        <div style="position:absolute;left:56.64px;top:383.20px" class="cls_006"><span class="cls_006">no Instituto Federal do Sul de Minas Gerais Campus Poços de Caldas, realizou estágio obrigatório</span></div>
-        <div style="position:absolute;left:56.64px;top:403.84px" class="cls_006"><span class="cls_006">na empresa <b>'.$nomeEmpresa.'</b>,</span></div>
-        <div style="position:absolute;left:56.64px;top:424.60px" class="cls_006"><span class="cls_006">na cidade de</span></div>
-        <div style="position:absolute;left:120.99px;top:424.60px" class="cls_006"><span class="cls_006"><b>'.$cidadeEmpresa.'</b>, estado de</span></div>
-        <div style="position:absolute;left:258.47px;top:424.60px" class="cls_006"><span class="cls_006"><b>'.$estadoEmpresa.'</b>, na área de</span></div>
-        <div style="position:absolute;left:56.64px;top:445.24px" class="cls_006"><span class="cls_006"><b>'.$area.'</b>, com a carga horária de <b>'.$cargaHoraria.'</b> horas.</span></div>
+        <div style="position:absolute;left:122.40px;top:264.52px;" class="cls_007"><span class="cls_007">DECLARAÇÃO DE CONCLUSÃO DE ESTÁGIO</span></div>
+        <div align="justify" style="position:absolute;left:56.64px;top:341.80px;right:56.64px;" class="cls_006"><span class="cls_006">Declaramos que o(a) aluno(a) <b>'.$nomeAluno.'</b> de matrícula número <b>'.$raAluno.'</b>, cursando <b>'.$cursoAluno.'</b> no Instituto Federal do Sul de Minas Gerais Campus Poços de Caldas, realizou estágio obrigatório na empresa <b>'.$nomeEmpresa.',</b> na cidade de <b>'.$cidadeEmpresa.'</b>, estado de <b>'.$estadoEmpresa.',</b> na área de <b>'.$area.'</b>, com a carga horária de <b>'.$cargaHoraria.'</b> horas.</div></span>
         <div style="position:absolute;left:189.00px;top:521.20px" class="cls_006"><span class="cls_006">_________________________, _______de _____________ de_______.</span></div>
         <div style="position:absolute;left:154.56px;top:600.52px" class="cls_010"><span class="cls_010">____________________________________________________</span></div>
         <div style="position:absolute;left:217.20px;top:625.84px" class="cls_010"><span class="cls_010">Assinatura do Supervisor do Estágio</span></div>

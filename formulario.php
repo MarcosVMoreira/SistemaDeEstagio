@@ -1,8 +1,16 @@
 <?php
-    include("header.html");
-
+    include("header.php");
+    
     $test = false; // Definir como true para rodar os testes
-?>
+
+    if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
+	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
+        header("Location: login.php");
+	} else {
+    
+
+     ?>
+     
 <!-- CSS do Formulário -->
 <link rel="stylesheet" href="css/formulario.css">
 
@@ -692,6 +700,8 @@
 <script type="text/javascript" src="js/jquery.mask.min.js"></script>
 <script type="text/javascript" src="js/formulario.js"></script>
 
+
 <?php
+    }
     include("footer.html");
 ?>

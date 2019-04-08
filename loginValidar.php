@@ -13,6 +13,9 @@
         } else {
             $_SESSION['senha'] = $resultado["senha"];
             $_SESSION['ra'] =  $resultado["ra"];
+            $_SESSION['nome'] = $resultado["nome"];
+            $_SESSION['curso'] = $resultado["curso"];
+            $_SESSION['email'] = $resultado["email"];
             header("Location: home.php");
         }
     }

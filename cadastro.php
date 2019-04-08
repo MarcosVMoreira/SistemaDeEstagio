@@ -1,5 +1,5 @@
 <?php
-    include("header.html");
+    include("header.php");
 ?>
 <!-- CSS do Formulário -->
 <link rel="stylesheet" href="css/cadastro.css">

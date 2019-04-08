@@ -1,13 +1,37 @@
 <?php
-    include("header.html");
+    include("header.php");
 
     $test = true; // Definir como true para rodar os testes do main.js
+
+    
+
+    if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
+	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
+        header("Location: login.php");
+	} else {
+        if ((isset($_SESSION['nome']) && $_SESSION['nome'] != "")){
+            $nomeAluno = $_SESSION['nome'];
+            $temp = explode(" ",$nomeAluno);
+            $nomeNovo = $temp[0] . " " . $temp[count($temp)-1];
+        }
+        if ((isset($_SESSION['curso']) && $_SESSION['curso'] != "")){
+            $curso = $_SESSION['curso'];
+        }
+        if ((isset($_SESSION['email']) && $_SESSION['email'] != "")){
+            $email = $_SESSION['email'];
+        }
+        if ((isset($_SESSION['ra']) && $_SESSION['ra'] != "")){
+            $ra = $_SESSION['ra'];
+        }
+        
+
+
 ?>
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 mt-3">
-            <h2 id="nome">Otávio Messias Palma (14161000236)</h2>
+            <h2 id="nome"><?php echo($nomeNovo . " " . $ra); ?></h2>
         </div>
     </div>
     <div class="row">
@@ -29,7 +53,7 @@
                     </tr>
                     <tr>
                         <th class="alinhar">Email</th>
-                        <td>larrylarry@larry.com</td>
+                        <td><?php echo($email); ?> </td>
                         <th class="alinhar">Matrícula (R.A.)</th>
                         <td>12345678901</td>
                     </tr>
@@ -64,7 +88,7 @@
 </div>
 
 <?php
-
+    }
     if($test) {
         echo '<div id="qunit"></div>';
         echo '<div id="qunit-fixture"></div>';

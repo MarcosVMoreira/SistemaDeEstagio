@@ -1,6 +1,10 @@
 <?php
-session_start();
-
+    session_start();
+?>
+<?php
+    unset($_SESSION['ra'],
+    $_SESSION['nome'],
+    $_SESSION['senha']);
 
 ?>
 <!doctype html>

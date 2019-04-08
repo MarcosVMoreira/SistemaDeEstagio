@@ -1,3 +1,16 @@
+<?php
+    session_start();
+    if ((isset($_SESSION['nome']) && $_SESSION['nome'] != "")){
+        $nomeAluno = $_SESSION['nome'];
+        $temp = explode(" ",$nomeAluno);
+        $nomeNovo = $temp[0] . " " . $temp[count($temp)-1];
+    }
+    if ((isset($_SESSION['curso']) && $_SESSION['curso'] != "")){
+        $curso = $_SESSION['curso'];
+    }
+    
+    
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -53,13 +66,20 @@
                     </div>
 
                     <div class="user-info">
-                        <span class="user-name">Otávio <strong>Palma</strong>
+                        <span class="user-name">
+                            <?php
+                                echo($nomeNovo);
+                            ?>
                         </span>
-                        <span class="user-role">Estudante</span>
-                        <span class="user-status">
+                        <span class="user-role">
+                            <?php
+                                echo($curso);
+                            ?>
+                        </span>
+                        <!--<span class="user-status">
                             <i class="fa fa-circle"></i>
                             <span>Online</span>
-                        </span>
+                        </span> -->
                     </div>
                 </div>
                 <!-- sidebar-header  -->
@@ -231,8 +251,9 @@
                     <i class="fa fa-cog"></i>
                     <span class="badge-sonar"></span>
                 </a>
-                <a href="#">
+                <a href="login.php">
                     <i class="fa fa-power-off"></i>
+
                 </a>
             </div>
         </nav>

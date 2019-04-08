@@ -52,10 +52,14 @@ if ($result = $conexao->query($query)) {
         header("Location: ../login.php");
     } else {
         $nomeEmpresa = $resultado["nome"];
+        $cnpjEmpresa = $resultado["cnpjCpf"];
+        $enderecoEmpresa = $resultado["endereco"];
+        $bairroEmpresa = $resultado["bairro"];
         $cidadeEmpresa = $resultado["cidade"];
         $estadoEmpresa = $resultado["uf"];
-        $emailEmpresa = $resultado["email"];
+        $cepEmpresa = $resultado["cep"];   
         $telefoneEmpresa = $resultado["telefone"];
+        $emailEmpresa = $resultado["email"];
     }
 }
 
@@ -372,9 +376,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background1.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:400.92px;top:273.28px" class="cls_008"><span class="cls_008"><b>'.$nomeAluno.'</b></span></div>
@@ -387,9 +391,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background2.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:211.68px;top:215.56px" class="cls_014"><span class="cls_014"><b>RELATÓRIO DE ESTÁGIO</b></span></div>
@@ -409,9 +413,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background3.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:157.08px;top:202.24px" class="cls_005"><span class="cls_005">Relatório de Estágio apresentado como requisito para a conclusão do</span></div>
@@ -437,9 +441,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background4.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:85.08px;top:236.80px" class="cls_006"><span class="cls_006">2. DADOS DA INSTITUIÇÃO</span></div>
@@ -451,30 +455,28 @@ $string = '<html>
         <div style="position:absolute;left:85.08px;top:317.32px" class="cls_006"><span class="cls_006">E-MAIL:</span></div>
         <div style="position:absolute;left:85.08px;top:363.28px" class="cls_006"><span class="cls_006">3. DADOS DO ESTÁGIO</span></div>
         <div style="position:absolute;left:85.08px;top:386.32px" class="cls_006"><span class="cls_006">RAZÃO SOCIAL DA EMPRESA CONCEDENTE DO ESTÁGIO:</span></div>
-        <div style="position:absolute;left:85.08px;top:397.84px" class="cls_006"><span class="cls_006">CNPJ/CPF:</span></div>
-        <div style="position:absolute;left:85.08px;top:409.24px" class="cls_006"><span class="cls_006">ENDEREÇO:</span></div>
-        <div style="position:absolute;left:85.08px;top:420.76px" class="cls_006"><span class="cls_006">BAIRRO:</span></div>
-        <div style="position:absolute;left:85.08px;top:432.28px" class="cls_006"><span class="cls_006">CIDADE:</span></div>
-        <div style="position:absolute;left:85.08px;top:443.80px" class="cls_006"><span class="cls_006">UF(ESTADO):</span></div>
-        <div style="position:absolute;left:85.08px;top:455.32px" class="cls_006"><span class="cls_006">CEP:</span></div>
-        <div style="position:absolute;left:85.08px;top:466.84px" class="cls_006"><span class="cls_006">TELEFONE:</span></div>
-        <div style="position:absolute;left:85.08px;top:478.24px" class="cls_006"><span class="cls_006">E-MAIL:</span></div>
+        <div style="position:absolute;left:85.08px;top:397.84px" class="cls_006"><span class="cls_006">CNPJ/CPF: '.$cnpjEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:409.24px" class="cls_006"><span class="cls_006">ENDEREÇO: '.$enderecoEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:420.76px" class="cls_006"><span class="cls_006">BAIRRO: '.$bairroEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:432.28px" class="cls_006"><span class="cls_006">CIDADE: '.$cidadeEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:443.80px" class="cls_006"><span class="cls_006">UF(ESTADO): '.$estadoEmpresa.' </span></div>
+        <div style="position:absolute;left:85.08px;top:455.32px" class="cls_006"><span class="cls_006">CEP: '.$cepEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:466.84px" class="cls_006"><span class="cls_006">TELEFONE: '.$telefoneEmpresa.'</span></div>
+        <div style="position:absolute;left:85.08px;top:478.24px" class="cls_006"><span class="cls_006">E-MAIL: '.$emailEmpresa.'</span></div>
         <div style="position:absolute;left:85.08px;top:489.76px" class="cls_006"><span class="cls_006">ÁREA DE ESTAGIO:</span></div>
-        <div style="position:absolute;left:85.08px;top:501.28px" class="cls_006"><span class="cls_006">PERÍODO DO ESTÁGIO: _____/_____/______ a</span></div>
-        <div style="position:absolute;left:318.45px;top:501.28px" class="cls_006"><span class="cls_006">_____/_____/_______</span></div>
-        <div style="position:absolute;left:85.08px;top:535.84px" class="cls_006"><span class="cls_006">CARGA TOTAL DE HORAS REALIZADAS: __________ horas.</span></div>
+        <div style="position:absolute;left:85.08px;top:501.28px" class="cls_006"><span class="cls_006">PERÍODO DO ESTÁGIO: '.$dataInicio.' a '.$dataFim.'</span></div>
+        <div style="position:absolute;left:85.08px;top:535.84px" class="cls_006"><span class="cls_006">CARGA TOTAL DE HORAS REALIZADAS: '.$cargaHoraria.' horas.</span></div>
         <div style="position:absolute;left:85.08px;top:558.76px" class="cls_006"><span class="cls_006">NOME E FORMAÇÃO DO SUPERVISOR RESPONSÁVEL PELO ACOMPANHAMENTO DO</span></div>
-        <div style="position:absolute;left:85.08px;top:568.24px" class="cls_006"><span class="cls_006">ESTÁGIO NA EMPRESA:</span></div>
-        <div style="position:absolute;left:85.08px;top:591.28px" class="cls_006"><span class="cls_006">NOME DO PROFESSOR ORIENTADOR DO ESTÁGIO:</span></div>
+        <div style="position:absolute;left:85.08px;top:568.24px" class="cls_006"><span class="cls_006">ESTÁGIO NA EMPRESA: '.$nomeSupervisor.', '.$cursoSupervisor.' </span></div>
+        <div style="position:absolute;left:85.08px;top:591.28px" class="cls_006"><span class="cls_006">NOME DO PROFESSOR ORIENTADOR DO ESTÁGIO: '.$nomeOrientador.'</span></div>
     </div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background5.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
-        <div style="position:absolute;left:295.80px;top:167.56px" class="cls_003"><span class="cls_003">CALDAS</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:85.08px;top:211.36px" class="cls_015"><span class="cls_015">3.1 DESCRIÇÃO DA EMPRESA </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
@@ -518,9 +520,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background6.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
         <div style="position:absolute;left:295.80px;top:167.56px" class="cls_003"><span class="cls_003">CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
@@ -532,9 +534,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background7.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
         <div style="position:absolute;left:295.80px;top:167.56px" class="cls_003"><span class="cls_003">CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
@@ -584,9 +586,9 @@ $string = '<html>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
             <img src="HTML/relatorioEstagio/background8.jpg" width=595 height=841></div>
-        <div style="position:absolute;left:258.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
-        <div style="position:absolute;left:195.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
-        <div style="position:absolute;left:101.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
+        <div style="position:absolute;left:242.72px;top:139.96px" class="cls_003"><span class="cls_003">MINISTÉRIO DA EDUCAÇÃO</span></div>
+        <div style="position:absolute;left:186.48px;top:149.20px" class="cls_003"><span class="cls_003">SECRETARIA DE EDUCAÇÃO PROFISSIONAL E TECNOLÓGICA</span></div>
+        <div style="position:absolute;left:82.88px;top:158.32px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE</span></div>
         <div style="position:absolute;left:295.80px;top:167.56px" class="cls_003"><span class="cls_003">CALDAS</span></div>
         <div style="position:absolute;left:138.12px;top:176.68px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:absolute;left:192.72px;top:184.00px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>

@@ -186,20 +186,20 @@ $string = '<html>
         <div style="position:absolute;left:178.44px;top:126.76px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
         <div style="position:absolute;left:242.88px;top:143.80px" class="cls_006"><span class="cls_006">PLANO DE ESTÁGIO</span></div>
         <div style="position:absolute;left:42.48px;top:167.08px" class="cls_004"><span class="cls_004">1. IDENTIFICAÇÃO DO(A) ESTAGIÁRIO(A) E DO PROFESSOR ORIENTADOR</span></div>
-        <div style="position:absolute;left:51.12px;top:187.48px" class="cls_004"><span class="cls_004">Aluno(a):</span><br/><b>'.$nomeAluno.'<b/></div>
-        <div style="position:absolute;left:51.12px;top:218.32px" class="cls_004"><span class="cls_004">Matrícula (R.A):</span><br/><b>'.$raAluno.'<b/></div>
-        <div style="position:absolute;left:51.12px;top:249.04px" class="cls_004"><span class="cls_004">Curso:</span><br/><b>'.$cursoAluno.'<b/></div>
-        <div style="position:absolute;left:277.66px;top:249.04px" class="cls_004"><span class="cls_004">Módulo/Ano:</span><br/><b>'.$moduloAno.'<b/></div>
-        <div style="position:absolute;left:334.68px;top:249.04px" class="cls_004"><span class="cls_004">Modalidade:</span><br/><b>'.$modalidade.'<b/></div>
-        <div style="position:absolute;left:51.12px;top:279.76px" class="cls_004"><span class="cls_004">Nome completo do(a) professor(a) Orientador(a):</span><br/><b>'.$nomeOrientador.'<b/></div>
-        <div style="position:absolute;left:51.12px;top:310.48px" class="cls_004"><span class="cls_004">Telefone do orientador:</span><br/><b>'.$telefoneOrientador.'<b/></div>
-        <div style="position:absolute;left:303.15px;top:310.48px" class="cls_004"><span class="cls_004">E-mail do orientador:</span><br/><b>'.$emailOrientador.'<b/></div>
-        <div style="position:absolute;left:67.32px;top:350.80px" class="cls_004"><span class="cls_004">2. IDENTIFICAÇÃO DA EMPRESA E DO SUPERVISOR DE ESTÁGIO</span></div>
+        <div style="position:absolute;left:43.12px;top:189.48px" class="cls_004"><span class="cls_004">Aluno(a):</span><br/><b>'.$nomeAluno.'<b/></div>
+        <div style="position:absolute;left:43.12px;top:220.32px" class="cls_004"><span class="cls_004">Matrícula (R.A):</span><br/><b>'.$raAluno.'<b/></div>
+        <div style="position:absolute;left:43.12px;top:251.04px" class="cls_004"><span class="cls_004">Curso:</span><br/><b>'.$cursoAluno.'<b/></div>
+        <div style="position:absolute;left:269.66px;top:251.04px" class="cls_004"><span class="cls_004">Módulo/Ano:</span><br/><b>'.$moduloAno.'<b/></div>
+        <div style="position:absolute;left:326.00px;top:251.04px" class="cls_004"><span class="cls_004">Modalidade:</span><br/><b>'.$modalidade.'<b/></div>
+        <div style="position:absolute;left:43.12px;top:281.76px" class="cls_004"><span class="cls_004">Nome completo do(a) professor(a) Orientador(a):</span><br/><b>'.$nomeOrientador.'<b/></div>
+        <div style="position:absolute;left:43.12px;top:312.48px" class="cls_004"><span class="cls_004">Telefone do orientador:</span><br/><b>'.$telefoneOrientador.'<b/></div>
+        <div style="position:absolute;left:296.15px;top:312.48px" class="cls_004"><span class="cls_004">E-mail do orientador:</span><br/><b>'.$emailOrientador.'<b/></div>
+        <div style="position:absolute;left:42.48px;top:350.80px" class="cls_004"><span class="cls_004">2. IDENTIFICAÇÃO DA EMPRESA E DO SUPERVISOR DE ESTÁGIO</span></div>
         <div style="position:absolute;left:42.48px;top:377.32px" class="cls_004"><span class="cls_004">Nome da empresa:</span><br/><b>'.$nomeEmpresa.'<b/></div>
         <div style="position:absolute;left:42.48px;top:408.04px" class="cls_004"><span class="cls_004">E-mail da empresa:</span><br/><b>'.$emailEmpresa.'<b/></div>
         <div style="position:absolute;left:359.60px;top:408.04px" class="cls_004"><span class="cls_004">Telefone de contato da empresa:</span><br/><b>'.$telefoneEmpresa.'<b/></div>
         <div style="position:absolute;left:42.48px;top:441.76px" class="cls_004"><span class="cls_004">Supervisor(a) de Estágio:</span><br/><b>'.$nomeSupervisor.'<b/></div>
-        <div style="position:absolute;left:361.93px;top:441.76px" class="cls_004"><span class="cls_004">CPF do(a) supervisor(a):</span><br/><b>'.$cpfSupervisor.'<b/></div>
+        <div style="position:absolute;left:359.93px;top:441.76px" class="cls_004"><span class="cls_004">CPF do(a) supervisor(a):</span><br/><b>'.$cpfSupervisor.'<b/></div>
         <div style="position:absolute;left:42.48px;top:475.48px" class="cls_004"><span class="cls_004">Curso de formação do(a) supervisor(a) de estágio:</span><br/><b>'.$cursoSupervisor.'<b/></div>
         <div style="position:absolute;left:359.66px;top:475.48px" class="cls_004"><span class="cls_004">Conselho de Classe Profissional (se houver):</span><br/><b>'.$conselhoDeClasse.'<b/></div>
         <div style="position:absolute;left:42.48px;top:511.24px" class="cls_004"><span class="cls_004">O(A) supervisor(a) de estágio possui experiência profissional na área do estágio:</span><br/><b>'.$possuiExperiencia.'<b/></div>

@@ -186,7 +186,7 @@ $string = '<html>
         <div style="position:absolute;left:168.80px;top:131.70px" class="cls_004"><span class="cls_004">Fone: (35)
                 3713-5120 / (35) 3722-0598 / </span><A
                 HREF="http://www.pcs.ifsuldeminas.edu.br/">www.pcs.ifsuldeminas.edu.br</A> </span></div>
-        <div style="position:absolute;left:206.40px;top:148.80px" class="cls_006"><span class="cls_006">FREQUÊNCIA DO
+        <div style="position:absolute;left:206.40px;top:148.80px" class="cls_006"><span class="cls_006">FREQUÊNCIA DE
                 ESTÁGIO</span></div>
         <div style="position:absolute;left:470.50px;top:162.60px" class="cls_006"><span class="cls_006">FOLHA Nº
                 ______</span></div>
@@ -197,12 +197,12 @@ $string = '<html>
         <div style="position:absolute;left:362.90px;top:210.20px" class="cls_007"><span class="cls_007">Modalidade:</span><br/><b>'.$modalidadeAluno.'</b></div>
         <div style="position:absolute;left:25.40px;top:239.90px" class="cls_007"><span class="cls_007">Empresa: </span><b>'.$nomeEmpresa.'</b></div>
         <div style="position:absolute;left:288.80px;top:239.90px" class="cls_007"><span class="cls_007">Período do estágio: </span><b>'.$dataInicialEstagio.'</b> a <b>'.$dataFinalEstagio.'</b></div>
-        <div style="position:absolute;left:77.90px;top:277.60px" class="cls_008"><span class="cls_008">Presença</span></div>
+        <div style="position:absolute;left:77.90px;top:281.60px" class="cls_008"><span class="cls_008">Presença</span></div>
         <div style="position:absolute;left:237.00px;top:291.40px" class="cls_008"><span class="cls_008">Setor</span></div>
         <div style="position:absolute;left:393.90px;top:291.40px" class="cls_008"><span class="cls_008">Atividade desenvolvida</span></div>
-        <div style="position:absolute;left:52.80px;top:297.50px" class="cls_008"><span class="cls_008">Data</span></div>
-        <div style="position:absolute;left:119.50px;top:297.50px" class="cls_008"><span class="cls_008">Carga horária</span></div>
-        <div style="position:absolute;left:43.50px;top:694.50px" class="cls_008"><span class="cls_008">TOTAL DE</span></div>
+        <div style="position:absolute;left:52.80px;top:301.50px" class="cls_008"><span class="cls_008">Data</span></div>
+        <div style="position:absolute;left:119.50px;top:301.50px" class="cls_008"><span class="cls_008">Carga horária</span></div>
+        <div style="position:absolute;left:43.50px;top:695.80px" class="cls_008"><span class="cls_008">TOTAL DE</span></div>
         <div style="position:absolute;left:50.70px;top:706.00px" class="cls_008"><span class="cls_008">HORAS</span></div>
         <div style="position:absolute;left:226.80px;top:743.40px" class="cls_008"><span class="cls_008">Data:</span><span class="cls_007"> ______/______/__________</span></div>
         <div style="position:absolute;left:150.30px;top:774.80px" class="cls_007"><span class="cls_007">___________________________________________________________</span></div>

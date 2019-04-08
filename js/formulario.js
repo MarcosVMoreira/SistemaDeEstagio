@@ -113,7 +113,7 @@ $(document).ready(function () {
 });
 
 $('#radioRemunerado').change(function () {
-    console.log("batata222");
+    $('#inputCargaHorariaMax').prop("disabled", false);
     $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">' +
         '<div class="form-group">' +
         '<label for="inputCompanhiaSeguro">Companhia de seguro</label>' +
@@ -134,7 +134,8 @@ $('#radioRemunerado').change(function () {
 });
 
 $('#radioNaoRemunerado').change(function () {
-    console.log("batata");
+    $('#inputCargaHorariaMax').val("");
+    $('#inputCargaHorariaMax').prop("disabled", true);
     $('#divSeguro').remove();
     $('#divApolice').remove();
     $('#checkboxValeTransporte').prop("checked", false);
@@ -143,6 +144,7 @@ $('#radioNaoRemunerado').change(function () {
 });
 
 $('#radioFixa').change(function () {
+    $('#inputDataFimEstagio').val("");
     $('#inputDataFimEstagio').prop("disabled", true);
     $('#divHorarios').append('<div id="horarioEntrada" class="col-sm-12 col-md-3">' +
         '<div class="form-group">' +
@@ -175,6 +177,51 @@ $('#radioFixa').change(function () {
         '</div>' +
         '</div>');
 
+});
+
+$('#checkSegunda').change(function (){
+    if ($(this).prop("checked")){
+        $('#horasSegunda').prop("disabled", false); 
+    } else {
+        $('#horasSegunda').val("");
+        $('#horasSegunda').prop("disabled", true); 
+    }
+});
+
+$('#checkTerca').change(function (){
+    if ($(this).prop("checked")){
+        $('#horasTerca').prop("disabled", false); 
+    } else {
+        $('#horasTerca').val("");
+        $('#horasTerca').prop("disabled", true); 
+    }
+});
+
+$('#checkQuarta').change(function (){
+    if ($(this).prop("checked")){
+        $('#horasQuarta').prop("disabled", false); 
+    } else {
+        $('#horasQuarta').val("");
+        $('#horasQuarta').prop("disabled", true); 
+    }
+});
+
+$('#checkQuinta').change(function (){
+    if ($(this).prop("checked")){
+        $('#horasQuinta').prop("disabled", false); 
+    } else {
+        $('#horasQuinta').val("");
+        $('#horasQuinta').prop("disabled", true); 
+    }
+});
+
+$('#checkSexta').change(function (){
+    if ($(this).prop("checked")){
+        $('#horasSexta').prop("disabled", false); 
+    } else {
+        $('#horasSexta').val("");
+        $('#horasSexta').prop("disabled", true); 
+    }
 });
 
 $('#radioVariavel').change(function () {

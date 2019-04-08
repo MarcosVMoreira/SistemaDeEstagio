@@ -459,22 +459,7 @@
                     </div>
                     <div class="card-body">
 
-                        <div class="form-row">
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <label for="inputDataInicioEstagio">Data de início</label>
-                                    <input type="date" class="form-control" id="inputDataInicioEstagio" required>
-                                </div>
-                            </div>
 
-                            <div class="col-sm-12 col-md-4">
-                                <div class="form-group">
-                                    <label for="inputDataFimEstagio">Data de término</label>
-                                    <input type="date" class="form-control" id="inputDataFimEstagio" disabled>
-                                </div>
-                            </div>
-
-                        </div>
 
                         <div class="form-row">
                             <div class="col-md-4">
@@ -531,8 +516,9 @@
                         <div class="form-row">
                             <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
-                                    <label for="inputCargaHorariaMax">Carga horária máxima</label>
-                                    <input type="text" class="form-control" id="inputCargaHorariaMax">
+                                    <label for="inputCargaHorariaMax">Carga horária total</label>
+                                    <input type="text" class="form-control" id="inputCargaHorariaMax" disabled>
+                                    <small class="help-block text-muted">colocar link</small>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-7">
@@ -554,6 +540,80 @@
                             </div>
                         </div>
 
+                        <div class="form-row">
+                            <div class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputDataInicioEstagio">Data de início</label>
+                                    <input type="date" class="form-control" id="inputDataInicioEstagio" required>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12 col-md-3">
+                                <div class="form-group">
+                                    <label for="inputDataFimEstagio">Data de término</label>
+                                    <input type="date" class="form-control" id="inputDataFimEstagio" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6">Horas trabalhadas por dia</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3" style="margin-bottom: 10px;">
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkSegunda">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Segunda-feira
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkTerca">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Terça-feira
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkQuarta">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Quarta-feira
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkQuinta">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Quinta-feira
+                                    </label>
+                                </div>
+                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
+                                    <input class="form-check-input" type="checkbox" value="" id="checkSexta">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Sexta-feira
+                                    </label>
+                                </div>
+                            </div>
+                            <div id="horarioEntrada" class="col-sm-12 col-md-2">
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="horasSegunda" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="horasTerca" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="horasQuarta" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="horasQuinta" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <input type="time" class="form-control" id="horasSexta" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!--
                         <div class="form-row" id="divHorarios">
                             <div id="horarioEntrada" class="col-sm-12 col-md-3">
                                 <div class="form-group">
@@ -583,6 +643,7 @@
                                 </div>
                             </div>
                         </div>
+                        -->
 
                         <div id="divSeguro1" class="form-row">
 

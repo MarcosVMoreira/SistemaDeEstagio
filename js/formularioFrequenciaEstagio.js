@@ -1,5 +1,8 @@
 var qtdLinhas=0;
-var tempoTotal=0;
+var tempoTotal=[0,0];
+var auxTempo;
+
+
 $(document).ready(function(){
     $("#botaoAdicionar").click(function () {
         var stringlinha = $("<div class=\"form-row\" id=\"qtdLinhas-"+qtdLinhas+"\">"+
@@ -36,8 +39,14 @@ $(document).ready(function(){
         }
     });
     if(empty==false){
-        for(var i=0;i<qtdLinhas;i++){
-            tempoTotal+=$("#inputCargaHoraria"+qtdLinhas).val();
+        tempoTotal=[0,0];
+        for(var i=0;i<=qtdLinhas;i++){
+            var aux=$("#inputCargaHoraria"+i).val()+"";
+            var auxTempo=aux.split(':');
+            console.log(auxTempo);
+            for(var j=0;j<auxTempo.length;j++){
+                tempoTotal[j]+=parseInt(auxTempo[j]);
+            }
         }
         $("#linhaEstagio").append(stringlinha);
         qtdLinhas++;

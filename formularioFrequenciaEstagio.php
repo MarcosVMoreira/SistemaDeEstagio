@@ -1,5 +1,5 @@
 <?php
-    include("header.html");
+    include("header.php");
 
     $test = false; // Definir como true para rodar os testes
 ?>

@@ -1,14 +1,13 @@
 <?php
-    include("header.php");
+    session_start();
 
     $test = true; // Definir como true para rodar os testes do main.js
-
-    
 
     if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
 	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
         header("Location: login.php");
 	} else {
+        include("header.php");
         if ((isset($_SESSION['rg']) && $_SESSION['rg'] != "")){
             $rg = $_SESSION['rg'];
         }

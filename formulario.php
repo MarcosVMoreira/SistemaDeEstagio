@@ -3,10 +3,10 @@
 
     $test = false; // Definir como true para rodar os testes
 
-    if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
+   /* if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
 	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
         header("Location: login.php");
-	} else {
+	} else {*/
         include("header.php");
 
      ?>
@@ -564,94 +564,76 @@
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6">Horas trabalhadas por dia</div>
+
+
+                        <div class="form-row col-sm-12 col-md-12" id="campoCargaHoraria">
+
+                            <div class="col-sm-12 col-md-3" id="divDiasTrabalhados">
+                                <div class="row">Dias trabalhados</div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkSegunda">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Segunda-feira
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
+                                        <input class="form-check-input" type="checkbox" value="" onChange="checkTerca();" id="checkTerca">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Terça-feira
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkQuarta">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Quarta-feira
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkQuinta">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Quinta-feira
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkSexta">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Sexta-feira
+                                        </label>
+                                    </div>
+                                    <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkSabado">
+                                        <label class="form-check-label" for="defaultCheck1">
+                                            Sábado
+                                        </label>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-2" id="divHorasTrabalhadas">
+                                <div class="row">Horas trabalhadas</div>
+                                <div id="horarioEntrada">
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasSegunda" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasTerca" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasQuarta" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasQuinta" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasSexta" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="time" class="form-control" id="horasSabado" disabled>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
 
-                        <div class="row">
-                            <div class="col-sm-12 col-md-3" style="margin-bottom: 10px;">
-                                <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkSegunda">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Segunda-feira
-                                    </label>
-                                </div>
-                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkTerca">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Terça-feira
-                                    </label>
-                                </div>
-                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkQuarta">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Quarta-feira
-                                    </label>
-                                </div>
-                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkQuinta">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Quinta-feira
-                                    </label>
-                                </div>
-                                <div class="form-check" style="margin-bottom: 10px; margin-top: 30px;">
-                                    <input class="form-check-input" type="checkbox" value="" id="checkSexta">
-                                    <label class="form-check-label" for="defaultCheck1">
-                                        Sexta-feira
-                                    </label>
-                                </div>
-                            </div>
-                            <div id="horarioEntrada" class="col-sm-12 col-md-2">
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horasSegunda" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horasTerca" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horasQuarta" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horasQuinta" disabled>
-                                </div>
-                                <div class="form-group">
-                                    <input type="time" class="form-control" id="horasSexta" disabled>
-                                </div>
-                            </div>
-                        </div>
 
-
-                        <!--
-                        <div class="form-row" id="divHorarios">
-                            <div id="horarioEntrada" class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasDiarias">Horário de entrada</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
-                                </div>
-                            </div>
-
-                            <div id="horarioSaida" class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasDiarias">Horário de saída</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
-                                </div>
-                            </div>
-
-                            <div id="horasDiarias" class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasDiarias">Horas diárias</label>
-                                    <input type="time" class="form-control" id="inputHorasDiarias">
-                                </div>
-                            </div>
-
-                            <div id="horasSemanais" class="col-sm-12 col-md-3">
-                                <div class="form-group">
-                                    <label for="inputHorasSemanais">Horas semanais</label>
-                                    <input type="time" class="form-control" id="inputHorasSemanais">
-                                </div>
-                            </div>
-                        </div>
-                        -->
 
                         <div id="divSeguro1" class="form-row">
 
@@ -702,6 +684,6 @@
 
 
 <?php
-    }
+    //}
     include("footer.html");
 ?>

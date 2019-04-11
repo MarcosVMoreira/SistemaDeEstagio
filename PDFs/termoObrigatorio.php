@@ -86,8 +86,46 @@ if ($result = $conexao->query($query)) {
         $cargaHorariaTotal = $resultado["cargaHorariaTotal"];
         $dataInicio = $resultado["dataInicial"];
         $dataFim = $resultado["dataFinal"];
-        $diasSemana = $resultado["diasSemana"];
         $horarioEstagio = $resultado["horarioEstagio"];
+        if($resultado["segunda"] != 0)
+        {
+            $diasSemana = "Segundas-Feiras";
+        }
+        if($resultado["terca"] != 0)
+        {
+            if(empty($diasSemana))
+                $diasSemana = "Terças-Feiras";
+            else
+                $diasSemana .= ", Terças-Feiras";
+        }
+        if($resultado["quarta"] != 0)
+        {
+            if(empty($diasSemana))
+                $diasSemana = "Quartas-Feiras";
+            else
+                $diasSemana .= ", Quartas-Feiras";
+        }
+        if($resultado["quinta"] != 0)
+        {
+            if(empty($diasSemana))
+                $diasSemana = "Quintas-Feiras";
+            else
+                $diasSemana .= ", Quintas-Feiras";
+        }
+        if($resultado["sexta"] != 0)
+        {
+            if(empty($diasSemana))
+                $diasSemana = "Sextas-Feiras";
+            else
+                $diasSemana .= ", Sextas-Feiras";
+        }
+        if($resultado["sabado"] != 0)
+        {
+            if(empty($diasSemana))
+                $diasSemana = "Sábados";
+            else
+                $diasSemana .= ", Sábados";
+        }
     }
 }
 // reference the Dompdf namespace
@@ -300,31 +338,31 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:309.04px" class="cls_003"><span class="cls_003">Representada por: Thiago Caproni Tavares</span></div>
         <div style="position:absolute;left:330.50px;top:309.04px" class="cls_003"><span class="cls_003">Cargo: Diretor geral</span></div>
         <div style="position:absolute;left:266.16px;top:340.12px" class="cls_003"><span class="cls_003">CONCEDENTE</span></div>
-        <div style="position:absolute;left:42.48px;top:359.68px" class="cls_003"><span class="cls_003">Nome da Empresa: </span><b>'.$nomeEmpresa.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:375.16px" class="cls_003"><span class="cls_003">CNPJ: </span><b>'.$cpfCnpjEmpresa.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:390.64px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoEmpresa.'<b/></div>
-        <div style="position:absolute;left:258.47px;top:389.68px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroEmpresa.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:406.24px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepEmpresa.'<b/></div>
-        <div style="position:absolute;left:258.52px;top:406.24px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeEmpresa.' - '.$estadoEmpresa.'<b/></div>
-        <div style="position:absolute;left:450.00px;top:406.24px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneEmpresa.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:421.72px" class="cls_003"><span class="cls_003">Representada por: </span><b>'.$representanteEmpresa.'<b/></div>
-        <div style="position:absolute;left:258.44px;top:421.72px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$representanteEmpresaCargo.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:437.20px" class="cls_003"><span class="cls_003">Responsável pela assinatura do TCE: </span><b>'.$nomeTCE.'<b/></div>
-        <div style="position:absolute;left:258.50px;top:437.20px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoTCE.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:452.80px" class="cls_003"><span class="cls_003">Supervisor de Estágio: </span><b>'.$nomeSupervisor.'<b/></div>
-        <div style="position:absolute;left:258.53px;top:451.84px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoSupervisor.'<b/></div>
+        <div style="position:absolute;left:42.48px;top:359.68px" class="cls_003"><span class="cls_003">Nome da Empresa: </span><b>'.$nomeEmpresa.'</b></div>
+        <div style="position:absolute;left:42.48px;top:375.16px" class="cls_003"><span class="cls_003">CNPJ: </span><b>'.$cpfCnpjEmpresa.'</b></div>
+        <div style="position:absolute;left:42.48px;top:390.64px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoEmpresa.'</b></div>
+        <div style="position:absolute;left:258.47px;top:389.68px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroEmpresa.'</b></div>
+        <div style="position:absolute;left:42.48px;top:406.24px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepEmpresa.'</b></div>
+        <div style="position:absolute;left:258.52px;top:406.24px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeEmpresa.' - '.$estadoEmpresa.'</b></div>
+        <div style="position:absolute;left:450.00px;top:406.24px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneEmpresa.'</b></div>
+        <div style="position:absolute;left:42.48px;top:421.72px" class="cls_003"><span class="cls_003">Representada por: </span><b>'.$representanteEmpresa.'</b></div>
+        <div style="position:absolute;left:258.44px;top:421.72px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$representanteEmpresaCargo.'</b></div>
+        <div style="position:absolute;left:42.48px;top:437.20px" class="cls_003"><span class="cls_003">Responsável pela assinatura do TCE: </span><b>'.$nomeTCE.'</b></div>
+        <div style="position:absolute;left:258.50px;top:437.20px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoTCE.'</b></div>
+        <div style="position:absolute;left:42.48px;top:452.80px" class="cls_003"><span class="cls_003">Supervisor de Estágio: </span><b>'.$nomeSupervisor.'</b></div>
+        <div style="position:absolute;left:258.53px;top:451.84px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoSupervisor.'</b></div>
         <div style="position:absolute;left:255.72px;top:483.76px" class="cls_005"><span class="cls_005">ESTAGIÁRIO(A)</span></div>
-        <div style="position:absolute;left:42.48px;top:502.84px" class="cls_003"><span class="cls_003">Nome: </span><b>'.$nomeAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:518.32px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoAluno.'<b/></div>
-        <div style="position:absolute;left:241.15px;top:518.32px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:533.80px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepAluno.'<b/></div>
-        <div style="position:absolute;left:241.08px;top:533.80px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeAluno.' - '.$estadoAluno.'<b/></div>
-        <div style="position:absolute;left:450.00px;top:533.80px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:549.40px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$cursoAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:564.88px" class="cls_003"><span class="cls_003">CPF: </span><b>'.$cpfAluno.'<b/></div>
-        <div style="position:absolute;left:355.55px;top:564.88px" class="cls_003"><span class="cls_003">RG: </span><b>'.$rgAluno.'<b/></div>
-        <div style="position:absolute;left:42.48px;top:580.36px" class="cls_003"><span class="cls_003">Data de Nascimento: </span><b>'.$nascimentoAluno.'<b/></div>
-        <div style="position:absolute;left:356.65px;top:580.36px" class="cls_003"><span class="cls_003">E-mail: </span><b>'.$emailAluno.'<b/></div>
+        <div style="position:absolute;left:42.48px;top:502.84px" class="cls_003"><span class="cls_003">Nome: </span><b>'.$nomeAluno.'</b></div>
+        <div style="position:absolute;left:42.48px;top:518.32px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoAluno.'</b></div>
+        <div style="position:absolute;left:241.15px;top:518.32px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'</b></div>
+        <div style="position:absolute;left:42.48px;top:533.80px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepAluno.'</b></div>
+        <div style="position:absolute;left:241.08px;top:533.80px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeAluno.' - '.$estadoAluno.'</b></div>
+        <div style="position:absolute;left:450.00px;top:533.80px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneAluno.'</b></div>
+        <div style="position:absolute;left:42.48px;top:549.40px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$cursoAluno.'</b></div>
+        <div style="position:absolute;left:42.48px;top:564.88px" class="cls_003"><span class="cls_003">CPF: </span><b>'.$cpfAluno.'</b></div>
+        <div style="position:absolute;left:355.55px;top:564.88px" class="cls_003"><span class="cls_003">RG: </span><b>'.$rgAluno.'</b></div>
+        <div style="position:absolute;left:42.48px;top:580.36px" class="cls_003"><span class="cls_003">Data de Nascimento: </span><b>'.$nascimentoAluno.'</b></div>
+        <div style="position:absolute;left:356.65px;top:580.36px" class="cls_003"><span class="cls_003">E-mail: </span><b>'.$emailAluno.'</b></div>
         <div style="position:absolute;left:78.48px;top:601.00px" class="cls_003"><span class="cls_003">Celebram entre si este TERMO DE COMPROMISSO DE ESTÁGIO, ajustando as seguintes cláusulas:</span></div>
         <div style="position:absolute;left:42.48px;top:611.32px" class="cls_006"><span class="cls_006">CLÁUSULA PRIMEIRA: DO OBJETO: </span><span class="cls_003">Este instrumento tem por objetivo estabelecer as condições para a realização de</span></div>
         <div style="position:absolute;left:42.48px;top:621.64px" class="cls_003"><span class="cls_003">Estágio e particularizar a relação jurídica especial existente entre o ESTAGIÁRIO, a CONCEDENTE e a INSTITUIÇÃO DE</span></div>
@@ -335,13 +373,10 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:678.40px" class="cls_003"><span class="cls_003">ESTAGIÁRIO, possibilitando-lhe aperfeiçoamento técnico cultural, científico e de relacionamento humano, bem como</span></div>
         <div style="position:absolute;left:42.48px;top:688.72px" class="cls_003"><span class="cls_003">condições de vivenciar e adquirir experiência prática em situações reais de trabalho em sua área de atuação.</span></div>
         <div style="position:absolute;left:42.48px;top:699.04px" class="cls_003"><span class="cls_003">CLÁUSULA TERCEIRA: DO HORÁRIO E DA VIGÊNCIA - Fica compromissado entre as partes que:</span></div>
-        <div style="position:absolute;left:60.48px;top:709.48px" class="cls_003"><span class="cls_003">a) Este Termo de Compromisso de Estágio terá vigência de ______________ a __________________ podendo ser</span></div>
-        <div style="position:absolute;left:78.48px;top:719.80px" class="cls_003"><span class="cls_003">interrompido a qualquer tempo, desde que comunicado com 07 dias de antecedência à Secretaria de Pesquisa e</span></div>
-        <div style="position:absolute;left:78.48px;top:730.12px" class="cls_003"><span class="cls_003">Extensão que preencherá Termo de Rescisão em modelo próprio da Secretaria. O mesmo prazo e condição se</span></div>
-        <div style="position:absolute;left:78.48px;top:740.44px" class="cls_003"><span class="cls_003">aplicam no caso de aditamento do contrato.</span></div>
-        <div style="position:absolute;left:60.48px;top:750.76px" class="cls_002"><span class="cls_002">b) </span><span class="cls_003"> As atividades de estágio a serem cumpridas pelo estagiário serão desenvolvidas nos seguintes dias e horários: às</span></div>
-        <div style="position:absolute;left:78.48px;top:762.04px" class="cls_003"><span class="cls_003"><b>'.$diasSemana.'<b/></span>, das <span><b>'.$horarioEstagio.'<b/></span>, totalizando <span><b>'.$cargaHorariaDiaria.'<b/></span></div>
-        <div style="position:absolute;left:78.48px;top:771.40px" class="cls_003"><span class="cls_003">horas por dia, </span><span><b>'.$cargaHorariaSemanal.'<b/></span> horas por semana e <span><b>'.$cargaHorariaTotal.'<b/></span> horas de estágio obrigatório.</div>
+        <div style="position:absolute;left:60.48px;top:709.48px" class="cls_003"><span class="cls_003">a) Este Termo de Compromisso de Estágio terá vigência de <b>'.$dataInicio.'</b> a <b>'.$dataFim.'</b> podendo ser interrompido</span></div>
+        <div style="position:absolute;left:78.48px;top:719.80px; right: 115px;" class="cls_003"><span class="cls_003"> a qualquer tempo, desde que comunicado com 07 dias de antecedência à Secretaria de Pesquisa e Extensão que preencherá Termo de Rescisão em modelo próprio da Secretaria. O mesmo prazo e condição se aplicam no caso de aditamento do contrato.</span></div>
+        <div align="justify" style="position:absolute;left:60.48px;top:750.76px;right:115px;" class="cls_002"><span class="cls_003">b) As atividades de estágio a serem cumpridas pelo estagiário serão desenvolvidas nos seguintes dias e horários:</span></div>
+        <div style="position:absolute;left:79px;top:760.44px;right:115px;" class="cls_003"><span class="cls_003"> às <b>'.$diasSemana.'</b>, das <b>'.$horarioEstagio.'</b>, totalizando <b>'.$cargaHorariaDiaria.'</b> horas por dia, <b>'.$cargaHorariaSemanal.'</b> horas por semana e <b>'.$cargaHorariaTotal.'</b> horas de estágio obrigatório.</span></div>
     </div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
@@ -373,9 +408,7 @@ $string = '<html>
         <div style="position:absolute;left:78.48px;top:290.08px" class="cls_003"><span class="cls_003">Plano de Atividades;</span></div>
         <div style="position:absolute;left:60.48px;top:300.40px" class="cls_003"><span class="cls_003">b) Facilitar as atividades do Professor Orientador para que o mesmo, em parceria com o Supervisor, possa auxiliar o</span></div>
         <div style="position:absolute;left:78.48px;top:310.72px" class="cls_003"><span class="cls_003">estagiário em eventuais problemas durante o seu estágio.</span></div>
-        <div style="position:absolute;left:60.48px;top:321.04px" class="cls_002"><span class="cls_002">c) </span><span class="cls_003"> Designar o (a) Sr. (a)</span><span class="cls_011">,</span></div>
-        <div style="position:absolute;left:156.20px;top:322.00px" class="cls_011"><span class="cls_011"><b>'.$nomeSupervisor.', '.$cargoSupervisor.'<b/></span><span class="cls_003">, para ser o supervisor de</span></div>
-        <div style="position:absolute;left:78.48px;top:331.36px" class="cls_003"><span class="cls_003">Estágio enquanto vigorar o presente Termo de Compromisso.</span></div>
+        <div style="position:absolute;left:60.48px;top:321.04px;right:115px;" class="cls_002"><span class="cls_003">c) Designar o (a) Sr. (a) <b>'.$nomeSupervisor.'</b>, <b>'.$cargoSupervisor.'</b>, para ser o supervisor de Estágio enquanto vigorar o presente Termo de Compromisso.</span></div>
         <div style="position:absolute;left:60.48px;top:342.64px" class="cls_003"><span class="cls_003">d) Avaliar através do Supervisor, o desempenho do Estagiário e atestar a Frequência de Estágio, de acordo com as</span></div>
         <div style="position:absolute;left:78.48px;top:353.08px" class="cls_003"><span class="cls_003">diretrizes fornecidas pela Instituição de Ensino.</span></div>
         <div style="position:absolute;left:60.48px;top:363.40px" class="cls_003"><span class="cls_003">e) Comunicar a Instituição de Ensino, a interrupção e as eventuais alterações que ocorrerem neste Termo de</span></div>
@@ -391,7 +424,7 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:477.28px" class="cls_003"><span class="cls_003">de que tiver conhecimento em decorrência do estágio.</span></div>
         <div style="position:absolute;left:42.48px;top:497.92px" class="cls_006"><span class="cls_006">CLÁUSULA DÉCIMA: DAS OBRIGAÇÕES DA INSTITUIÇÃO DE ENSINO -</span><span class="cls_003"> No desenvolvimento do estágio curricular</span></div>
         <div style="position:absolute;left:42.48px;top:508.24px" class="cls_003"><span class="cls_003">obrigatório caberá à Instituição de Ensino:</span></div>
-        <div style="position:absolute;left:60.48px;top:518.56px" class="cls_002"><span class="cls_002">a) </span><span class="cls_003"> Designar o (a) Sr. (a) <b>'.$nomeOrientador.'<b/></span> para ser o(a) Professor(a) Orientador(a) responsável</div>
+        <div style="position:absolute;left:60.48px;top:518.56px" class="cls_002"><span class="cls_002">a) </span><span class="cls_003"> Designar o (a) Sr. (a) <b>'.$nomeOrientador.'</b> para ser o(a) Professor(a) Orientador(a) responsável</div>
         <div style="position:absolute;left:78.48px;top:528.88px" class="cls_003"><span class="cls_003">pelo acompanhamento e avaliação das atividades do estágio.</span></div>
         <div style="position:absolute;left:60.48px;top:540.28px" class="cls_003"><span class="cls_003">b) Avaliar, através do(a) Professor(a) Orientador(a), após análise do Supervisor da Unidade Concedente, o relatório Final</span></div>
         <div style="position:absolute;left:78.48px;top:550.60px" class="cls_003"><span class="cls_003">elaborado pelo aluno, bem como a Frequência no Estágio atestada pela Concedente com base nas atividades</span></div>

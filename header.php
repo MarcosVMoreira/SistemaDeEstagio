@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if ((isset($_SESSION['nome']) && $_SESSION['nome'] != "")){
         $nomeAluno = $_SESSION['nome'];
         $temp = explode(" ",$nomeAluno);
@@ -8,7 +7,6 @@
     if ((isset($_SESSION['curso']) && $_SESSION['curso'] != "")){
         $curso = $_SESSION['curso'];
     }
-    
     
 ?>
 <!doctype html>

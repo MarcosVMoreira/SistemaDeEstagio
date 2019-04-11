@@ -1,13 +1,13 @@
 <?php
-    include("header.php");
-    
+    session_start();
+
     $test = false; // Definir como true para rodar os testes
 
     if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
 	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
         header("Location: login.php");
 	} else {
-    
+        include("header.php");
 
      ?>
      

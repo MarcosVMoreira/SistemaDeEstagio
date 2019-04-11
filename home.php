@@ -56,7 +56,12 @@
             $periodoAno = $_SESSION['periodoAno'];
         }
         if (isset($_SESSION['complemento'])){
-            $complemento = $_SESSION['complemento'];
+            if($_SESSION['complemento'] != '') {
+                $complemento = $_SESSION['complemento'];
+            } 
+        }
+        else{
+            $complemento ="";
         }
 
 ?>

@@ -193,8 +193,7 @@ $(document).ready(function () {
         }
     }
 
-});
-
+    
 $('#radioRemunerado').change(function () {
     $('#inputCargaHorariaMax').prop("disabled", false);
     $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">' +
@@ -305,17 +304,25 @@ $('#radioVariavel').change(function () {
 
 
 $("#campoCargaHoraria").on("click", "#checkSegunda", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
-        $('#horasSegunda').prop("disabled", false); 
-    } else {
+        $('#horasSegunda').prop("disabled", false);
+        $("#campoCargaHoraria").on("focusout", "#horasSegunda", function(){
+            calculaTerminoEstagio();
+        });
+    }else {
         $('#horasSegunda').val("");
         $('#horasSegunda').prop("disabled", true); 
     } 
 });
 
 $("#campoCargaHoraria").on("click", "#checkTerca", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
         $('#horasTerca').prop("disabled", false); 
+        $("#campoCargaHoraria").on("focusout", "#horasTerca", function(){
+            calculaTerminoEstagio();
+        });
     } else {
         $('#horasTerca').val("");
         $('#horasTerca').prop("disabled", true); 
@@ -323,8 +330,12 @@ $("#campoCargaHoraria").on("click", "#checkTerca", function(){
 });
 
 $("#campoCargaHoraria").on("click", "#checkQuarta", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
         $('#horasQuarta').prop("disabled", false); 
+        $("#campoCargaHoraria").on("focusout", "#horasQuarta", function(){
+            calculaTerminoEstagio();
+        });
     } else {
         $('#horasQuarta').val("");
         $('#horasQuarta').prop("disabled", true); 
@@ -332,8 +343,12 @@ $("#campoCargaHoraria").on("click", "#checkQuarta", function(){
 });
 
 $("#campoCargaHoraria").on("click", "#checkQuinta", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
         $('#horasQuinta').prop("disabled", false); 
+        $("#campoCargaHoraria").on("focusout", "#horasQuinta", function(){
+            calculaTerminoEstagio();
+        });
     } else {
         $('#horasQuinta').val("");
         $('#horasQuinta').prop("disabled", true); 
@@ -341,8 +356,12 @@ $("#campoCargaHoraria").on("click", "#checkQuinta", function(){
 });
 
 $("#campoCargaHoraria").on("click", "#checkSexta", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
         $('#horasSexta').prop("disabled", false); 
+        $("#campoCargaHoraria").on("focusout", "#horasSexta", function(){
+            calculaTerminoEstagio();
+        });
     } else {
         $('#horasSexta').val("");
         $('#horasSexta').prop("disabled", true); 
@@ -350,13 +369,20 @@ $("#campoCargaHoraria").on("click", "#checkSexta", function(){
 });
 
 $("#campoCargaHoraria").on("click", "#checkSabado", function(){
+    calculaTerminoEstagio();
     if ($(this).prop("checked")){
         $('#horasSabado').prop("disabled", false); 
+        $("#campoCargaHoraria").on("focusout", "#horasSabado", function(){
+            calculaTerminoEstagio();
+        });
     } else {
         $('#horasSabado').val("");
         $('#horasSabado').prop("disabled", true); 
     } 
 });
+
+});
+
 
 /*
 $('#checkSegunda').change(function (){

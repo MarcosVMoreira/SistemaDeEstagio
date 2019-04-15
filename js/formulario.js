@@ -1,10 +1,4 @@
 $(document).ready(function () {
-    
-    /*
-    $('#inputNome').focusout(function () {
-        validaNome();
-    })
-    */
 
     $('input[id^=inputCpf]').mask('000.000.000-00')
         .focusout(function (e) {
@@ -65,8 +59,8 @@ $(document).ready(function () {
             $(e.target).tooltip('disable');
         }
     });
-    
-    $('#inputCep').mask('00000-000').focusout(function (e){
+
+    $('#inputCep').mask('00000-000').focusout(function (e) {
         validaCep(e.target);
     });
 
@@ -109,6 +103,95 @@ $(document).ready(function () {
         }
 
     });
+
+    function calculaTerminoEstagio() {
+
+        var dataInicio = '';
+        if (/([12]\d{3}-(0[1-9]|[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]|[1-9]))/.test($('#inputDataInicioEstagio').val())) {
+            var dateArray = $('#inputDataInicioEstagio').val().split('-');
+            dataInicio = dateArray[0] + '-' + dateArray[1] + '-' + dateArray[2];
+        }
+
+        var cargaHorariaMax = $('#inputCargaHorariaMax').val().replace('/\D/g', '');
+
+        var diasTrabalho = '';
+        var horasDia = '';
+
+        if ($('#checkSegunda').prop('checked')) {
+            var horas = $('#horasSegunda').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '1' : ',1';
+        }
+
+        if ($('#checkTerca').prop('checked')) {
+            var horas = $('#horasTerca').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '2' : ',2';
+        }
+
+        if ($('#checkQuarta').prop('checked')) {
+            var horas = $('#horasQuarta').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '3' : ',3';
+        }
+
+        if ($('#checkQuinta').prop('checked')) {
+            var horas = $('#horasQuinta').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '4' : ',4';
+        }
+
+        if ($('#checkSexta').prop('checked')) {
+            var horas = $('#horasSexta').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '5' : ',5';
+        }
+
+        if ($('#checkSabado').prop('checked')) {
+            var horas = $('#horasSabado').val();
+            if (/([01]?[0-9]|2[0-3]):[0-5][0-9]/g.test(horas)) {
+                var aux = horas.split(':');
+                horasDia += ((horasDia.length == 0) ? '' : ',') + (parseFloat(aux[0]) + parseFloat(((/\d{2}/.test(aux[1]) ? aux[1] : 0) / 60))).toFixed(2);
+            }
+            diasTrabalho += (diasTrabalho.length == 0) ? '6' : ',6';
+        }
+
+        if (cargaHorariaMax != '') {
+
+            /*
+            console.log('Chamando PHP');
+            console.log('Data de início: ' + dataInicio);
+            console.log('Dias de trabalho: ' + diasTrabalho);
+            console.log('Horas por dia: ' + horasDia);
+            console.log('Carga horaria total: ' + cargaHorariaMax);
+            */
+
+            $.post('ajax/calculoFimEstagio.php', {
+                dataInicioEstagio: dataInicio,
+                diasDeTrabalho: diasTrabalho,
+                horasPorDia: horasDia,
+                cargaHorariaTotal: cargaHorariaMax
+            }, function (retorno) {
+                $('#inputDataFimEstagio').val(retorno);
+            });
+
+        }
+    }
 
 });
 
@@ -281,7 +364,7 @@ $('#checkSegunda').change(function (){
         $('#horasSegunda').prop("disabled", false); 
     } else {
         $('#horasSegunda').val("");
-        $('#horasSegunda').prop("disabled", true); 
+        $('#horasSegunda').prop("disabled", true);
     }
 });
 
@@ -301,33 +384,33 @@ $('#checkQuarta').change(function (){
         $('#horasQuarta').prop("disabled", false); 
     } else {
         $('#horasQuarta').val("");
-        $('#horasQuarta').prop("disabled", true); 
+        $('#horasQuarta').prop("disabled", true);
     }
 });
 
-$('#checkQuinta').change(function (){
-    if ($(this).prop("checked")){
-        $('#horasQuinta').prop("disabled", false); 
+$('#checkQuinta').change(function () {
+    if ($(this).prop("checked")) {
+        $('#horasQuinta').prop("disabled", false);
     } else {
         $('#horasQuinta').val("");
-        $('#horasQuinta').prop("disabled", true); 
+        $('#horasQuinta').prop("disabled", true);
     }
 });
 
-$('#checkSexta').change(function (){
-    if ($(this).prop("checked")){
-        $('#horasSexta').prop("disabled", false); 
+$('#checkSexta').change(function () {
+    if ($(this).prop("checked")) {
+        $('#horasSexta').prop("disabled", false);
     } else {
         $('#horasSexta').val("");
-        $('#horasSexta').prop("disabled", true); 
+        $('#horasSexta').prop("disabled", true);
     }
 });
 
-$('#checkSabado').change(function (){
-    if ($(this).prop("checked")){
-        $('#horasSabado').prop("disabled", false); 
+$('#checkSabado').change(function () {
+    if ($(this).prop("checked")) {
+        $('#horasSabado').prop("disabled", false);
     } else {
         $('#horasSabado').val("");
-        $('#horasSabado').prop("disabled", true); 
+        $('#horasSabado').prop("disabled", true);
     }
 });*/

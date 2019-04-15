@@ -1,6 +1,6 @@
 <?php
     $dataInicio = $_POST['dataInicioEstagio']; // Data de início do estágio, no formato yyyy-MM-dd
-    $diasDeTrabalho = $_POST['diasTrabalho']; // String com os dias da semana que irá trabalhar, exemplo: "1,3" (segunda e quarta)
+    $diasDeTrabalho = $_POST['diasDeTrabalho']; // String com os dias da semana que irá trabalhar, exemplo: "1,3" (segunda e quarta)
     $horasDeTrabalhoPorDia = $_POST['horasPorDia']; // String com a quantidade de horas que irá trabalhar em cada dia, exemplo: "8, 7.5" (para o exemplo de dias acima)
     $cargaHorariaTotal = $_POST['cargaHorariaTotal']; // Em horas
 

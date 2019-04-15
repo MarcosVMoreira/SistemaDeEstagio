@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Apr 15, 2019 at 06:56 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Host: 127.0.0.1:3306
+-- Generation Time: 15-Abr-2019 às 18:02
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,10 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alunos`
+-- Estrutura da tabela `alunos`
 --
 
-CREATE TABLE `alunos` (
+DROP TABLE IF EXISTS `alunos`;
+CREATE TABLE IF NOT EXISTS `alunos` (
   `rg` varchar(45) NOT NULL,
   `cpf` varchar(45) NOT NULL,
   `nome` varchar(45) NOT NULL,
@@ -53,23 +54,29 @@ CREATE TABLE `alunos` (
   `periodoAno` varchar(45) NOT NULL,
   `modalidade` varchar(45) NOT NULL,
   `complemento` varchar(45) DEFAULT NULL,
-  `senha` varchar(45) NOT NULL
+  `senha` varchar(45) NOT NULL,
+  `cpfSupervisor` varchar(45) NOT NULL,
+  `idOrientador` int(11) NOT NULL,
+  `idEstagio` int(11) NOT NULL,
+  `cnpjCpfConcedente` varchar(45) NOT NULL,
+  PRIMARY KEY (`ra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `alunos`
+-- Extraindo dados da tabela `alunos`
 --
 
-INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`) VALUES
-('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', NULL, '698dc19d489c4e4db73e28a713eab07b');
+INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `cpfSupervisor`, `idOrientador`, `idEstagio`, `cnpjCpfConcedente`) VALUES
+('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', NULL, '698dc19d489c4e4db73e28a713eab07b', '12345676812', 1, 1, '00000000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `concedentes`
+-- Estrutura da tabela `concedentes`
 --
 
-CREATE TABLE `concedentes` (
+DROP TABLE IF EXISTS `concedentes`;
+CREATE TABLE IF NOT EXISTS `concedentes` (
   `nome` varchar(45) NOT NULL,
   `cnpjCpf` varchar(45) NOT NULL,
   `endereco` varchar(45) NOT NULL,
@@ -84,11 +91,12 @@ CREATE TABLE `concedentes` (
   `cidade` varchar(45) NOT NULL,
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) NOT NULL,
-  `descricao` varchar(512) NOT NULL
+  `descricao` varchar(300) NOT NULL,
+  PRIMARY KEY (`cnpjCpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `concedentes`
+-- Extraindo dados da tabela `concedentes`
 --
 
 INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTceNome`, `responsavelTceCargo`, `representanteEmpresaNome`, `representanteEmpresaCargo`, `email`, `telefone`, `uf`, `cidade`, `bairro`, `numero`, `descricao`) VALUES
@@ -97,57 +105,59 @@ INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTce
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estagio`
+-- Estrutura da tabela `estagio`
 --
 
-CREATE TABLE `estagio` (
+DROP TABLE IF EXISTS `estagio`;
+CREATE TABLE IF NOT EXISTS `estagio` (
   `cargaHorariaDiaria` varchar(45) NOT NULL,
   `horarioEstagio` varchar(45) NOT NULL,
   `dataInicial` varchar(45) NOT NULL,
   `dataFinal` varchar(45) NOT NULL,
-  `segunda` tinyint(1) DEFAULT NULL,
-  `terca` tinyint(1) DEFAULT NULL,
-  `quarta` tinyint(1) DEFAULT NULL,
-  `quinta` tinyint(1) DEFAULT NULL,
-  `sexta` tinyint(1) DEFAULT NULL,
-  `sabado` tinyint(1) DEFAULT NULL,
+  `segunda` tinyint(1) NOT NULL,
+  `terca` tinyint(1) NOT NULL,
+  `quarta` tinyint(1) NOT NULL,
+  `quinta` tinyint(1) NOT NULL,
+  `sexta` tinyint(1) NOT NULL,
+  `sabado` tinyint(1) NOT NULL,
   `cargaHorariaTotal` varchar(45) NOT NULL,
-  `atividadesQueSeraoDesenvolvidas` varchar(45) NOT NULL,
-  `atividadesQueMelhorEmpenhou` varchar(512) NOT NULL,
-  `dificuldadesAluno` varchar(512) NOT NULL,
-  `dificuldadesOrientador` varchar(512) NOT NULL,
-  `contribuicaoEstagioOrientador` varchar(1024) NOT NULL,
-  `paraleloInstitutoEstagio` varchar(1024) NOT NULL,
-  `consideracoesFinais` varchar(512) NOT NULL,
+  `atividadesQueSeraoDesenvolvidas` varchar(300) NOT NULL,
+  `atividadesQueMelhorEmpenhou` varchar(300) NOT NULL,
+  `dificuldadesAluno` varchar(300) NOT NULL,
+  `paraleloInstitutoEstagio` varchar(300) NOT NULL,
+  `consideracoesFinais` varchar(300) NOT NULL,
   `areasConhecimento` varchar(45) NOT NULL,
-  `objetivos` varchar(45) NOT NULL,
-  `idEstagio` int(11) NOT NULL,
+  `objetivos` varchar(300) NOT NULL,
+  `idEstagio` int(11) NOT NULL AUTO_INCREMENT,
   `cargaHorariaSemanal` varchar(45) NOT NULL,
-  `bibliografia` varchar(1024) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `bibliografia` varchar(1024) NOT NULL,
+  PRIMARY KEY (`idEstagio`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `estagio`
+-- Extraindo dados da tabela `estagio`
 --
 
-INSERT INTO `estagio` (`cargaHorariaDiaria`, `horarioEstagio`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `cargaHorariaTotal`, `atividadesQueSeraoDesenvolvidas`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `dificuldadesOrientador`, `contribuicaoEstagioOrientador`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `areasConhecimento`, `objetivos`, `idEstagio`, `cargaHorariaSemanal`, `bibliografia`) VALUES
-('6', '08:00-14:00', '18/03/2019', '24/05/2019', NULL, NULL, NULL, NULL, NULL, NULL, '200', 'Batata Pao Queijo', 'desenvolvimento', 'frontend', 'distribuicao das tarefas', 'desenvolvimento profissional do aluno', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'Engenharia', 'Estagiar', 1, '30', 'livro dos Palmas');
+INSERT INTO `estagio` (`cargaHorariaDiaria`, `horarioEstagio`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `cargaHorariaTotal`, `atividadesQueSeraoDesenvolvidas`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `areasConhecimento`, `objetivos`, `idEstagio`, `cargaHorariaSemanal`, `bibliografia`) VALUES
+('6', '08:00-14:00', '18/03/2019', '24/05/2019', 1, 0, 0, 0, 0, 0, '200', 'Batata Pao Queijo', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'Engenharia', 'Estagiar', 1, '30', 'livro dos Palmas');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orientador`
+-- Estrutura da tabela `orientador`
 --
 
-CREATE TABLE `orientador` (
+DROP TABLE IF EXISTS `orientador`;
+CREATE TABLE IF NOT EXISTS `orientador` (
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telefone` varchar(45) DEFAULT NULL,
-  `idOrientador` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idOrientador` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idOrientador`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orientador`
+-- Extraindo dados da tabela `orientador`
 --
 
 INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
@@ -156,10 +166,11 @@ INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supervisor`
+-- Estrutura da tabela `supervisor`
 --
 
-CREATE TABLE `supervisor` (
+DROP TABLE IF EXISTS `supervisor`;
+CREATE TABLE IF NOT EXISTS `supervisor` (
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -167,65 +178,16 @@ CREATE TABLE `supervisor` (
   `possuiExperiencia` varchar(45) NOT NULL,
   `cursoFormacao` varchar(45) NOT NULL,
   `conselhoClasseProfissional` varchar(45) DEFAULT NULL,
-  `cargo` varchar(45) NOT NULL
+  `cargo` varchar(45) NOT NULL,
+  PRIMARY KEY (`cpf`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `supervisor`
+-- Extraindo dados da tabela `supervisor`
 --
 
 INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `conselhoClasseProfissional`, `cargo`) VALUES
 ('Jean Albino de Melo', '12345676812', 'jean@albino.demelo', '35123456789', 'Sim', 'Engenharia de Computação', 'qwerty', 'Professor');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `alunos`
---
-ALTER TABLE `alunos`
-  ADD PRIMARY KEY (`ra`);
-
---
--- Indexes for table `concedentes`
---
-ALTER TABLE `concedentes`
-  ADD PRIMARY KEY (`cnpjCpf`);
-
---
--- Indexes for table `estagio`
---
-ALTER TABLE `estagio`
-  ADD PRIMARY KEY (`idEstagio`);
-
---
--- Indexes for table `orientador`
---
-ALTER TABLE `orientador`
-  ADD PRIMARY KEY (`idOrientador`);
-
---
--- Indexes for table `supervisor`
---
-ALTER TABLE `supervisor`
-  ADD PRIMARY KEY (`cpf`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `estagio`
---
-ALTER TABLE `estagio`
-  MODIFY `idEstagio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `orientador`
---
-ALTER TABLE `orientador`
-  MODIFY `idOrientador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

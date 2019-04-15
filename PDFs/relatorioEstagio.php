@@ -60,6 +60,7 @@ if ($result = $conexao->query($query)) {
         $cepEmpresa = $resultado["cep"];   
         $telefoneEmpresa = $resultado["telefone"];
         $emailEmpresa = $resultado["email"];
+        $descricaoEmpresa = $resultado["descricao"];
     }
 }
 
@@ -95,6 +96,11 @@ if ($result = $conexao->query($query)) {
         $objetivos = $resultado["objetivos"];
         $dataInicio = $resultado["dataInicial"];
         $dataFim = $resultado["dataFinal"];
+        $atividadesMelhorEmpenhou = $resultado["atividadesQueMelhorEmpenhou"];
+        $dificuldadesEncontradas = $resultado["dificuldadesAluno"];
+        $paraleloInstitutoEstagio = $resultado["paraleloInstitutoEstagio"];
+        $consideracoesFinais = $resultado["consideracoesFinais"];
+        $bibliografia = $resultado["bibliografia"];
     }
 }
 
@@ -472,43 +478,15 @@ $string = '<html>
         <div style="position:relative;text-align:center;top:138px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:relative;text-align:center;top:137px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:relative;text-align:center;top:136px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
-        <div style="position:absolute;left:85.08px;top:211.36px" class="cls_015"><span class="cls_015">3.1 DESCRIÇÃO DA EMPRESA </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:225.40px" class="cls_009"><span class="cls_009">Informações sobre a empresa, ramo de atividades, número de funcionários, nome fantasia, ano de funcionamento da empresa,</span></div>
-        <div style="position:absolute;left:85.08px;top:230.68px" class="cls_009"><span class="cls_009">site, e e-mail (se houver).</span></div>
-        <div style="position:absolute;left:85.08px;top:252.76px" class="cls_015"><span class="cls_015">3.2 OBJETIVOS ALCANÇADOS NO ESTÁGIO </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:262.84px" class="cls_009"><span class="cls_009">Qual sua expectativa em relação ao Estágio .</span></div>
-        <div style="position:absolute;left:85.08px;top:287.32px" class="cls_015"><span class="cls_015">3.3 DESCRIÇÃO DETALHADA DAS ATIVIDADES </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:299.20px" class="cls_019"><span class="cls_019">D</span><span class="cls_009">escrever detalhadamente cada item citado no Plano de Estágio.</span></div>
-        <div style="position:absolute;left:85.08px;top:326.44px" class="cls_015"><span class="cls_015">3.4 ATIVIDADES DESENVOLVIDAS QUE MELHOR DESEMPENHOU</span><span class="cls_006"> </span><span class="cls_009">(fonte Arial, texto</span></div>
-        <div style="position:absolute;left:85.08px;top:336.40px" class="cls_009"><span class="cls_009">tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:370.12px" class="cls_015"><span class="cls_015">3.5 DIFICULDADES ENCONTRADAS NO ESTÁGIO</span></div>
-        <div style="position:absolute;left:85.08px;top:380.08px" class="cls_009"><span class="cls_009">(fonte Arial, texto tamanho 12) Se não encontrou dificuldades, justificar por quê.</span></div>
-        <div style="position:absolute;left:85.08px;top:416.08px" class="cls_015"><span class="cls_015">3.6 FAÇA UM PARALELO EM RELAÇÃO AO CONHECIMENTO QUE VOCÊ</span></div>
-        <div style="position:absolute;left:85.08px;top:429.88px" class="cls_015"><span class="cls_015">RECEBEU NO INSTITUTO E A REALIDADE VIVENCIADA NO LOCAL DE</span></div>
-        <div style="position:absolute;left:85.08px;top:443.68px" class="cls_015"><span class="cls_015">ESTÁGIO</span><span class="cls_006"> </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:479.32px" class="cls_015"><span class="cls_015">3.7 CONSIDERAÇÕES FINAIS SOBRE O ESTÁGIO</span><span class="cls_023"> </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-        <div style="position:absolute;left:85.08px;top:492.40px" class="cls_009"><span class="cls_009">Explique se conseguiu atingir seus objetivos de aprendizagem, aponte recomendações, pontos positivos e/ou negativos.</span></div>
-        <div style="position:absolute;left:85.08px;top:513.88px" class="cls_015"><span class="cls_015">3.8 AUTOAVALIAÇÃO EM RELAÇÃO AO NÍVEL DE DESEMPENHO</span><span class="cls_006"> </span><span class="cls_009">(Assinale um X):</span></div>
-        <div style="position:absolute;left:103.80px;top:540.60px" class="cls_023"><span class="cls_023">FATORES</span></div>
-        <div style="position:absolute;left:283.32px;top:540.60px" class="cls_023"><span class="cls_023">Ótimo</span></div>
-        <div style="position:absolute;left:343.32px;top:540.60px" class="cls_023"><span class="cls_023">Bom</span></div>
-        <div style="position:absolute;left:394.56px;top:540.60px" class="cls_023"><span class="cls_023">Regular</span></div>
-        <div style="position:absolute;left:452.76px;top:540.60px" class="cls_023"><span class="cls_023">Insuficiente</span></div>
-        <div style="position:absolute;left:103.80px;top:555.12px" class="cls_023"><span class="cls_023">a) Conhecimentos Gerais e Técnicos</span></div>
-        <div style="position:absolute;left:103.80px;top:569.40px" class="cls_023"><span class="cls_023">b) Iniciativa</span></div>
-        <div style="position:absolute;left:103.80px;top:583.68px" class="cls_023"><span class="cls_023">c) Criatividade</span></div>
-        <div style="position:absolute;left:103.80px;top:597.96px" class="cls_023"><span class="cls_023">d) Discrição (ética)</span></div>
-        <div style="position:absolute;left:103.80px;top:612.24px" class="cls_023"><span class="cls_023">e) Organização e método de trabalho</span></div>
-        <div style="position:absolute;left:103.80px;top:626.64px" class="cls_023"><span class="cls_023">f) Sociabilidade e Desempenho</span></div>
-        <div style="position:absolute;left:103.80px;top:640.92px" class="cls_023"><span class="cls_023">g) Cooperação</span></div>
-        <div style="position:absolute;left:103.80px;top:655.20px" class="cls_023"><span class="cls_023">h) Liderança</span></div>
-        <div style="position:absolute;left:103.80px;top:669.48px" class="cls_023"><span class="cls_023">i) Assiduidade/Pontualidade</span></div>
-        <div style="position:absolute;left:103.80px;top:683.76px" class="cls_023"><span class="cls_023">j) Responsabilidade</span></div>
-        <div style="position:absolute;left:103.80px;top:698.04px" class="cls_023"><span class="cls_023">k) Integração</span></div>
-        <div style="position:absolute;left:103.80px;top:712.44px" class="cls_023"><span class="cls_023">l) Comprometimento nas Tarefas</span></div>
-        <div style="position:absolute;left:103.80px;top:726.72px" class="cls_023"><span class="cls_023">m) Capacidade de Gerenciamento</span></div>
-        <div style="position:absolute;left:85.08px;top:766.48px" class="cls_015"><span class="cls_015">3.9 BIBLIOGRAFIA UTILIZADA NO ESTÁGIO </span><span class="cls_009">(fonte Arial, texto tamanho 12)</span></div>
-    </div>
+        <div align="justify;" style="position:absolute;left:85.08px;top:211.36px;right:85px;" class="cls_015"><span class="cls_015">
+            3.1 DESCRIÇÃO DA EMPRESA: '.$descricaoEmpresa.'<br/><br/> 
+            3.2 OBJETIVOS ALCANÇADOS NO ESTÁGIO: '.$objetivos.'<br/><br/>
+            3.3 DESCRIÇÃO DETALHADA DAS ATIVIDADES: '.$atividades.'<br/><br/>
+            3.4 ATIVIDADES DESENVOLVIDAS QUE MELHOR DESEMPENHOU: '.$atividadesMelhorEmpenhou.'<br/><br/>
+            3.5 DIFICULDADES ENCONTRADAS NO ESTÁGIO: '.$dificuldadesEncontradas.'<br/><br/>
+            3.6 FAÇA UM PARALELO EM RELAÇÃO AO CONHECIMENTO QUE VOCÊ RECEBEU NO INSTITUTO E A REALIDADE VIVENCIADA NO LOCAL DE ESTÁGIO: '.$paraleloInstitutoEstagio.'<br/><br/>
+            3.7 CONSIDERAÇÕES FINAIS SOBRE O ESTÁGIO: '.$consideracoesFinais.'<br/><br/></span></div>
+        </div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
@@ -518,9 +496,28 @@ $string = '<html>
         <div style="position:relative;text-align:center;top:138px" class="cls_003"><span class="cls_003">INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUL DE MINAS GERAIS - CAMPUS POÇOS DE CALDAS</span></div>
         <div style="position:relative;text-align:center;top:137px" class="cls_004"><span class="cls_004">Avenida Dirce Pereira Rosa, 300 - Jardim Esperança - CEP 37703-100 - Poços de Caldas (MG)</span></div>
         <div style="position:relative;text-align:center;top:136px" class="cls_004"><span class="cls_004">Telefone: (35) 3697-4950 / </span><A HREF="https://portal.pcs.ifsuldeminas.edu.br/">https://portal.pcs.ifsuldeminas.edu.br/</A> </span></div>
-        <div style="position:absolute;left:85.08px;top:198.40px" class="cls_009"><span class="cls_009">Caso não tenha utilizado obras literárias e não tenha consultado a internet, descartar este item.</span></div>
-        <div style="position:absolute;left:85.08px;top:247.00px" class="cls_015"><span class="cls_015">4.0 ANEXAR FOTOS DAS ATIVIDADES DESENVOLVIDAS NO ESTÁGIO</span></div>
-        <div style="position:absolute;left:85.08px;top:260.80px" class="cls_015"><span class="cls_015">(OPCIONAL).</span></div>
+        <div style="position:absolute;left:85.08px;top:210px" class="cls_015"><span class="cls_015">3.8 AUTOAVALIAÇÃO EM RELAÇÃO AO NÍVEL DE DESEMPENHO</span><span class="cls_006"> </span><span class="cls_009"></span></div>
+        <div style="position:absolute;left:103.80px;top:227px" class="cls_023"><span class="cls_023">FATORES</span></div>
+        <div style="position:absolute;left:283.32px;top:227px" class="cls_023"><span class="cls_023">Ótimo</span></div>
+        <div style="position:absolute;left:343.32px;top:227px" class="cls_023"><span class="cls_023">Bom</span></div>
+        <div style="position:absolute;left:394.56px;top:227px" class="cls_023"><span class="cls_023">Regular</span></div>
+        <div style="position:absolute;left:452.76px;top:227px" class="cls_023"><span class="cls_023">Insuficiente</span></div>
+        <div style="position:absolute;left:103.80px;top:241px" class="cls_023"><span class="cls_023">a) Conhecimentos Gerais e Técnicos</span></div>
+        <div style="position:absolute;left:103.80px;top:256px" class="cls_023"><span class="cls_023">b) Iniciativa</span></div>
+        <div style="position:absolute;left:103.80px;top:270px" class="cls_023"><span class="cls_023">c) Criatividade</span></div>
+        <div style="position:absolute;left:103.80px;top:284px" class="cls_023"><span class="cls_023">d) Discrição (ética)</span></div>
+        <div style="position:absolute;left:103.80px;top:298px" class="cls_023"><span class="cls_023">e) Organização e método de trabalho</span></div>
+        <div style="position:absolute;left:103.80px;top:313px" class="cls_023"><span class="cls_023">f) Sociabilidade e Desempenho</span></div>
+        <div style="position:absolute;left:103.80px;top:327px" class="cls_023"><span class="cls_023">g) Cooperação</span></div>
+        <div style="position:absolute;left:103.80px;top:342px" class="cls_023"><span class="cls_023">h) Liderança</span></div>
+        <div style="position:absolute;left:103.80px;top:356px" class="cls_023"><span class="cls_023">i) Assiduidade/Pontualidade</span></div>
+        <div style="position:absolute;left:103.80px;top:371px" class="cls_023"><span class="cls_023">j) Responsabilidade</span></div>
+        <div style="position:absolute;left:103.80px;top:385px" class="cls_023"><span class="cls_023">k) Integração</span></div>
+        <div style="position:absolute;left:103.80px;top:399px" class="cls_023"><span class="cls_023">l) Comprometimento nas Tarefas</span></div>
+        <div style="position:absolute;left:103.80px;top:413px;" class="cls_023"><span class="cls_023">m) Capacidade de Gerenciamento</span></div>
+        <div align="justify" style="position:absolute;left:85.08px;top:435px;right:85px" class="cls_015"><span class="cls_015">
+            3.9 BIBLIOGRAFIA UTILIZADA NO ESTÁGIO: '.$bibliografia.'<br/><br/>
+            4.0 ANEXAR FOTOS DAS ATIVIDADES DESENVOLVIDAS NO ESTÁGIO: (OPCIONAL)</span></div>
     </div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">

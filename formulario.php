@@ -577,7 +577,7 @@
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" onChange="checkTerca();" id="checkTerca">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkTerca">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Terça-feira
                                         </label>

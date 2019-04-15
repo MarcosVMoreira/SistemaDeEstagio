@@ -148,7 +148,7 @@ $('#radioFixa').change(function () {
     $('#inputDataFimEstagio').val("");
     $('#inputDataFimEstagio').prop("disabled", true);
     $('#campoCargaHoraria').append('<div class="col-sm-12 col-md-3" id="divDiasTrabalhados">'+
-    '<div class="row">Dias trabalhados</div>'+
+    '<div class="row" id="diasTrabalhados">Dias trabalhados</div>'+
      '<div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">'+
             '<input class="form-check-input" type="checkbox" value="" id="checkSegunda">'+
             '<label class="form-check-label" for="defaultCheck1">'+
@@ -168,7 +168,7 @@ $('#radioFixa').change(function () {
             '</label>'+
         '</div>'+
         '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkQuinta">'+
+            '<input class="form-check-input" type="checkbox" value="" id="checkQuinta" >'+
             '<label class="form-check-label" for="defaultCheck1">'+
                 'Quinta-feira'+
             '</label>'+
@@ -194,7 +194,7 @@ $('#radioFixa').change(function () {
             '<input type="time" class="form-control" id="horasSegunda" disabled>'+
         '</div>'+
         '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasTerca" onClick="checkTerca();" disabled>'+
+            '<input type="time" class="form-control" id="horasTerca" disabled>'+
         '</div>'+
         '<div class="form-group">'+
             '<input type="time" class="form-control" id="horasQuarta" disabled>'+
@@ -210,7 +210,7 @@ $('#radioFixa').change(function () {
         '</div>'+
     '</div>'+
 '</div>');
-
+    $('#horasSegunda').on();
 });
 
 
@@ -221,6 +221,61 @@ $('#radioVariavel').change(function () {
 });
 
 
+$("#campoCargaHoraria").on("click", "#checkSegunda", function(){
+    if ($(this).prop("checked")){
+        $('#horasSegunda').prop("disabled", false); 
+    } else {
+        $('#horasSegunda').val("");
+        $('#horasSegunda').prop("disabled", true); 
+    } 
+});
+
+$("#campoCargaHoraria").on("click", "#checkTerca", function(){
+    if ($(this).prop("checked")){
+        $('#horasTerca').prop("disabled", false); 
+    } else {
+        $('#horasTerca').val("");
+        $('#horasTerca').prop("disabled", true); 
+    } 
+});
+
+$("#campoCargaHoraria").on("click", "#checkQuarta", function(){
+    if ($(this).prop("checked")){
+        $('#horasQuarta').prop("disabled", false); 
+    } else {
+        $('#horasQuarta').val("");
+        $('#horasQuarta').prop("disabled", true); 
+    } 
+});
+
+$("#campoCargaHoraria").on("click", "#checkQuinta", function(){
+    if ($(this).prop("checked")){
+        $('#horasQuinta').prop("disabled", false); 
+    } else {
+        $('#horasQuinta').val("");
+        $('#horasQuinta').prop("disabled", true); 
+    } 
+});
+
+$("#campoCargaHoraria").on("click", "#checkSexta", function(){
+    if ($(this).prop("checked")){
+        $('#horasSexta').prop("disabled", false); 
+    } else {
+        $('#horasSexta').val("");
+        $('#horasSexta').prop("disabled", true); 
+    } 
+});
+
+$("#campoCargaHoraria").on("click", "#checkSabado", function(){
+    if ($(this).prop("checked")){
+        $('#horasSabado').prop("disabled", false); 
+    } else {
+        $('#horasSabado').val("");
+        $('#horasSabado').prop("disabled", true); 
+    } 
+});
+
+/*
 $('#checkSegunda').change(function (){
     if ($(this).prop("checked")){
         $('#horasSegunda').prop("disabled", false); 
@@ -230,16 +285,16 @@ $('#checkSegunda').change(function (){
     }
 });
 
-function checkTerca(){
-    console.log("teste");
-    //alert("teste");
-    /*if ($(this).prop("checked")){
+
+$('#checkTerca').change(function (){
+    if ($(this).prop("checked")){
         $('#horasTerca').prop("disabled", false); 
     } else {
         $('#horasTerca').val("");
         $('#horasTerca').prop("disabled", true); 
-    }*/
-}
+    }
+});
+
 
 $('#checkQuarta').change(function (){
     if ($(this).prop("checked")){
@@ -275,4 +330,4 @@ $('#checkSabado').change(function (){
         $('#horasSabado').val("");
         $('#horasSabado').prop("disabled", true); 
     }
-});
+});*/

@@ -22,6 +22,8 @@
                                 <button type="button" class="btn btn-success" id="botaoAdicionar">Adicionar</button>
                                 <button type="button" class="btn btn-danger" id="botaoRemover">Remover</button>
                             </div>
+                            <div class="col-sm-12 col-md-4 offset-md-8" id="divCargaHorariaTotal">
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,11 +1,24 @@
-<?php
-    include("header.php");
-?>
-<!-- CSS do Formulário -->
-<link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+    <!-- CSS -->
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.7.5/css/mdb.min.css" rel="stylesheet"> -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- CSS Próprio -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS da Sidebar -->
+    <link rel="stylesheet" href="css/sidebar.css">
+    <!-- QUnit CSS -->
+    <script src="https://code.jquery.com/qunit/qunit-2.9.2.css" integrity="sha256-toepOe5D+ddXgUOGsijnhymZna5bakJ0gwRC/3bK1b0=" crossorigin="anonymous"></script>
 
-<div class="container-fluid">
-    <div class="row pt-5">
+    <!-- JS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<div class="container-fluid mt-5">
+    <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <form action="cadastroValidar.php" method="POST" id="formCadastro" >
                 <div class="card">
@@ -18,7 +31,6 @@
                                 <div class="form-group">
                                     <label for="inputNome">Nome completo</label>
                                     <input name="nome" type="text" class="form-control" id="inputNome" required>
-                                    <!-- <small id="ajudaNome" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
                                 </div>
                             </div>
                         </div>
@@ -155,10 +167,10 @@
                             <div class="col-sm-12 col-md-4">
                                 <div class="form-group">
                                     <label for="inputRA">Matrícula (R.A.)</label>
-                                    <input name="ra" type="text" class="form-control" id="inputRA" required>
+                                    <input name="ra" type="text" class="form-control" id="inputRA" maxlength="11" required>
                                 </div>
                             </div>
-                            <div class="col-sm-12 col-md-4">
+                            <div class="col-sm-12 col-md-5">
                                 <div class="form-group">
                                     <label for="selectCurso">Curso</label>
                                     <select class="form-control" id="selectCurso" name="curso">
@@ -181,11 +193,25 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="col-sm-12 col-md-4">
+                            <div class="col-sm-12 col-md-3">
                                 <div class="form-group">
                                     <label for="inputAno">Módulo/Ano</label>
                                     <input name="periodoAno" type="text" class="form-control" id="inputAno" required>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="form-group">
+                                    <label for="selectCampus">Campus</label>
+                                    <select class="form-control" id="selectCampus" name="campus">
+                                            <option>Poços de Caldas</option>
+                                            <option>Inconfidentes</option>
+                                            <option>Machado</option>
+                                            <option>Muzambinho</option>
+                                            <option>Passos</option>
+                                            <option>Pouso Alegre</option>
+                                            <option>Carmo de Minas</option>
+                                            <option>Três Corações</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12 col-md-4">

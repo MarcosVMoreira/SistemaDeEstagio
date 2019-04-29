@@ -19,12 +19,9 @@
    $curso = $_POST["curso"];
    $periodoAno = $_POST["periodoAno"];
    $senha = $_POST["senha"];
-   $campus = "Poços de Caldas";
-   $tipoEstagio = 1;
-   $modalidade = "";
-   $matriculado = "";
+   $campus = $_POST["campus"];
 
-   $query = "INSERT INTO alunos(nome, cpf, rg, telefoneCelular, dataNascimento, email, cep, endereco, numero, complemento, bairro, uf, cidade, ra, curso, periodoAno, senha, campus, tipoEstagio, modalidade, matriculado) VALUES ('$nome', '$cpf', '$rg', '$telefone', '$dataNascimento', '$email', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cidade', '$ra', '$curso', '$periodoAno', MD5('$senha'), '$campus', '$tipoEstagio', '$modalidade', '$matriculado')";
+   $query = "INSERT INTO alunos(nome, cpf, rg, telefoneCelular, dataNascimento, email, cep, endereco, numero, complemento, bairro, uf, cidade, ra, curso, periodoAno, senha, campus) VALUES ('$nome', '$cpf', '$rg', '$telefone', '$dataNascimento', '$email', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cidade', '$ra', '$curso', '$periodoAno', MD5('$senha'), '$campus')";
 
    if ($conexao->query($query) === TRUE) {
       header ("Location: home.php");

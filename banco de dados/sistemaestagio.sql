@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 15-Abr-2019 às 18:02
+-- Generation Time: 29-Abr-2019 às 18:10
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -46,19 +46,19 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   `telefoneCelular` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `dataNascimento` varchar(45) NOT NULL,
-  `tipoEstagio` tinyint(1) NOT NULL,
+  `tipoEstagio` tinyint(1) DEFAULT NULL,
   `nomeSeguradora` varchar(45) DEFAULT NULL,
   `valorBolsa` varchar(45) DEFAULT NULL,
   `beneficios` varchar(45) DEFAULT NULL,
   `numeroApolicesSeguros` varchar(45) DEFAULT NULL,
-  `periodoAno` varchar(45) NOT NULL,
-  `modalidade` varchar(45) NOT NULL,
+  `periodoAno` varchar(45) DEFAULT NULL,
+  `modalidade` varchar(45) DEFAULT NULL,
   `complemento` varchar(45) DEFAULT NULL,
   `senha` varchar(45) NOT NULL,
-  `cpfSupervisor` varchar(45) NOT NULL,
-  `idOrientador` int(11) NOT NULL,
-  `idEstagio` int(11) NOT NULL,
-  `cnpjCpfConcedente` varchar(45) NOT NULL,
+  `cpfSupervisor` varchar(45) DEFAULT NULL,
+  `idOrientador` int(11) DEFAULT NULL,
+  `idEstagio` int(11) DEFAULT NULL,
+  `cnpjCpfConcedente` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`ra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -67,6 +67,8 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 --
 
 INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `cpfSupervisor`, `idOrientador`, `idEstagio`, `cnpjCpfConcedente`) VALUES
+('11111111111111111', '278.360.916-94', '1', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Gestão Ambiental', 'Inconfidentes', '14161000000', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-04-12', NULL, NULL, NULL, NULL, NULL, '7', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
+('11111111111111111', '278.360.916-94', 'teste', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Engenharia de Computação', 'Poços de Caldas', '14161000235', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-04-10', NULL, NULL, NULL, NULL, NULL, '7', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
 ('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', NULL, '698dc19d489c4e4db73e28a713eab07b', '12345676812', 1, 1, '00000000');
 
 -- --------------------------------------------------------

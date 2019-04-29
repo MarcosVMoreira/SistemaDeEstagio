@@ -8,6 +8,7 @@
         header("Location: login.php");
 	} else {
         include("header.php");
+
         if ((isset($_SESSION['rg']) && $_SESSION['rg'] != "")){
             $rg = $_SESSION['rg'];
         }
@@ -55,12 +56,9 @@
         if ((isset($_SESSION['periodoAno']) && $_SESSION['periodoAno'] != "")){
             $periodoAno = $_SESSION['periodoAno'];
         }
-        if (isset($_SESSION['complemento'])){
-            if($_SESSION['complemento'] != '') {
-                $complemento = $_SESSION['complemento'];
-            } 
-        }
-        else{
+        if($_SESSION['complemento'] != '') {
+            $complemento = $_SESSION['complemento'];
+        } else {
             $complemento ="";
         }
 

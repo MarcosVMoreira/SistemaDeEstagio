@@ -27,12 +27,10 @@
             $_SESSION['telefoneCelular'] = $resultado["telefoneCelular"];
             $_SESSION['email'] = $resultado["email"];
             $_SESSION['dataNascimento'] = $resultado["dataNascimento"];
-
             $_SESSION['periodoAno'] = $resultado["periodoAno"];
-
             $_SESSION['complemento'] = $resultado["complemento"];
             $_SESSION['senha'] = $resultado["senha"];
-                        
+            $_SESSION['idOrientador'] = $resultado["idOrientador"];
             header("Location: home.php");
         }
     }

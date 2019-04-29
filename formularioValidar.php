@@ -1,19 +1,20 @@
 <?php
-
-    function tirarAcentos($string) {
+    session_start();
+    
+    /*function tirarAcentos($string) {
         return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/","/(ç)/","/(Ç)/"),explode(" ","a A e E i I o O u U n N c C"), $string);
-    }
+    }*/
 
     require_once('conexao.php');
 
     // Dados do aluno
+    $raAluno = $_SESSION['ra'];
     $nomeAluno = $_POST['inputNome'];
     $cpfAluno = $_POST['inputCpf'];
     $rgAluno = $_POST['inputRg'];
     $telefoneAluno = $_POST['inputTelefone'];
     $dataNascimentoAluno = $_POST['inputDataNascimento'];
     $emailAluno = $_POST['inputEmail'];
-    $raAluno = $_POST['inputRA'];
     $cursoAluno = $_POST['selectCurso'];
     $moduloAluno = $_POST['inputAno'];
     $cepAluno = $_POST['inputCep'];
@@ -31,7 +32,6 @@
         'telefoneCelular="' . $telefoneAluno . '", ' .
         'dataNascimento="' . $dataNascimentoAluno . '", ' .
         'email="' . $emailAluno . '", ' .
-        'ra="' . $raAluno . '", ' .
         'curso="' . $cursoAluno . '", ' .
         'periodoAno="' . $moduloAluno . '", ' .
         'cep="' . $cepAluno . '", ' .
@@ -60,14 +60,19 @@
     $telefoneOrientador = $_POST['inputTelefoneOrientador'];
     $emailOrientador = $_POST['inputEmailOrientador'];
 
-    $query = 'SELECT nome FROM orientador';
+    $query = 'SELECT idOrientador FROM orientador';
     if ($resultado = $conexao->query($query)) {
         
         $achou = false;
         while($linha = $resultado->fetch_assoc()) {
-            if(trim(tirarAcentos(strtolower($nomeOrientador))) == trim(tirarAcentos(strtolower($linha['nome'])))) {
-                $achou = true;
-                break;
+            if($_SESSION['idOrientador'] != '') {
+                if($_SESSION['idOrientador'] == $linha['idOrientador']) {
+                    $achou = true;
+                    break;
+                }
+            } else {
+                $query = "INSERT INTO orientador VALUES ('$nomeOrientador', '$emailOrientador', '$telefoneOrientador')";
+                // $_SESSION['idOrientador'] = $conexao->lastInsertId(); -- ATUALIZAR VALOR DA SESSION
             }
         }
         

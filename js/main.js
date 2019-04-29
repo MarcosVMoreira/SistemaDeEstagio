@@ -1,4 +1,4 @@
-    
+
 function validaCep(id) {
 
     var campoEndereco = $(id).parents('.form-row').find('input[id^=inputEndereco]');
@@ -7,7 +7,7 @@ function validaCep(id) {
     var campoCidade = $(id).parents('.form-row').nextAll().find('input[id^=inputCidade]');
     var selectEstado = $(id).parents('.form-row').nextAll().find('select[name^=selectEstado]');
     var campoCep = $(id);
-    
+
     campoEndereco.val('...');
     campoBairro.val('...');
     campoCidade.val('...');
@@ -18,9 +18,9 @@ function validaCep(id) {
             campoBairro.val(dados.bairro);
             campoCidade.val(dados.localidade);
             selectEstado.val(dados.uf);
-            
+
             $(campoCep).removeClass('form-invalido');
-        
+
             $(campoCep).tooltip('disable');
 
             campoNumero.focus();
@@ -30,14 +30,14 @@ function validaCep(id) {
             campoBairro.val('');
             campoCidade.val('');
             selectEstado.val('AC');
-            
+
             $(campoCep).addClass('form-invalido');
             tooltip(campoCep, 'CEP inválido.');
         }
     });
-    
+
 }
-                  
+
 function pesquisaCep(cep, callback) {
     cep = cep.replace(/\D/g, '');
 
@@ -45,13 +45,13 @@ function pesquisaCep(cep, callback) {
         callback({
             erro: 'Quantidade de dígitos inválida'
         });
-        
+
     } else {
         $.getJSON("https://viacep.com.br/ws/" + cep + "/json/?callback=?", function (dados) {
 
             if (!("erro" in dados)) {
                 callback(dados); // dados possui dados.logradouro, dados.bairro, dados.localidade, dados.uf e dados.ibge
-                
+
             } else {
                 callback({
                     erro: 'CEP não encontrado'
@@ -60,7 +60,7 @@ function pesquisaCep(cep, callback) {
         });
     }
 }
-                  
+
 // Funções que podem vir a ser utilizadas em qualquer página do projeto
 
 // Exibe uma tooltip abaixo do elemento
@@ -76,17 +76,17 @@ function tooltip(elemento, texto) {
 
 // Retorna true se o CPF passado for válido. Passar o valor, sem se importar com a máscara ( Ex.: $('#inputCpf').val() )
 function validaCpf(cpf) {
-    
+
     var numeroCpf = cpf.replace(/[^0-9]/g, '');
 
     if (numeroCpf.length != 11) {
         return false;
     }
-    
+
     if (numeroCpf == "00000000000" || numeroCpf == "11111111111" || numeroCpf == "22222222222" || numeroCpf == "33333333333"
-       || numeroCpf == "44444444444" || numeroCpf == "55555555555" || numeroCpf == "66666666666" || numeroCpf == "77777777777"
-       || numeroCpf == "88888888888" || numeroCpf == "99999999999"){
-        
+        || numeroCpf == "44444444444" || numeroCpf == "55555555555" || numeroCpf == "66666666666" || numeroCpf == "77777777777"
+        || numeroCpf == "88888888888" || numeroCpf == "99999999999") {
+
         return false;
     }
 
@@ -136,7 +136,7 @@ function validaCpf(cpf) {
     if (numeroCpf.substr(9, 2) == primeiroDigitoVerificador.toString() + segundoDigitoVerificador.toString()) {
         return true;
     }
-    
+
     return false;
 }
 
@@ -226,4 +226,20 @@ function validaTelefone(telefone) {
         return false;
     }
     return true;
+}
+
+function validaData(data) {
+
+    if (/([12]\d{3}-(0[1-9]|[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]|[1-9]))/.test(data)) {
+        return true;
+    }
+    return false;
+}
+
+function validaHora(hora) {
+
+    if (/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/.test(hora)) {
+        return true;
+    }
+    return false;
 }

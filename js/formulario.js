@@ -60,9 +60,42 @@ $(document).ready(function () {
         }
     });
 
-    $('#inputCep').mask('00000-000').focusout(function (e) {
-        validaCep(e.target);
-    });
+    $('input[id^=inputCep]').mask('00000-000')
+        .focusout(function (e) {
+
+            var campoEndereco = $(e.target).parents('.form-row').find('input[id^=inputEndereco]');
+            var campoNumero = $(e.target).parents('.form-row').nextAll().find('input[id^=inputNumero]');
+            var campoBairro = $(e.target).parents('.form-row').nextAll().find('input[id^=inputBairro]');
+            var campoCidade = $(e.target).parents('.form-row').nextAll().find('input[id^=inputCidade]');
+            var selectEstado = $(e.target).parents('.form-row').nextAll().find('select[name^=selectEstado]');
+
+            campoEndereco.val('...');
+            campoBairro.val('...');
+            campoCidade.val('...');
+
+            pesquisaCep($(e.target).val(), function (dados) {
+                if (!dados.erro) {
+                    campoEndereco.val(dados.logradouro);
+                    campoBairro.val(dados.bairro);
+                    campoCidade.val(dados.localidade);
+                    selectEstado.val(dados.uf);
+
+                    $(e.target).removeClass('form-invalido');
+                    $(e.target).tooltip('disable');
+
+                    campoNumero.focus();
+
+                } else {
+                    campoEndereco.val('');
+                    campoBairro.val('');
+                    campoCidade.val('');
+                    selectEstado.val('AC')
+
+                    $(e.target).addClass('form-invalido');
+                    tooltip($(e.target), 'Digite um CEP válido.');
+                }
+            });
+        });
 
     $('#inputCnpj').mask('00.000.000/0000-00')
         .focusout(function (e) {
@@ -193,201 +226,257 @@ $(document).ready(function () {
         }
     }
 
-    
-$('#radioRemunerado').change(function () {
-    $('#inputCargaHorariaMax').prop("disabled", false);
-    $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">' +
-        '<div class="form-group">' +
-        '<label for="inputCompanhiaSeguro">Companhia de seguro</label>' +
-        '<input type="text" class="form-control" id="inputCompanhiaSeguro">' +
-        '</div>' +
-        '</div>'
+    $('#inputCargaHorariaMax').keyup(function () {
+        calculaTerminoEstagio();
+    });
 
-        +
-        '<div id="divApolice" class="col-sm-12 col-md-4">' +
-        '<div class="form-group">' +
-        '<label for="inputNumeroApolice">Número da apólice</label>' +
-        '<input type="text" class="form-control" id="inputNumeroApolice">' +
-        '</div>' +
-        '</div>');
-    $('#checkboxValeTransporte').prop("checked", true);
-    $('#checkboxValeTransporte').prop("disabled", true);
-    $('#inputValorBolsa').prop("required", true);
-});
-
-$('#radioNaoRemunerado').change(function () {
-    $('#inputCargaHorariaMax').val("");
-    $('#inputCargaHorariaMax').prop("disabled", true);
-    $('#divSeguro').remove();
-    $('#divApolice').remove();
-    $('#checkboxValeTransporte').prop("checked", false);
-    $('#checkboxValeTransporte').prop("disabled", false);
-    $('#inputValorBolsa').prop("required", false);
-});
-
-$('#radioFixa').change(function () {
-
-    $('#inputDataFimEstagio').val("");
-    $('#inputDataFimEstagio').prop("disabled", true);
-    $('#campoCargaHoraria').append('<div class="col-sm-12 col-md-3" id="divDiasTrabalhados">'+
-    '<div class="row" id="diasTrabalhados">Dias trabalhados</div>'+
-     '<div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkSegunda">'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-               ' Segunda-feira'+
-            '</label>'+
-        '</div>'+
-        '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkTerca">'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-                'Terça-feira'+
-            '</label>'+
-        '</div>'+
-        '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkQuarta">'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-                'Quarta-feira'+
-            '</label>'+
-        '</div>'+
-        '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkQuinta" >'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-                'Quinta-feira'+
-            '</label>'+
-        '</div>'+
-        '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkSexta">'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-                'Sexta-feira'+
-            '</label>'+
-        '</div>'+
-        '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">'+
-            '<input class="form-check-input" type="checkbox" value="" id="checkSabado">'+
-            '<label class="form-check-label" for="defaultCheck1">'+
-                'Sábado'+
-            '</label>'+
-        '</div>'+
-'</div>'+
-
-'<div class="col-sm-12 col-md-2" id="divHorasTrabalhadas">'+
-    '<div class="row">Horas trabalhadas</div>'+
-    '<div id="horarioEntrada">'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasSegunda" disabled>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasTerca" disabled>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasQuarta" disabled>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasQuinta" disabled>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasSexta" disabled>'+
-        '</div>'+
-        '<div class="form-group">'+
-            '<input type="time" class="form-control" id="horasSabado" disabled>'+
-        '</div>'+
-    '</div>'+
-'</div>');
-    $('#horasSegunda').on();
-});
-
-
-$('#radioVariavel').change(function () {
-    $('#inputDataFimEstagio').prop("disabled", false);
-    $('#divDiasTrabalhados').remove();
-    $('#divHorasTrabalhadas').remove();
-});
-
-
-$("#campoCargaHoraria").on("click", "#checkSegunda", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasSegunda').prop("disabled", false);
-        $("#campoCargaHoraria").on("focusout", "#horasSegunda", function(){
+    $('#inputDataInicioEstagio').keyup(function (e) {
+        if (validaData($(e.target).val())) {
             calculaTerminoEstagio();
-        });
-    }else {
-        $('#horasSegunda').val("");
-        $('#horasSegunda').prop("disabled", true); 
-    } 
-});
+        }
+    });
 
-$("#campoCargaHoraria").on("click", "#checkTerca", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasTerca').prop("disabled", false); 
-        $("#campoCargaHoraria").on("focusout", "#horasTerca", function(){
-            calculaTerminoEstagio();
-        });
-    } else {
-        $('#horasTerca').val("");
-        $('#horasTerca').prop("disabled", true); 
-    } 
-});
+    $('#radioRemunerado').change(function () {
+        $('#inputCargaHorariaMax').val('');
+        $('#inputCargaHorariaMax').prop("disabled", true);
+        $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">' +
+            '<div class="form-group">' +
+            '<label for="inputCompanhiaSeguro">Companhia de seguro</label>' +
+            '<input type="text" class="form-control" id="inputCompanhiaSeguro">' +
+            '</div>' +
+            '</div>'
 
-$("#campoCargaHoraria").on("click", "#checkQuarta", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasQuarta').prop("disabled", false); 
-        $("#campoCargaHoraria").on("focusout", "#horasQuarta", function(){
-            calculaTerminoEstagio();
-        });
-    } else {
-        $('#horasQuarta').val("");
-        $('#horasQuarta').prop("disabled", true); 
-    } 
-});
+            +
+            '<div id="divApolice" class="col-sm-12 col-md-4">' +
+            '<div class="form-group">' +
+            '<label for="inputNumeroApolice">Número da apólice</label>' +
+            '<input type="text" class="form-control" id="inputNumeroApolice">' +
+            '</div>' +
+            '</div>');
+        $('#checkboxValeTransporte').prop("checked", true);
+        $('#checkboxValeTransporte').prop("disabled", true);
+        $('#inputValorBolsa').prop("required", true);
+    });
 
-$("#campoCargaHoraria").on("click", "#checkQuinta", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasQuinta').prop("disabled", false); 
-        $("#campoCargaHoraria").on("focusout", "#horasQuinta", function(){
-            calculaTerminoEstagio();
-        });
-    } else {
-        $('#horasQuinta').val("");
-        $('#horasQuinta').prop("disabled", true); 
-    } 
-});
+    $('#radioNaoRemunerado').change(function () {
+        $('#inputCargaHorariaMax').val("");
+        $('#inputCargaHorariaMax').prop("disabled", false);
+        $('#divSeguro').remove();
+        $('#divApolice').remove();
+        $('#checkboxValeTransporte').prop("checked", false);
+        $('#checkboxValeTransporte').prop("disabled", false);
+        $('#inputValorBolsa').prop("required", false);
+    });
 
-$("#campoCargaHoraria").on("click", "#checkSexta", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasSexta').prop("disabled", false); 
-        $("#campoCargaHoraria").on("focusout", "#horasSexta", function(){
-            calculaTerminoEstagio();
-        });
-    } else {
-        $('#horasSexta').val("");
-        $('#horasSexta').prop("disabled", true); 
-    } 
-});
+    $('#radioFixa').change(function () {
 
-$("#campoCargaHoraria").on("click", "#checkSabado", function(){
-    calculaTerminoEstagio();
-    if ($(this).prop("checked")){
-        $('#horasSabado').prop("disabled", false); 
-        $("#campoCargaHoraria").on("focusout", "#horasSabado", function(){
-            calculaTerminoEstagio();
-        });
-    } else {
-        $('#horasSabado').val("");
-        $('#horasSabado').prop("disabled", true); 
-    } 
-});
+        $('#inputDataFimEstagio').val("");
+        $('#inputDataFimEstagio').prop("disabled", false);
+        $('#campoCargaHoraria').append('<div class="col-sm-12 col-md-3" id="divDiasTrabalhados">' +
+            '<div class="row" id="diasTrabalhados">Dias trabalhados</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkSegunda">' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            ' Segunda-feira' +
+            '</label>' +
+            '</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkTerca">' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            'Terça-feira' +
+            '</label>' +
+            '</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkQuarta">' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            'Quarta-feira' +
+            '</label>' +
+            '</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkQuinta" >' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            'Quinta-feira' +
+            '</label>' +
+            '</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkSexta">' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            'Sexta-feira' +
+            '</label>' +
+            '</div>' +
+            '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
+            '<input class="form-check-input" type="checkbox" value="" id="checkSabado">' +
+            '<label class="form-check-label" for="defaultCheck1">' +
+            'Sábado' +
+            '</label>' +
+            '</div>' +
+            '</div>' +
 
+            '<div class="col-sm-12 col-md-2" id="divHorasTrabalhadas">' +
+            '<div class="row">Horas trabalhadas</div>' +
+            '<div id="horarioEntrada">' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasSegunda" disabled>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasTerca" disabled>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasQuarta" disabled>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasQuinta" disabled>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasSexta" disabled>' +
+            '</div>' +
+            '<div class="form-group">' +
+            '<input type="time" class="form-control" id="horasSabado" disabled>' +
+            '</div>' +
+            '</div>' +
+            '</div>');
+        $('#horasSegunda').on();
+    });
+
+
+    $('#radioVariavel').change(function () {
+        $('#inputDataFimEstagio').prop("disabled", false);
+        $('#divDiasTrabalhados').remove();
+        $('#divHorasTrabalhadas').remove();
+    });
+
+
+    $("#campoCargaHoraria").on("click", "#checkSegunda", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasSegunda').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasSegunda", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasSegunda').val("");
+            $('#horasSegunda').prop("disabled", true);
+        }
+    });
+
+    $("#campoCargaHoraria").on("click", "#checkTerca", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasTerca').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasTerca", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasTerca').val("");
+            $('#horasTerca').prop("disabled", true);
+        }
+    });
+
+    $("#campoCargaHoraria").on("click", "#checkQuarta", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasQuarta').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasQuarta", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasQuarta').val("");
+            $('#horasQuarta').prop("disabled", true);
+        }
+    });
+
+    $("#campoCargaHoraria").on("click", "#checkQuinta", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasQuinta').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasQuinta", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasQuinta').val("");
+            $('#horasQuinta').prop("disabled", true);
+        }
+    });
+
+    $("#campoCargaHoraria").on("click", "#checkSexta", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasSexta').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasSexta", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasSexta').val("");
+            $('#horasSexta').prop("disabled", true);
+        }
+    });
+
+    $("#campoCargaHoraria").on("click", "#checkSabado", function () {
+        calculaTerminoEstagio();
+        if ($(this).prop("checked")) {
+            $('#horasSabado').prop("disabled", false);
+            $("#campoCargaHoraria").on("keyup", "#horasSabado", function (e) {
+                if (validaHora($(e.target).val())) {
+                    calculaTerminoEstagio();
+                }
+            });
+        } else {
+            $('#horasSabado').val("");
+            $('#horasSabado').prop("disabled", true);
+        }
+    });
+
+    $('#inputDataFimEstagio').keyup(function (e) {
+        if ($('#radioRemunerado').prop('checked') && validaData($(e.target).val()) && validaData($('#inputDataInicioEstagio').val())) {
+
+            var array = $('#inputDataInicioEstagio').val().split('-');
+            var diaInicio = array[2];
+            var mesInicio = array[1];
+            var anoInicio = array[0];
+
+            array = $(e.target).val().split('-');
+            var diaFim = array[2];
+            var mesFim = array[1];
+            var anoFim = array[0];
+
+            var qtdMeses = ((anoFim - anoInicio) * 12) + (mesFim - mesInicio);
+
+            if (qtdMeses > 6 || (qtdMeses == 6 && (diaFim - diaInicio) != 0)) {
+
+                // Muda a cor da borda para vermelho
+                $(e.target).addClass('form-invalido');
+
+                // Tooltip
+                tooltip($(e.target), 'O estágio deve ter duração máxima de 6 meses.');
+
+                $(e.target).val('');
+
+            } else {
+                // CPF válido, muda a cor da borda para a cor padrão
+                $(e.target).removeClass('form-invalido');
+
+                // Remove o tooltip
+                $(e.target).tooltip('disable');
+            }
+        }
+    });
 });
 
 
 /*
 $('#checkSegunda').change(function (){
     if ($(this).prop("checked")){
-        $('#horasSegunda').prop("disabled", false); 
+        $('#horasSegunda').prop("disabled", false);
     } else {
         $('#horasSegunda').val("");
         $('#horasSegunda').prop("disabled", true);
@@ -397,17 +486,17 @@ $('#checkSegunda').change(function (){
 
 $('#checkTerca').change(function (){
     if ($(this).prop("checked")){
-        $('#horasTerca').prop("disabled", false); 
+        $('#horasTerca').prop("disabled", false);
     } else {
         $('#horasTerca').val("");
-        $('#horasTerca').prop("disabled", true); 
+        $('#horasTerca').prop("disabled", true);
     }
 });
 
 
 $('#checkQuarta').change(function (){
     if ($(this).prop("checked")){
-        $('#horasQuarta').prop("disabled", false); 
+        $('#horasQuarta').prop("disabled", false);
     } else {
         $('#horasQuarta').val("");
         $('#horasQuarta').prop("disabled", true);

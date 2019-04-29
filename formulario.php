@@ -3,13 +3,12 @@
 
     $test = false; // Definir como true para rodar os testes
 
-   /* if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
+    if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") &&  
 	(isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
         header("Location: login.php");
-	} else {*/
+	} else {
         include("header.php");
-
-     ?>
+?>
      
 <!-- CSS do Formulário -->
 <link rel="stylesheet" href="css/formulario.css">
@@ -684,6 +683,6 @@
 
 
 <?php
-    //}
+    }
     include("footer.html");
 ?>

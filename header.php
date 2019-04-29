@@ -102,6 +102,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="formularioFrequenciaEstagio.php">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Frequência de Estágio</span>
+                            </a>
+                        </li>
+
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fas fa-file-pdf"></i>

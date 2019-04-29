@@ -1,45 +1,38 @@
+$(document).ready(function () {
 var qtdLinhas = 0;
 var tempoTotal = [0, 0];
-var auxTempo;
-
-$(document).ready(function () {
-        console.log(qtdLinhas);
+var auxTempo = [0,0];
     
-    $("#inputCargaHoraria").focusout(function(){
+    
+    
+/*    $("#inputCargaHoraria"+qtdLinhas).focusout(function(){
         console.log("oi");
-        
-        var aux = $("#inputCargaHoraria" + qtdLinhas).val() + "";
-        var auxTempo = aux.split(':');
+        var aux = $("#inputCargaHoraria" + qtdLinhas).val();
+        auxTempo = aux.split(':');
         console.log(auxTempo);
-        tempoTotal[0] += auxTempo[0];
-        aux = tempoTotal[1];
-        aux += auxTempo[1];
-        var aux2 = aux/60;
-        aux2.split('.');
-        tempoTotal[0] += aux2[0];
-        tempoTotal[1] += aux2[1];
+        aux = tempoTotal[1] + auxTempo[1]; // auxiliar recebe a soma dos minutos sem tratamento
+        aux = aux/60; // trata
+        aux.split('.');
+        tempoTotal[0] = tempoTotal[0] + auxTempo[0] + aux[0];  /// soma as horas 
+        tempoTotal[1] += aux[1]; // soma os minutos totais e auxiliares
+        
+        console.log(tempototal);
         
         
-        tempoTotal = [0, 0];
-            for (var i = 0; i <= qtdLinhas; i++) {
-                var aux = $("#inputCargaHoraria" + i).val() + "";
-                var auxTempo = aux.split(':');
-                console.log(auxTempo);
-                for (var j = 0; j < auxTempo.length; j++) {
-                    tempoTotal[j] += parseInt(auxTempo[j]);
-                }
-            }
+        
+        
         var stringCargaHoraria = $("<label for=\"CargaHorariaTotal\">Carga Horária Total</label>" +
                                 "<input type=\"text\" class=\"form-control\" name=\"CargaHorariaTotal\" id=\"CargaHorariaTotal\">");
         $("#divCargaHorariaTotal").append(stringCargaHoraria);
-    });
+    });*/
+    
 
-    $("#botaoAdicionar").click(function () {
-        var stringlinha = $("<div class=\"form-row\" id=\"qtdLinhas-" + qtdLinhas + "\">" +
+    $("#linhaBotoes").on("click", "#botaoAdicionar", function() {
+        var stringlinha = $("<div class=\"form-row\" id=\"linhaDiaria" + qtdLinhas + "\">" +
             "<div class=\"col-sm-12 col-md-3\">" +
             "<div class=\"form-group\">" +
             "<label for=\"inputData\">Data</label>" +
-            "<input type=\"date\" class=\"form-control\" name=\"inputData" + qtdLinhas + "\" id=\"inputData\" required>" +
+            "<input type=\"date\" class=\"form-control\" name=\"inputData" + qtdLinhas + "\" id=\"inputData" + qtdLinhas + "\" required>" +
             "</div>" +
             "</div>" +
             "<div class=\"col-sm-12 col-md-2\">" +
@@ -51,30 +44,60 @@ $(document).ready(function () {
             "<div class=\"col-sm-12 col-md-3\">" +
             "<div class=\"form-group\">" +
             "<label for=\"inputSetor\">Setor</label>" +
-            "<input type=\"text\" class=\"form-control\" name=\"inputSetor" + qtdLinhas + "\" id=\"inputSetor\" required>" +
+            "<input type=\"text\" class=\"form-control\" name=\"inputSetor" + qtdLinhas + "\" id=\"inputSetor" + qtdLinhas + "\" required>" +
             "</div>" +
             "</div>" +
             "<div class=\"col-sm-12 col-md-4\">" +
             "<div class=\"form-group\">" +
             "<label for=\"inputAtividade\">Atividade Desenvolvida</label>" +
-            "<input type=\"text\" class=\"form-control\" name=\"inputAtividade" + qtdLinhas + "\" id=\"inputAtividade\" required>" +
+            "<input type=\"text\" class=\"form-control\" name=\"inputAtividade" + qtdLinhas + "\" id=\"inputAtividade" + qtdLinhas + "\" required>" +
             "</div>" +
             "</div>" +
             "</div>");
+        
         var empty = false;
-        $("input").each(function () {
+        $("linhaDiaria").each(function () {
             if ($(this).val() == "") {
                 empty = true;
                 return true;
             }
         });
         if (empty == false) {
-            
-            $("#linhaEstagio").append(stringlinha);
             qtdLinhas++;
+            $("#linhaEstagio").append(stringlinha);    
         }
+        
+        
 
     });
+    
+    
+    
+    $("#linhaEstagio").on("focusout", "#inputCargaHoraria"+qtdLinhas, function(){
+        console.log("entrou aqui porra");
+        console.log("quant: " + qtdLinhas);
+        var aux = $("#inputCargaHoraria"+qtdLinhas).val();
+            console.log(aux);
+        auxTempo = aux.split(':');
+        console.log(auxTempo);
+        
+        
+        aux = tempoTotal[1] + auxTempo[1]; // auxiliar recebe a soma dos minutos sem tratamento
+        
+        if (aux> 60){
+            tempoTotal[0] += auxTempo[0] +1;
+            tempoTotal[1] = auxTempo[1]%60;
+        }else{
+            tempoTotal[0] += auxTempo[0];
+            tempoTotal[1] += auxTempo[1];
+
+        }
+        $("#cargaHorariaTotal").val(tempoTotal);
+        console.log(tempototal);
+
+    });
+    
+    
     $("#botaoRemover").click(function () {
         qtdLinhas--;
         $("#qtdLinhas-" + qtdLinhas).remove();

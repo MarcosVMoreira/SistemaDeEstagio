@@ -22,13 +22,41 @@
                     </div>
                     <div class="card-body">
                         <div id="linhaEstagio">
+                            <div class="form-row" id="linhaDiaria0"> 
+                                <div class="col-sm-12 col-md-3"> 
+                                    <div class="form-group">
+                                        <label for="inputData">Data</label> 
+                                        <input type="date" class="form-control" name="inputData" id="inputData0" required>
+                                    </div> 
+                                </div>
+                                <div class="col-sm-12 col-md-2"> 
+                                    <div class="form-group">
+                                        <label for="inputCargaHoraria">Carga Horária</label>
+                                        <input type="time" class="form-control" name="inputCargaHoraria" id="inputCargaHoraria0" required>
+                                    </div> 
+                                </div>
+                                <div class="col-sm-12 col-md-3"> 
+                                    <div class="form-group">
+                                        <label for="inputSetor">Setor</label>
+                                        <input type="text" class="form-control" name="inputSetor"  id="inputSetor0" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label for="inputAtividade">Atividade Desenvolvida</label>
+                                        <input type="text" class="form-control" name="inputAtividade"  id="inputAtividade0" required>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-12 col-md-4">
+                            <div class="col-sm-12 col-md-4" id="linhaBotoes">
                                 <button type="button" class="btn btn-success" id="botaoAdicionar">Adicionar</button>
                                 <button type="button" class="btn btn-danger" id="botaoRemover">Remover</button>
                             </div>
                             <div class="col-sm-12 col-md-4 offset-md-8" id="divCargaHorariaTotal">
+                                <label for="CargaHorariaTotal">Carga Horária Total</label>
+                                <input type="text" class="form-control" name="CargaHorariaTotal" id="CargaHorariaTotal">
                             </div>
                         </div>
                     </div>

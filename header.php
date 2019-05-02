@@ -117,7 +117,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Plano de Estágio</a>
+                                        <a href="verificarPlanoDeEstagio">Plano de Estágio</a>
                                     </li>
                                     <li>
                                         <a href="#">Termo de Estágio Não Obrigatório</a>

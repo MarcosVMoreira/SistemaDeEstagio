@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 29-Abr-2019 às 18:10
+-- Generation Time: 02-Maio-2019 às 19:28
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -67,9 +67,8 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 --
 
 INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `cpfSupervisor`, `idOrientador`, `idEstagio`, `cnpjCpfConcedente`) VALUES
-('11111111111111111', '278.360.916-94', '1', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Gestão Ambiental', 'Inconfidentes', '14161000000', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-04-12', NULL, NULL, NULL, NULL, NULL, '7', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
-('11111111111111111', '278.360.916-94', 'teste', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Engenharia de Computação', 'Poços de Caldas', '14161000235', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-04-10', NULL, NULL, NULL, NULL, NULL, '7', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
-('53150511X', '48231388800', 'Otavio Messias Palma', 'Sao Joao da Boa Vista', 'São Paulo', '13870579', 'Rua Carlos', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '1936232323', '19981303030', 'otaviopalma@gmail.com', '06/04/1998', 1, 'Palma', '1000', 'Vale-Transporte, Vale-Alimentação', '154646464613', '7/2016', 'Superior', NULL, '698dc19d489c4e4db73e28a713eab07b', '12345676812', 1, 1, '00000000');
+('834354', '278.360.916-94', '1', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1111, 'Técnico em Informática', 'Poços de Caldas', '14161000000', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-08', NULL, NULL, NULL, NULL, NULL, '3', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 138, NULL, NULL),
+('834354', '278.360.916-94', 'teste2', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Técnico em Informática', 'Poços de Caldas', '14161000001', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-09', NULL, NULL, NULL, NULL, NULL, '1', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 139, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -94,15 +93,17 @@ CREATE TABLE IF NOT EXISTS `concedentes` (
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) NOT NULL,
   `descricao` varchar(300) NOT NULL,
-  PRIMARY KEY (`cnpjCpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,
+  `complemento` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idEmpresa`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `concedentes`
 --
 
-INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTceNome`, `responsavelTceCargo`, `representanteEmpresaNome`, `representanteEmpresaCargo`, `email`, `telefone`, `uf`, `cidade`, `bairro`, `numero`, `descricao`) VALUES
-('PALMA & PALMA', '00000000', 'Rua Cissa', '17750789', 'Roberto Carlos', 'Professor', 'Ronaldo Felicio', 'Diretor', 'ronaldofelicio@gmail.com', '193536363636', 'Minas Gerais', 'Poços de Caldas', 'Azaleias', 15, 'empresa da familia Palma');
+INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTceNome`, `responsavelTceCargo`, `representanteEmpresaNome`, `representanteEmpresaCargo`, `email`, `telefone`, `uf`, `cidade`, `bairro`, `numero`, `descricao`, `idEmpresa`, `complemento`) VALUES
+('PALMA & PALMA', '00000000', 'Rua Cissa', '17750789', 'Roberto Carlos', 'Professor', 'Ronaldo Felicio', 'Diretor', 'ronaldofelicio@gmail.com', '193536363636', 'Minas Gerais', 'Poços de Caldas', 'Azaleias', 15, 'empresa da familia Palma', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -156,14 +157,18 @@ CREATE TABLE IF NOT EXISTS `orientador` (
   `telefone` varchar(45) DEFAULT NULL,
   `idOrientador` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idOrientador`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=140 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `orientador`
 --
 
 INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
-('Marcos Vinicius Moreira', 'marcos@vinicius.moreira', '35123456789', 1);
+('Marcos Vinicius Moreira', 'marcos@vinicius.moreira', '35123456789', 1),
+('1', '11111111@111111111.com', '(11) 11111-1111', 136),
+('1', '11111111@111111111.com', '(11) 11111-1111', 137),
+('1', '11111111@111111111.com', '(11) 11111-1111', 138),
+('1', '11111111@111111111.com', '(11) 11111-1111', 139);
 
 -- --------------------------------------------------------
 

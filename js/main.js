@@ -236,9 +236,17 @@ function validaData(data) {
     return false;
 }
 
+/* Valida de  00:00 a 23:59 */
 function validaHora(hora) {
-
     if (/(0[0-9]|1[0-9]|2[0-3]|[0-9]):[0-5][0-9]/.test(hora)) {
+        return true;
+    }
+    return false;
+}
+
+/* Valida de 00:00 a 999:59 */
+function validaCargaHoraria(hora) {
+    if (/(\d{2}\d?):[0-5][0-9]/.test(hora)) {
         return true;
     }
     return false;

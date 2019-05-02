@@ -1,33 +1,44 @@
-$(document).ready(function () {
-var qtdLinhas = 0;
-var tempoTotal = [0, 0];
-var auxTempo = [0,0];
-    
-    
-    
-/*    $("#inputCargaHoraria"+qtdLinhas).focusout(function(){
-        console.log("oi");
-        var aux = $("#inputCargaHoraria" + qtdLinhas).val();
-        auxTempo = aux.split(':');
-        console.log(auxTempo);
-        aux = tempoTotal[1] + auxTempo[1]; // auxiliar recebe a soma dos minutos sem tratamento
-        aux = aux/60; // trata
-        aux.split('.');
-        tempoTotal[0] = tempoTotal[0] + auxTempo[0] + aux[0];  /// soma as horas 
-        tempoTotal[1] += aux[1]; // soma os minutos totais e auxiliares
-        
-        console.log(tempototal);
-        
-        
-        
-        
-        var stringCargaHoraria = $("<label for=\"CargaHorariaTotal\">Carga Horária Total</label>" +
-                                "<input type=\"text\" class=\"form-control\" name=\"CargaHorariaTotal\" id=\"CargaHorariaTotal\">");
-        $("#divCargaHorariaTotal").append(stringCargaHoraria);
-    });*/
-    
+function somaHora(hrA, hrB) {
+    if (!validaCargaHoraria(hrA) || !validaCargaHoraria(hrB)) return "00:00";
 
-    $("#linhaBotoes").on("click", "#botaoAdicionar", function() {
+    hrA = hrA.split(':');
+    hrB = hrB.split(':');
+    hrA[0] = hrA[0] * 1;
+    hrA[1] = hrA[1] * 1;
+    hrB[0] = hrB[0] * 1;
+    hrB[1] = hrB[1] * 1;
+
+    var resultado = [0, 0];
+    resultado[0] = hrA[0] + hrB[0];
+
+    if (hrA[1] + hrB[1] >= 60) {
+        resultado[0] += 1;
+        resultado[1] = (hrA[1] + hrB[1]) % 60;
+    } else {
+        resultado[1] = hrA[1] + hrB[1];
+    }
+
+    resultado[0] = resultado[0].toString().length == 1 ? ("0" + resultado[0]) : resultado[0];
+    resultado[1] = resultado[1].toString().length == 1 ? ("0" + resultado[1]) : resultado[1];
+
+    return resultado[0] + ':' + resultado[1];
+}
+
+function calculaHoraTotal(qtdLinhas) {
+    var soma = "00:00";
+    for (var i = 0; i < qtdLinhas; i++) {
+        var horario = $('#inputCargaHoraria' + i).val();
+        soma = somaHora(soma, horario, false);
+    }
+    return soma;
+}
+
+$(document).ready(function () {
+    var qtdLinhas = 0;
+    var tempoTotal = [0, 0];
+    var auxTempo = [0, 0];
+
+    $("#linhaBotoes").on("click", "#botaoAdicionar", function () {
         var stringlinha = $("<div class=\"form-row\" id=\"linhaDiaria" + qtdLinhas + "\">" +
             "<div class=\"col-sm-12 col-md-3\">" +
             "<div class=\"form-group\">" +
@@ -54,52 +65,21 @@ var auxTempo = [0,0];
             "</div>" +
             "</div>" +
             "</div>");
-        
-        var empty = false;
-        $("linhaDiaria").each(function () {
-            if ($(this).val() == "") {
-                empty = true;
-                return true;
+
+        $("#linhaEstagio").append(stringlinha);
+
+        $('#inputCargaHoraria' + qtdLinhas).keyup(function (e) {
+            if (validaHora($(e.target).val())) {
+                $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
             }
         });
-        if (empty == false) {
-            qtdLinhas++;
-            $("#linhaEstagio").append(stringlinha);    
-        }
-        
-        
 
+        qtdLinhas++;
     });
-    
-    
-    
-    $("#linhaEstagio").on("focusout", "#inputCargaHoraria"+qtdLinhas, function(){
-        console.log("entrou aqui porra");
-        console.log("quant: " + qtdLinhas);
-        var aux = $("#inputCargaHoraria"+qtdLinhas).val();
-            console.log(aux);
-        auxTempo = aux.split(':');
-        console.log(auxTempo);
-        
-        
-        aux = tempoTotal[1] + auxTempo[1]; // auxiliar recebe a soma dos minutos sem tratamento
-        
-        if (aux> 60){
-            tempoTotal[0] += auxTempo[0] +1;
-            tempoTotal[1] = auxTempo[1]%60;
-        }else{
-            tempoTotal[0] += auxTempo[0];
-            tempoTotal[1] += auxTempo[1];
 
-        }
-        $("#cargaHorariaTotal").val(tempoTotal);
-        console.log(tempototal);
-
-    });
-    
-    
     $("#botaoRemover").click(function () {
         qtdLinhas--;
-        $("#qtdLinhas-" + qtdLinhas).remove();
+        $("#linhaDiaria" + qtdLinhas).remove();
+        $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
     });
 });

@@ -109,6 +109,13 @@
                             </a>
                         </li>
 
+                        <li>
+                            <a href="formularioRelatorioEstagio.php">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Relatório de Estágio</span>
+                            </a>
+                        </li>
+
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fas fa-file-pdf"></i>

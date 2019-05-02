@@ -59,10 +59,8 @@
     $nomeOrientador = $_POST['inputNomeOrientador'];
     $telefoneOrientador = $_POST['inputTelefoneOrientador'];
     $emailOrientador = $_POST['inputEmailOrientador'];
-
     $query = 'SELECT idOrientador FROM orientador';
     if ($resultado = $conexao->query($query)) {
-        
         $achou = false;
         while($linha = $resultado->fetch_assoc()) {
             if($_SESSION['idOrientador'] != '') {
@@ -71,16 +69,22 @@
                     break;
                 }
             } else {
-                $query = "INSERT INTO orientador VALUES ('$nomeOrientador', '$emailOrientador', '$telefoneOrientador')";
-                // $_SESSION['idOrientador'] = $conexao->lastInsertId(); -- ATUALIZAR VALOR DA SESSION
+                $query1 = "INSERT INTO orientador (nome, email, telefone) VALUES ('$nomeOrientador', '$emailOrientador', '$telefoneOrientador')";
+                if (!$conexao->query($query1) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
+                $_SESSION['idOrientador'] = $conexao->insert_id;
+                $query1 = "UPDATE alunos SET idOrientador = ".$_SESSION['idOrientador']." WHERE ra = ".$_SESSION['ra'].""; 
+                if (!$conexao->query($query1) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
             }
         }
-        
-        if(!$achou) {
-            
-        }
-        
-    } else {
+    } if (!$conexao->query($query) === TRUE) {
         echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
         echo "Error updating record: " . $conexao->error;
         exit;

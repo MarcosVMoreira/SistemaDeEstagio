@@ -236,7 +236,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNomeEmpresa">Nome da empresa</label>
-                                        <input value="Silva" type="text" class="form-control" id="inputNomeEmpresa" required>
+                                        <input value="Silva" type="text" class="form-control" name="inputNomeEmpresa" id="inputNomeEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -245,21 +245,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCnpj">CNPJ</label>
-                                        <input value="53402153000121" type="text" class="form-control" id="inputCnpj" required>
+                                        <input value="53402153000121" type="text" class="form-control" name="inputCnpj" id="inputCnpj" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputEmailEmpresa">Email</label>
-                                        <input value="silva@gmail.com" type="email" class="form-control" id="inputEmailEmpresa" required>
+                                        <input value="silva@gmail.com" type="email" class="form-control" name="inputEmailEmpresa" id="inputEmailEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneEmpresa">Telefone</label>
-                                        <input value="35977777777" type="text" class="form-control" id="inputTelefoneEmpresa" required>
+                                        <input value="35977777777" type="text" class="form-control" name="inputTelefoneEmpresa" id="inputTelefoneEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -268,14 +268,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCepEmpresa">CEP</label>
-                                        <input value="37713338" type="text" class="form-control" id="inputCepEmpresa" required>
+                                        <input value="37713338" type="text" class="form-control" name="inputCepEmpresa" id="inputCepEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEnderecoEmpresa">Endereço</label>
-                                        <input value="Coronel Osmar Bento Gonçalves" type="text" class="form-control" id="inputEnderecoEmpresa" required>
+                                        <input value="Coronel Osmar Bento Gonçalves" type="text" class="form-control" name="inputEnderecoEmpresa" id="inputEnderecoEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -284,14 +284,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumeroEmpresa">Número</label>
-                                        <input value="11" type="text" class="form-control" id="inputNumeroEmpresa" required>
+                                        <input value="11" type="text" class="form-control" name="inputNumeroEmpresa" id="inputNumeroEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplementoEmpresa">Complemento</label>
-                                        <input type="text" class="form-control" id="inputComplementoEmpresa">
+                                        <input type="text" class="form-control" name="inputComplementoEmpresa" id="inputComplementoEmpresa">
                                     </div>
                                 </div>
                             </div>
@@ -300,14 +300,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputBairroEmpresa">Bairro</label>
-                                        <input value="São Bento" type="text" class="form-control" id="inputBairroEmpresa" required>
+                                        <input value="São Bento" type="text" class="form-control" name="inputBairroEmpresa" id="inputBairroEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidadeEmpresa">Cidade</label>
-                                        <input value="Poços de Caldas" type="text" class="form-control" id="inputCidadeEmpresa" required>
+                                        <input value="Poços de Caldas" type="text" class="form-control" name="inputCidadeEmpresa" id="inputCidadeEmpresa" required>
                                     </div>
                                 </div>
 
@@ -351,14 +351,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeRepresentante">Representante</label>
-                                        <input value="Representante" type="text" class="form-control" id="inputNomeRepresentante" required>
+                                        <input value="Representante" type="text" class="form-control" name="inputNomeRepresentante" id="inputNomeRepresentante" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoRepresentante">Cargo</label>
-                                        <input value="Diretor" type="text" class="form-control" id="inputCargoRepresentante" required>
+                                        <input value="Diretor" type="text" class="form-control" name="inputCargoRepresentante" id="inputCargoRepresentante" required>
                                     </div>
                                 </div>
                             </div>
@@ -367,14 +367,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputResponsavelAssTCE">Responsável pela assinatura do termo de compromisso</label>
-                                        <input value="Resp da assinatura" type="text" class="form-control" id="inputResponsavelAssTCE" required>
+                                        <input value="Resp da assinatura" type="text" class="form-control" name="inputResponsavelAssTCE" id="inputResponsavelAssTCE" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoResponsavelAssTCE">Cargo</label>
-                                        <input value="diretor de ti" type="text" class="form-control" id="inputCargoResponsavelAssTCE" required>
+                                        <input value="diretor de ti" type="text" class="form-control" name="inputCargoResponsavelAssTCE" id="inputCargoResponsavelAssTCE" required>
                                     </div>
                                 </div>
                             </div>
@@ -391,14 +391,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeSupervisor">Nome completo</label>
-                                        <input value="aaaa aaaa cccc" type="text" class="form-control" id="inputNomeSupervisor" required>
+                                        <input value="aaaa aaaa cccc" type="text" class="form-control" name="inputNomeSupervisor" id="inputNomeSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoSupervisor">Cargo</label>
-                                        <input value="Supervisor" type="text" class="form-control" id="inputCargoSupervisor" required>
+                                        <input value="Supervisor" type="text" class="form-control" name="inputCargoSupervisor" id="inputCargoSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -407,14 +407,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEmailSupervisor">Email</label>
-                                        <input value="email@gmail.com" type="email" class="form-control" id="inputEmailSupervisor" required>
+                                        <input value="email@gmail.com" type="email" class="form-control" name="inputEmailSupervisor" id="inputEmailSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneSupervisor">Telefone</label>
-                                        <input value="35966666666" type="text" class="form-control" id="inputTelefoneSupervisor" required>
+                                        <input value="35966666666" type="text" class="form-control" name="inputTelefoneSupervisor" id="inputTelefoneSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -423,21 +423,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCpfSupervisor">CPF</label>
-                                        <input value="44236860074" type="text" class="form-control" id="inputCpfSupervisor" required>
+                                        <input value="44236860074" type="text" class="form-control" name="inputCpfSupervisor" id="inputCpfSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCursoSupervisor">Curso de formação</label>
-                                        <input value="Eng de Computação" type="text" class="form-control" id="inputCursoSupervisor" required>
+                                        <input value="Eng de Computação" type="text" class="form-control" name="inputCursoSupervisor" id="inputCursoSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputConselhoSupervisor">Conselho de Classe Profissional</label>
-                                        <input value="Conselho classe" type="text" class="form-control" id="inputConselhoSupervisor" placeholder="(opcional)">
+                                        <input value="Conselho classe" type="text" class="form-control" name = "inputConselhoSupervisor" id="inputConselhoSupervisor" placeholder="(opcional)">
                                     </div>
                                 </div>
                             </div>
@@ -499,19 +499,19 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <label for="inputBeneficios">Benefícios</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="ValeTransporte" id="checkboxValeTransporte">
+                                            <input class="form-check-input" type="checkbox" value="ValeTransporte" name="checkboxValeTransporte" id="checkboxValeTransporte">
                                             <label class="form-check-label" for="checkboxValeTransporte">
                                                 Vale Transporte
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="PlanoDeSaude" id="checkboxPlanoDeSaude">
+                                            <input class="form-check-input" type="checkbox" value="PlanoDeSaude" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude">
                                             <label class="form-check-label" for="checkboxPlanoDeSaude">
                                                 Plano de Saúde
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="ValeAlimentacao" id="checkboxValeAlimentacao">
+                                            <input class="form-check-input" type="checkbox" value="ValeAlimentacao" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao">
                                             <label class="form-check-label" for="checkboxValeAlimentacao">
                                                 Vale Alimentação
                                             </label>
@@ -524,7 +524,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputCargaHorariaMax">Carga horária total</label>
-                                        <input value="200" type="text" class="form-control" id="inputCargaHorariaMax">
+                                        <input value="200" type="text" class="form-control" name="inputCargaHorariaMax" id="inputCargaHorariaMax">
                                         <small class="help-block text-muted"><a href="https://www.google.com/" target="_blank">Consulte aqui</a></small>
                                     </div>
                                 </div>
@@ -551,14 +551,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputDataInicioEstagio">Data de início</label>
-                                        <input value="2018-02-02" type="date" class="form-control" id="inputDataInicioEstagio" required>
+                                        <input value="2018-02-02" type="date" class="form-control" name="inputDataInicioEstagio" id="inputDataInicioEstagio" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputDataFimEstagio">Data de término</label>
-                                        <input value="2018-05-30" type="date" class="form-control" id="inputDataFimEstagio" required>
+                                        <input value="2018-05-30" type="date" class="form-control" name="inputDataFimEstagio" id="inputDataFimEstagio" required>
                                     </div>
                                 </div>
                             </div>
@@ -570,37 +570,37 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3" id="divDiasTrabalhados">
                                     <div class="row">Dias trabalhados</div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
-                                        <input class="form-check-input" type="checkbox" value="0500" id="checkSegunda" checked>
+                                        <input class="form-check-input" type="checkbox" value="0500" name="checkSegunda" id="checkSegunda" checked>
                                         <label class="form-check-label" for="defaultCheck1">
                                             Segunda-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkTerca">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Terça-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkQuarta">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Quarta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkQuinta">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Quinta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkSexta">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Sexta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" id="checkSabado">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado">
                                         <label class="form-check-label" for="defaultCheck1">
                                             Sábado
                                         </label>
@@ -611,22 +611,22 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="row">Horas trabalhadas</div>
                                     <div id="horarioEntrada">
                                         <div class="form-group">
-                                            <input value="05:00"type="time" class="form-control" id="horasSegunda" enable>
+                                            <input value="05:00"type="time" class="form-control" name="horasSegunda" id="horasSegunda" enable>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" id="horasTerca" disabled>
+                                            <input type="time" class="form-control" name="horasTerca" id="horasTerca" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" id="horasQuarta" disabled>
+                                            <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" id="horasQuinta" disabled>
+                                            <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" id="horasSexta" disabled>
+                                            <input type="time" class="form-control" name="horasSexta" id="horasSexta" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" id="horasSabado" disabled>
+                                            <input type="time" class="form-control" name="horasSabado" id="horasSabado" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -642,7 +642,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                        <textarea class="form-control" id="inputAtividadesDesenvolvidas" rows="3" required>asdasdagfgsd</textarea>
+                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" required>asdasdagfgsd</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -651,7 +651,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                        <textarea class="form-control" id="inputAreasConhecimento" rows="2" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" required>asdasdasdas</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -660,7 +660,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                        <textarea class="form-control" id="inputObjetivos" rows="3" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" required>asdasdasdas</textarea>
                                     </div>
                                 </div>
                             </div>

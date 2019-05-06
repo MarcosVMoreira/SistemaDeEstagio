@@ -136,7 +136,7 @@
                                         <a href="#">Frequência do Estágio</a>
                                     </li>
                                     <li>
-                                        <a href="#">Relatório do Estágio</a>
+                                        <a href="verificarRelatorioDeEstagio.php">Relatório do Estágio</a>
                                     </li>
                                     <li>
                                         <a href="#">Declaração de Conclusão</a>

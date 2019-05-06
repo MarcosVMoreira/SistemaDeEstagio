@@ -22,48 +22,68 @@
             
             if (empty($resultado)) {
             } else {
+                $concedentes = "Por favor preencher dados do Concedente:";
                 if ($resultado["nome"]!= ""){
                 }else{
+                    $concedentes = $concedentes . " nome";
                     $flag=1;
                 }
                 if ($resultado["telefone"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "telefone";
                     $flag=1;
                 }
                 if ($resultado["email"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "email";
                     $flag=1;
                 }
                 if ($resultado["cnpjCpf"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "CNPJ / CPF";
                     $flag=1;
                 }
                 if ($resultado["endereco"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "endereço";
                     $flag=1;
                 }
                 if ($resultado["cep"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "CEP";
                     $flag=1;
                 }
                 if ($resultado["representanteEmpresaNome"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "Nome do representante";
                     $flag=1;
                 }
-                if ($resultado["responsavelTceCargo"]!= ""){
+                if ($resultado["responsavelTceNome"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "Nome do responsável do termo de compromisso";
                     $flag=1;
                 }
                 if ($resultado["representanteEmpresaCargo"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "Cargo do representante da empresa";
                     $flag=1;
                 }
                 if ($resultado["responsavelTceCargo"]!= ""){
                 }else{
+                    if($flag==1)$concedentes = $concedentes . ", ";
+                    $concedentes = $concedentes . "Cargo do responsável do termo de compromisso";
                     $flag=1;
                 }
                 if($flag==1){
-                    $concedentes = "Por favor preencher dados do Concedente <br />\n";
+                    $concedentes = $concedentes . ". <br />\n";
                     $flagGlobal = 1;
                 }
                 else{
@@ -79,16 +99,20 @@
             
             if (empty($resultado)) {
             } else {
+                $supervisor = "Por favor preencher dados do Supervisor:";
                 if ($resultado["nome"]!= ""){
                 }else{
+                    $supervisor = $supervisor . " nome";
                     $flag=1;
                 }
                 if ($resultado["cargo"]!= ""){
                 }else{
+                    if($flag==1) $supervisor = $supervisor . ", ";
+                    $supervisor = $supervisor . "cargo";
                     $flag=1;
                 }
                 if($flag==1){
-                    $supervisor = "Por favor preencher dados do Supervisor <br />\n";
+                    $supervisor = $supervisor . ".<br />\n";
                     $flagGlobal = 1;
                 }
                 else{
@@ -104,20 +128,27 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 mt-3">
-            <h5 id="nome">
+        <h5 id="nome">
+                    Ops, encontramos um problema!<br />
+                </h5>
+                Alguns dados estão faltando para que seja possível gerar o PDF do plano de estágio. Preencha os dados listados abaixo: <br />
             <?php
             if($flagGlobal == 1){
                 echo $orientador;
                 echo $supervisor;
                 echo $concedentes;
                 ?>
-                <a href="formulario.php">Formulario</a>
+                <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
                 <?php
             }else{
-                ?><a href="PDFs/termoNaoObrigatorio.php">Termo Não Obrigatório</a>
+                ?>  <script>
+                        window.open('PDFs/termoNaoObrigatorio.php', '_blank');
+                    </script>
+                    <script>
+                        window.open('home.php', '_self');
+                    </script>
                 <?php
             }?>
-            </h5>
         </div>
     </div>
 </div>

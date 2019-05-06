@@ -32,8 +32,8 @@
             $_SESSION['senha'] = $resultado["senha"];
             $_SESSION['idOrientador'] = $resultado["idOrientador"];
             $_SESSION['idEstagio'] = $resultado["idEstagio"];
-            $_SESSION['cpfSupervisor'] = $resultado["cpfSupervisor"];
-            $_SESSION['cnpjCpfConcedente'] = $resultado["cnpjCpfConcedente"];
+            $_SESSION['idSupervisor'] = $resultado["idSupervisor"];
+            $_SESSION['idEmpresa'] = $resultado["idEmpresa"];
             header("Location: home.php");
         }
     }

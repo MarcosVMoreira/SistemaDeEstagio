@@ -4,77 +4,49 @@
 
     if (!((isset($_SESSION['idEstagio']) && $_SESSION['idEstagio'] != "") && (isset($_SESSION['cpnjCpf']) && $_SESSION['cnpjCpf'] != ""))) {
 
-    // Dados do orientador
-    $atividadesQueMelhorEmpenhou = $_POST['inputAtividadesDesenvolvidas'];
-    $dificuldadesAluno = $_POST['inputDificuldadesEncontradas'];
-    $paraleloInstitutoEstagio = $_POST['inputParalelo'];
-    $consideracoesFinais = $_POST['inputConsideracoesFinais'];
-    $objetivos = $_POST['inputObjetivosAlcancados'];
-    $bibliografia = $_POST['inputBibliografia'];
-    $atividadesQueSeraoDesenvolvidas = $_POST['inputDescricaoAtividades'];
 
-    // Attempt insert query execution
-    $sql = "INSERT INTO estagio (atividadesQueSeraoDesenvolvidas, atividadesQueMelhorEmpenhou, dificuldadesAluno, paraleloInstitutoEstagio, consideracoesFinais, objetivos, bibliografia) VALUES ('$atividadesQueSeraoDesenvolvidas', '$atividadesQueMelhorEmpenhou', '$dificuldadesAluno', '$paraleloInstitutoEstagio', '$consideracoesFinais', '$objetivos', '$bibliografia')";
-    if(mysqli_query($conexao, $sql)){
-        echo "Records inserted successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conexao);
+        //dados concedente
+        $descricaoConcedente = $_POST['inputDescricaoEmpresa']; 
+
+        //dados estagio
+        $objetivos = $_POST['inputObjetivosAlcancados'];
+        $atividadesQueSeraoDesenvolvidas = $_POST['inputDescricaoAtividades'];
+        $atividadesQueMelhorEmpenhou = $_POST['inputAtividadesDesenvolvidas'];
+        $dificuldadesAluno = $_POST['inputDificuldadesEncontradas'];
+        $paraleloInstitutoEstagio = $_POST['inputParalelo'];
+        $consideracoesFinais = $_POST['inputConsideracoesFinais'];
+        $bibliografia = $_POST['inputBibliografia'];
+
+        
+        $query = 'UPDATE concedentes SET ' .
+            'descricao="'. $descricaoConcedente .'" WHERE idEmpresa="' . $_SESSION['idEmpresa'] . '"';
+
+
+        if (!$conexao->query($query) === TRUE) {
+            echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+            echo "Error updating record: " . $conexao->error;
+            exit;
+        }
+
+
+        $query2 = 'UPDATE estagio SET ' .
+            'objetivos="'. $objetivos . '", '.
+            'atividadesQueSeraoDesenvolvidas="'. $atividadesQueSeraoDesenvolvidas . '", '.
+            'atividadesQueMelhorEmpenhou="'. $atividadesQueMelhorEmpenhou . '", '.
+            'dificuldadesAluno="'. $dificuldadesAluno . '", '.
+            'paraleloInstitutoEstagio="'. $paraleloInstitutoEstagio . '", '.
+            'consideracoesFinais="'. $consideracoesFinais . '", '.
+            'bibliografia="'. $bibliografia . '"';
+
+        if (!$conexao->query($query2) === TRUE) {
+            echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+            echo "Error updating record: " . $conexao->error;
+            exit;
+        }
+
+
+        $conexao->close();
+
+
     }
-
-    // Dados do concedente
-    $descricaoConcedente = $_POST['inputDescricaoEmpresa'];
-
-    // Attempt insert query execution
-    $sql = "INSERT INTO concedentes (descricao) VALUES ('$descricaoConcedente')";
-    if(mysqli_query($conexao, $sql)){
-        echo "Records inserted successfully.";
-    } else{
-        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conexao);
-    }
-            
-    }else{
-         
-    // Dados do Estagio
-    $idEstagio = $_SESSION['idEstagio'];
-    $atividadesQueMelhorEmpenhou = $_POST['inputAtividadesDesenvolvidas'];
-    $dificuldadesAluno = $_POST['inputDificuldadesEncontradas'];
-    $paraleloInstitutoEstagio = $_POST['inputParalelo'];
-    $consideracoesFinais = $_POST['inputConsideracoesFinais'];
-    $objetivos = $_POST['inputObjetivosAlcancados'];
-    $bibliografia = $_POST['inputBibliografia'];
-    $atividadesQueSeraoDesenvolvidas = $_POST['inputDescricaoAtividades'];
-
-    $queryPt1 = 'UPDATE estagio SET ' .
-        'atividadesQueMelhorEmpenhou="' . $atividadesQueMelhorEmpenhou . '", ' .
-        'dificuldadesAluno="' . $dificuldadesAluno . '", ' .
-        'paraleloInstitutoEstagio="' . $paraleloInstitutoEstagio . '", ' .
-        'consideracoesFinais="' . $consideracoesFinais . '", ' .
-        'objetivos="' . $objetivos . '", ' .
-        'bibliografia="' . $bibliografia . '", ' .
-        'atividadesQueSeraoDesenvolvidas="' . $atividadesQueSeraoDesenvolvidas . '"';
-
-    $queryPt2 = ' WHERE idEstagio="' . $idEstagio . '"';
-
-    $query = $queryPt1 . $queryPt2;
-
-    if (!$conexao->query($query) === TRUE) {
-        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
-        echo "Error updating record: " . $conexao->error;
-        exit;
-    }
-
-    // Dados do Concedente
-    $cnpjCpfConcedente = $_SESSION['cnpjCpf'];
-    $descricaoConcedente = $_POST['inputDescricaoEmpresa'];
-
-    $query = 'UPDATE concedentes SET descricao= "'.$descricaoConcedente.'" WHERE cnpjCpf= "'.$cnpjCpfConcedente.'"';
-    
-    if (!$conexao->query($query) === TRUE) {
-        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
-        echo "Error updating record: " . $conexao->error;
-        exit;
-    }
-
-    $conexao->close();
-}
 ?>

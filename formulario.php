@@ -447,11 +447,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="radioGroupPossuiExperiencia">O(A) supervisor(a) de estágio possui experiência profissional na área do estágio?</label>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="sim" checked>
+                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="Sim" checked>
                                             <label class="form-check-label" for="inlineRadio1">Sim</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="nao">
+                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="Não">
                                             <label class="form-check-label" for="inlineRadio2">Não</label>
                                         </div>
                                     </div>
@@ -477,11 +477,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="nao" checked>
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="Estágio Obrigatório" checked>
                                             <label class="form-check-label" for="radioNaoRemunerado">Estágio obrigatório</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="sim">
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="Estágio não Obrigatório">
                                             <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
                                         </div>
                                     </div>
@@ -492,27 +492,27 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputValorBolsa">Valor da Bolsa</label>
-                                        <input value="400" type="text" class="form-control" id="inputValorBolsa">
+                                        <input value="400" type="text" class="form-control" name="inputValorBolsa" id="inputValorBolsa">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-9">
                                     <label for="inputBeneficios">Benefícios</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="ValeTransporte" name="checkboxValeTransporte" id="checkboxValeTransporte">
-                                            <label class="form-check-label" for="checkboxValeTransporte">
+                                            <input class="form-check-input" type="checkbox" value="Vale Transporte" name="checkboxBeneficios[]">
+                                            <label class="form-check-label">
                                                 Vale Transporte
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="PlanoDeSaude" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude">
-                                            <label class="form-check-label" for="checkboxPlanoDeSaude">
+                                            <input class="form-check-input" type="checkbox" value="Plano de Saúde" name="checkboxBeneficios[]">
+                                            <label class="form-check-label">
                                                 Plano de Saúde
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="ValeAlimentacao" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao">
-                                            <label class="form-check-label" for="checkboxValeAlimentacao">
+                                            <input class="form-check-input" type="checkbox" value="Vale Alimentaç~o" name="checkboxBeneficios[]">
+                                            <label class="form-check-label">
                                                 Vale Alimentação
                                             </label>
                                         </div>
@@ -534,11 +534,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="nao" checked>
+                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Fixa" checked>
                                                     <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="sim">
+                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="Variavel">
                                                     <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
                                                 </div>
                                             </div>
@@ -570,38 +570,38 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3" id="divDiasTrabalhados">
                                     <div class="row">Dias trabalhados</div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
-                                        <input class="form-check-input" type="checkbox" value="0500" name="checkSegunda" id="checkSegunda" checked>
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="horasSegunda" name="checkBoxDiasTrabalhados[]" checked>
+                                        <label class="form-check-label">
                                             Segunda-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca">
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkBoxDiasTrabalhados[]">
+                                        <label class="form-check-label">
                                             Terça-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta">
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkBoxDiasTrabalhados[]">
+                                        <label class="form-check-label">
                                             Quarta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta">
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkBoxDiasTrabalhados[]">
+                                        <label class="form-check-label">
                                             Quinta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta">
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkBoxDiasTrabalhados[]">
+                                        <label class="form-check-label">
                                             Sexta-feira
                                         </label>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado">
-                                        <label class="form-check-label" for="defaultCheck1">
+                                        <input class="form-check-input" type="checkbox" value="" name="checkBoxDiasTrabalhados[]">
+                                        <label class="form-check-label">
                                             Sábado
                                         </label>
                                     </div>

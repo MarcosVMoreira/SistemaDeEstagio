@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 06-Maio-2019 às 17:54
+-- Generation Time: 06-Maio-2019 às 19:43
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -67,8 +67,8 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 --
 
 INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `idSupervisor`, `idOrientador`, `idEstagio`, `idEmpresa`) VALUES
-('834354', '278.360.916-94', '1', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1111, 'Técnico em Informática', 'Poços de Caldas', '14161000000', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-08', NULL, NULL, NULL, NULL, NULL, '3', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 138, NULL, NULL),
-('834354', '278.360.916-94', 'teste2', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Técnico em Informática', 'Poços de Caldas', '14161000001', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-09', NULL, NULL, NULL, NULL, NULL, '1', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 139, NULL, NULL);
+('13978884', '402.380.460-60', 'Felipe Borges da Silva', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Engenharia de Computação', 'Poços de Caldas', '14161000000', NULL, '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', NULL, NULL, NULL, NULL, NULL, '2015', NULL, '500', 'aa1bf4646de67fd9086cf6c79007026c', 2, 138, NULL, 2),
+('13978884', '402.380.460-60', 'Felipe Borges da Silva', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Engenharia de Computação', 'Poços de Caldas', '14161000001', NULL, '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', NULL, NULL, NULL, NULL, NULL, '2015', NULL, '500', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 139, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -92,18 +92,20 @@ CREATE TABLE IF NOT EXISTS `concedentes` (
   `cidade` varchar(45) NOT NULL,
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) NOT NULL,
-  `descricao` varchar(300) NOT NULL,
+  `descricao` varchar(300) DEFAULT NULL,
   `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   `complemento` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `concedentes`
 --
 
 INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTceNome`, `responsavelTceCargo`, `representanteEmpresaNome`, `representanteEmpresaCargo`, `email`, `telefone`, `uf`, `cidade`, `bairro`, `numero`, `descricao`, `idEmpresa`, `complemento`) VALUES
-('PALMA & PALMA', '00000000', 'Rua Cissa', '17750789', 'Roberto Carlos', 'Professor', 'Ronaldo Felicio', 'Diretor', 'ronaldofelicio@gmail.com', '193536363636', 'Minas Gerais', 'Poços de Caldas', 'Azaleias', 15, 'empresa da familia Palma', 1, NULL);
+('PALMA & PALMA', '00000000', 'Rua Cissa', '17750789', 'Roberto Carlos', 'Professor', 'Ronaldo Felicio', 'Diretor', 'ronaldofelicio@gmail.com', '193536363636', 'Minas Gerais', 'Poços de Caldas', 'Azaleias', 15, 'empresa da familia Palma', 1, NULL),
+('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, NULL, 2, NULL),
+('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, NULL, 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -113,27 +115,30 @@ INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTce
 
 DROP TABLE IF EXISTS `estagio`;
 CREATE TABLE IF NOT EXISTS `estagio` (
-  `cargaHorariaDiaria` varchar(45) NOT NULL,
-  `horarioEstagio` varchar(45) NOT NULL,
+  `tipoEstagio` varchar(45) NOT NULL,
+  `valorBolsa` varchar(45) NOT NULL,
+  `beneficios` varchar(45) DEFAULT NULL,
+  `cargaHorariaTotal` varchar(45) DEFAULT NULL,
+  `tipoCargaHoraria` varchar(45) NOT NULL,
   `dataInicial` varchar(45) NOT NULL,
   `dataFinal` varchar(45) NOT NULL,
-  `segunda` tinyint(1) NOT NULL,
-  `terca` tinyint(1) NOT NULL,
-  `quarta` tinyint(1) NOT NULL,
-  `quinta` tinyint(1) NOT NULL,
-  `sexta` tinyint(1) NOT NULL,
-  `sabado` tinyint(1) NOT NULL,
-  `cargaHorariaTotal` varchar(45) NOT NULL,
+  `segunda` varchar(45) DEFAULT NULL,
+  `terca` varchar(45) DEFAULT NULL,
+  `quarta` varchar(45) DEFAULT NULL,
+  `quinta` varchar(45) DEFAULT NULL,
+  `sexta` varchar(45) DEFAULT NULL,
+  `sabado` varchar(45) DEFAULT NULL,
+  `nomeSeguradora` varchar(45) DEFAULT NULL,
+  `numeroApolice` varchar(45) DEFAULT NULL,
   `atividadesQueSeraoDesenvolvidas` varchar(300) NOT NULL,
-  `atividadesQueMelhorEmpenhou` varchar(300) NOT NULL,
-  `dificuldadesAluno` varchar(300) NOT NULL,
-  `paraleloInstitutoEstagio` varchar(300) NOT NULL,
-  `consideracoesFinais` varchar(300) NOT NULL,
   `areasConhecimento` varchar(45) NOT NULL,
   `objetivos` varchar(300) NOT NULL,
+  `atividadesQueMelhorEmpenhou` varchar(300) DEFAULT NULL,
+  `dificuldadesAluno` varchar(300) DEFAULT NULL,
+  `paraleloInstitutoEstagio` varchar(300) DEFAULT NULL,
+  `consideracoesFinais` varchar(300) DEFAULT NULL,
+  `bibliografia` varchar(1024) DEFAULT NULL,
   `idEstagio` int(11) NOT NULL AUTO_INCREMENT,
-  `cargaHorariaSemanal` varchar(45) NOT NULL,
-  `bibliografia` varchar(1024) NOT NULL,
   PRIMARY KEY (`idEstagio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -141,8 +146,8 @@ CREATE TABLE IF NOT EXISTS `estagio` (
 -- Extraindo dados da tabela `estagio`
 --
 
-INSERT INTO `estagio` (`cargaHorariaDiaria`, `horarioEstagio`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `cargaHorariaTotal`, `atividadesQueSeraoDesenvolvidas`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `areasConhecimento`, `objetivos`, `idEstagio`, `cargaHorariaSemanal`, `bibliografia`) VALUES
-('6', '08:00-14:00', '18/03/2019', '24/05/2019', 1, 0, 0, 0, 0, 0, '200', 'Batata Pao Queijo', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'Engenharia', 'Estagiar', 1, '30', 'livro dos Palmas');
+INSERT INTO `estagio` (`tipoEstagio`, `valorBolsa`, `beneficios`, `cargaHorariaTotal`, `tipoCargaHoraria`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `nomeSeguradora`, `numeroApolice`, `atividadesQueSeraoDesenvolvidas`, `areasConhecimento`, `objetivos`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `bibliografia`, `idEstagio`) VALUES
+('', '', NULL, '200', '', '18/03/2019', '24/05/2019', '00:00:01', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', NULL, NULL, 'Batata Pao Queijo', 'Engenharia', 'Estagiar', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'livro dos Palmas', 1);
 
 -- --------------------------------------------------------
 
@@ -184,8 +189,8 @@ INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
 ('Marcos Vinicius Moreira', 'marcos@vinicius.moreira', '35123456789', 1),
 ('1', '11111111@111111111.com', '(11) 11111-1111', 136),
 ('1', '11111111@111111111.com', '(11) 11111-1111', 137),
-('1', '11111111@111111111.com', '(11) 11111-1111', 138),
-('1', '11111111@111111111.com', '(11) 11111-1111', 139);
+('Borges da Silva', 'felipe.silva@alunos.ifsuldeminas.edu.br', '(35) 99999-9999', 138),
+('Borges da Silva', 'felipe.silva@alunos.ifsuldeminas.edu.br', '(35) 99999-9999', 139);
 
 -- --------------------------------------------------------
 
@@ -201,17 +206,19 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
   `telefone` varchar(45) NOT NULL,
   `possuiExperiencia` varchar(45) NOT NULL,
   `cursoFormacao` varchar(45) NOT NULL,
-  `conselhoClasseProfissional` varchar(45) DEFAULT NULL,
   `cargo` varchar(45) NOT NULL,
-  PRIMARY KEY (`cpf`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `conselhoClasseProfissional` varchar(45) DEFAULT NULL,
+  `idSupervisor` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idSupervisor`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `supervisor`
 --
 
-INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `conselhoClasseProfissional`, `cargo`) VALUES
-('Jean Albino de Melo', '12345676812', 'jean@albino.demelo', '35123456789', 'Sim', 'Engenharia de Computação', 'qwerty', 'Professor');
+INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `cargo`, `conselhoClasseProfissional`, `idSupervisor`) VALUES
+('Jean Albino de Melo', '12345676812', 'jean@albino.demelo', '35123456789', 'Sim', 'Engenharia de Computação', 'Professor', 'qwerty', 1),
+('aaaa aaaa cccc', '442.368.600-74', 'email@gmail.com', '(35) 96666-6666', 'sim', 'Eng de Computação', 'Supervisor', 'Conselho classe', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

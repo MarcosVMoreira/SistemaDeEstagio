@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 02-Maio-2019 às 19:28
+-- Generation Time: 06-Maio-2019 às 17:16
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -143,6 +143,23 @@ CREATE TABLE IF NOT EXISTS `estagio` (
 
 INSERT INTO `estagio` (`cargaHorariaDiaria`, `horarioEstagio`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `cargaHorariaTotal`, `atividadesQueSeraoDesenvolvidas`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `areasConhecimento`, `objetivos`, `idEstagio`, `cargaHorariaSemanal`, `bibliografia`) VALUES
 ('6', '08:00-14:00', '18/03/2019', '24/05/2019', 1, 0, 0, 0, 0, 0, '200', 'Batata Pao Queijo', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'Engenharia', 'Estagiar', 1, '30', 'livro dos Palmas');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `frequenciaestagio`
+--
+
+DROP TABLE IF EXISTS `frequenciaestagio`;
+CREATE TABLE IF NOT EXISTS `frequenciaestagio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `raAluno` varchar(45) NOT NULL,
+  `data` varchar(10) NOT NULL,
+  `cargaHoraria` varchar(6) NOT NULL,
+  `setor` varchar(240) DEFAULT NULL,
+  `atividade` varchar(240) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 

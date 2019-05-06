@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 06-Maio-2019 às 17:16
+-- Generation Time: 06-Maio-2019 às 17:54
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -55,10 +55,10 @@ CREATE TABLE IF NOT EXISTS `alunos` (
   `modalidade` varchar(45) DEFAULT NULL,
   `complemento` varchar(45) DEFAULT NULL,
   `senha` varchar(45) NOT NULL,
-  `cpfSupervisor` varchar(45) DEFAULT NULL,
+  `idSupervisor` int(11) DEFAULT NULL,
   `idOrientador` int(11) DEFAULT NULL,
   `idEstagio` int(11) DEFAULT NULL,
-  `cnpjCpfConcedente` varchar(45) DEFAULT NULL,
+  `idEmpresa` int(11) DEFAULT NULL,
   PRIMARY KEY (`ra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `alunos` (
 -- Extraindo dados da tabela `alunos`
 --
 
-INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `cpfSupervisor`, `idOrientador`, `idEstagio`, `cnpjCpfConcedente`) VALUES
+INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneFixo`, `telefoneCelular`, `email`, `dataNascimento`, `tipoEstagio`, `nomeSeguradora`, `valorBolsa`, `beneficios`, `numeroApolicesSeguros`, `periodoAno`, `modalidade`, `complemento`, `senha`, `idSupervisor`, `idOrientador`, `idEstagio`, `idEmpresa`) VALUES
 ('834354', '278.360.916-94', '1', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1111, 'Técnico em Informática', 'Poços de Caldas', '14161000000', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-08', NULL, NULL, NULL, NULL, NULL, '3', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 138, NULL, NULL),
 ('834354', '278.360.916-94', 'teste2', 'Poços de Caldas', 'MG', '37701-000', 'Rua Assis Figueiredo', 'Centro', 1, 'Técnico em Informática', 'Poços de Caldas', '14161000001', NULL, '(11) 11111-1111', '11111111@111111111.com', '2019-05-09', NULL, NULL, NULL, NULL, NULL, '1', NULL, '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, 139, NULL, NULL);
 

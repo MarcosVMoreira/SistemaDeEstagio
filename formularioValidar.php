@@ -59,14 +59,95 @@
     $nomeOrientador = $_POST['inputNomeOrientador'];
     $telefoneOrientador = $_POST['inputTelefoneOrientador'];
     $emailOrientador = $_POST['inputEmailOrientador'];
+
     $query = 'SELECT idOrientador FROM orientador';
     if ($resultado = $conexao->query($query)) {
-        $achou = false;
         while($linha = $resultado->fetch_assoc()) {
             if($_SESSION['idOrientador'] != '') {
                 if($_SESSION['idOrientador'] == $linha['idOrientador']) {
-                    $achou = true;
-                    break;
+                    $queryPt1 = 'UPDATE orientador SET ' .
+                    'nome="' . $nomeOrientador . '", ' .
+                    'email="' . $emailOrientador . '", ' .
+                    'telefone="' . $telefoneOrientador . '"';
+                    $queryPt2 = ' WHERE idOrientador="' . $_SESSION['idOrientador'] . '"';
+
+                    $query = $queryPt1 . $queryPt2;
+
+                    if (!$conexao->query($query) === TRUE) {
+                        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                        echo "Error updating record: " . $conexao->error;
+                        exit;
+                    }
+                }
+            } else {
+                $query1 = "INSERT INTO orientador (nome, email, telefone) VALUES ('$nomeOrientador', '$emailOrientador', '$telefoneOrientador')";
+                if (!$conexao->query($query1) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
+                $_SESSION['idOrientador'] = $conexao->insert_id;
+                $query1 = "UPDATE alunos SET idOrientador = ".$_SESSION['idOrientador']." WHERE ra = ".$_SESSION['ra'].""; 
+                if (!$conexao->query($query1) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
+            }
+        }
+    } if (!$conexao->query($query) === TRUE) {
+        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+        echo "Error updating record: " . $conexao->error;
+        exit;
+    }
+
+    // Dados da Empresa
+    $nomeEmpresa = $_POST['inputNomeEmpresa'];
+    $cnpjEmpresa = $_POST['inputCnpj'];
+    $emailEmpresa = $_POST['inputEmailEmpresa'];
+    $telefoneEmpresa = $_POST['inputTelefoneEmpresa'];
+    $cepEmpresa = $_POST['inputCepEmpresa'];
+    $enderecoEmpresa = $_POST['inputEnderecoEmpresa'];
+    $numeroEmpresa = $_POST['inputNumeroEmpresa'];
+    $complementoEmpresa = $_POST['inputComplementoEmpresa'];
+    $bairroEmpresa = $_POST['inputBairroEmpresa'];
+    $cidadeEmpresa = $_POST['inputCidadeEmpresa'];
+    $estadoEmpresa = $_POST['selectEstadoEmpresa'];
+    $representanteEmpresa = $_POST['inputNomeRepresentante'];
+    $representanteEmpresaCargo = $_POST['inputCargoRepresentante'];
+    $responsavelEmpresa = $_POST['inputResponsavelAssTCE'];
+    $responsavelEmpresaCargo = $_POST['inputCargoResponsavelAssTCE'];
+
+    $query = 'SELECT idEmpresa FROM concedentes';
+    if ($resultado = $conexao->query($query)) {
+        while($linha = $resultado->fetch_assoc()) {
+            if($_SESSION['idEmpresa'] != '') {
+                if($_SESSION['idEmpresa'] == $linha['idEmpresa']) {
+                    $queryPt1 = 'UPDATE concedentes SET ' .
+                    'nome="' . $nomeEmpresa . '", ' .
+                    'cnpjCpf="' . $cnpjEmpresa . '", ' .
+                    'endereco="' . $enderecoEmpresa . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '", ' .
+                    '="' . $ . '"';
+                    $queryPt2 = ' WHERE idEmpresa="' . $_SESSION['idEmpresa'] . '"';
+
+                    $query = $queryPt1 . $queryPt2;
+
+                    if (!$conexao->query($query) === TRUE) {
+                        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                        echo "Error updating record: " . $conexao->error;
+                        exit;
+                    }
                 }
             } else {
                 $query1 = "INSERT INTO orientador (nome, email, telefone) VALUES ('$nomeOrientador', '$emailOrientador', '$telefoneOrientador')";

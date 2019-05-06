@@ -124,10 +124,10 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="verificarPlanoDeEstagio">Plano de Estágio</a>
+                                        <a href="verificarPlanoDeEstagio.php">Plano de Estágio</a>
                                     </li>
                                     <li>
-                                        <a href="verificarTermoNaoObrigatorio">Termo de Estágio Não Obrigatório</a>
+                                        <a href="verificarTermoNaoObrigatorio.php">Termo de Estágio Não Obrigatório</a>
                                     </li>
                                     <li>
                                         <a href="#">Termo de Estágio Obrigatório</a>

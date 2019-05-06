@@ -15,7 +15,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1">
-            <form id="formCadastro" method="post" action="home.php">
+            <form id="formFrequenciaEstagio" method="post" action="formularioFrequenciaEstagioValidar.php">
                 <div class="card">
                     <div class="card-header">
                         Frequência do Estágio

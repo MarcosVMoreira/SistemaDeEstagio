@@ -16,6 +16,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $flagGlobal = 0;
 
     // Orientador
+    if (!((isset($_SESSION['idOrientador']) && $_SESSION['idOrientador'] != "") )){
+        $flagGlobal = 1;
+        $supervisor = "Dados do Orientador. <br />\n";
+    }
     if ((isset($_SESSION['idOrientador']) && $_SESSION['idOrientador'] != "")) {
         $query = "SELECT * FROM orientador WHERE idOrientador=" . $_SESSION['idOrientador'] . "";
 
@@ -51,7 +55,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Concedente
-    $query = "SELECT * FROM concedentes WHERE cnpjCpf=" . $_SESSION['cnpjCpfConcedente'] . "";
+    if (!((isset($_SESSION['idEmpresa']) && $_SESSION['idEmpresa'] != "") )){
+        $flagGlobal = 1;
+        $supervisor = "Dados da Empresa. <br />\n";
+    }
+    $query = "SELECT * FROM concedentes WHERE cnpjCpf=" . $_SESSION['idEmpresa'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -82,7 +90,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Supervisor
-    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['cpfSupervisor'] . "";
+    if (!((isset($_SESSION['idSupervisor']) && $_SESSION['idSupervisor'] != "") )){
+        $flagGlobal = 1;
+        $supervisor = "Dados do Supervisor. <br />\n";
+    }
+    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['idSupervisor'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -128,11 +140,18 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Estágio
+    if (!((isset($_SESSION['idEstagio']) && $_SESSION['idEstagio'] != "") )){
+        $flagGlobal = 1;
+        $estagio = "Dados do Estagio. <br />\n";
+    }
     $query = "SELECT * FROM estagio WHERE idEstagio=" . $_SESSION['idEstagio'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
-
-        if (empty($resultado)) { } else {
+        $flagGlobal = 50;
+        if (empty($resultado)) {
+            $flagGlobal = 1;
+            $estagio = "Por favor preencher os dados do Estagio.";
+        } else {
             $estagio = "Por favor preencher os seguintes dados do Estagio: ";
             if ($resultado["atividadesQueSeraoDesenvolvidas"] != "") { } else {
                 $estagio = $estagio . "atividades a serem desenvolvidas";
@@ -167,7 +186,6 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flag = 0;
         }
     }
-
     ?>
 
     <div class="container-fluid">

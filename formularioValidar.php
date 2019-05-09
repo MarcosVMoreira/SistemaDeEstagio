@@ -249,4 +249,128 @@
         exit;
     }
 
+    // Dados do Estágio
+    $tipoEstagio = $_POST['radioGroupEstagio'];
+    $valorBolsa = $_POST['inputValorBolsa'];
+    if(isset($_POST['checkboxValeTransporte'])) {
+        $beneficios = $_POST['checkboxValeTransporte'];
+    }
+    if(isset($_POST['checkboxPlanoDeSaude'])) {
+        if(empty($beneficios))
+            $beneficios = $_POST['checkboxPlanoDeSaude'];
+        else
+            $beneficios = $beneficios . ", " . $_POST['checkboxPlanoDeSaude'];
+    }
+    if(isset($_POST['checkboxValeAlimentacao'])) {
+        if(empty($beneficios))
+            $beneficios = $_POST['checkboxValeAlimentacao'];
+        else
+            $beneficios = $beneficios . ", " . $_POST['checkboxValeAlimentacao'];
+    }
+    if(!empty($_POST['inputCargaHorariaMax']))
+        $cargaHorariaTotal = $_POST['inputCargaHorariaMax'];
+    $tipoCargaHoraria = $_POST['radioGroupCargaHoraria'];
+    $dataInicio = $_POST['inputDataInicioEstagio'];
+    $dataFim = $_POST['inputDataFimEstagio'];
+    if(isset($_POST['checkSegunda'])) {
+        $segunda = $_POST['horasSegunda'];
+    }
+    else
+        $segunda = "";
+    if(isset($_POST['checkTerca'])) {
+        $terca = $_POST['horasTerca'];
+    }
+    else
+        $terca = "";
+    if(isset($_POST['checkQuarta'])) {
+        $quarta = $_POST['horasQuarta'];
+    }
+    else
+        $quarta = "";
+    if(isset($_POST['checkQuinta'])) {
+        $quinta = $_POST['horasQuinta'];
+    }
+    else
+        $quinta = "";
+    if(isset($_POST['checkSexta'])) {
+        $sexta = $_POST['horasSexta'];
+    }
+    else
+        $sexta = "";
+    if(isset($_POST['checkSabado'])) {
+        $sabado = $_POST['horasSabado'];
+    }
+    else
+        $sabado = "";
+    $atividadesDesenvolvidas = $_POST['inputAtividadesDesenvolvidas'];
+    $areasConhecimento = $_POST['inputAreasConhecimento'];
+    $objetivosAlcancados = $_POST['inputObjetivos'];
+    if(isset($_POST['inputCompanhiaSeguro'])) {
+        $nomeSeguradora = $_POST['inputCompanhiaSeguro'];
+    }
+    if(isset($_POST['inputNumeroApolice'])) {
+        $numeroApolice = $_POST['inputNumeroApolice'];
+    }
+
+
+   $query = 'SELECT idEstagio FROM estagio';
+    if ($resultado = $conexao->query($query)) {
+        while($linha = $resultado->fetch_assoc()) {
+            if($_SESSION['idEstagio'] != '') {
+                if($_SESSION['idEstagio'] == $linha['idEstagio']) {
+                    $queryPt1 = 'UPDATE estagio SET ' .
+                    'tipoEstagio="' . $tipoEstagio . '", ' .
+                    'valorBolsa="' . $valorBolsa . '", ' .
+                    'segunda="' . $segunda . '", ' .
+                    'terca="' . $terca . '", ' .
+                    'quarta="' . $quarta . '", ' .
+                    'quinta="' . $quinta . '", ' .
+                    'sexta="' . $sexta . '", ' .
+                    'sabado="' . $sabado . '", ' .
+                    'atividadesQueSeraoDesenvolvidas="' . $atividadesDesenvolvidas . '", ' .
+                    'areasConhecimento="' . $areasConhecimento . '", ' .
+                    'objetivos="' . $objetivosAlcancados . '"';
+
+                    if(!empty($nomeSeguradora) && !empty($numeroApolice))
+                        $queryPt1 = $queryPt1 . ', nomeSeguradora="' . $nomeSeguradora . '"' . ', numeroApolice="' . $numeroApolice . '"';
+
+                    $queryPt2 = ' WHERE idEstagio="' . $_SESSION['idEstagio'] . '"';
+
+                    $query3 = $queryPt1 . $queryPt2;
+
+                    if (!$conexao->query($query3) === TRUE) {
+                        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                        echo "Error updating record: " . $conexao->error;
+                        exit;
+                    }
+                }
+            } else {
+                $query3 = "INSERT INTO estagio (tipoEstagio, valorBolsa, segunda, terca, quarta, quinta, sexta, sabado, atividadesQueSeraoDesenvolvidas, areasConhecimento, objetivos";
+                
+                if(!empty($nomeSeguradora) && !empty($numeroApolice)) {
+                    $query3 = $query3 . ", nomeSeguradora, numeroApolice) VALUES ('$tipoEstagio', '$valorBolsa', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$nomeSeguradora', '$numeroApolice')";
+                } else {
+                    $query3 = $query3 . ") VALUES ('$tipoEstagio', '$valorBolsa', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados')";
+                }
+
+                if (!$conexao->query($query3) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
+                $_SESSION['idEstagio'] = $conexao->insert_id;
+                $query3 = "UPDATE alunos SET idEstagio = ".$_SESSION['idEstagio']." WHERE ra = ".$_SESSION['ra'].""; 
+                if (!$conexao->query($query3) === TRUE) {
+                    echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+                    echo "Error updating record: " . $conexao->error;
+                    exit;
+                }
+            }
+        }
+    } if (!$conexao->query($query) === TRUE) {
+        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
+        echo "Error updating record: " . $conexao->error;
+        exit;
+    }
+
     $conexao->close();

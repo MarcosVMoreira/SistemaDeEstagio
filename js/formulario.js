@@ -236,13 +236,14 @@ $(document).ready(function () {
         }
     });
 
-    $('#radioRemunerado').change(function () {
+    //$('#radioRemunerado').change(function () {
+    $("#divRemunerado").on("change", "#radioRemunerado", function () {
         $('#inputCargaHorariaMax').val('');
         $('#inputCargaHorariaMax').prop("disabled", true);
         $('#divSeguro1').append('<div id="divSeguro" class="col-sm-12 col-md-8">' +
             '<div class="form-group">' +
             '<label for="inputCompanhiaSeguro">Companhia de seguro</label>' +
-            '<input type="text" class="form-control" id="inputCompanhiaSeguro">' +
+            '<input type="text" class="form-control" name="inputCompanhiaSeguro" id="inputCompanhiaSeguro">' +
             '</div>' +
             '</div>'
 
@@ -250,7 +251,7 @@ $(document).ready(function () {
             '<div id="divApolice" class="col-sm-12 col-md-4">' +
             '<div class="form-group">' +
             '<label for="inputNumeroApolice">Número da apólice</label>' +
-            '<input type="text" class="form-control" id="inputNumeroApolice">' +
+            '<input type="text" class="form-control" name="inputNumeroApolice" id="inputNumeroApolice">' +
             '</div>' +
             '</div>');
         $('#checkboxValeTransporte').prop("checked", true);
@@ -275,37 +276,37 @@ $(document).ready(function () {
         $('#campoCargaHoraria').append('<div class="col-sm-12 col-md-3" id="divDiasTrabalhados">' +
             '<div class="row" id="diasTrabalhados">Dias trabalhados</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkSegunda">' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkSegunda" id="checkSegunda">' +
             '<label class="form-check-label" for="defaultCheck1">' +
             ' Segunda-feira' +
             '</label>' +
             '</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkTerca">' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca">' +
             '<label class="form-check-label" for="defaultCheck1">' +
             'Terça-feira' +
             '</label>' +
             '</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkQuarta">' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta">' +
             '<label class="form-check-label" for="defaultCheck1">' +
             'Quarta-feira' +
             '</label>' +
             '</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkQuinta" >' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta" >' +
             '<label class="form-check-label" for="defaultCheck1">' +
             'Quinta-feira' +
             '</label>' +
             '</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkSexta">' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta">' +
             '<label class="form-check-label" for="defaultCheck1">' +
             'Sexta-feira' +
             '</label>' +
             '</div>' +
             '<div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">' +
-            '<input class="form-check-input" type="checkbox" value="" id="checkSabado">' +
+            '<input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado">' +
             '<label class="form-check-label" for="defaultCheck1">' +
             'Sábado' +
             '</label>' +
@@ -316,22 +317,22 @@ $(document).ready(function () {
             '<div class="row">Horas trabalhadas</div>' +
             '<div id="horarioEntrada">' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasSegunda" disabled>' +
+            '<input type="time" class="form-control" name="horasSegunda" id="horasSegunda" disabled>' +
             '</div>' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasTerca" disabled>' +
+            '<input type="time" class="form-control" name="horasTerca" id="horasTerca" disabled>' +
             '</div>' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasQuarta" disabled>' +
+            '<input type="time" class="form-control" name="horasQuarta" id="horasQuarta" disabled>' +
             '</div>' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasQuinta" disabled>' +
+            '<input type="time" class="form-control" name="horasQuinta" id="horasQuinta" disabled>' +
             '</div>' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasSexta" disabled>' +
+            '<input type="time" class="form-control" name="horasSexta" id="horasSexta" disabled>' +
             '</div>' +
             '<div class="form-group">' +
-            '<input type="time" class="form-control" id="horasSabado" disabled>' +
+            '<input type="time" class="form-control" name="horasSabado" id="horasSabado" disabled>' +
             '</div>' +
             '</div>' +
             '</div>');

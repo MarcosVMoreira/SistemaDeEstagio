@@ -130,7 +130,7 @@
                                         <a href="verificarTermoNaoObrigatorio.php">Termo de Estágio Não Obrigatório</a>
                                     </li>
                                     <li>
-                                        <a href="#">Termo de Estágio Obrigatório</a>
+                                        <a href="verificarTermoObrigatorio.php">Termo de Estágio Obrigatório</a>
                                     </li>
                                     <li>
                                         <a href="#">Frequência do Estágio</a>

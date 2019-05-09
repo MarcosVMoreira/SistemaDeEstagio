@@ -17,12 +17,15 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
     // Orientador
     if ((isset($_SESSION['idOrientador']) && $_SESSION['idOrientador'] != "")) {
-        $query = "SELECT * FROM orientador WHERE idOrientador=" . $_SESSION['idOrientador'] . "";
+        $query = "SELECT * FROM orientador WHERE idOrientador='" . $_SESSION['idOrientador'] . "'";
 
         if ($result = $conexao->query($query)) {
             $resultado = $result->fetch_assoc();
 
-            if (empty($resultado)) { } else {
+            if (empty($resultado)) {
+                $orientador = "Por favor preencher os dados do orientador. <br />\n";
+                $flagGlobal = 1;
+            } else {
                 $orientador = "Por favor preencher os seguintes dados do Orientador: ";
 
                 if ($resultado["nome"] == "") {
@@ -41,11 +44,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Concedente
-    $query = "SELECT * FROM concedentes WHERE cnpjCpf=" . $_SESSION['cnpjCpfConcedente'] . "";
+    $query = "SELECT * FROM concedentes WHERE idEmpresa='" . $_SESSION['idEmpresa'] . "'";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
-        if (empty($resultado)) { } else {
+        if (empty($resultado)) {
+            $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+            $flagGlobal = 1;
+        } else {
             $concedentes = "Por favor preencher os seguintes dados do Concedente: ";
             if ($resultado["nome"] != "") { } else {
                 $concedentes = $concedentes . "nome";
@@ -102,11 +108,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Supervisor
-    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['cpfSupervisor'] . "";
+    $query = "SELECT * FROM supervisor WHERE idSupervisor='" . $_SESSION['idSupervisor'] . "'";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
-        if (empty($resultado)) { } else {
+        if (empty($resultado)) {
+            $supervisor = "Por favor preencher os dados do supervisor de estágio. <br />\n";
+            $flagGlobal = 1;
+        } else {
             $supervisor = "Por favor preencher os seguintes dados do Supervisor: ";
             if ($resultado["nome"] != "") { } else {
                 $supervisor = $supervisor . "nome";
@@ -128,11 +137,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Estágio
-    $query = "SELECT * FROM estagio WHERE idEstagio=" . $_SESSION['idEstagio'] . "";
+    $query = "SELECT * FROM estagio WHERE idEstagio='" . $_SESSION['idEstagio'] . "'";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
-        if (empty($resultado)) { } else {
+        if (empty($resultado)) {
+            $estagio = "Por favor preencher os dados do estágio. <br />\n";
+            $flagGlobal = 1;
+        } else {
             $estagio = "Por favor preencher os seguintes dados do Estagio: ";
             if ($resultado["atividadesQueSeraoDesenvolvidas"] != "") { } else {
                 $estagio = $estagio . "atividades a serem desenvolvidas";
@@ -201,7 +213,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 <h5 id="nome">
                     Ops, encontramos um problema!<br />
                 </h5>
-                Alguns dados estão faltando para que seja possível gerar o PDF do plano de estágio. Preencha os dados listados abaixo: <br />
+                Alguns dados estão faltando para que seja possível gerar o PDF do relatório de estágio. Preencha os dados listados abaixo: <br />
                 <?php
                 if ($flagGlobal == 1) {
                     echo $orientador;

@@ -133,16 +133,16 @@
                                         <a href="verificarTermoObrigatorio.php">Termo de Estágio Obrigatório</a>
                                     </li>
                                     <li>
-                                        <a href="#">Frequência do Estágio</a>
+                                        <a href="verificarFrequenciaEstagio.php">Frequência do Estágio</a>
                                     </li>
                                     <li>
                                         <a href="verificarRelatorioDeEstagio.php">Relatório do Estágio</a>
                                     </li>
                                     <li>
-                                        <a href="#">Declaração de Conclusão</a>
+                                        <a href="verificarDeclaracaoConclusao.php">Declaração de Conclusão</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ficha de Avaliação</a>
+                                        <a href="verificarFichaAvaliacao.php">Ficha de Avaliação</a>
                                     </li>
                                 </ul>
                             </div>

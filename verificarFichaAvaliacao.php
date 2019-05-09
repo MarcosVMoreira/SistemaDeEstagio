@@ -29,14 +29,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $concedentes = $concedentes . "nome";
                 $flag = 1;
             }
-            if ($resultado["cnpjCpf"] == "") {
-                if ($flag == 1) $concedentes = $concedentes . ", ";
-                $concedentes = $concedentes . "cpf/cnpj";
-                $flag = 1;
-            }
             if ($resultado["endereco"] == "") {
                 if ($flag == 1) $concedentes = $concedentes . ", ";
                 $concedentes = $concedentes . "endereço";
+                $flag = 1;
+            }
+            if ($resultado["numero"] == "") {
+                if ($flag == 1) $concedentes = $concedentes . ", ";
+                $concedentes = $concedentes . "número";
                 $flag = 1;
             }
             if ($resultado["cep"] == "") {
@@ -54,29 +54,19 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $concedentes = $concedentes . "cidade";
                 $flag = 1;
             }
+            if ($resultado["uf"] == "") {
+                if ($flag == 1) $concedentes = $concedentes . ", ";
+                $concedentes = $concedentes . "uf";
+                $flag = 1;
+            }
             if ($resultado["telefone"] == "") {
                 if ($flag == 1) $concedentes = $concedentes . ", ";
                 $concedentes = $concedentes . "telefone";
                 $flag = 1;
             }
-            if ($resultado["representanteEmpresaNome"] == "") {
+            if ($resultado["email"] == "") {
                 if ($flag == 1) $concedentes = $concedentes . ", ";
-                $concedentes = $concedentes . "nome do representante";
-                $flag = 1;
-            }
-            if ($resultado["representanteEmpresaCargo"] == "") {
-                if ($flag == 1) $concedentes = $concedentes . ", ";
-                $concedentes = $concedentes . "cargo do representante da empresa";
-                $flag = 1;
-            }
-            if ($resultado["responsavelTceNome"] == "") {
-                if ($flag == 1) $concedentes = $concedentes . ", ";
-                $concedentes = $concedentes . "responsável pela assinatura do termo de compromisso";
-                $flag = 1;
-            }
-            if ($resultado["responsavelTceCargo"] == "") {
-                if ($flag == 1) $concedentes = $concedentes . ", ";
-                $concedentes = $concedentes . "cargo do responsável pela assinatura do termo de compromisso";
+                $concedentes = $concedentes . "email";
                 $flag = 1;
             }
             if ($flag == 1) {
@@ -101,11 +91,6 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $supervisor = "Por favor preencher os seguintes dados do supervisor: ";
             if ($resultado["nome"] == "") {
                 $supervisor = $supervisor . "nome";
-                $flag = 1;
-            }
-            if ($resultado["cargo"] == "") {
-                if ($flag == 1) $supervisor = $supervisor . ", ";
-                $supervisor = $supervisor . "cargo";
                 $flag = 1;
             }
             if ($flag == 1) {
@@ -169,15 +154,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 else $estagio = $estagio . "data de término";
                 $flag = 1;
             }
-            if (($resultado["segunda"] == null || $resultado["segunda"] == "") &&
-                ($resultado["terca"] == null || $resultado["terca"] == "") &&
-                ($resultado["quarta"] == null || $resultado["quarta"] == "") &&
-                ($resultado["quinta"] == null || $resultado["quinta"] == "") &&
-                ($resultado["sexta"] == null || $resultado["sexta"] == "") &&
-                ($resultado["sabado"] == null || $resultado["sabado"] == "")) {
-
-                if ($flag == 1) $estagio = $estagio . ", dias da semana";
-                else $estagio = $estagio . "dias da semana";
+            if ($resultado["areasConhecimento"] == "") {
+                if ($flag == 1) $concedentes = $concedentes . ", ";
+                $concedentes = $concedentes . "Área de conhecimento";
                 $flag = 1;
             }
             if ($flag == 1) {
@@ -198,7 +177,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             <h5 id="nome">
                 Ops, encontramos um problema!<br />
             </h5>
-            Alguns dados estão faltando para que seja possível gerar o PDF do termo de compromisso de estágio. Preencha os dados listados abaixo: <br />
+            Alguns dados estão faltando para que seja possível gerar o PDF da ficha de avaliação. Preencha os dados listados abaixo: <br />
             <?php
                 if ($flagGlobal == 1) {
                     echo $orientador;
@@ -211,7 +190,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             } else {
                 ?>
             <script>
-                window.open('PDFs/termoObrigatorio.php', '_blank');
+                window.open('PDFs/fichaAvaliacao.php', '_blank');
 
             </script>
             <script>

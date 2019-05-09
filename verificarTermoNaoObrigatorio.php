@@ -16,11 +16,13 @@
         $flagGlobal = 0;
                 
 
-        $query = "SELECT * FROM concedentes WHERE cnpjCpf=".$_SESSION['cnpjCpfConcedente']."";
+        $query = "SELECT * FROM concedentes WHERE idEmpresa='" . $_SESSION['idEmpresa'] . "'";
         if ($result = $conexao->query($query)) {
             $resultado = $result->fetch_assoc();
             
             if (empty($resultado)) {
+                $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+                $flagGlobal = 1;
             } else {
                 $concedentes = "Por favor preencher dados do Concedente:";
                 if ($resultado["nome"]!= ""){
@@ -93,11 +95,14 @@
             }
         }
 
-        $query = "SELECT * FROM supervisor WHERE cpf=".$_SESSION['cpfSupervisor']."";
+        // Supervisor
+        $query = "SELECT * FROM supervisor WHERE idSupervisor='" . $_SESSION['idSupervisor'] . "'";
         if ($result = $conexao->query($query)) {
             $resultado = $result->fetch_assoc();
             
             if (empty($resultado)) {
+                $supervisor = "Por favor preencher os dados do supervisor de estágio. <br />\n";
+                $flagGlobal = 1;
             } else {
                 $supervisor = "Por favor preencher dados do Supervisor:";
                 if ($resultado["nome"]!= ""){
@@ -122,6 +127,47 @@
                
             }
         }
+
+        // Estágio
+    $query = "SELECT * FROM estagio WHERE idEstagio='" . $_SESSION['idEstagio'] . "'";
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+
+        if (empty($resultado)) {
+            $estagio = "Por favor preencher os dados do estágio. <br />\n";
+            $flagGlobal = 1;
+        } else {
+            $estagio = "Por favor preencher os seguintes dados do Estagio: ";
+            if ($resultado["dataInicial"] != "") { } else {
+                if ($flag == 1) $estagio = $estagio . ", data de início";
+                else $estagio = $estagio . "data de início";
+                $flag = 1;
+            }
+            if ($resultado["dataFinal"] != "") { } else {
+                if ($flag == 1) $estagio = $estagio . ", data de término";
+                else $estagio = $estagio . "data de término";
+                $flag = 1;
+            }
+            if (($resultado["segunda"] == null || $resultado["segunda"] == "") &&
+                ($resultado["terca"] == null || $resultado["terca"] == "") &&
+                ($resultado["quarta"] == null || $resultado["quarta"] == "") &&
+                ($resultado["quinta"] == null || $resultado["quinta"] == "") &&
+                ($resultado["sexta"] == null || $resultado["sexta"] == "") &&
+                ($resultado["sabado"] == null || $resultado["sabado"] == "")) {
+
+                if ($flag == 1) $estagio = $estagio . ", dias da semana";
+                else $estagio = $estagio . "dias da semana";
+                $flag = 1;
+            }
+            if ($flag == 1) {
+                $estagio = $estagio . ". <br />\n";
+                $flagGlobal = 1;
+            } else {
+                $estagio = "";
+            }
+            $flag = 0;
+        }
+    }
         
 ?>
 
@@ -131,12 +177,13 @@
         <h5 id="nome">
                     Ops, encontramos um problema!<br />
                 </h5>
-                Alguns dados estão faltando para que seja possível gerar o PDF do plano de estágio. Preencha os dados listados abaixo: <br />
+                Alguns dados estão faltando para que seja possível gerar o PDF do temo de compromisso de estágio. Preencha os dados listados abaixo: <br />
             <?php
             if($flagGlobal == 1){
                 echo $orientador;
                 echo $supervisor;
                 echo $concedentes;
+                echo $estagio;
                 ?>
                 <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
                 <?php

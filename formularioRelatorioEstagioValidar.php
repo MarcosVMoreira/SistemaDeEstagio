@@ -9,9 +9,9 @@
         $descricaoConcedente = $_POST['inputDescricaoEmpresa']; 
 
         //dados estagio
-        $objetivos = $_POST['inputObjetivosAlcancados'];
-        $atividadesQueSeraoDesenvolvidas = $_POST['inputDescricaoAtividades'];
-        $atividadesQueMelhorEmpenhou = $_POST['inputAtividadesDesenvolvidas'];
+        $objetivosAlcancados = $_POST['inputObjetivosAlcancados'];
+        $descricaoAtividade = $_POST['inputDescricaoAtividades'];
+        $atividadesQueMelhorEmpenhou = $_POST['inputAtividadesMelhorDesenpenhou'];
         $dificuldadesAluno = $_POST['inputDificuldadesEncontradas'];
         $paraleloInstitutoEstagio = $_POST['inputParalelo'];
         $consideracoesFinais = $_POST['inputConsideracoesFinais'];
@@ -30,8 +30,8 @@
 
 
         $query2 = 'UPDATE estagio SET ' .
-            'objetivos="'. $objetivos . '", '.
-            'atividadesQueSeraoDesenvolvidas="'. $atividadesQueSeraoDesenvolvidas . '", '.
+            'objetivosAlcancados="'. $objetivosAlcancados . '", '.
+            'descricaoAtividade="'. $descricaoAtividade . '", '.
             'atividadesQueMelhorEmpenhou="'. $atividadesQueMelhorEmpenhou . '", '.
             'dificuldadesAluno="'. $dificuldadesAluno . '", '.
             'paraleloInstitutoEstagio="'. $paraleloInstitutoEstagio . '", '.

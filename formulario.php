@@ -642,7 +642,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" required>asdasdagfgsd</textarea>
+                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required>asdasdagfgsd</textarea>
+                                        <small id="maxcaracter" class="form-text text-muted">
+                                            Máximo 500 caracteres.
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -651,7 +654,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" maxlength="500" required>asdasdasdas</textarea>
+                                        <small id="maxcaracter" class="form-text text-muted">
+                                            Máximo 500 caracteres.
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -660,7 +666,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" maxlength="500" required>asdasdasdas</textarea>
+                                        <small id="maxcaracter" class="form-text text-muted">
+                                            Máximo 500 caracteres.
+                                        </small>
                                     </div>
                                 </div>
                             </div>

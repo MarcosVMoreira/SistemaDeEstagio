@@ -26,9 +26,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputDescricaoEmpresa">Descrição da empresa</label>
-                                    <textarea class="form-control" name="inputDescricaoEmpresa" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputDescricaoEmpresa" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -37,9 +37,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputObjetivosAlcancados">Objetivos alcançados no estágio</label>
-                                    <textarea class="form-control" name="inputObjetivosAlcancados" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputObjetivosAlcancados" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -48,9 +48,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputDescricaoAtividades">Descrição detalhada das atividades</label>
-                                    <textarea class="form-control" name="inputDescricaoAtividades" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputDescricaoAtividades" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -58,10 +58,10 @@
                         <div class="form-row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="inputAtividadesDesenvolvidas">Atividades desenvolvidas que melhor desempenhou</label>
-                                    <textarea class="form-control" name="inputAtividadesDesenvolvidas" rows="4" maxlength="300" required></textarea>
+                                    <label for="inputAtividadesMelhorDesenpenhou">Atividades desenvolvidas que melhor desempenhou</label>
+                                    <textarea class="form-control" name="inputAtividadesMelhorDesenpenhou" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -70,9 +70,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputDificuldadesEncontradas">Dificuldades encontradas no estágio</label>
-                                    <textarea class="form-control" name="inputDificuldadesEncontradas" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputDificuldadesEncontradas" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -81,9 +81,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputParalelo">Faça um paralelo em relação ao conhecimento que você recebeu no instituto e a realidade vivenciada no local de estágio</label>
-                                    <textarea class="form-control" name="inputParalelo" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputParalelo" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -92,9 +92,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputConsideracoesFinais">Considerações finais sobre o estágio</label>
-                                    <textarea class="form-control" name="inputConsideracoesFinais" rows="4" maxlength="300" required></textarea>
+                                    <textarea class="form-control" name="inputConsideracoesFinais" rows="4" maxlength="3000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 300 caracteres.
+                                        Máximo 3000 caracteres.
                                     </small>
                                 </div>
                             </div>
@@ -103,9 +103,9 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="inputBibliografia">Bibliografia utilizada no estágio</label>
-                                    <textarea class="form-control" name="inputBibliografia" rows="4" maxlength="1024" required></textarea>
+                                    <textarea class="form-control" name="inputBibliografia" rows="4" maxlength="1000" required></textarea>
                                     <small id="maxcaracter" class="form-text text-muted">
-                                        Máximo 1024 caracteres.
+                                        Máximo 1000 caracteres.
                                     </small>
                                 </div>
                             </div>

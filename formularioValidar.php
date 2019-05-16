@@ -269,6 +269,8 @@
     }
     if(!empty($_POST['inputCargaHorariaMax']))
         $cargaHorariaTotal = $_POST['inputCargaHorariaMax'];
+    else
+        $cargaHorariaTotal = NULL;
     $tipoCargaHoraria = $_POST['radioGroupCargaHoraria'];
     $dataInicio = $_POST['inputDataInicioEstagio'];
     $dataFim = $_POST['inputDataFimEstagio'];
@@ -312,7 +314,6 @@
         $numeroApolice = $_POST['inputNumeroApolice'];
     }
 
-
    $query = 'SELECT idEstagio FROM estagio';
     if ($resultado = $conexao->query($query)) {
         while($linha = $resultado->fetch_assoc()) {
@@ -321,6 +322,8 @@
                     $queryPt1 = 'UPDATE estagio SET ' .
                     'tipoEstagio="' . $tipoEstagio . '", ' .
                     'valorBolsa="' . $valorBolsa . '", ' .
+                    'dataInicial="' . $dataInicio . '", ' .
+                    'dataFinal="' . $dataFim . '", ' .
                     'segunda="' . $segunda . '", ' .
                     'terca="' . $terca . '", ' .
                     'quarta="' . $quarta . '", ' .
@@ -329,11 +332,16 @@
                     'sabado="' . $sabado . '", ' .
                     'atividadesQueSeraoDesenvolvidas="' . $atividadesDesenvolvidas . '", ' .
                     'areasConhecimento="' . $areasConhecimento . '", ' .
-                    'objetivos="' . $objetivosAlcancados . '"';
+                    'objetivos="' . $objetivosAlcancados . '", ' .
+                    'tipoCargaHoraria="' . $tipoCargaHoraria . '", ' .
+                    'cargaHorariaTotal="' . $cargaHorariaTotal . '"';
 
                     if(!empty($nomeSeguradora) && !empty($numeroApolice))
                         $queryPt1 = $queryPt1 . ', nomeSeguradora="' . $nomeSeguradora . '"' . ', numeroApolice="' . $numeroApolice . '"';
 
+                    if(!empty($beneficios))
+                        $queryPt1 = $queryPt1 . ', beneficios="' . $beneficios . '"';
+                    
                     $queryPt2 = ' WHERE idEstagio="' . $_SESSION['idEstagio'] . '"';
 
                     $query3 = $queryPt1 . $queryPt2;
@@ -345,12 +353,16 @@
                     }
                 }
             } else {
-                $query3 = "INSERT INTO estagio (tipoEstagio, valorBolsa, segunda, terca, quarta, quinta, sexta, sabado, atividadesQueSeraoDesenvolvidas, areasConhecimento, objetivos";
+                $query3 = "INSERT INTO estagio (tipoEstagio, valorBolsa, dataInicial, dataFinal, segunda, terca, quarta, quinta, sexta, sabado, atividadesQueSeraoDesenvolvidas, areasConhecimento, objetivos, tipoCargaHoraria, cargaHorariaTotal";
                 
-                if(!empty($nomeSeguradora) && !empty($numeroApolice)) {
-                    $query3 = $query3 . ", nomeSeguradora, numeroApolice) VALUES ('$tipoEstagio', '$valorBolsa', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$nomeSeguradora', '$numeroApolice')";
+                if(!empty($nomeSeguradora) && !empty($numeroApolice) && !empty($beneficios)) {
+                    $query3 = $query3 . ", nomeSeguradora, numeroApolice, beneficios) VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal', '$nomeSeguradora', '$numeroApolice', '$beneficios')";
+                } else if(!empty($nomeSeguradora) && !empty($numeroApolice) && empty($beneficios)) {
+                    $query3 = $query3 . ", nomeSeguradora, numeroApolice) VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal', '$nomeSeguradora', '$numeroApolice')";
+                } else if(empty($nomeSeguradora) && empty($numeroApolice) && !empty($beneficios)) {
+                    $query3 = $query3 . ", beneficios) VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal', '$beneficios')";
                 } else {
-                    $query3 = $query3 . ") VALUES ('$tipoEstagio', '$valorBolsa', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados')";
+                    $query3 = $query3 . ") VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal')";
                 }
 
                 if (!$conexao->query($query3) === TRUE) {

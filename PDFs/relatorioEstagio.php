@@ -4,7 +4,11 @@ include_once("../conexao.php");
 
 $year = date('Y');
 
-$query = "SELECT * FROM alunos";
+session_start();
+
+$raAluno = $_SESSION['ra'];
+
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -23,13 +27,16 @@ if ($result = $conexao->query($query)) {
         $modalidade = $resultado["modalidade"];
         $bairroAluno = $resultado["bairro"];
         $cepAluno = $resultado["cep"];
-        $telefoneFixoAluno = $resultado["telefoneFixo"];
         $celularAluno = $resultado["telefoneCelular"];
         $emailAluno = $resultado["email"];
+        $idOrientador = $resultado["idOrientador"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
+        $idSupervisor = $resultado["idSupervisor"];
     }
 }
 
-$query = "SELECT * FROM orientador";
+$query = "SELECT * FROM orientador WHERE idOrientador = $idOrientador";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -43,7 +50,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -64,7 +71,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM supervisor";
+$query = "SELECT * FROM supervisor WHERE idSupervisor = $idSupervisor";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -82,7 +89,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -91,11 +98,13 @@ if ($result = $conexao->query($query)) {
         header("Location: ../login.php");
     } else {
         $area = $resultado["areasConhecimento"];
-        $atividades = $resultado["atividadesQueSeraoDesenvolvidas"];
+        $atividades = $resultado["descricaoAtividade"];
         $cargaHoraria = $resultado["cargaHorariaTotal"];
-        $objetivos = $resultado["objetivos"];
-        $dataInicio = $resultado["dataInicial"];
-        $dataFim = $resultado["dataFinal"];
+        $objetivos = $resultado["objetivosAlcancados"];
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFim = date("d/m/Y", strtotime($dataFimAno));
         $atividadesMelhorEmpenhou = $resultado["atividadesQueMelhorEmpenhou"];
         $dificuldadesEncontradas = $resultado["dificuldadesAluno"];
         $paraleloInstitutoEstagio = $resultado["paraleloInstitutoEstagio"];
@@ -432,7 +441,7 @@ $string = '<html>
         <div style="position:absolute;left:85.08px;top:704.80px" class="cls_006"><span class="cls_006">CIDADE: <b>'.$cidadeAluno.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:716.32px" class="cls_006"><span class="cls_006">UF(ESTADO): <b>'.$ufAluno.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:727.84px" class="cls_006"><span class="cls_006">CEP: <b>'.$cepAluno.'</b></span></div>
-        <div style="position:absolute;left:85.08px;top:739.36px" class="cls_006"><span class="cls_006">TELEFONE FIXO: <b>'.$telefoneFixoAluno.'</b></span></div>
+        <div style="position:absolute;left:85.08px;top:739.36px" class="cls_006"><span class="cls_006">TELEFONE FIXO: <b></b></span></div>
         <div style="position:absolute;left:85.08px;top:750.76px" class="cls_006"><span class="cls_006">CELULAR: <b>'.$celularAluno.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:762.28px" class="cls_006"><span class="cls_006">E-MAIL: <b>'.$emailAluno.'</b></span></div>
     </div>

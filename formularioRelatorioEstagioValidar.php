@@ -36,7 +36,8 @@
             'dificuldadesAluno="'. $dificuldadesAluno . '", '.
             'paraleloInstitutoEstagio="'. $paraleloInstitutoEstagio . '", '.
             'consideracoesFinais="'. $consideracoesFinais . '", '.
-            'bibliografia="'. $bibliografia . '"';
+            'bibliografia="'. $bibliografia . '"
+            WHERE idEstagio="' . $_SESSION['idEstagio'] . '"';
 
         if (!$conexao->query($query2) === TRUE) {
             echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";

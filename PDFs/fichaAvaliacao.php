@@ -2,7 +2,11 @@
 
 include_once("../conexao.php");
 
-$query = "SELECT * FROM alunos";
+session_start();
+
+$raAluno = $_SESSION['ra'];
+
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -14,11 +18,13 @@ if ($result = $conexao->query($query)) {
         $cursoAluno = $resultado["curso"];
         $moduloPeriodo = $resultado["periodoAno"];
         $modalide = $resultado["modalidade"];
-        $raAluno = $resultado["ra"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
+        $idSupervisor = $resultado["idSupervisor"];
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -38,7 +44,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -47,12 +53,14 @@ if ($result = $conexao->query($query)) {
         header("Location: ../login.php");
     } else {
         $area = $resultado["areasConhecimento"];
-        $dataInicio = $resultado["dataInicial"];
-        $dataFim = $resultado["dataFinal"];
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFim = date("d/m/Y", strtotime($dataFimAno));
     }
 }
 
-$query = "SELECT * FROM supervisor";
+$query = "SELECT * FROM supervisor WHERE idSupervisor = $idSupervisor";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 

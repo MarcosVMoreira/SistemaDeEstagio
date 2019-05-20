@@ -175,20 +175,20 @@
                                     <label for="selectCurso">Curso</label>
                                     <select class="form-control" id="selectCurso" name="curso">
                                         <optgroup label="Técnicos Integrados">
-                                            <option>Técnico em Informática</option>
-                                            <option>Técnico em Eletrotécnica</option>
+                                            <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                            <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
                                         </optgroup>
                                         <optgroup label="Técnicos Subsequentes">
-                                            <option>Técnico em Administração</option>
-                                            <option>Técnico em Edificações</option>
-                                            <option>Técnico em Eletrotécnica</option>
+                                            <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                            <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                            <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
                                         </optgroup>
                                         <optgroup label="Superiores">
-                                            <option>Ciências Biológicas</option>
-                                            <option>Engenharia de Computação</option>
-                                            <option>Geografia</option>
-                                            <option>Gestão Ambiental</option>
-                                            <option>Gestão Comercial</option>
+                                            <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                            <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                            <option value="Superiores-Geografia">Geografia</option>
+                                            <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                            <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
                                         </optgroup>
                                     </select>
                                 </div>

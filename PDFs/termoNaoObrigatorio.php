@@ -2,6 +2,8 @@
 
 include_once("../conexao.php");
 
+
+
 $query = "SELECT * FROM alunos";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();

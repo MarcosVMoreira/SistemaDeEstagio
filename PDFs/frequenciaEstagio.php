@@ -2,7 +2,11 @@
 
 include_once("../conexao.php");
 
-$query = "SELECT * FROM alunos";
+session_start();
+
+$raAluno = $_SESSION['ra'];
+
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -13,11 +17,13 @@ if ($result = $conexao->query($query)) {
         $nomeAluno = $resultado["nome"];
         $cursoAluno = $resultado["curso"];
         $periodoAnoAluno = $resultado["periodoAno"];
-		$modalidadeAluno = $resultado["modalidade"];
+        $modalidadeAluno = $resultado["modalidade"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -29,7 +35,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -37,8 +43,10 @@ if ($result = $conexao->query($query)) {
         $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
         header("Location: ../login.php");
     } else {
-        $dataInicialEstagio = $resultado["dataInicial"];
-        $dataFinalEstagio = $resultado["dataFinal"];
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicialEstagio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFinalEstagio = date("d/m/Y", strtotime($dataFimAno));
     }
 }
 

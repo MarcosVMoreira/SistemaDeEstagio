@@ -2,7 +2,11 @@
 
 include_once("../conexao.php");
 
-$query = "SELECT * FROM alunos";
+session_start();
+
+$raAluno = $_SESSION['ra'];
+
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -12,13 +16,17 @@ if ($result = $conexao->query($query)) {
     } else {
         $nomeAluno = $resultado["nome"];
         $cursoAluno = $resultado["curso"];
-        $raAluno = $resultado["ra"];
         $moduloAno = $resultado["periodoAno"];
         $modalidade = $resultado["modalidade"];
+        $idOrientador = $resultado["idOrientador"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
+        $idSupervisor = $resultado["idSupervisor"];
     }
 }
 
-$query = "SELECT * FROM orientador";
+
+$query = "SELECT * FROM orientador WHERE idOrientador = $idOrientador";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -32,7 +40,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -48,7 +56,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM supervisor";
+$query = "SELECT * FROM supervisor WHERE idSupervisor = $idSupervisor";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -66,7 +74,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -78,8 +86,10 @@ if ($result = $conexao->query($query)) {
         $atividades = $resultado["atividadesQueSeraoDesenvolvidas"];
         $cargaHoraria = $resultado["cargaHorariaTotal"];
         $objetivos = $resultado["objetivos"];
-        $dataInicio = $resultado["dataInicial"];
-        $dataFim = $resultado["dataFinal"];
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFim = date("d/m/Y", strtotime($dataFimAno));
     }
 }
 

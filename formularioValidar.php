@@ -15,7 +15,9 @@
     $telefoneAluno = $_POST['inputTelefone'];
     $dataNascimentoAluno = $_POST['inputDataNascimento'];
     $emailAluno = $_POST['inputEmail'];
-    $cursoAluno = $_POST['selectCurso'];
+    $cursoLabel = explode('-', $_POST["selectCurso"]);
+    $cursoAluno = $cursoLabel[1];
+    $modalidade = $cursoLabel[0];
     $moduloAluno = $_POST['inputAno'];
     $cepAluno = $_POST['inputCep'];
     $enderecoAluno = $_POST['inputEndereco'];
@@ -39,7 +41,8 @@
         'numero="' . $numeroAluno . '", ' .
         'bairro="' . $bairroAluno . '", ' .
         'cidade="' . $cidadeAluno . '", ' .
-        'uf="' . $estadoAluno . '"';
+        'uf="' . $estadoAluno . '", ' .
+        'modalidade="' . $modalidade . '"';
 
     if($complementoAluno != '') {
         $queryPt1 = $queryPt1 . ', complemento="' . $complementoAluno . '"';

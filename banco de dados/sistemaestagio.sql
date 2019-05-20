@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 06-Maio-2019 às 19:43
+-- Generation Time: 20-Maio-2019 às 17:29
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.2.14
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `concedentes` (
   `cidade` varchar(45) NOT NULL,
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) NOT NULL,
-  `descricao` varchar(300) DEFAULT NULL,
+  `descricao` varchar(3000) DEFAULT NULL,
   `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   `complemento` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEmpresa`)
@@ -130,15 +130,17 @@ CREATE TABLE IF NOT EXISTS `estagio` (
   `sabado` varchar(45) DEFAULT NULL,
   `nomeSeguradora` varchar(45) DEFAULT NULL,
   `numeroApolice` varchar(45) DEFAULT NULL,
-  `atividadesQueSeraoDesenvolvidas` varchar(300) NOT NULL,
-  `areasConhecimento` varchar(45) NOT NULL,
-  `objetivos` varchar(300) NOT NULL,
-  `atividadesQueMelhorEmpenhou` varchar(300) DEFAULT NULL,
-  `dificuldadesAluno` varchar(300) DEFAULT NULL,
-  `paraleloInstitutoEstagio` varchar(300) DEFAULT NULL,
-  `consideracoesFinais` varchar(300) DEFAULT NULL,
-  `bibliografia` varchar(1024) DEFAULT NULL,
+  `atividadesQueSeraoDesenvolvidas` varchar(500) NOT NULL,
+  `areasConhecimento` varchar(500) NOT NULL,
+  `objetivos` varchar(500) NOT NULL,
+  `atividadesQueMelhorEmpenhou` varchar(3000) DEFAULT NULL,
+  `dificuldadesAluno` varchar(3000) DEFAULT NULL,
+  `paraleloInstitutoEstagio` varchar(3000) DEFAULT NULL,
+  `consideracoesFinais` varchar(3000) DEFAULT NULL,
+  `bibliografia` varchar(1000) DEFAULT NULL,
   `idEstagio` int(11) NOT NULL AUTO_INCREMENT,
+  `objetivosAlcancados` varchar(3000) NOT NULL,
+  `descricaoAtividade` varchar(3000) NOT NULL,
   PRIMARY KEY (`idEstagio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -146,8 +148,8 @@ CREATE TABLE IF NOT EXISTS `estagio` (
 -- Extraindo dados da tabela `estagio`
 --
 
-INSERT INTO `estagio` (`tipoEstagio`, `valorBolsa`, `beneficios`, `cargaHorariaTotal`, `tipoCargaHoraria`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `nomeSeguradora`, `numeroApolice`, `atividadesQueSeraoDesenvolvidas`, `areasConhecimento`, `objetivos`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `bibliografia`, `idEstagio`) VALUES
-('', '', NULL, '200', '', '18/03/2019', '24/05/2019', '00:00:01', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', NULL, NULL, 'Batata Pao Queijo', 'Engenharia', 'Estagiar', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'livro dos Palmas', 1);
+INSERT INTO `estagio` (`tipoEstagio`, `valorBolsa`, `beneficios`, `cargaHorariaTotal`, `tipoCargaHoraria`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `nomeSeguradora`, `numeroApolice`, `atividadesQueSeraoDesenvolvidas`, `areasConhecimento`, `objetivos`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `bibliografia`, `idEstagio`, `objetivosAlcancados`, `descricaoAtividade`) VALUES
+('', '', NULL, '200', '', '18/03/2019', '24/05/2019', '00:00:01', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', NULL, NULL, 'Batata Pao Queijo', 'Engenharia', 'Estagiar', 'desenvolvimento', 'frontend', 'atividades práticas com imersão no mercardo de trabalho', 'considero finalizado', 'livro dos Palmas', 1, '', '');
 
 -- --------------------------------------------------------
 

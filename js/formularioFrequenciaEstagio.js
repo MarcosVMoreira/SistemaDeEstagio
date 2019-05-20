@@ -35,10 +35,6 @@ function calculaHoraTotal(qtdLinhas) {
 
 $(document).ready(function () {
     var qtdLinhas = 0;
-    var tempoTotal = [0, 0];
-    var auxTempo = [0, 0];
-    
-    
 
     $("#linhaBotoes").on("click", "#botaoAdicionar", function () {
         var stringlinha = $("<div class=\"form-row\" id=\"linhaDiaria" + qtdLinhas + "\">" +
@@ -77,43 +73,16 @@ $(document).ready(function () {
         });
 
         qtdLinhas++;
+        
+        $('#qtdLinhas').val(qtdLinhas);
+        
     });
 
     $("#botaoRemover").click(function () {
         qtdLinhas--;
         $("#linhaDiaria" + qtdLinhas).remove();
         $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
+        $('#qtdLinhas').val(qtdLinhas);
     });
-    
-    $("#formFrequenciaEstagio").submit(function (evento){
-        alert("entrei no submit");
-        $.ajax({
-            url: 'pegaQuantidadeLinhas.php?valor='+qtdLinhas,
-            type: 'GET',
-            processData: false, 
-            contentType: false,
-            success: function(data, textStatus, jqXHR) {
-                if(typeof data.error === 'undefined') {
-                    // Sucesso
-                    //console.log("Adicionado a session jaRespondidas "+idUsuario);
-                }
-                else {
-                    // Tratar erros
 
-                    alert("Erro ao adicionar a session jaRespondidas: "+data.error);
-                }
-            },
-            error: function(jqXHR, textStatus, errorThrown){
-                // Tratar erros
-                /*
-                console.log('ERRORS: ' + textStatus);
-                console.log('ERRORS: ' + jqXHR);
-                console.log('ERRORS: ' + errorThrown);
-                */
-            }
-        });
-        
-        this.submit();
-        
-    });
 });

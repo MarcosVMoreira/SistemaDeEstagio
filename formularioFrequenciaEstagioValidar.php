@@ -3,39 +3,77 @@
 
     require_once('conexao.php');
 
-
     // Dados do aluno
     $raAluno = $_SESSION['ra'];
-    echo "valor do qtd linhas: ".$_SESSION['qtdLinhas'];
-    $qtdLinhas = $_SESSION['qtdLinhas'];
-    echo $qtdLinhas;
+    $qtdLinhas = $_POST['qtdLinhas'];
 
-    for($i = 0; $i < $qtdLinhas; $i++){
-        $data = $_POST['inputData'+ i];
-        $cargaHoraria = $_POST['inputCargaHoraria' +i];
-        $setor = $_POST['inputSetor' +i];
-        $atividade = $_POST['inputAtividade' +i];
-    }
+    $query = 'SELECT data FROM frequenciaestagio WHERE raAluno="' . $raAluno . '"';
+
     
-    $queryPt1 = 'UPDATE frequenciaestagio SET ' .
-        'data="' . $nomeAluno . '", ' .
-        'cargaHoraria="' . $cargaHoraria . '", ' .
-        'setor="' . $setor . '", ' .
-        'atividade="' . $atividade . '"';
+        for ($i = 0; $i < $qtdLinhas; $i++) {
+            // Percorrendo todos os campos para verificar se algum já está no banco.
+            
+            $data = $_POST['inputData' . $i];
+            
+            if ($resultado = $conexao->query($query)) {
+                $flag = 0;
+                
+                while ($linha = $resultado->fetch_assoc()) {
+                    if ($data == $linha['data']) {
+                        /* Se a data do campo que está sendo verificado for igual a alguma data contida no banco relacionada ao RA da session,
+                        * então o registro do banco deverá ser atualizado.
+                        */
+                        $flag = 1;
+                    }
+                }
+                
+                $cargaHoraria = $_POST['inputCargaHoraria' . $i];
+                $setor = $_POST['inputSetor' . $i];
+                $atividade = $_POST['inputAtividade' . $i];
 
-    if($setor != '') {
-        $queryPt1 = $queryPt1 . ', setor="' . $setor . '"';
-    }
+                if ($flag != 1){
+                    /* Nenhuma data contida no banco relacionada ao RA da session é igual à data do campo que está sendo verificado,
+                    * portanto deve-se inserir o registro no banco.
+                    */
 
-    $queryPt2 = ' WHERE ra="' . $raAluno . '"';
+                    if($setor != '') {
+                        $query2 = "INSERT INTO frequenciaestagio (raAluno, data, cargaHoraria, setor, atividade) VALUES ('$raAluno', '$data',
+                        '$cargaHoraria', '$setor', '$atividade')";
+                    } else {
+                        $query2 = "INSERT INTO frequenciaestagio (raAluno, data, cargaHoraria, atividade) VALUES ('$raAluno', '$data',
+                        '$cargaHoraria', '$atividade')";
+                    }
 
-    $query = $queryPt1 . $queryPt2;
+                    if (!$conexao->query($query2) === TRUE) {
+                        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador. (1)<br />";
+                        echo "Error updating record: " . $conexao->error;
+                        exit;
+                    }
+                } else {
+                    /* Foi encontrada uma data no banco relacionada ao RA da session igual à data do campo que está sendo verificado,
+                    * portanto o registro do banco deve ser atualizado.
+                    */
+                    
+                    if($setor != '') {
+                        $query2 = "UPDATE frequenciaestagio SET cargaHoraria='".$cargaHoraria."', setor='".$setor."', atividade='".$atividade."'     WHERE raAluno='".$raAluno."'";
+                    } else {
+                        $query2 = "UPDATE frequenciaestagio SET cargaHoraria='".$cargaHoraria."', atividade='".$atividade."' WHERE raAluno='".$raAluno."'";
+                    }
 
-    if (!$conexao->query($query) === TRUE) {
-        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
-        echo "Error updating record: " . $conexao->error;
-        exit;
-    }
-
-    $conexao->close();
+                    if (!$conexao->query($query2) === TRUE) {
+                        echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador. (2)<br />";
+                        echo "Error updating record: " . $conexao->error;
+                        exit;
+                    }
+                    
+                }
+                
+                $conexao->close();
+            } else {
+                echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador. (3)<br />";
+                echo "Error updating record: " . $conexao->error;
+                exit;
+            }
+        }
+    
 ?>

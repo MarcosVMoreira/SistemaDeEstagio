@@ -13,7 +13,133 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $orientador = "";
     $supervisor = "";
     $concedentes = "";
+    $alunos = "";
     $flagGlobal = 0;
+
+    //aluno
+    $query = "SELECT * FROM alunos WHERE ra='" . $_SESSION['ra'] . "'";
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+
+        if (empty($resultado)) {
+            $alunos = "Por favor preencher os dados do Aluno. <br />\n";
+            $flagGlobal = 1;
+        } else {
+            $alunos = "Por favor preencher os seguintes dados do Aluno: ";
+            if ($resultado["nome"] != "") { } else {
+                $alunos = $alunos . "nome";
+                $flag = 1;
+            }
+            if ($resultado["rg"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "RG";
+                $flag = 1;
+            }
+            if ($resultado["cpf"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "CPF";
+                $flag = 1;
+            }
+            if ($resultado["cidade"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "cidade";
+                $flag = 1;
+            }
+            if ($resultado["bairro"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "bairro";
+                $flag = 1;
+            }
+            if ($resultado["uf"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "UF";
+                $flag = 1;
+            }
+            if ($resultado["telefoneCelular"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "telefone";
+                $flag = 1;
+            }
+            if ($resultado["cep"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "CEP";
+                $flag = 1;
+            }
+            if ($resultado["endereco"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "endereço";
+                $flag = 1;
+            }
+            if ($resultado["numero"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "numero";
+                $flag = 1;
+            }
+            if ($resultado["curso"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "curso";
+                $flag = 1;
+            }
+            if ($resultado["campus"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "campus";
+                $flag = 1;
+            }
+            if ($resultado["email"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "email";
+                $flag = 1;
+            }
+            if ($resultado["complemento"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "complemento";
+                $flag = 1;
+            }
+            if ($resultado["dataNascimento"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "data de nascimento";
+                $flag = 1;
+            }
+            if ($resultado["periodoAno"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "periodo/ano";
+                $flag = 1;
+            }
+            if ($resultado["modalidade"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "modalidade";
+                $flag = 1;
+            }
+            if ($resultado["idSupervisor"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "idSupervisor";
+                $flag = 1;
+            }
+            if ($resultado["idOrientador"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "idOrientador";
+                $flag = 1;
+            }
+            if ($resultado["idEstagio"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "idEstagio";
+                $flag = 1;
+            }
+            if ($resultado["idEmpresa"] == "") {
+                if ($flag == 1) $alunos = $alunos . ", ";
+                $alunos = $alunos . "idEmpresa";
+                $flag = 1;
+            }
+            if ($flag == 1) {
+                $alunos = $alunos . ". <br />\n";
+                $flagGlobal = 1;
+            } else {
+                $alunos = "";
+            }
+            $flag = 0;
+        }
+    }
+
 
     // Concedente
     $query = "SELECT * FROM concedentes WHERE idEmpresa='" . $_SESSION['idEmpresa'] . "'";
@@ -201,6 +327,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             Alguns dados estão faltando para que seja possível gerar o PDF do termo de compromisso de estágio. Preencha os dados listados abaixo: <br />
             <?php
                 if ($flagGlobal == 1) {
+                    echo $alunos;
                     echo $orientador;
                     echo $supervisor;
                     echo $concedentes;

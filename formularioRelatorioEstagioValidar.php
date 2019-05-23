@@ -1,6 +1,11 @@
 <?php
-    session_start();
-    require_once('conexao.php');
+
+session_start();
+include_once("conexao.php");
+
+if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
+    header("Location: login.php");
+} else {
 
     if (!((isset($_SESSION['idEstagio']) && $_SESSION['idEstagio'] != "") && (isset($_SESSION['cpnjCpf']) && $_SESSION['cnpjCpf'] != ""))) {
 
@@ -50,4 +55,5 @@
 
 
     }
+}
 ?>

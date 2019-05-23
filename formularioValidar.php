@@ -1,11 +1,11 @@
 <?php
-    session_start();
-    
-    /*function tirarAcentos($string) {
-        return preg_replace(array("/(á|à|ã|â|ä)/","/(Á|À|Ã|Â|Ä)/","/(é|è|ê|ë)/","/(É|È|Ê|Ë)/","/(í|ì|î|ï)/","/(Í|Ì|Î|Ï)/","/(ó|ò|õ|ô|ö)/","/(Ó|Ò|Õ|Ô|Ö)/","/(ú|ù|û|ü)/","/(Ú|Ù|Û|Ü)/","/(ñ)/","/(Ñ)/","/(ç)/","/(Ç)/"),explode(" ","a A e E i I o O u U n N c C"), $string);
-    }*/
 
-    require_once('conexao.php');
+session_start();
+include_once("conexao.php");
+
+if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nome']) && $_SESSION['nome'] != "") && (isset($_SESSION['senha']) && $_SESSION['senha'] != ""))) {
+    header("Location: login.php");
+} else {
 
     // Dados do aluno
     $raAluno = $_SESSION['ra'];
@@ -389,3 +389,4 @@
     }
 
     $conexao->close();
+}

@@ -123,14 +123,14 @@
                         </li>
 
                         <li>
-                            <a href="validarFormularioFrequenciaEstagio.php">
+                            <a href="verificarFormularioFrequenciaEstagio.php">
                             <i class="fas fa-file-alt"></i>
                             <span>Frequência de Estágio</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="validarFormularioRelatorioEstagio.php">
+                            <a href="verificarFormularioRelatorioEstagio.php">
                             <i class="fas fa-file-alt"></i>
                             <span>Relatório de Estágio</span>
                             </a>

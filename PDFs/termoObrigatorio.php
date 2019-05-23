@@ -2,7 +2,11 @@
 
 include_once("../conexao.php");
 
-$query = "SELECT * FROM alunos";
+session_start();
+
+$raAluno = $_SESSION['ra'];
+
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -22,10 +26,14 @@ if ($result = $conexao->query($query)) {
         $nascimentoAluno = $resultado["dataNascimento"];
         $emailAluno = $resultado["email"];
         $cursoAluno = $resultado["curso"];
+        $idOrientador = $resultado["idOrientador"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
+        $idSupervisor = $resultado["idSupervisor"];
     }
 }
 
-$query = "SELECT * FROM orientador";
+$query = "SELECT * FROM orientador WHERE idOrientador = $idOrientador";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -37,7 +45,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -60,7 +68,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM supervisor";
+$query = "SELECT * FROM supervisor WHERE idSupervisor = $idSupervisor";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -73,7 +81,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -81,50 +89,52 @@ if ($result = $conexao->query($query)) {
         $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
         header("Location: ../login.php");
     } else {
-        $cargaHorariaDiaria = $resultado["cargaHorariaDiaria"];
-        $cargaHorariaSemanal = $resultado["cargaHorariaSemanal"];
-        $cargaHorariaTotal = $resultado["cargaHorariaTotal"];
-        $dataInicio = $resultado["dataInicial"];
-        $dataFim = $resultado["dataFinal"];
-        $horarioEstagio = $resultado["horarioEstagio"];
-        if($resultado["segunda"] != 0)
-        {
-            $diasSemana = "Segundas-Feiras";
-        }
-        if($resultado["terca"] != 0)
-        {
-            if(empty($diasSemana))
-                $diasSemana = "Terças-Feiras";
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFim = date("d/m/Y", strtotime($dataFimAno));
+        if(($valorBolsa = $resultado["valorBolsa"]) == "")
+            $valorBolsa = 0.00;
+        if(($beneficios = $resultado["beneficios"]) == "")
+            $beneficios = "Não há benefícios";
+        $horasSegunda = $resultado["segunda"];
+        $horasTerca = $resultado["terca"];
+        $horasQuarta = $resultado["quarta"];
+        $horasQuinta = $resultado["quinta"];
+        $horasSexta = $resultado["sexta"];
+        $horasSabado = $resultado["sabado"];
+
+        if($horasSegunda != "")
+            $diasTrabalhados = "Segunda (" . $horasSegunda . "h)";
+        if($horasTerca != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Terça (" . $horasTerca . "h)";
             else
-                $diasSemana .= ", Terças-Feiras";
+                $diasTrabalhados = $diasTrabalhados . ", Terça (" . $horasTerca . "h)";
         }
-        if($resultado["quarta"] != 0)
-        {
-            if(empty($diasSemana))
-                $diasSemana = "Quartas-Feiras";
+        if($horasQuarta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Quarta (" . $horasQuarta . "h)";
             else
-                $diasSemana .= ", Quartas-Feiras";
+                $diasTrabalhados = $diasTrabalhados . ", Quarta (" . $horasQuarta . "h)";
         }
-        if($resultado["quinta"] != 0)
-        {
-            if(empty($diasSemana))
-                $diasSemana = "Quintas-Feiras";
+        if($horasQuinta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Quinta (" . $horasQuinta . "h)";
             else
-                $diasSemana .= ", Quintas-Feiras";
+                $diasTrabalhados = $diasTrabalhados . ", Quinta (" . $horasQuinta . "h)";
         }
-        if($resultado["sexta"] != 0)
-        {
-            if(empty($diasSemana))
-                $diasSemana = "Sextas-Feiras";
+        if($horasSexta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Sexta (" . $horasSexta . "h)";
             else
-                $diasSemana .= ", Sextas-Feiras";
+                $diasTrabalhados = $diasTrabalhados . ", Sexta (" . $horasSexta . "h)";
         }
-        if($resultado["sabado"] != 0)
-        {
-            if(empty($diasSemana))
-                $diasSemana = "Sábados";
+        if($horasSabado != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Sábado (" . $horasSabado . "h)";
             else
-                $diasSemana .= ", Sábados";
+                $diasTrabalhados = $diasTrabalhados . ", Sábado (" . $horasSabado . "h)";
         }
     }
 }
@@ -376,7 +386,8 @@ $string = '<html>
         <div style="position:absolute;left:60.48px;top:709.48px" class="cls_003"><span class="cls_003">a) Este Termo de Compromisso de Estágio terá vigência de <b>'.$dataInicio.'</b> a <b>'.$dataFim.'</b> podendo ser interrompido</span></div>
         <div style="position:absolute;left:78.48px;top:719.80px; right: 115px;" class="cls_003"><span class="cls_003"> a qualquer tempo, desde que comunicado com 07 dias de antecedência à Secretaria de Pesquisa e Extensão que preencherá Termo de Rescisão em modelo próprio da Secretaria. O mesmo prazo e condição se aplicam no caso de aditamento do contrato.</span></div>
         <div align="justify" style="position:absolute;left:60.48px;top:750.76px;right:115px;" class="cls_002"><span class="cls_003">b) As atividades de estágio a serem cumpridas pelo estagiário serão desenvolvidas nos seguintes dias e horários:</span></div>
-        <div style="position:absolute;left:79px;top:760.44px;right:115px;" class="cls_003"><span class="cls_003"> às <b>'.$diasSemana.'</b>, das <b>'.$horarioEstagio.'</b>, totalizando <b>'.$cargaHorariaDiaria.'</b> horas por dia, <b>'.$cargaHorariaSemanal.'</b> horas por semana e <b>'.$cargaHorariaTotal.'</b> horas de estágio obrigatório.</span></div>
+        <div style="position:absolute;left:79px;top:760.44px;right:115px;" class="cls_003"><span class="cls_003"> 
+        <b>'.$diasTrabalhados.'</b>.</span></div>
     </div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
@@ -397,11 +408,10 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:154.60px" class="cls_006"><span class="cls_006">CLÁUSULA SEXTA: DO SEGURO - </span><span class="cls_009"> </span><span class="cls_003">A interveniente manterá em favor do(a) estagiário(a) Seguro de Acidentes Pessoais, cuja</span></div>
         <div style="position:absolute;left:42.48px;top:165.88px" class="cls_003"><span class="cls_003">apólice em vigência poderá ser consultada a qualquer tempo junto ao IFSULDEMINAS - Campus Poços de Caldas, em</span></div>
         <div style="position:absolute;left:42.48px;top:175.24px" class="cls_003"><span class="cls_003">obediência ao disposto no art. 4º da Lei nº. 11.788, de 25 de setembro de 2008.</span></div>
-        <div style="position:absolute;left:42.48px;top:196.96px" class="cls_006"><span class="cls_006">CLÁUSULA SÉTIMA: DOS BENEFÍCIOS -</span><span class="cls_003"> De acordo com a normativa Nº 7, de 30 de outubro de 2008 o estágio obrigatório</span></div>
-        <div style="position:absolute;left:42.48px;top:207.28px" class="cls_003"><span class="cls_003">será realizado sem ônus para os órgãos e entidades.</span></div>
-        <div style="position:absolute;left:42.48px;top:227.92px" class="cls_003"><span class="cls_003">Parágrafo único: A eventual concessão de benefícios relacionados a transporte, alimentação e saúde, entre outros, não</span></div>
-        <div style="position:absolute;left:42.48px;top:238.36px" class="cls_003"><span class="cls_003">caracteriza vínculo empregatício. (Parágrafo 1º, Artigo 12 da Lei nº. 11.788, de 25 de setembro de 2008.)</span></div>
-        <div style="position:absolute;left:42.48px;top:259.00px" class="cls_006"><span class="cls_006">CLÁUSULA OITAVA: DAS OBRIGAÇÕES DA UNIDADE CONCEDENTE</span></div>
+        <div style="position:absolute;left:42.48px; right:80px; top:196.96px" class="cls_006"><span class="cls_006">CLÁUSULA SÉTIMA: DOS BENEFÍCIOS -</span><span class="cls_003"> A eventual concessão de benefícios relacionados a transporte, alimentação e saúde, entre outros, não caracteriza vínculo empregatício. (Parágrafo 1º, Artigo 12 da Lei nº. 11.788, de 25 de setembro de 2008.) </span></div>
+        <div style="position:absolute;left:42.48px; right:80px; top:234px;" class="cls_006"><span class="cls_006">CLÁUSULA OITAVA:</span>
+        <span class="cls_003">O ESTAGIÁRIO receberá uma bolsa no valor de <b>R$'.$valorBolsa.'</b> e os seguintes benefícios: <b>'.$beneficios.'</b>. </span></div>
+        <div style="position:absolute;left:42.48px;top:259.00px" class="cls_006"><span class="cls_006">CLÁUSULA NONA: DAS OBRIGAÇÕES DA UNIDADE CONCEDENTE</span></div>
         <div style="position:absolute;left:335.15px;top:259.00px" class="cls_006"><span class="cls_006">-</span><span class="cls_003"> No desenvolvimento do estágio ora</span></div>
         <div style="position:absolute;left:42.48px;top:269.32px" class="cls_003"><span class="cls_003">compromissado, caberá à Unidade Concedente:</span></div>
         <div style="position:absolute;left:60.48px;top:279.76px" class="cls_003"><span class="cls_003">a) Proporcionar ao ESTAGIÁRIO, condições propícias para o exercício das atividades práticas compatíveis com o seu</span></div>
@@ -413,7 +423,7 @@ $string = '<html>
         <div style="position:absolute;left:78.48px;top:353.08px" class="cls_003"><span class="cls_003">diretrizes fornecidas pela Instituição de Ensino.</span></div>
         <div style="position:absolute;left:60.48px;top:363.40px" class="cls_003"><span class="cls_003">e) Comunicar a Instituição de Ensino, a interrupção e as eventuais alterações que ocorrerem neste Termo de</span></div>
         <div style="position:absolute;left:78.48px;top:373.72px" class="cls_003"><span class="cls_003">Compromisso.</span></div>
-        <div style="position:absolute;left:42.48px;top:394.48px" class="cls_006"><span class="cls_006">CLÁUSULA NONA: DAS OBRIGAÇÕES DO ESTAGIÁRIO -</span><span class="cls_003"> No desenvolvimento do estágio ora compromissado, caberá ao</span></div>
+        <div style="position:absolute;left:42.48px;top:394.48px" class="cls_006"><span class="cls_006">CLÁUSULA DÉCIMA: DAS OBRIGAÇÕES DO ESTAGIÁRIO -</span><span class="cls_003"> No desenvolvimento do estágio ora compromissado, caberá ao</span></div>
         <div style="position:absolute;left:42.48px;top:404.80px" class="cls_003"><span class="cls_003">estagiário:</span></div>
         <div style="position:absolute;left:60.48px;top:415.12px" class="cls_003"><span class="cls_003">a) Cumprir com todo empenho e interesse a programação estabelecida para o seu estágio.</span></div>
         <div style="position:absolute;left:60.48px;top:425.44px" class="cls_003"><span class="cls_003">b) Observar e obedecer às normas internas da Unidade Concedente.</span></div>
@@ -422,7 +432,7 @@ $string = '<html>
         <div style="position:absolute;left:78.48px;top:456.52px" class="cls_003"><span class="cls_003">constantes do presente Termo de Compromisso.</span></div>
         <div style="position:absolute;left:60.48px;top:466.84px" class="cls_003"><span class="cls_003">e) Respeitar, acatar ordens, bem como não divulgar quaisquer informações, dados, trabalhos reservados ou confidenciais</span></div>
         <div style="position:absolute;left:42.48px;top:477.28px" class="cls_003"><span class="cls_003">de que tiver conhecimento em decorrência do estágio.</span></div>
-        <div style="position:absolute;left:42.48px;top:497.92px" class="cls_006"><span class="cls_006">CLÁUSULA DÉCIMA: DAS OBRIGAÇÕES DA INSTITUIÇÃO DE ENSINO -</span><span class="cls_003"> No desenvolvimento do estágio curricular</span></div>
+        <div style="position:absolute;left:42.48px;top:497.92px" class="cls_006"><span class="cls_006">CLÁUSULA DÉCIMA PRIMEIRA: DAS OBRIGAÇÕES DA INSTITUIÇÃO DE ENSINO -</span><span class="cls_003"> No desenvolvimento do estágio curricular</span></div>
         <div style="position:absolute;left:42.48px;top:508.24px" class="cls_003"><span class="cls_003">obrigatório caberá à Instituição de Ensino:</span></div>
         <div style="position:absolute;left:60.48px;top:518.56px" class="cls_002"><span class="cls_002">a) </span><span class="cls_003"> Designar o (a) Sr. (a) <b>'.$nomeOrientador.'</b> para ser o(a) Professor(a) Orientador(a) responsável</div>
         <div style="position:absolute;left:78.48px;top:528.88px" class="cls_003"><span class="cls_003">pelo acompanhamento e avaliação das atividades do estágio.</span></div>

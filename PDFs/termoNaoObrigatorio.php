@@ -2,9 +2,11 @@
 
 include_once("../conexao.php");
 
+session_start();
 
+$raAluno = $_SESSION['ra'];
 
-$query = "SELECT * FROM alunos";
+$query = "SELECT * FROM alunos WHERE ra = $raAluno";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -23,15 +25,15 @@ if ($result = $conexao->query($query)) {
         $rgAluno = $resultado["rg"];
         $nascimentoAluno = $resultado["dataNascimento"];
         $emailAluno = $resultado["email"];
-        $numeroApolice = $resultado["numeroApolicesSeguros"];
-        $nomeSeguradora = $resultado["nomeSeguradora"];
-        $valorBolsa = $resultado["valorBolsa"];
-        $beneficios = $resultado["beneficios"];
         $cursoAluno = $resultado["curso"];
+        $idOrientador = $resultado["idOrientador"];
+        $idEmpresa = $resultado["idEmpresa"];
+        $idEstagio = $resultado["idEstagio"];
+        $idSupervisor = $resultado["idSupervisor"];
     }
 }
 
-$query = "SELECT * FROM orientador";
+$query = "SELECT * FROM orientador WHERE idOrientador = $idOrientador";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
     
@@ -43,7 +45,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM concedentes";
+$query = "SELECT * FROM concedentes WHERE idEmpresa = $idEmpresa";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -66,7 +68,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM supervisor";
+$query = "SELECT * FROM supervisor WHERE idSupervisor = $idSupervisor";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -79,7 +81,7 @@ if ($result = $conexao->query($query)) {
     }
 }
 
-$query = "SELECT * FROM estagio";
+$query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
 if ($result = $conexao->query($query)) {
     $resultado = $result->fetch_assoc();
 
@@ -87,10 +89,53 @@ if ($result = $conexao->query($query)) {
         $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
         header("Location: ../login.php");
     } else {
-        $cargaHorariaDiaria = $resultado["cargaHorariaDiaria"];
-        $cargaHorariaSemanal = $resultado["cargaHorariaSemanal"];
-        $dataInicio = $resultado["dataInicial"];
-        $dataFim = $resultado["dataFinal"];
+        $dataInicioAno = $resultado["dataInicial"];
+        $dataInicio = date("d/m/Y", strtotime($dataInicioAno));
+        $dataFimAno = $resultado["dataFinal"];
+        $dataFim = date("d/m/Y", strtotime($dataFimAno));
+        $numeroApolice = $resultado["numeroApolice"];
+        $nomeSeguradora = $resultado["nomeSeguradora"];
+        $valorBolsa = $resultado["valorBolsa"];
+        $beneficios = $resultado["beneficios"];
+        $horasSegunda = $resultado["segunda"];
+        $horasTerca = $resultado["terca"];
+        $horasQuarta = $resultado["quarta"];
+        $horasQuinta = $resultado["quinta"];
+        $horasSexta = $resultado["sexta"];
+        $horasSabado = $resultado["sabado"];
+
+        if($horasSegunda != "")
+            $diasTrabalhados = "Segunda (" . $horasSegunda . "h)";
+        if($horasTerca != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Terça (" . $horasTerca . "h)";
+            else
+                $diasTrabalhados = $diasTrabalhados . ", Terça (" . $horasTerca . "h)";
+        }
+        if($horasQuarta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Quarta (" . $horasQuarta . "h)";
+            else
+                $diasTrabalhados = $diasTrabalhados . ", Quarta (" . $horasQuarta . "h)";
+        }
+        if($horasQuinta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Quinta (" . $horasQuinta . "h)";
+            else
+                $diasTrabalhados = $diasTrabalhados . ", Quinta (" . $horasQuinta . "h)";
+        }
+        if($horasSexta != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Sexta (" . $horasSexta . "h)";
+            else
+                $diasTrabalhados = $diasTrabalhados . ", Sexta (" . $horasSexta . "h)";
+        }
+        if($horasSabado != "") {
+            if(empty($diasTrabalhados))
+                $diasTrabalhados = "Sábado (" . $horasSabado . "h)";
+            else
+                $diasTrabalhados = $diasTrabalhados . ", Sábado (" . $horasSabado . "h)";
+        }
     }
 }
 
@@ -263,10 +308,12 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:716.32px" class="cls_006"><span class="cls_006">CLÁUSULA 2ª</span><span class="cls_003"> - O Estágio Não Obrigatório é aquele desenvolvido como atividade opcional, acrescida à carga horária regular,</span></div>
         <div style="position:absolute;left:42.48px;top:726.76px" class="cls_003"><span class="cls_003">nos termos da Lei n° 11.788/08 e da Lei n° 9.394/96, visa ao aprendizado de competências próprias da atividade profissional e</span></div>
         <div style="position:absolute;left:42.48px;top:736.12px" class="cls_003"><span class="cls_003">a contextualização curricular, objetivando o desenvolvimento do educando para a vida cidadã e para o trabalho.</span></div>
-        <div style="position:absolute;left:42.48px;top:756.76px" class="cls_006"><span class="cls_006">CLÁUSULA 3ª</span><span class="cls_003"> - - O estágio terá início em <b>'.$dataInicio.'</b></span><span class="cls_002"> </span><span class="cls_003">e terá seu término em <b>'.$dataFim.'</b></span><span class="cls_002"> </span><span class="cls_003">com uma atividade de <b>'.$cargaHorariaDiaria.'</b></span></div>
-        <div style="position:absolute;left:42.48px;top:767.20px" class="cls_003"><span class="cls_003">horas diárias, e <b>'.$cargaHorariaSemanal.'</b></span> horas semanais, sendo compatível com as atividades escolares e de acordo com o art. 10° da Lei n°</div>
-        <div style="position:absolute;left:42.48px;top:777.52px" class="cls_003"><span class="cls_003">11.788/08. </span></div>
-    </div>
+        <div style="position:absolute;left:42.48px;right:80px;top:756.76px" class="cls_006">
+            <span class="cls_006">CLÁUSULA 3ª</span>
+            <span class="cls_003"> - - O estágio terá início em <b>'.$dataInicio.'</b></span>
+            <span class="cls_003">e terá seu término em <b>'.$dataFim.'</b></span>
+            <span class="cls_003">com atividade(s) no(s) dia(s): <b>'.$diasTrabalhados.'</b> sendo compatível com as atividades escolares e de acordo com o art. 10° da Lei n°11.788/08. </span>
+        </div></div>
     <h1 style="page-break-before: always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">
         <div style="position:absolute;left:0px;top:0px">
@@ -339,7 +386,7 @@ $string = '<html>
         <div style="position:absolute;left:83.07px;top:724.36px" class="cls_003"><span class="cls_003">Pelo trancamento da matrícula, abandono, desligamento ou conclusão do curso no IFSULDEMINAS Campus Poços.</span></div>
         <div style="position:absolute;left:60.48px;top:734.80px" class="cls_003"><span class="cls_003">d)</span></div>
         <div style="position:absolute;left:83.04px;top:734.80px" class="cls_003"><span class="cls_003">Pelo descumprimento das condições do presente Termo de Compromisso de Estágio;</span></div>
-        <div style="position:absolute;left:42.48px;top:755.44px" class="cls_006"><span class="cls_006">CLÁUSULA 10ª</span><span class="cls_003">- O ESTAGIÁRIO receberá uma bolsa no valor de <b>R$'.$valorBolsa.'</b></span> e os seguintes benefícios: <b>'.$beneficios.'</b>. </div>
+        <div style="position:absolute;left:42.48px;right:80px;top:755.44px" class="cls_006"><span class="cls_006">CLÁUSULA 10ª</span><span class="cls_003">- O ESTAGIÁRIO receberá uma bolsa no valor de <b>R$'.$valorBolsa.'</b></span> e os seguintes benefícios: <b>'.$beneficios.'</b>. </div>
     </div>
     <h1 style="page-break-before:always;"></h1>
     <div style="position:absolute;left:50%;margin-left:-297px;top:0px;width:595px;height:841px;border-style:outset;overflow:hidden">

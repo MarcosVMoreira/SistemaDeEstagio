@@ -1,25 +1,48 @@
 <?php
     session_start();
         include_once("conexao.php");
-        echo "session = ".$_SESSION['idEstagio'];
-        $query = "SELECT * FROM estagio WHERE idEstagio='".$_SESSION['idEstagio']."'";
-        echo "part1";
+        $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
+    echo ("ID Supervisor: ").$_SESSION['idSupervisor'];
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
-        echo "part2";
+        
         if (empty($resultado)) {
-
-            $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
-            header("Location: login.php");
+            $_SESSION['erroFormulario'] = "Erro ao buscar informações do supervisor.";
         } else {
-            $objetivosAlcansados = $resultado["objetivosAlcancados"];
-            if($objetivosAlcansados==NULL){
-                $objetivosAlcansados = "";
+
+            $nomeSupervisor = $resultado["nome"];
+            if ($nomeSupervisor == NULL) {
+                $nomeSupervisor = "";
             }
-            $atividadesQueMelhorEmpenhou = $resultado["atividadesQueMelhorEmpenhou"];
-            echo "print: ".$atividadesQueMelhorEmpenhou;
+            $cargoSupervisor = $resultado["cargo"];
+            if ($cargoSupervisor == NULL) {
+                $cargoSupervisor = "";
+            }
+            $emailSupervisor = $resultado["email"];
+            if ($emailSupervisor == NULL) {
+                $emailSupervisor = "";
+            }
+            $telefoneSupervisor = $resultado["telefone"];
+            if ($telefoneSupervisor == NULL) {
+                $telefoneSupervisor = "";
+            }
+            $cpfSupervisor = $resultado["cpf"];
+            if ($cpfSupervisor == NULL) {
+                $cpfSupervisor = "";
+            }
+            $cursoFormacaoSupervisor = $resultado["cursoFormacao"];
+            if ($cursoFormacaoSupervisor == NULL) {
+                $cursoFormacaoSupervisor = "";
+            }
+            $conselhoClasseSupervisor = $resultado["conselhoClasseProfissional"];
+            if ($conselhoClasseSupervisor == NULL) {
+                $conselhoClasseSupervisor = "";
+            }
+            $possuiExperienciaSupervisor = $resultado["possuiExperiencia"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
         }
-    
-    }echo "part3";
+    }
     /* close connection */
     $conexao->close();

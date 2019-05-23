@@ -19,7 +19,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
         
         if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de aluno.";
+            $_SESSION['erroFormulario'] = "Erro ao buscar informações de aluno.";
         } else {
             $nome = $resultado["nome"];
             if ($nome == NULL) {
@@ -94,7 +94,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
         
         if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de orientador.";
+            $_SESSION['erroFormulario'] = "Erro ao buscar informações de orientador.";
         } else {
 
             $nomeOrientador = $resultado["nome"];
@@ -113,13 +113,13 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         }
     }
 
-    $query = "SELECT * FROM concendentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
+    $query = "SELECT * FROM concedentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
 
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
         
         if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
+            $_SESSION['erroFormulario'] = "Erro ao buscar informações do Concedente.";
         } else {
 
             $nomeEmpresa = $resultado["nome"];
@@ -134,74 +134,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             if ($emailEmpresa == NULL) {
                 $emailEmpresa = "";
             }
-            $cepEmpresa = $resultado["cep"];
-            if ($cepEmpresa == NULL) {
-                $cepEmpresa = "";
-            }
-            $enderecoEmpresa = $resultado["endereco"];
-            if ($enderecoEmpresa == NULL) {
-                $enderecoEmpresa = "";
-            }
-            $numeroEmpresa = $resultado["numero"];
-            if ($numeroEmpresa == NULL) {
-                $numeroEmpresa = "";
-            }
-            $complementoEmpresa = $resultado["numero"];
-            if ($complementoEmpresa == NULL) {
-                $complementoEmpresa = "";
-            }
-            $bairroEmpresa = $resultado["numero"];
-            if ($bairroEmpresa == NULL) {
-                $bairroEmpresa = "";
-            }
-            $cidadeEmpresa = $resultado["numero"];
-            if ($cidadeEmpresa == NULL) {
-                $cidadeEmpresa = "";
-            }
-            $estadoEmpresa = $resultado["numero"];
-            if ($estadoEmpresa == NULL) {
-                $estadoEmpresa = "";
-            }
-            $representanteEmpresa = $resultado["numero"];
-            if ($representanteEmpresa == NULL) {
-                $representanteEmpresa = "";
-            }
-            $cargoEmpresa = $resultado["numero"];
-            if ($cargoEmpresa == NULL) {
-                $cargoEmpresa = "";
-            }
-            $responsavelEmpresa = $resultado["numero"];
-            if ($responsavelEmpresa == NULL) {
-                $responsavelEmpresa = "";
-            }
-            $cargoEmpresa = $resultado["numero"];
-            if ($cargoEmpresa == NULL) {
-                $cargoEmpresa = "";
-            }
-        }
-    }
-
-
-    $query = "SELECT * FROM concendentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
-
-    if ($result = $conexao->query($query)) {
-        $resultado = $result->fetch_assoc();
-        
-        if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
-        } else {
-
-            $nomeEmpresa = $resultado["nome"];
-            if ($nomeEmpresa == NULL) {
-                $nomeEmpresa = "";
-            }
-            $cnpjEmpresa = $resultado["cnpjCpf"];
-            if ($cnpjEmpresa == NULL) {
-                $cnpjEmpresa = "";
-            }
-            $emailEmpresa = $resultado["email"];
-            if ($emailEmpresa == NULL) {
-                $emailEmpresa = "";
+            $telefoneEmpresa = $resultado["telefone"];
+            if ($telefoneEmpresa == NULL){
+                $telefoneEmpresa = "";
             }
             $cepEmpresa = $resultado["cep"];
             if ($cepEmpresa == NULL) {
@@ -235,28 +170,30 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             if ($representanteEmpresa == NULL) {
                 $representanteEmpresa = "";
             }
-            $cargorepresentanteEmpresa = $resultado["representanteEmpresaCargo"];
-            if ($cargorepresentanteEmpresa == NULL) {
-                $cargorepresentanteEmpresa = "";
+            $cargoEmpresa = $resultado["representanteEmpresaCargo"];
+            if ($cargoEmpresa == NULL) {
+                $cargoEmpresa = "";
             }
             $responsavelEmpresa = $resultado["responsavelTceNome"];
             if ($responsavelEmpresa == NULL) {
                 $responsavelEmpresa = "";
             }
-            $cargoResponsavelEmpresa = $resultado["responsavelTceCargo"];
-            if ($cargoResponsavelEmpresa == NULL) {
-                $cargoResponsavelEmpresa = "";
+            $tceCargoEmpresa = $resultado["responsavelTceCargo"];
+            if ($tceCargoEmpresa == NULL) {
+                $tceCargoEmpresa = "";
             }
         }
     }
 
-    $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
 
+
+    $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
+    echo $_SESSION['idSupervisor'];
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
         
         if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
+            $_SESSION['erroFormulario'] = "Erro ao buscar informações do supervisor.";
         } else {
 
             $nomeSupervisor = $resultado["nome"];
@@ -301,80 +238,80 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
         
         if (empty($resultado)) {
-            $_SESSION['loginErro'] = "Erro ao buscar informações de estágio.";
+            $_SESSION['fomularioErro'] = "Erro ao buscar informações de estágio.";
         } else {
 
             $tipoEstagio = $resultado["tipoEstagio"];
-            if ($nomeSupervisor == NULL) {
-                $nomeSupervisor = "";
+            if ($tipoEstagio == NULL) {
+                $tipoEstagio = "";
             }
             $valorBolsaEstagio = $resultado["valorBolsa"];
-            if ($cargoSupervisor == NULL) {
-                $cargoSupervisor = "";
+            if ($valorBolsaEstagio == NULL) {
+                $valorBolsaEstagio = "";
             }
             $beneficiosEstagio = $resultado["beneficios"];
-            if ($emailSupervisor == NULL) {
-                $emailSupervisor = "";
+            if ($beneficiosEstagio == NULL) {
+                $beneficiosEstagio = "";
             }
             $cargaHorariaTotalEstagio = $resultado["cargaHorariaTotal"];
-            if ($telefoneSupervisor == NULL) {
-                $telefoneSupervisor = "";
+            if ($cargaHorariaTotalEstagio == NULL) {
+                $cargaHorariaTotalEstagio = "";
             }
             $tipoCargaHorariaEstagio = $resultado["tipoCargaHoraria"];
-            if ($cpfSupervisor == NULL) {
-                $cpfSupervisor = "";
+            if ($tipoCargaHorariaEstagio == NULL) {
+                $tipoCargaHorariaEstagio = "";
             }
             $dataInicioEstagio = $resultado["dataInicial"];
-            if ($cursoFormacaoSupervisor == NULL) {
-                $cursoFormacaoSupervisor = "";
+            if ($dataInicioEstagio == NULL) {
+                $dataInicioEstagio = "";
             }
             $dataTerminoEstagio = $resultado["dataFinal"];
-            if ($conselhoClasseSupervisor == NULL) {
-                $conselhoClasseSupervisor = "";
+            if ($dataTerminoEstagio == NULL) {
+                $dataTerminoEstagio = "";
             }
             $segundaEstagio = $resultado["segunda"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($segundaEstagio == NULL) {
+                $segundaEstagio = "";
             }
             $tercaEstagio = $resultado["terca"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($tercaEstagio == NULL) {
+                $tercaEstagio = "";
             }
             $quartaEstagio = $resultado["quarta"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($quartaEstagio == NULL) {
+                $quartaEstagio = "";
             }
             $quintaEstagio = $resultado["quinta"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($quintaEstagio == NULL) {
+                $quintaEstagio = "";
             }
             $sextaEstagio = $resultado["sexta"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($sextaEstagio == NULL) {
+                $sextaEstagio = "";
             }
             $sabadoEstagio = $resultado["sabado"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($sabadoEstagio == NULL) {
+                $sabadoEstagio = "";
             }
             $atividadesASeremDesenvolvidasEstagio = $resultado["nomeSeguradora"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($atividadesASeremDesenvolvidasEstagio == NULL) {
+                $atividadesASeremDesenvolvidasEstagio = "";
             }
             $areasConhecimentoEstagio = $resultado["areasConhecimento"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($areasConhecimentoEstagio == NULL) {
+                $areasConhecimentoEstagio = "";
             }
             $objetivosAlcancadosEstagio = $resultado["objetivos"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($objetivosAlcancadosEstagio == NULL) {
+                $objetivosAlcancadosEstagio = "";
             }
             $companhiaSeguroEstagio = $resultado["nomeSeguradora"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($companhiaSeguroEstagio == NULL) {
+                $companhiaSeguroEstagio = "";
             }
             $numeroApoliceEstagio = $resultado["numeroApolice"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
+            if ($numeroApoliceEstagio == NULL) {
+                $numeroApoliceEstagio = "";
             }
         }
     }
@@ -401,7 +338,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNome">Nome completo</label>
-                                        <input type="text" class="form-control" name="inputNome" value="<?php echo($nome);?>"id="inputNome" required>
+                                        <input type="text" class="form-control" name="inputNome" value="<?php echo($nome);?>" id="inputNome" required>
                                     </div>
                                 </div>
                             </div>
@@ -410,21 +347,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCpf">CPF</label>
-                                        <input type="text" class="form-control" name="inputCpf" id="inputCpf" required>
+                                        <input type="text" class="form-control" name="inputCpf" value="<?php echo($cpf);?>" id="inputCpf" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputRg">RG</label>
-                                        <input type="text" class="form-control" name="inputRg" id="inputRg" required>
+                                        <input type="text" class="form-control" name="inputRg" value="<?php echo($rg);?>" id="inputRg" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefone">Telefone celular</label>
-                                        <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" required>
+                                        <input type="text" class="form-control" name="inputTelefone" value="<?php echo($telefoneCelular);?>" id="inputTelefone" required>
                                     </div>
                                 </div>
                             </div>
@@ -433,14 +370,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputDataNascimento">Data de nascimento</label>
-                                        <input type="date" class="form-control" name="inputDataNascimento" id="inputDataNascimento" required>
+                                        <input type="date" class="form-control" name="inputDataNascimento" value="<?php echo($dataNascimento);?>" id="inputDataNascimento" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEmail">Email</label>
-                                        <input type="email" class="form-control" name="inputEmail" id="inputEmail" required>
+                                        <input type="email" class="form-control" name="inputEmail" value="<?php echo($email);?>" id="inputEmail" required>
                                     </div>
                                 </div>
                             </div>
@@ -449,7 +386,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputRA">Matrícula (R.A.)</label>
-                                        <input type="text" class="form-control" name="inputRA" id="inputRA" disabled>
+                                        <input type="text" class="form-control" name="inputRA" value="<?php echo($ra);?>" id="inputRA" disabled>
                                     </div>
                                 </div>
 
@@ -480,7 +417,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputAno">Módulo/Ano</label>
-                                        <input type="text" class="form-control" name="inputAno" id="inputAno" required>
+                                        <input type="text" class="form-control" name="inputAno" value="<?php echo($periodoAno);?>" id="inputAno" required>
                                     </div>
                                 </div>
                             </div>
@@ -489,14 +426,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCep">CEP</label>
-                                        <input type="text" class="form-control" name="inputCep" id="inputCep" required>
+                                        <input type="text" class="form-control" name="inputCep" value="<?php echo($cep);?>" id="inputCep" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEndereco">Endereço</label>
-                                        <input type="text" class="form-control" name="inputEndereco" id="inputEndereco" required>
+                                        <input type="text" class="form-control" name="inputEndereco" value="<?php echo($endereco);?>" id="inputEndereco" required>
                                     </div>
                                 </div>
                             </div>
@@ -505,14 +442,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumero">Número</label>
-                                        <input type="text" class="form-control" name="inputNumero" id="inputNumero" required>
+                                        <input type="text" class="form-control" name="inputNumero" value="<?php echo($numero);?>" id="inputNumero" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplemento">Complemento</label>
-                                        <input type="text" class="form-control" name="inputComplemento" id="inputComplemento">
+                                        <input type="text" class="form-control" name="inputComplemento" value="<?php echo($complemento);?>" id="inputComplemento">
                                     </div>
                                 </div>
                             </div>
@@ -521,14 +458,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputBairro">Bairro</label>
-                                        <input type="text" class="form-control" name="inputBairro" id="inputBairro" required>
+                                        <input type="text" class="form-control" name="inputBairro" value="<?php echo($bairro);?>" id="inputBairro" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidade">Cidade</label>
-                                        <input type="text" class="form-control" name="inputCidade" id="inputCidade" required>
+                                        <input type="text" class="form-control" name="inputCidade" value="<?php echo($cidade);?>" id="inputCidade" required>
                                     </div>
                                 </div>
 
@@ -579,7 +516,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNomeOrientador">Nome completo</label>
-                                        <input type="text" class="form-control" name="inputNomeOrientador" id="inputNomeOrientador" required>
+                                        <input type="text" class="form-control" name="inputNomeOrientador" value="<?php echo($nomeOrientador);?>" id="inputNomeOrientador" required>
                                     </div>
                                 </div>
                             </div>
@@ -588,14 +525,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputTelefoneOrientador">Telefone</label>
-                                        <input type="text" class="form-control" name="inputTelefoneOrientador" id="inputTelefoneOrientador" required>
+                                        <input type="text" class="form-control" name="inputTelefoneOrientador" value="<?php echo($telefoneOrientador);?>" id="inputTelefoneOrientador" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputEmailOrientador">Email</label>
-                                        <input type="email" class="form-control" name="inputEmailOrientador" id="inputEmailOrientador" required>
+                                        <input type="email" class="form-control" name="inputEmailOrientador" value="<?php echo($emailOrientador);?>" id="inputEmailOrientador" required>
                                     </div>
                                 </div>
                             </div>
@@ -611,7 +548,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNomeEmpresa">Nome da empresa</label>
-                                        <input type="text" class="form-control" name="inputNomeEmpresa" id="inputNomeEmpresa" required>
+                                        <input type="text" class="form-control" name="inputNomeEmpresa" value="<?php echo($nomeEmpresa);?>" id="inputNomeEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -620,21 +557,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCnpj">CNPJ</label>
-                                        <input type="text" class="form-control" name="inputCnpj" id="inputCnpj" required>
+                                        <input type="text" class="form-control" name="inputCnpj" value="<?php echo($cnpjEmpresa);?>" id="inputCnpj" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputEmailEmpresa">Email</label>
-                                        <input type="email" class="form-control" name="inputEmailEmpresa" id="inputEmailEmpresa" required>
+                                        <input type="email" class="form-control" name="inputEmailEmpresa" value="<?php echo($emailEmpresa);?>" id="inputEmailEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneEmpresa">Telefone</label>
-                                        <input type="text" class="form-control" name="inputTelefoneEmpresa" id="inputTelefoneEmpresa" required>
+                                        <input type="text" class="form-control" name="inputTelefoneEmpresa" value="<?php echo($telefoneEmpresa);?>" id="inputTelefoneEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -643,14 +580,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCepEmpresa">CEP</label>
-                                        <input type="text" class="form-control" name="inputCepEmpresa" id="inputCepEmpresa" required>
+                                        <input type="text" class="form-control" name="inputCepEmpresa" value="<?php echo($cepEmpresa);?>" id="inputCepEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEnderecoEmpresa">Endereço</label>
-                                        <input type="text" class="form-control" name="inputEnderecoEmpresa" id="inputEnderecoEmpresa" required>
+                                        <input type="text" class="form-control" name="inputEnderecoEmpresa" value="<?php echo($enderecoEmpresa);?>" id="inputEnderecoEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -659,14 +596,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumeroEmpresa">Número</label>
-                                        <input type="text" class="form-control" name="inputNumeroEmpresa" id="inputNumeroEmpresa" required>
+                                        <input type="text" class="form-control" name="inputNumeroEmpresa" value="<?php echo($numeroEmpresa);?>" id="inputNumeroEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplementoEmpresa">Complemento</label>
-                                        <input type="text" class="form-control" name="inputComplementoEmpresa" id="inputComplementoEmpresa">
+                                        <input type="text" class="form-control" name="inputComplementoEmpresa" value="<?php echo($complementoEmpresa);?>" id="inputComplementoEmpresa">
                                     </div>
                                 </div>
                             </div>
@@ -675,14 +612,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputBairroEmpresa">Bairro</label>
-                                        <input type="text" class="form-control" name="inputBairroEmpresa" id="inputBairroEmpresa" required>
+                                        <input type="text" class="form-control" name="inputBairroEmpresa" value="<?php echo($bairroEmpresa);?>" id="inputBairroEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidadeEmpresa">Cidade</label>
-                                        <input type="text" class="form-control" name="inputCidadeEmpresa" id="inputCidadeEmpresa" required>
+                                        <input type="text" class="form-control" name="inputCidadeEmpresa" value="<?php echo($cidadeEmpresa);?>" id="inputCidadeEmpresa" required>
                                     </div>
                                 </div>
 
@@ -726,14 +663,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeRepresentante">Representante</label>
-                                        <input type="text" class="form-control" name="inputNomeRepresentante" id="inputNomeRepresentante" required>
+                                        <input type="text" class="form-control" name="inputNomeRepresentante" value="<?php echo($representanteEmpresa);?>" id="inputNomeRepresentante" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoRepresentante">Cargo</label>
-                                        <input type="text" class="form-control" name="inputCargoRepresentante" id="inputCargoRepresentante" required>
+                                        <input type="text" class="form-control" name="inputCargoRepresentante" value="<?php echo($cargoEmpresa);?>" id="inputCargoRepresentante" required>
                                     </div>
                                 </div>
                             </div>
@@ -742,14 +679,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputResponsavelAssTCE">Responsável pela assinatura do termo de compromisso</label>
-                                        <input type="text" class="form-control" name="inputResponsavelAssTCE" id="inputResponsavelAssTCE" required>
+                                        <input type="text" class="form-control" name="inputResponsavelAssTCE" value="<?php echo($responsavelEmpresa);?>" id="inputResponsavelAssTCE" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoResponsavelAssTCE">Cargo</label>
-                                        <input type="text" class="form-control" name="inputCargoResponsavelAssTCE" id="inputCargoResponsavelAssTCE" required>
+                                        <input type="text" class="form-control" name="inputCargoResponsavelAssTCE" value="<?php echo($tceCargoEmpresa);?>" id="inputCargoResponsavelAssTCE" required>
                                     </div>
                                 </div>
                             </div>
@@ -766,14 +703,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeSupervisor">Nome completo</label>
-                                        <input type="text" class="form-control" name="inputNomeSupervisor" id="inputNomeSupervisor" required>
+                                        <input type="text" class="form-control" name="inputNomeSupervisor" value="<?php echo($nomeSupervisor);?>" id="inputNomeSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoSupervisor">Cargo</label>
-                                        <input type="text" class="form-control" name="inputCargoSupervisor" id="inputCargoSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCargoSupervisor" value="<?php echo($cargoSupervisor);?>" id="inputCargoSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -782,14 +719,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEmailSupervisor">Email</label>
-                                        <input type="email" class="form-control" name="inputEmailSupervisor" id="inputEmailSupervisor" required>
+                                        <input type="email" class="form-control" name="inputEmailSupervisor" value="<?php echo($emailSupervisor);?>" id="inputEmailSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneSupervisor">Telefone</label>
-                                        <input type="text" class="form-control" name="inputTelefoneSupervisor" id="inputTelefoneSupervisor" required>
+                                        <input type="text" class="form-control" name="inputTelefoneSupervisor" value="<?php echo($telefoneSupervisor);?>" id="inputTelefoneSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -798,21 +735,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCpfSupervisor">CPF</label>
-                                        <input type="text" class="form-control" name="inputCpfSupervisor" id="inputCpfSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCpfSupervisor" value="<?php echo($cpfSupervisor);?>" id="inputCpfSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCursoSupervisor">Curso de formação</label>
-                                        <input type="text" class="form-control" name="inputCursoSupervisor" id="inputCursoSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCursoSupervisor" value="<?php echo($cursoFormacaoSupervisor);?>" id="inputCursoSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputConselhoSupervisor">Conselho de Classe Profissional</label>
-                                        <input type="text" class="form-control" name = "inputConselhoSupervisor" id="inputConselhoSupervisor" placeholder="(opcional)">
+                                        <input type="text" class="form-control" name = "inputConselhoSupervisor" value="<?php echo($conselhoClasseSupervisor);?>" id="inputConselhoSupervisor" placeholder="(opcional)">
                                     </div>
                                 </div>
                             </div>
@@ -867,7 +804,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputValorBolsa">Valor da Bolsa</label>
-                                        <input type="text" class="form-control" name="inputValorBolsa" id="inputValorBolsa">
+                                        <input type="text" class="form-control" name="inputValorBolsa" value="<?php echo($valorBolsaEstagio);?>" id="inputValorBolsa">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-9">
@@ -899,7 +836,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputCargaHorariaMax">Carga horária total</label>
-                                        <input type="text" class="form-control" name="inputCargaHorariaMax" id="inputCargaHorariaMax">
+                                        <input type="text" class="form-control" name="inputCargaHorariaMax" value="<?php echo($cargaHorariaTotalEstagio);?>" id="inputCargaHorariaMax">
                                         <small class="help-block text-muted"><a href="https://www.google.com/" target="_blank">Consulte aqui</a></small>
                                     </div>
                                 </div>
@@ -926,14 +863,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputDataInicioEstagio">Data de início</label>
-                                        <input type="date" class="form-control" name="inputDataInicioEstagio" id="inputDataInicioEstagio" required>
+                                        <input type="date" class="form-control" name="inputDataInicioEstagio" value="<?php echo($dataInicioEstagio);?>" id="inputDataInicioEstagio" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputDataFimEstagio">Data de término</label>
-                                        <input type="date" class="form-control" name="inputDataFimEstagio" id="inputDataFimEstagio" required>
+                                        <input type="date" class="form-control" name="inputDataFimEstagio" value="<?php echo($dataTerminoEstagio);?>" id="inputDataFimEstagio" required>
                                     </div>
                                 </div>
                             </div>
@@ -1017,7 +954,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" value="<?php echo($atividadesASeremDesenvolvidasEstagio);?>" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -1029,7 +966,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputAreasConhecimento" value="<?php echo($areasConhecimentoEstagio);?>" id="inputAreasConhecimento" rows="2" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -1041,7 +978,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputObjetivos" value="<?php echo($objetivosAlcancadosEstagio);?>" id="inputObjetivos" rows="3" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>

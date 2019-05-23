@@ -8,6 +8,381 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 } else {
     include("header.php");
 
+    include_once("conexao.php");
+
+    /* ja peguei todos os valores do banco de dados. Agora é setar eles
+    nos seus respectivos campos quando a página for aberta */
+
+    $query = "SELECT * FROM alunos WHERE ra='".$_SESSION['ra']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de aluno.";
+        } else {
+            $nome = $resultado["nome"];
+            if ($nome == NULL) {
+                $nome = "";
+            }
+            $cpf = $resultado["cpf"];
+            if ($cpf == NULL) {
+                $cpf = "";
+            }
+            $rg = $resultado["rg"];
+            if ($rg == NULL) {
+                $rg = "";
+            }
+            $telefoneCelular = $resultado["telefoneCelular"];
+            if ($telefoneCelular == NULL) {
+                $telefoneCelular = "";
+            }
+            $dataNascimento = $resultado["dataNascimento"];
+            if ($dataNascimento == NULL) {
+                $dataNascimento = "";
+            }
+            $email = $resultado["email"];
+            if ($email == NULL) {
+                $email = "";
+            }
+            $ra =  $resultado["ra"];
+            if ($ra == NULL) {
+                $ra = "";
+            }
+            $curso = $resultado["curso"];
+            if ($curso == NULL) {
+                $curso = "";
+            }
+            $periodoAno = $resultado["periodoAno"];
+            if ($periodoAno == NULL) {
+                $periodoAno = "";
+            }
+            $cep = $resultado["cep"];
+            if ($cep == NULL) {
+                $cep = "";
+            }
+            $endereco = $resultado["endereco"];
+            if ($endereco == NULL) {
+                $endereco = "";
+            }
+            $numero = $resultado["numero"];
+            if ($numero == NULL) {
+                $numero = "";
+            }
+            $complemento = $resultado["complemento"];
+            if ($complemento == NULL) {
+                $complemento = "";
+            }
+            $bairro = $resultado["bairro"];
+            if ($bairro == NULL) {
+                $bairro = "";
+            }
+            $cidade = $resultado["cidade"];
+            if ($cidade == NULL) {
+                $cidade = "";
+            }
+            $uf = $resultado["uf"];
+            if ($uf == NULL) {
+                $uf = "";
+            }
+        }
+    }
+
+    $query = "SELECT * FROM orientador WHERE idOrientador='".$_SESSION['idOrientador']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de orientador.";
+        } else {
+
+            $nomeOrientador = $resultado["nome"];
+            if ($nomeOrientador == NULL) {
+                $nomeOrientador = "";
+            }
+            $emailOrientador = $resultado["email"];
+            if ($emailOrientador == NULL) {
+                $emailOrientador = "";
+            }
+            $telefoneOrientador = $resultado["telefone"];
+            if ($telefoneOrientador == NULL) {
+                $telefoneOrientador = "";
+            }
+
+        }
+    }
+
+    $query = "SELECT * FROM concendentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
+        } else {
+
+            $nomeEmpresa = $resultado["nome"];
+            if ($nomeEmpresa == NULL) {
+                $nomeEmpresa = "";
+            }
+            $cnpjEmpresa = $resultado["cnpjCpf"];
+            if ($cnpjEmpresa == NULL) {
+                $cnpjEmpresa = "";
+            }
+            $emailEmpresa = $resultado["email"];
+            if ($emailEmpresa == NULL) {
+                $emailEmpresa = "";
+            }
+            $cepEmpresa = $resultado["cep"];
+            if ($cepEmpresa == NULL) {
+                $cepEmpresa = "";
+            }
+            $enderecoEmpresa = $resultado["endereco"];
+            if ($enderecoEmpresa == NULL) {
+                $enderecoEmpresa = "";
+            }
+            $numeroEmpresa = $resultado["numero"];
+            if ($numeroEmpresa == NULL) {
+                $numeroEmpresa = "";
+            }
+            $complementoEmpresa = $resultado["numero"];
+            if ($complementoEmpresa == NULL) {
+                $complementoEmpresa = "";
+            }
+            $bairroEmpresa = $resultado["numero"];
+            if ($bairroEmpresa == NULL) {
+                $bairroEmpresa = "";
+            }
+            $cidadeEmpresa = $resultado["numero"];
+            if ($cidadeEmpresa == NULL) {
+                $cidadeEmpresa = "";
+            }
+            $estadoEmpresa = $resultado["numero"];
+            if ($estadoEmpresa == NULL) {
+                $estadoEmpresa = "";
+            }
+            $representanteEmpresa = $resultado["numero"];
+            if ($representanteEmpresa == NULL) {
+                $representanteEmpresa = "";
+            }
+            $cargoEmpresa = $resultado["numero"];
+            if ($cargoEmpresa == NULL) {
+                $cargoEmpresa = "";
+            }
+            $responsavelEmpresa = $resultado["numero"];
+            if ($responsavelEmpresa == NULL) {
+                $responsavelEmpresa = "";
+            }
+            $cargoEmpresa = $resultado["numero"];
+            if ($cargoEmpresa == NULL) {
+                $cargoEmpresa = "";
+            }
+        }
+    }
+
+
+    $query = "SELECT * FROM concendentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
+        } else {
+
+            $nomeEmpresa = $resultado["nome"];
+            if ($nomeEmpresa == NULL) {
+                $nomeEmpresa = "";
+            }
+            $cnpjEmpresa = $resultado["cnpjCpf"];
+            if ($cnpjEmpresa == NULL) {
+                $cnpjEmpresa = "";
+            }
+            $emailEmpresa = $resultado["email"];
+            if ($emailEmpresa == NULL) {
+                $emailEmpresa = "";
+            }
+            $cepEmpresa = $resultado["cep"];
+            if ($cepEmpresa == NULL) {
+                $cepEmpresa = "";
+            }
+            $enderecoEmpresa = $resultado["endereco"];
+            if ($enderecoEmpresa == NULL) {
+                $enderecoEmpresa = "";
+            }
+            $numeroEmpresa = $resultado["numero"];
+            if ($numeroEmpresa == NULL) {
+                $numeroEmpresa = "";
+            }
+            $complementoEmpresa = $resultado["complemento"];
+            if ($complementoEmpresa == NULL) {
+                $complementoEmpresa = "";
+            }
+            $bairroEmpresa = $resultado["bairro"];
+            if ($bairroEmpresa == NULL) {
+                $bairroEmpresa = "";
+            }
+            $cidadeEmpresa = $resultado["cidade"];
+            if ($cidadeEmpresa == NULL) {
+                $cidadeEmpresa = "";
+            }
+            $estadoEmpresa = $resultado["uf"];
+            if ($estadoEmpresa == NULL) {
+                $estadoEmpresa = "";
+            }
+            $representanteEmpresa = $resultado["representanteEmpresaNome"];
+            if ($representanteEmpresa == NULL) {
+                $representanteEmpresa = "";
+            }
+            $cargorepresentanteEmpresa = $resultado["representanteEmpresaCargo"];
+            if ($cargorepresentanteEmpresa == NULL) {
+                $cargorepresentanteEmpresa = "";
+            }
+            $responsavelEmpresa = $resultado["responsavelTceNome"];
+            if ($responsavelEmpresa == NULL) {
+                $responsavelEmpresa = "";
+            }
+            $cargoResponsavelEmpresa = $resultado["responsavelTceCargo"];
+            if ($cargoResponsavelEmpresa == NULL) {
+                $cargoResponsavelEmpresa = "";
+            }
+        }
+    }
+
+    $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de concedentes.";
+        } else {
+
+            $nomeSupervisor = $resultado["nome"];
+            if ($nomeSupervisor == NULL) {
+                $nomeSupervisor = "";
+            }
+            $cargoSupervisor = $resultado["cargo"];
+            if ($cargoSupervisor == NULL) {
+                $cargoSupervisor = "";
+            }
+            $emailSupervisor = $resultado["email"];
+            if ($emailSupervisor == NULL) {
+                $emailSupervisor = "";
+            }
+            $telefoneSupervisor = $resultado["telefone"];
+            if ($telefoneSupervisor == NULL) {
+                $telefoneSupervisor = "";
+            }
+            $cpfSupervisor = $resultado["cpf"];
+            if ($cpfSupervisor == NULL) {
+                $cpfSupervisor = "";
+            }
+            $cursoFormacaoSupervisor = $resultado["cursoFormacao"];
+            if ($cursoFormacaoSupervisor == NULL) {
+                $cursoFormacaoSupervisor = "";
+            }
+            $conselhoClasseSupervisor = $resultado["conselhoClasseProfissional"];
+            if ($conselhoClasseSupervisor == NULL) {
+                $conselhoClasseSupervisor = "";
+            }
+            $possuiExperienciaSupervisor = $resultado["possuiExperiencia"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+        }
+    }
+
+
+    $query = "SELECT * FROM estagio WHERE idEstagio='".$_SESSION['idEstagio']."'";
+
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+        if (empty($resultado)) {
+            $_SESSION['loginErro'] = "Erro ao buscar informações de estágio.";
+        } else {
+
+            $tipoEstagio = $resultado["tipoEstagio"];
+            if ($nomeSupervisor == NULL) {
+                $nomeSupervisor = "";
+            }
+            $valorBolsaEstagio = $resultado["valorBolsa"];
+            if ($cargoSupervisor == NULL) {
+                $cargoSupervisor = "";
+            }
+            $beneficiosEstagio = $resultado["beneficios"];
+            if ($emailSupervisor == NULL) {
+                $emailSupervisor = "";
+            }
+            $cargaHorariaTotalEstagio = $resultado["cargaHorariaTotal"];
+            if ($telefoneSupervisor == NULL) {
+                $telefoneSupervisor = "";
+            }
+            $tipoCargaHorariaEstagio = $resultado["tipoCargaHoraria"];
+            if ($cpfSupervisor == NULL) {
+                $cpfSupervisor = "";
+            }
+            $dataInicioEstagio = $resultado["dataInicial"];
+            if ($cursoFormacaoSupervisor == NULL) {
+                $cursoFormacaoSupervisor = "";
+            }
+            $dataTerminoEstagio = $resultado["dataFinal"];
+            if ($conselhoClasseSupervisor == NULL) {
+                $conselhoClasseSupervisor = "";
+            }
+            $segundaEstagio = $resultado["segunda"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $tercaEstagio = $resultado["terca"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $quartaEstagio = $resultado["quarta"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $quintaEstagio = $resultado["quinta"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $sextaEstagio = $resultado["sexta"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $sabadoEstagio = $resultado["sabado"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $atividadesASeremDesenvolvidasEstagio = $resultado["nomeSeguradora"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $areasConhecimentoEstagio = $resultado["areasConhecimento"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $objetivosAlcancadosEstagio = $resultado["objetivos"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $companhiaSeguroEstagio = $resultado["nomeSeguradora"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+            $numeroApoliceEstagio = $resultado["numeroApolice"];
+            if ($possuiExperienciaSupervisor == NULL) {
+                $possuiExperienciaSupervisor = "";
+            }
+        }
+    }
+
+
+    /* close connection */
+    $conexao->close();
+
     ?>
 
     <!-- CSS do Formulário -->
@@ -26,7 +401,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNome">Nome completo</label>
-                                        <input value="Felipe Borges da Silva" type="text" class="form-control" name="inputNome" id="inputNome" required>
+                                        <input type="text" class="form-control" name="inputNome" value="<?php echo($nome);?>"id="inputNome" required>
                                     </div>
                                 </div>
                             </div>
@@ -35,21 +410,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCpf">CPF</label>
-                                        <input value="40238046060" type="text" class="form-control" name="inputCpf" id="inputCpf" required>
+                                        <input type="text" class="form-control" name="inputCpf" id="inputCpf" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputRg">RG</label>
-                                        <input value ="13978884" type="text" class="form-control" name="inputRg" id="inputRg" required>
+                                        <input type="text" class="form-control" name="inputRg" id="inputRg" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefone">Telefone celular</label>
-                                        <input value="35988888888" type="text" class="form-control" name="inputTelefone" id="inputTelefone" required>
+                                        <input type="text" class="form-control" name="inputTelefone" id="inputTelefone" required>
                                     </div>
                                 </div>
                             </div>
@@ -58,14 +433,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputDataNascimento">Data de nascimento</label>
-                                        <input value="2000-02-02" type="date" class="form-control" name="inputDataNascimento" id="inputDataNascimento" required>
+                                        <input type="date" class="form-control" name="inputDataNascimento" id="inputDataNascimento" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEmail">Email</label>
-                                        <input value="felipebsilva5@gmail.com" type="email" class="form-control" name="inputEmail" id="inputEmail" required>
+                                        <input type="email" class="form-control" name="inputEmail" id="inputEmail" required>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +449,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputRA">Matrícula (R.A.)</label>
-                                        <input value="14161000100" type="text" class="form-control" name="inputRA" id="inputRA" disabled>
+                                        <input type="text" class="form-control" name="inputRA" id="inputRA" disabled>
                                     </div>
                                 </div>
 
@@ -105,7 +480,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputAno">Módulo/Ano</label>
-                                        <input value="2015" type="text" class="form-control" name="inputAno" id="inputAno" required>
+                                        <input type="text" class="form-control" name="inputAno" id="inputAno" required>
                                     </div>
                                 </div>
                             </div>
@@ -114,14 +489,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCep">CEP</label>
-                                        <input value="37713338" type="text" class="form-control" name="inputCep" id="inputCep" required>
+                                        <input type="text" class="form-control" name="inputCep" id="inputCep" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEndereco">Endereço</label>
-                                        <input value="Rua Coronel Osmar Bento Gonçalves" type="text" class="form-control" name="inputEndereco" id="inputEndereco" required>
+                                        <input type="text" class="form-control" name="inputEndereco" id="inputEndereco" required>
                                     </div>
                                 </div>
                             </div>
@@ -130,14 +505,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumero">Número</label>
-                                        <input value="10" type="text" class="form-control" name="inputNumero" id="inputNumero" required>
+                                        <input type="text" class="form-control" name="inputNumero" id="inputNumero" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplemento">Complemento</label>
-                                        <input value="500" type="text" class="form-control" name="inputComplemento" id="inputComplemento">
+                                        <input type="text" class="form-control" name="inputComplemento" id="inputComplemento">
                                     </div>
                                 </div>
                             </div>
@@ -146,14 +521,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputBairro">Bairro</label>
-                                        <input value="São Bento" type="text" class="form-control" name="inputBairro" id="inputBairro" required>
+                                        <input type="text" class="form-control" name="inputBairro" id="inputBairro" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidade">Cidade</label>
-                                        <input value="Poços de Caldas" type="text" class="form-control" name="inputCidade" id="inputCidade" required>
+                                        <input type="text" class="form-control" name="inputCidade" id="inputCidade" required>
                                     </div>
                                 </div>
 
@@ -204,7 +579,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNomeOrientador">Nome completo</label>
-                                        <input value="Borges da Silva" type="text" class="form-control" name="inputNomeOrientador" id="inputNomeOrientador" required>
+                                        <input type="text" class="form-control" name="inputNomeOrientador" id="inputNomeOrientador" required>
                                     </div>
                                 </div>
                             </div>
@@ -213,14 +588,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputTelefoneOrientador">Telefone</label>
-                                        <input value="35999999999" type="text" class="form-control" name="inputTelefoneOrientador" id="inputTelefoneOrientador" required>
+                                        <input type="text" class="form-control" name="inputTelefoneOrientador" id="inputTelefoneOrientador" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputEmailOrientador">Email</label>
-                                        <input value="felipe.silva@alunos.ifsuldeminas.edu.br"type="email" class="form-control" name="inputEmailOrientador" id="inputEmailOrientador" required>
+                                        <input type="email" class="form-control" name="inputEmailOrientador" id="inputEmailOrientador" required>
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +611,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputNomeEmpresa">Nome da empresa</label>
-                                        <input value="Silva" type="text" class="form-control" name="inputNomeEmpresa" id="inputNomeEmpresa" required>
+                                        <input type="text" class="form-control" name="inputNomeEmpresa" id="inputNomeEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -245,21 +620,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCnpj">CNPJ</label>
-                                        <input value="53402153000121" type="text" class="form-control" name="inputCnpj" id="inputCnpj" required>
+                                        <input type="text" class="form-control" name="inputCnpj" id="inputCnpj" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputEmailEmpresa">Email</label>
-                                        <input value="silva@gmail.com" type="email" class="form-control" name="inputEmailEmpresa" id="inputEmailEmpresa" required>
+                                        <input type="email" class="form-control" name="inputEmailEmpresa" id="inputEmailEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneEmpresa">Telefone</label>
-                                        <input value="35977777777" type="text" class="form-control" name="inputTelefoneEmpresa" id="inputTelefoneEmpresa" required>
+                                        <input type="text" class="form-control" name="inputTelefoneEmpresa" id="inputTelefoneEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -268,14 +643,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCepEmpresa">CEP</label>
-                                        <input value="37713338" type="text" class="form-control" name="inputCepEmpresa" id="inputCepEmpresa" required>
+                                        <input type="text" class="form-control" name="inputCepEmpresa" id="inputCepEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEnderecoEmpresa">Endereço</label>
-                                        <input value="Coronel Osmar Bento Gonçalves" type="text" class="form-control" name="inputEnderecoEmpresa" id="inputEnderecoEmpresa" required>
+                                        <input type="text" class="form-control" name="inputEnderecoEmpresa" id="inputEnderecoEmpresa" required>
                                     </div>
                                 </div>
                             </div>
@@ -284,7 +659,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumeroEmpresa">Número</label>
-                                        <input value="11" type="text" class="form-control" name="inputNumeroEmpresa" id="inputNumeroEmpresa" required>
+                                        <input type="text" class="form-control" name="inputNumeroEmpresa" id="inputNumeroEmpresa" required>
                                     </div>
                                 </div>
 
@@ -300,14 +675,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputBairroEmpresa">Bairro</label>
-                                        <input value="São Bento" type="text" class="form-control" name="inputBairroEmpresa" id="inputBairroEmpresa" required>
+                                        <input type="text" class="form-control" name="inputBairroEmpresa" id="inputBairroEmpresa" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidadeEmpresa">Cidade</label>
-                                        <input value="Poços de Caldas" type="text" class="form-control" name="inputCidadeEmpresa" id="inputCidadeEmpresa" required>
+                                        <input type="text" class="form-control" name="inputCidadeEmpresa" id="inputCidadeEmpresa" required>
                                     </div>
                                 </div>
 
@@ -351,14 +726,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeRepresentante">Representante</label>
-                                        <input value="Representante" type="text" class="form-control" name="inputNomeRepresentante" id="inputNomeRepresentante" required>
+                                        <input type="text" class="form-control" name="inputNomeRepresentante" id="inputNomeRepresentante" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoRepresentante">Cargo</label>
-                                        <input value="Diretor" type="text" class="form-control" name="inputCargoRepresentante" id="inputCargoRepresentante" required>
+                                        <input type="text" class="form-control" name="inputCargoRepresentante" id="inputCargoRepresentante" required>
                                     </div>
                                 </div>
                             </div>
@@ -367,14 +742,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputResponsavelAssTCE">Responsável pela assinatura do termo de compromisso</label>
-                                        <input value="Resp da assinatura" type="text" class="form-control" name="inputResponsavelAssTCE" id="inputResponsavelAssTCE" required>
+                                        <input type="text" class="form-control" name="inputResponsavelAssTCE" id="inputResponsavelAssTCE" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoResponsavelAssTCE">Cargo</label>
-                                        <input value="diretor de ti" type="text" class="form-control" name="inputCargoResponsavelAssTCE" id="inputCargoResponsavelAssTCE" required>
+                                        <input type="text" class="form-control" name="inputCargoResponsavelAssTCE" id="inputCargoResponsavelAssTCE" required>
                                     </div>
                                 </div>
                             </div>
@@ -391,14 +766,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputNomeSupervisor">Nome completo</label>
-                                        <input value="aaaa aaaa cccc" type="text" class="form-control" name="inputNomeSupervisor" id="inputNomeSupervisor" required>
+                                        <input type="text" class="form-control" name="inputNomeSupervisor" id="inputNomeSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCargoSupervisor">Cargo</label>
-                                        <input value="Supervisor" type="text" class="form-control" name="inputCargoSupervisor" id="inputCargoSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCargoSupervisor" id="inputCargoSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -407,14 +782,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputEmailSupervisor">Email</label>
-                                        <input value="email@gmail.com" type="email" class="form-control" name="inputEmailSupervisor" id="inputEmailSupervisor" required>
+                                        <input type="email" class="form-control" name="inputEmailSupervisor" id="inputEmailSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputTelefoneSupervisor">Telefone</label>
-                                        <input value="35966666666" type="text" class="form-control" name="inputTelefoneSupervisor" id="inputTelefoneSupervisor" required>
+                                        <input type="text" class="form-control" name="inputTelefoneSupervisor" id="inputTelefoneSupervisor" required>
                                     </div>
                                 </div>
                             </div>
@@ -423,21 +798,21 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCpfSupervisor">CPF</label>
-                                        <input value="44236860074" type="text" class="form-control" name="inputCpfSupervisor" id="inputCpfSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCpfSupervisor" id="inputCpfSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputCursoSupervisor">Curso de formação</label>
-                                        <input value="Eng de Computação" type="text" class="form-control" name="inputCursoSupervisor" id="inputCursoSupervisor" required>
+                                        <input type="text" class="form-control" name="inputCursoSupervisor" id="inputCursoSupervisor" required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputConselhoSupervisor">Conselho de Classe Profissional</label>
-                                        <input value="Conselho classe" type="text" class="form-control" name = "inputConselhoSupervisor" id="inputConselhoSupervisor" placeholder="(opcional)">
+                                        <input type="text" class="form-control" name = "inputConselhoSupervisor" id="inputConselhoSupervisor" placeholder="(opcional)">
                                     </div>
                                 </div>
                             </div>
@@ -447,11 +822,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="radioGroupPossuiExperiencia">O(A) supervisor(a) de estágio possui experiência profissional na área do estágio?</label>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="Sim" checked>
+                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" checked>
                                             <label class="form-check-label" for="inlineRadio1">Sim</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="Não">
+                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia">
                                             <label class="form-check-label" for="inlineRadio2">Não</label>
                                         </div>
                                     </div>
@@ -477,11 +852,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group" id="divRemunerado">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="Estágio Obrigatório" checked>
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" checked>
                                             <label class="form-check-label" for="radioNaoRemunerado">Estágio obrigatório</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="Estágio não Obrigatório">
+                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" >
                                             <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
                                         </div>
                                     </div>
@@ -492,26 +867,26 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputValorBolsa">Valor da Bolsa</label>
-                                        <input value="400" type="text" class="form-control" name="inputValorBolsa" id="inputValorBolsa">
+                                        <input type="text" class="form-control" name="inputValorBolsa" id="inputValorBolsa">
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-9">
                                     <label for="inputBeneficios">Benefícios</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="Vale Transporte" name="checkboxValeTransporte" id="checkboxValeTransporte">
+                                            <input class="form-check-input" type="checkbox" name="checkboxValeTransporte" id="checkboxValeTransporte">
                                             <label class="form-check-label" for="checkboxValeTransporte">
                                                 Vale Transporte
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="Plano de Saúde" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude">
+                                            <input class="form-check-input" type="checkbox" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude">
                                             <label class="form-check-label" for="checkboxPlanoDeSaude">
                                                 Plano de Saúde
                                             </label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" value="Vale Alimentação" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao">
+                                            <input class="form-check-input" type="checkbox" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao">
                                             <label class="form-check-label" for="checkboxValeAlimentacao">
                                                 Vale Alimentação
                                             </label>
@@ -524,7 +899,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputCargaHorariaMax">Carga horária total</label>
-                                        <input value="200" type="text" class="form-control" name="inputCargaHorariaMax" id="inputCargaHorariaMax">
+                                        <input type="text" class="form-control" name="inputCargaHorariaMax" id="inputCargaHorariaMax">
                                         <small class="help-block text-muted"><a href="https://www.google.com/" target="_blank">Consulte aqui</a></small>
                                     </div>
                                 </div>
@@ -534,11 +909,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa" checked>
+                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" checked>
                                                     <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="Carga Horária Variável">
+                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel">
                                                     <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
                                                 </div>
                                             </div>
@@ -642,7 +1017,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required>asdasdagfgsd</textarea>
+                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -654,7 +1029,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" maxlength="500" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -666,7 +1041,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" maxlength="500" required>asdasdasdas</textarea>
+                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" maxlength="500" required></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>

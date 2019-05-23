@@ -181,15 +181,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Concedente
-    if (!((isset($_SESSION['idEmpresa']) && $_SESSION['idEmpresa'] != "") )){
-        $flagGlobal = 1;
-        $supervisor = "Dados da Empresa. <br />\n";
-    }
     $query = "SELECT * FROM concedentes WHERE cnpjCpf=" . $_SESSION['idEmpresa'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
-        if (empty($resultado)) { } else {
+        if (empty($resultado)) {
+            $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+            $flagGlobal = 1;
+        } else {
             $concedentes = "Por favor preencher os seguintes dados do Concedente: ";
             if ($resultado["nome"] != "") { } else {
                 $concedentes = $concedentes . "nome";
@@ -216,15 +215,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Supervisor
-    if (!((isset($_SESSION['idSupervisor']) && $_SESSION['idSupervisor'] != "") )){
-        $flagGlobal = 1;
-        $supervisor = "Dados do Supervisor. <br />\n";
-    }
     $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['idSupervisor'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
-        if (empty($resultado)) { } else {
+        if (empty($resultado)) {
+            $supervisor = "Por favor preencher os dados do supervisor de estágio. <br />\n";
+            $flagGlobal = 1;
+        } else {
             $supervisor = "Por favor preencher os seguintes dados do Supervisor: ";
             if ($resultado["nome"] != "") { } else {
                 $supervisor = $supervisor . "nome";
@@ -266,17 +264,12 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Estágio
-    if (!((isset($_SESSION['idEstagio']) && $_SESSION['idEstagio'] != "") )){
-        $flagGlobal = 1;
-        $estagio = "Dados do Estagio. <br />\n";
-    }
     $query = "SELECT * FROM estagio WHERE idEstagio=" . $_SESSION['idEstagio'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
-        $flagGlobal = 50;
         if (empty($resultado)) {
+            $estagio = "Por favor preencher os dados do estágio. <br />\n";
             $flagGlobal = 1;
-            $estagio = "Por favor preencher os dados do Estagio.";
         } else {
             $estagio = "Por favor preencher os seguintes dados do Estagio: ";
             if ($resultado["atividadesQueSeraoDesenvolvidas"] != "") { } else {

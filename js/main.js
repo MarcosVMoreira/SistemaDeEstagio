@@ -65,6 +65,7 @@ function pesquisaCep(cep, callback) {
 
 // Exibe uma tooltip abaixo do elemento
 function tooltip(elemento, texto) {
+    elemento.tooltip('dispose');
     elemento.tooltip({
         placement: 'bottom',
         html: true,

@@ -1,3 +1,8 @@
+function parseDate(s) {
+    var b = s.split(/\D/);
+    return new Date(b[0], --b[1], b[2]);
+}
+
 function somaHora(hrA, hrB) {
     if (!validaCargaHoraria(hrA) || !validaCargaHoraria(hrB)) return "00:00";
 
@@ -35,6 +40,10 @@ function calculaHoraTotal(qtdLinhas) {
 
 $(document).ready(function () {
     var qtdLinhas = 0;
+    var tempoTotal = [0, 0];
+    var auxTempo = [0, 0];
+
+
 
     $("#linhaBotoes").on("click", "#botaoAdicionar", function () {
         var stringlinha = $("<div class=\"form-row\" id=\"linhaDiaria" + qtdLinhas + "\">" +
@@ -66,16 +75,77 @@ $(document).ready(function () {
 
         $("#linhaEstagio").append(stringlinha);
 
+
         $('#inputCargaHoraria' + qtdLinhas).keyup(function (e) {
+
             if (validaHora($(e.target).val())) {
-                $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
+
+                var qtdHoras = $(e.target).val().split(':');
+
+                if ((qtdHoras[0] * 1) < 6 || ((qtdHoras[0] * 1) == 6 && (qtdHoras[1] * 1) == 0)) {
+                    // Validamos se a hora é menor ou igual a 6
+
+                    var dataDigitada = $(e.target).parent().parent().prev().find("input[type=date]").val();
+                    var date = parseDate(dataDigitada);
+                    var dia = date.getDay();
+
+                    if (dia == 0) {
+                        dia = 'domingo';
+                    } else if (dia == 1) {
+                        dia = 'segunda';
+                    } else if (dia == 2) {
+                        dia = 'terca';
+                    } else if (dia == 3) {
+                        dia = 'quarta';
+                    } else if (dia == 4) {
+                        dia = 'quinta';
+                    } else if (dia == 5) {
+                        dia = 'sexta';
+                    } else if (dia == 6) {
+                        dia = 'sabado';
+                    }
+
+                    $.post("ajax/consultaHorario.php", {
+                        dia: dia
+                    }, function (retorno) {
+
+                        var horaDoBanco = retorno.split(':');
+                        if ((qtdHoras[0] * 1) < (horaDoBanco[0] * 1) || ((qtdHoras[0] * 1) == (horaDoBanco[0] * 1) && (qtdHoras[1] * 1) <= (horaDoBanco[1] * 1))) {
+                            // Horário informado condiz com o informado no formulário de cadastro
+
+                            $(e.target).removeClass('form-invalido');
+                            // Remove o tooltip
+                            $(e.target).tooltip('disable');
+
+                            $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
+
+                            console.log("Tudo certo");
+                        } else {
+
+                            console.log("Horário ultrapassou o do banco");
+
+                            // Muda a cor da borda para vermelho
+                            $(e.target).addClass('form-invalido');
+                            // Tooltip
+                            tooltip($(e.target), 'O horário não deve ultrapassar o informado no formulário principal.');
+                        }
+                    });
+
+                } else {
+                    console.log("Horário ultrapassou 6 horas");
+
+                    // Muda a cor da borda para vermelho
+                    $(e.target).addClass('form-invalido');
+                    // Tooltip
+                    tooltip($(e.target), 'O horário não deve ultrapassar 6 horas diárias.');
+                }
             }
         });
 
         qtdLinhas++;
-        
+
         $('#qtdLinhas').val(qtdLinhas);
-        
+
     });
 
     $("#botaoRemover").click(function () {
@@ -84,5 +154,4 @@ $(document).ready(function () {
         $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
         $('#qtdLinhas').val(qtdLinhas);
     });
-
 });

@@ -32,7 +32,6 @@
                                 <label for="CargaHorariaTotal">Carga Horária Total</label>
                                 <input type="text" class="form-control" name="CargaHorariaTotal" id="CargaHorariaTotal" readonly>
                             </div>
-                            <input type="hidden" id="qtdLinhas" name="qtdLinhas">
                         </div>
                     </div>
                 </div>

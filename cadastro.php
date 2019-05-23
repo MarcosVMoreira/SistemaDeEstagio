@@ -238,7 +238,7 @@
                 <div class="row">
                     <div class="col-md-6 offset-md-7">
                         <button class="btn btn-success" type="submit" id="botaoCriarConta">Criar Conta</button>
-                        <button class="btn btn-danger" type="submit" id="botaoCancelar">Cancelar</button>
+                        <a href="login.php"><button class="btn btn-danger" type="button" id="botaoCancelar">Cancelar</button></a>
                     </div>
                 </div>
                 <br>

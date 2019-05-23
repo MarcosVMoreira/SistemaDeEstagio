@@ -7,7 +7,27 @@
     if ((isset($_SESSION['curso']) && $_SESSION['curso'] != "")){
         $curso = $_SESSION['curso'];
     }
-    
+
+    include_once("conexao.php");
+
+    if($_SESSION['idEstagio'] != "") {
+        $idEstagio = $_SESSION['idEstagio'];
+        $query = "SELECT * FROM estagio WHERE idEstagio = $idEstagio";
+        if ($result = $conexao->query($query)) {
+            $resultado = $result->fetch_assoc();
+        
+            if(empty($resultado)) {
+                $_SESSION['loginErro'] = "Usuário ou senha inválidos.";
+                header("Location: ../login.php");
+            } else {
+                $tipoEstagio = $resultado["tipoEstagio"];
+            }
+        }
+    }
+    else {
+        $tipoEstagio = "";
+    }
+
 ?>
 <!doctype html>
 <html lang="pt-br">
@@ -103,14 +123,14 @@
                         </li>
 
                         <li>
-                            <a href="formularioFrequenciaEstagio.php">
+                            <a href="validarFormularioFrequenciaEstagio.php">
                             <i class="fas fa-file-alt"></i>
                             <span>Frequência de Estágio</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="formularioRelatorioEstagio.php">
+                            <a href="validarFormularioRelatorioEstagio.php">
                             <i class="fas fa-file-alt"></i>
                             <span>Relatório de Estágio</span>
                             </a>
@@ -126,12 +146,27 @@
                                     <li>
                                         <a href="verificarPlanoDeEstagio.php">Plano de Estágio</a>
                                     </li>
-                                    <li>
-                                        <a href="verificarTermoNaoObrigatorio.php">Termo de Estágio Não Obrigatório</a>
-                                    </li>
-                                    <li>
-                                        <a href="verificarTermoObrigatorio.php">Termo de Estágio Obrigatório</a>
-                                    </li>
+                                    <?php
+                                        if (strcmp($tipoEstagio, "Estágio Obrigatório") == 0) {
+                                            echo 
+                                            ("<li>
+                                                <a href='verificarTermoObrigatorio.php'>Termo de Estágio Obrigatório</a>
+                                            </li>");
+                                        } else if (strcmp($tipoEstagio, "Estágio não Obrigatório") == 0) {
+                                            echo
+                                            ("<li>
+                                                <a href='verificarTermoNaoObrigatorio.php'>Termo de Estágio Não Obrigatório</a>
+                                            </li>");
+                                        } else {
+                                            echo
+                                            ("<li>
+                                                <a href='verificarTermoObrigatorio.php'>Termo de Estágio Obrigatório</a>
+                                            </li>
+                                            <li>
+                                                <a href='verificarTermoNaoObrigatorio.php'>Termo de Estágio Não Obrigatório</a>
+                                            </li>");
+                                        }
+                                    ?>
                                     <li>
                                         <a href="verificarFrequenciaEstagio.php">Frequência do Estágio</a>
                                     </li>

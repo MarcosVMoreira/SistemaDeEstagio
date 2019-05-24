@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 20-Maio-2019 às 19:44
--- Versão do servidor: 5.7.24
--- versão do PHP: 7.2.14
+-- Generation Time: 24-Maio-2019 às 02:46
+-- Versão do servidor: 5.7.26
+-- versão do PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -165,7 +165,16 @@ CREATE TABLE IF NOT EXISTS `frequenciaestagio` (
   `setor` varchar(240) DEFAULT NULL,
   `atividade` varchar(240) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `frequenciaestagio`
+--
+
+INSERT INTO `frequenciaestagio` (`id`, `raAluno`, `data`, `cargaHoraria`, `setor`, `atividade`) VALUES
+(1, '14161000000', '01/01/2001', '05:00', 'Setor um', 'Atividade um'),
+(2, '14161000000', '02/01/2001', '06:00', 'Setor dois', 'Atividade dois'),
+(3, '14161000001', '01/01/2001', '05:00', 'Setor um', 'Atividade um');
 
 -- --------------------------------------------------------
 
@@ -216,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
 --
 
 INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `cargo`, `conselhoClasseProfissional`, `idSupervisor`) VALUES
-('Jean Albino de Melo', '12345676812', 'jean@albino.demelo', '35123456789', 'Sim', 'Engenharia de Computação', 'Professor', 'qwerty', 1),
+('Jean Albino de Melo', '12345676812', 'jean@albino.demelo', '35123456789', 'Sim', 'Engenharia de Computação', 'Professor', 'qwerty', 2),
 ('Mariana Rodriguez', '442.368.600-74', 'marirodri@gmail.com', '(35) 96666-6666', 'Não', 'Advocacia', 'Supervisor', NULL, 4);
 COMMIT;
 

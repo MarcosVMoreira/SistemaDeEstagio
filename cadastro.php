@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <!-- QUnit CSS -->
     <script src="https://code.jquery.com/qunit/qunit-2.9.2.css" integrity="sha256-toepOe5D+ddXgUOGsijnhymZna5bakJ0gwRC/3bK1b0=" crossorigin="anonymous"></script>
-
+    <meta charset="utf-8">
     <!-- JS -->
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

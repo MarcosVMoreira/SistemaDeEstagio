@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+
+    $ra = (isset($_POST['ra'])) ? $_POST['ra'] : '';
+    $senha = (isset($_POST['password'])) ? $_POST['password'] : '';
+    $lembrete = (isset($_POST['lembrete'])) ? $_POST['lembrete'] : '';
+
     $login = $_POST['ra'];
     $senha = $_POST['password'];
     include_once("conexao.php");
@@ -34,6 +40,22 @@
             $_SESSION['idEstagio'] = $resultado["idEstagio"];
             $_SESSION['idSupervisor'] = $resultado["idSupervisor"];
             $_SESSION['idEmpresa'] = $resultado["idEmpresa"];
+            if($lembrete == 'remember-me'):
+ 
+                $expira = time() + 60*60*24*30; 
+                setCookie('CookieLembrete', base64_encode('remember-me'), $expira);
+		        setCookie('CookieRa', base64_encode($ra), $expira);
+		        setCookie('CookieSenha', base64_encode($senha), $expira);
+      
+             else:
+      
+                setCookie('CookieLembrete');
+                setCookie('CookieRa');
+                setCookie('CookieSenha');
+      
+             endif;
+
+
             header("Location: home.php");
         }
     }

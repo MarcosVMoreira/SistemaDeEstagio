@@ -53,6 +53,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             if ($curso == NULL) {
                 $curso = "";
             }
+            $modalidade = $resultado["modalidade"];
+            if ($modalidade == NULL) {
+                $modalidade = "";
+            }
             $periodoAno = $resultado["periodoAno"];
             if ($periodoAno == NULL) {
                 $periodoAno = "";
@@ -394,23 +398,229 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="selectCurso">Curso</label>
                                         <select class="form-control" name="selectCurso" id="selectCurso" required>
-                                        <optgroup label="Técnicos Integrados">
-                                            <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
-                                            <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
-                                        </optgroup>
-                                        <optgroup label="Técnicos Subsequentes">
-                                            <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
-                                            <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
-                                            <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
-                                        </optgroup>
-                                        <optgroup label="Superiores">
-                                            <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
-                                            <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
-                                            <option value="Superiores-Geografia">Geografia</option>
-                                            <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
-                                            <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
-                                        </optgroup>
+                                        
+                                        <?php
+                                        if($curso == "Técnico em Informática" && $modalidade == "Técnicos Integrados"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option selected value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
                                         </select>
+                                            <?php
+                                        }else if($curso == "Técnico em Eletrotécnica" && $modalidade == "Técnicos Integrados"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option selected value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        } else if($curso == "Técnico em Administração" && $modalidade == "Técnicos Subsequentes"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option selected value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Técnico em Edificações" && $modalidade == "Técnicos Subsequentes"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option selected value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Técnico em Eletrotécnica" && $modalidade == "Técnicos Subsequentes"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option selected value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Ciências Biológicas" && $modalidade == "Superiores"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option selected value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Engenharia de Computação" && $modalidade == "Superiores"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option selected value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Geografia" && $modalidade == "Superiores"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option selected value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        } else if($curso == "Gestão Ambiental" && $modalidade == "Superiores"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option selected value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else if($curso == "Gestão Comercial" && $modalidade == "Superiores"){
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option selected value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }else{
+                                            ?>
+                                            <optgroup label="Técnicos Integrados">
+                                                <option value="Técnicos Integrados-Técnico em Informática">Técnico em Informática</option>
+                                                <option value="Técnicos Integrados-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                                <optgroup label="Técnicos Subsequentes">
+                                                <option value="Técnicos Subsequentes-Técnico em Administração">Técnico em Administração</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Edificações">Técnico em Edificações</option>
+                                                <option value="Técnicos Subsequentes-Técnico em Eletrotécnica">Técnico em Eletrotécnica</option>
+                                            </optgroup>
+                                            <optgroup label="Superiores">
+                                                <option value="Superiores-Ciências Biológicas">Ciências Biológicas</option>
+                                                <option value="Superiores-Engenharia de Computação">Engenharia de Computação</option>
+                                                <option value="Superiores-Geografia">Geografia</option>
+                                                <option value="Superiores-Gestão Ambiental">Gestão Ambiental</option>
+                                                <option value="Superiores-Gestão Comercial">Gestão Comercial</option>
+                                            </optgroup>
+                                        </select>
+                                            <?php
+                                        }?>
                                     </div>
                                 </div>
 
@@ -473,33 +683,115 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="selectEstado">Estado</label>
                                         <select class="form-control" name="selectEstado" required>
+                                        <?php if($uf == "AC"){?>
+                                            <option selected value="AC">AC</option>
+                                        <?php } else{?>
                                             <option value="AC">AC</option>
+                                        <?php } if($uf == "AL"){?>
+                                            <option selected value="AL">AL</option>
+                                        <?php } else{?>
                                             <option value="AL">AL</option>
-                                            <option value="AP">AP</option>
+                                        <?php } if($uf == "AP"){?>
+                                            <option selected value="AP">AP</option>
+                                        <?php } else{?>
+                                                <option value="AP">AP</option>
+                                        <?php } if($uf == "AM"){?>
+                                            <option selected value="AM">AM</option>
+                                        <?php } else{?>
                                             <option value="AM">AM</option>
+                                        <?php } if($uf == "BA"){?>
+                                            <option selected value="BA">BA</option>
+                                        <?php } else{?>
                                             <option value="BA">BA</option>
+                                        <?php } if($uf == "CE"){?>
+                                            <option selected value="CE">CE</option>
+                                        <?php } else{?>
                                             <option value="CE">CE</option>
+                                        <?php } if($uf == "DF"){?>
+                                            <option selected value="DF">DF</option>
+                                        <?php } else{?>
                                             <option value="DF">DF</option>
+                                        <?php } if($uf == "ES"){?>
+                                            <option selected value="ES">ES</option>
+                                        <?php } else{?>
                                             <option value="ES">ES</option>
+                                        <?php } if($uf == "GO"){?>
+                                            <option selected value="GO">GO</option>
+                                        <?php } else{?>
                                             <option value="GO">GO</option>
+                                        <?php } if($uf == "MA"){?>
+                                            <option selected value="MA">MA</option>
+                                        <?php } else{?>
                                             <option value="MA">MA</option>
-                                            <option value="MT">MT</option>
+                                        <?php } if($uf == "MT"){?>
+                                            <option selected value="MT">MT</option>
+                                        <?php } else{?>
+                                                <option value="MT">MT</option>
+                                        <?php } if($uf == "MS"){?>
+                                            <option selected value="MS">MS</option>
+                                        <?php } else{?>
                                             <option value="MS">MS</option>
+                                        <?php } if($uf == "MG"){?>
                                             <option selected value="MG">MG</option>
+                                        <?php } else{?>
+                                            <option value="MG">MG</option>
+                                        <?php } if($uf == "PA"){?>
+                                            <option selected value="PA">PA</option>
+                                        <?php } else{?>
                                             <option value="PA">PA</option>
+                                        <?php } if($uf == "PB"){?>
+                                            <option selected value="PB">PB</option>
+                                        <?php } else{?>
                                             <option value="PB">PB</option>
+                                        <?php } if($uf == "PR"){?>
+                                            <option selected value="PR">PR</option>
+                                        <?php } else{?>
                                             <option value="PR">PR</option>
+                                        <?php } if($uf == "PE"){?>
+                                            <option selected value="PE">PE</option>
+                                        <?php } else{?>
                                             <option value="PE">PE</option>
+                                        <?php } if($uf == "PI"){?>
+                                            <option selected value="PI">PI</option>
+                                        <?php } else{?>
                                             <option value="PI">PI</option>
+                                        <?php } if($uf == "RJ"){?>
+                                            <option selected value="RJ">RJ</option>
+                                        <?php } else{?>
                                             <option value="RJ">RJ</option>
+                                        <?php } if($uf == "RN"){?>
+                                            <option selected value="RN">RN</option>
+                                        <?php } else{?>
                                             <option value="RN">RN</option>
+                                        <?php } if($uf == "RS"){?>
+                                            <option selected value="RS">RS</option>
+                                        <?php } else{?>
                                             <option value="RS">RS</option>
+                                        <?php } if($uf == "RO"){?>
+                                            <option selected value="RO">RO</option>
+                                        <?php } else{?>
                                             <option value="RO">RO</option>
+                                        <?php } if($uf == "RR"){?>
+                                            <option selected value="RR">RR</option>
+                                        <?php } else{?>
                                             <option value="RR">RR</option>
+                                        <?php } if($uf == "SC"){?>
+                                            <option selected value="SC">SC</option>
+                                        <?php } else{?>
                                             <option value="SC">SC</option>
+                                        <?php } if($uf == "SP"){?>
+                                            <option selected value="SP">SP</option>
+                                        <?php } else{?>
                                             <option value="SP">SP</option>
+                                        <?php } if($uf == "SE"){?>
+                                            <option selected value="SE">SE</option>
+                                        <?php } else{?>
                                             <option value="SE">SE</option>
+                                        <?php } if($uf == "TO"){?>
+                                            <option selected value="TO">TO</option>
+                                        <?php } else{?>
                                             <option value="TO">TO</option>
+                                        <?php }?>
                                         </select>
                                     </div>
                                 </div>
@@ -627,33 +919,115 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="selectEstadoEmpresa">Estado</label>
                                         <select class="form-control" name="selectEstadoEmpresa" required>
+                                        <?php if($estadoEmpresa == "AC"){?>
+                                            <option selected value="AC">AC</option>
+                                        <?php } else{?>
                                             <option value="AC">AC</option>
+                                        <?php } if($estadoEmpresa == "AL"){?>
+                                            <option selected value="AL">AL</option>
+                                        <?php } else{?>
                                             <option value="AL">AL</option>
-                                            <option value="AP">AP</option>
+                                        <?php } if($estadoEmpresa == "AP"){?>
+                                            <option selected value="AP">AP</option>
+                                        <?php } else{?>
+                                                <option value="AP">AP</option>
+                                        <?php } if($estadoEmpresa == "AM"){?>
+                                            <option selected value="AM">AM</option>
+                                        <?php } else{?>
                                             <option value="AM">AM</option>
+                                        <?php } if($estadoEmpresa == "BA"){?>
+                                            <option selected value="BA">BA</option>
+                                        <?php } else{?>
                                             <option value="BA">BA</option>
+                                        <?php } if($estadoEmpresa == "CE"){?>
+                                            <option selected value="CE">CE</option>
+                                        <?php } else{?>
                                             <option value="CE">CE</option>
+                                        <?php } if($estadoEmpresa == "DF"){?>
+                                            <option selected value="DF">DF</option>
+                                        <?php } else{?>
                                             <option value="DF">DF</option>
+                                        <?php } if($estadoEmpresa == "ES"){?>
+                                            <option selected value="ES">ES</option>
+                                        <?php } else{?>
                                             <option value="ES">ES</option>
+                                        <?php } if($estadoEmpresa == "GO"){?>
+                                            <option selected value="GO">GO</option>
+                                        <?php } else{?>
                                             <option value="GO">GO</option>
+                                        <?php } if($estadoEmpresa == "MA"){?>
+                                            <option selected value="MA">MA</option>
+                                        <?php } else{?>
                                             <option value="MA">MA</option>
-                                            <option value="MT">MT</option>
+                                        <?php } if($estadoEmpresa == "MT"){?>
+                                            <option selected value="MT">MT</option>
+                                        <?php } else{?>
+                                                <option value="MT">MT</option>
+                                        <?php } if($estadoEmpresa == "MS"){?>
+                                            <option selected value="MS">MS</option>
+                                        <?php } else{?>
                                             <option value="MS">MS</option>
-                                            <option selected  value="MG">MG</option>
+                                        <?php } if($estadoEmpresa == "MG"){?>
+                                            <option selected value="MG">MG</option>
+                                        <?php } else{?>
+                                            <option value="MG">MG</option>
+                                        <?php } if($estadoEmpresa == "PA"){?>
+                                            <option selected value="PA">PA</option>
+                                        <?php } else{?>
                                             <option value="PA">PA</option>
+                                        <?php } if($estadoEmpresa == "PB"){?>
+                                            <option selected value="PB">PB</option>
+                                        <?php } else{?>
                                             <option value="PB">PB</option>
+                                        <?php } if($estadoEmpresa == "PR"){?>
+                                            <option selected value="PR">PR</option>
+                                        <?php } else{?>
                                             <option value="PR">PR</option>
+                                        <?php } if($estadoEmpresa == "PE"){?>
+                                            <option selected value="PE">PE</option>
+                                        <?php } else{?>
                                             <option value="PE">PE</option>
+                                        <?php } if($estadoEmpresa == "PI"){?>
+                                            <option selected value="PI">PI</option>
+                                        <?php } else{?>
                                             <option value="PI">PI</option>
+                                        <?php } if($estadoEmpresa == "RJ"){?>
+                                            <option selected value="RJ">RJ</option>
+                                        <?php } else{?>
                                             <option value="RJ">RJ</option>
+                                        <?php } if($estadoEmpresa == "RN"){?>
+                                            <option selected value="RN">RN</option>
+                                        <?php } else{?>
                                             <option value="RN">RN</option>
+                                        <?php } if($estadoEmpresa == "RS"){?>
+                                            <option selected value="RS">RS</option>
+                                        <?php } else{?>
                                             <option value="RS">RS</option>
+                                        <?php } if($estadoEmpresa == "RO"){?>
+                                            <option selected value="RO">RO</option>
+                                        <?php } else{?>
                                             <option value="RO">RO</option>
+                                        <?php } if($estadoEmpresa == "RR"){?>
+                                            <option selected value="RR">RR</option>
+                                        <?php } else{?>
                                             <option value="RR">RR</option>
+                                        <?php } if($estadoEmpresa == "SC"){?>
+                                            <option selected value="SC">SC</option>
+                                        <?php } else{?>
                                             <option value="SC">SC</option>
+                                        <?php } if($estadoEmpresa == "SP"){?>
+                                            <option selected value="SP">SP</option>
+                                        <?php } else{?>
                                             <option value="SP">SP</option>
+                                        <?php } if($estadoEmpresa == "SE"){?>
+                                            <option selected value="SE">SE</option>
+                                        <?php } else{?>
                                             <option value="SE">SE</option>
+                                        <?php } if($estadoEmpresa == "TO"){?>
+                                            <option selected value="TO">TO</option>
+                                        <?php } else{?>
                                             <option value="TO">TO</option>
+                                        <?php }?>
                                         </select>
                                     </div>
                                 </div>

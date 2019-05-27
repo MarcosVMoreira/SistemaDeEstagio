@@ -13,6 +13,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $orientador = "";
     $supervisor = "";
     $concedentes = "";
+    $alunos = "";
     $flagGlobal = 0;
 
     //Aluno
@@ -179,7 +180,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
     
     // Supervisor
-    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['idSupervisor'] . "";
+    $query = "SELECT * FROM supervisor WHERE idSupervisor=" . $_SESSION['idSupervisor'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -451,19 +452,17 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             Alguns dados estão faltando para que seja possível preencher o formulário de frequência de estagio. Favor preencher os dados listados abaixo:<br /> <br />
             <?php
                 if ($flagGlobal == 1) {
+                    echo $alunos;
+                    echo $orientador;
+                    echo $supervisor;
                     echo $concedentes;
-                    echo $estagio;
                     ?>
             <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
             <?php
             } else {
                 ?>
             <script>
-                window.open('formularioFrequenciaEstagio.php', '_blank');
-
-            </script>
-            <script>
-                window.open('home.php', '_self');
+                window.open('formularioFrequenciaEstagio.php', '_self');
 
             </script>
             <?php

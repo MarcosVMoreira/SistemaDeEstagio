@@ -13,10 +13,11 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $orientador = "";
     $supervisor = "";
     $concedentes = "";
+    $alunos = "";
     $flagGlobal = 0;
 
-        //Aluno
-      $query = "SELECT * FROM alunos WHERE ra='" . $_SESSION['ra'] . "'";
+    //Aluno
+    $query = "SELECT * FROM alunos WHERE ra='" . $_SESSION['ra'] . "'";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -25,7 +26,8 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flagGlobal = 1;
         } else {
             $alunos = "Por favor preencher os seguintes dados do Aluno: ";
-            if ($resultado["nome"] != "") { } else {
+            if ($resultado["nome"] != "") {
+            } else {
                 $alunos = $alunos . "nome";
                 $flag = 1;
             }
@@ -138,7 +140,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flag = 0;
         }
     }
-    
+
     // Orientador
     if ((isset($_SESSION['idOrientador']) && $_SESSION['idOrientador'] != "")) {
         $query = "SELECT * FROM orientador WHERE idOrientador=" . $_SESSION['idOrientador'] . "";
@@ -177,9 +179,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
         }
     }
-    
+
     // Supervisor
-    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['idSupervisor'] . "";
+    $query = "SELECT * FROM supervisor WHERE idSupervisor=" . $_SESSION['idSupervisor'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -188,41 +190,49 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flagGlobal = 1;
         } else {
             $supervisor = "Por favor preencher os seguintes dados do Supervisor: ";
-            if ($resultado["nome"] != "") { } else {
+            if ($resultado["nome"] != "") {
+            } else {
                 $supervisor = $supervisor . "nome";
                 $flag = 1;
             }
-            if ($resultado["telefone"] != "") { } else {
+            if ($resultado["telefone"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", telefone";
                 else $supervisor = $supervisor . "telefone";
                 $flag = 1;
             }
-            if ($resultado["email"] != "") { } else {
+            if ($resultado["email"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", email";
                 else $supervisor = $supervisor . "email";
                 $flag = 1;
             }
-            if ($resultado["cpf"] != "") { } else {
+            if ($resultado["cpf"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", cpf";
                 else $supervisor = $supervisor . "cpf";
                 $flag = 1;
             }
-            if ($resultado["cursoFormacao"] != "") { } else {
+            if ($resultado["cursoFormacao"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", curso de formação";
                 else $supervisor = $supervisor . "curso de formação";
                 $flag = 1;
             }
-            if ($resultado["possuiExperiencia"] != "") { } else {
+            if ($resultado["possuiExperiencia"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", possui experiência";
                 else $supervisor = $supervisor . "possui experiência";
                 $flag = 1;
             }
-            if ($resultado["cargo"] != "") { } else {
+            if ($resultado["cargo"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", cargo";
                 else $supervisor = $supervisor . "cargo";
                 $flag = 1;
             }
-            if ($resultado["conselhoClasseProfissional"] != "") { } else {
+            if ($resultado["conselhoClasseProfissional"] != "") {
+            } else {
                 if ($flag == 1) $supervisor = $supervisor . ", conselho de classe profissional";
                 else $supervisor = $supervisor . "conselho de classe profissional";
                 $flag = 1;
@@ -236,7 +246,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flag = 0;
         }
     }
-    
+
     // Concedente
     $query = "SELECT * FROM concedentes WHERE idEmpresa='" . $_SESSION['idEmpresa'] . "'";
     if ($result = $conexao->query($query)) {
@@ -247,7 +257,8 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flagGlobal = 1;
         } else {
             $concedentes = "Seguintes Dados do Concedente: ";
-            if ($resultado["nome"] != "") { } else {
+            if ($resultado["nome"] != "") {
+            } else {
                 $concedentes = $concedentes . "nome";
                 $flag = 1;
             }
@@ -336,59 +347,71 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flagGlobal = 1;
         } else {
             $estagio = "Seguintes Dados do Estagio: ";
-            if ($resultado["cargaHorariaTotal"] != "") { } else {
+            if ($resultado["cargaHorariaTotal"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", carga horária total";
                 else $estagio = $estagio . "carga horária total";
                 $flag = 1;
             }
-            if ($resultado["tipoEstagio"] != "") { } else {
+            if ($resultado["tipoEstagio"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "tipo de estágio";
                 $flag = 1;
             }
-            if ($resultado["valorBolsa"] != "") { } else {
+            if ($resultado["valorBolsa"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "valor da bolsa";
                 $flag = 1;
             }
-            if ($resultado["beneficios"] != "") { } else {
+            if ($resultado["beneficios"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "benefícios";
                 $flag = 1;
             }
-            if ($resultado["tipoCargaHoraria"] != "") { } else {
+            if ($resultado["tipoCargaHoraria"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "tipo carga horária";
                 $flag = 1;
             }
-            if ($resultado["tipoEstagio"] != "Estágio não obrigatório" && $resultado["tipoEstagio"] != "") { } else {
-                if ($resultado["nomeSeguradora"] != "") { } else {
+            if ($resultado["tipoEstagio"] != "Estágio não obrigatório" && $resultado["tipoEstagio"] != "") {
+            } else {
+                if ($resultado["nomeSeguradora"] != "") {
+                } else {
                     if ($flag == 1) $estagio = $estagio . ", ";
                     else $estagio = $estagio . "nome seguradora";
                     $flag = 1;
                 }
-                if ($resultado["numeroApolice"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "numeroApolice";
-                $flag = 1;
+                if ($resultado["numeroApolice"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "numeroApolice";
+                    $flag = 1;
                 }
             }
-            if ($resultado["atividadesQueSeraoDesenvolvidas"] != "") { } else {
+            if ($resultado["atividadesQueSeraoDesenvolvidas"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "atividades que serão desenvolvidas";
                 $flag = 1;
             }
-            if ($resultado["objetivos"] != "") { } else {
+            if ($resultado["objetivos"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
                 else $estagio = $estagio . "objetivos a serem alcançados no estágio";
                 $flag = 1;
             }
-            if ($resultado["dataInicial"] != "") { } else {
+            if ($resultado["dataInicial"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", data de início";
                 else $estagio = $estagio . "data de início";
                 $flag = 1;
             }
-            if ($resultado["dataFinal"] != "") { } else {
+            if ($resultado["dataFinal"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", data de término";
                 else $estagio = $estagio . ", data de término";
                 $flag = 1;
@@ -398,36 +421,43 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $concedentes = $concedentes . ", Área de conhecimento";
                 $flag = 1;
             }
-            if ($resultado["tipoCargaHoraria"] != "Carga horária variável" && $resultado["tipoCargaHoraria"] != "") { } else {
-                if ($resultado["segunda"] != "") { } else {
+            if ($resultado["tipoCargaHoraria"] != "Carga horária variável" && $resultado["tipoCargaHoraria"] != "") {
+            } else {
+                if ($resultado["segunda"] != "") {
+                } else {
                     if ($flag == 1) $estagio = $estagio . ", segunda";
                     else $estagio = $estagio . "segunda";
                     $flag = 1;
                 }
-                if ($resultado["terca"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "terça";
-                $flag = 1;
+                if ($resultado["terca"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "terça";
+                    $flag = 1;
                 }
-                if ($resultado["quarta"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "quarta";
-                $flag = 1;
+                if ($resultado["quarta"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "quarta";
+                    $flag = 1;
                 }
-                if ($resultado["quinta"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "quinta";
-                $flag = 1;
+                if ($resultado["quinta"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "quinta";
+                    $flag = 1;
                 }
-                if ($resultado["sexta"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "sexta";
-                $flag = 1;
+                if ($resultado["sexta"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "sexta";
+                    $flag = 1;
                 }
-                if ($resultado["sabado"] != "") { } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "sabado";
-                $flag = 1;
+                if ($resultado["sabado"] != "") {
+                } else {
+                    if ($flag == 1) $estagio = $estagio . ", ";
+                    else $estagio = $estagio . "sabado";
+                    $flag = 1;
                 }
             }
             if ($flag == 1) {
@@ -442,37 +472,38 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
     ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 mt-3">
-            <h5 id="nome">
-                Ops, encontramos um problema!<br />
-            </h5>
-            Alguns dados estão faltando para que seja possível preencher o formulário de relatorio de estagio. Favor preencher os dados listados abaixo:<br /> <br />
-            <?php
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mt-3">
+                <h5 id="nome">
+                    Ops, encontramos um problema!<br/>
+                </h5>
+                Alguns dados estão faltando para que seja possível preencher o formulário de relatorio de estagio. Favor
+                preencher os dados listados abaixo:<br/> <br/>
+                <?php
                 if ($flagGlobal == 1) {
+                    echo $alunos;
+                    echo $orientador;
+                    echo $supervisor;
                     echo $concedentes;
-                    echo $estagio;
                     ?>
-            <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
-            <?php
-            } else {
+                    <a href="formulario.php">
+                        <button type="button" class="btn btn-primary mt-5">Ir para o formulário</button>
+                    </a>
+                <?php
+                } else {
                 ?>
-            <script>
-                window.open('formularioRelatorioEstagio.php', '_blank');
+                    <script>
+                        window.open('formularioRelatorioEstagio.php', '_self');
 
-            </script>
-            <script>
-                window.open('home.php', '_self');
-
-            </script>
-            <?php
-            } ?>
+                    </script>
+                    <?php
+                } ?>
+            </div>
         </div>
     </div>
-</div>
 
-<?php
+    <?php
 }
 include("footer.html");
 ?>

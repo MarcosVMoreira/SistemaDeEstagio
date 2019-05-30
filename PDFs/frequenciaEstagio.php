@@ -210,11 +210,11 @@ $string = '<html>
         <div style="position:absolute;left:393.90px;top:291.40px" class="cls_008"><span class="cls_008">Atividade desenvolvida</span></div>
         <div style="position:absolute;left:52.80px;top:301.50px" class="cls_008"><span class="cls_008">Data</span></div>
         <div style="position:absolute;left:119.50px;top:301.50px" class="cls_008"><span class="cls_008">Carga horária</span></div>
-        <div style="position:absolute;left:43.50px;top:695.80px" class="cls_008"><span class="cls_008">TOTAL DE</span></div>
-        <div style="position:absolute;left:50.70px;top:706.00px" class="cls_008"><span class="cls_008">HORAS</span></div>
-        <div style="position:absolute;left:226.80px;top:743.40px" class="cls_008"><span class="cls_008">Data:</span><span class="cls_007"> ______/______/__________</span></div>
-        <div style="position:absolute;left:150.30px;top:774.80px" class="cls_007"><span class="cls_007">___________________________________________________________</span></div>
-        <div style="position:absolute;left:204.00px;top:786.30px" class="cls_008"><span class="cls_008">Assinatura do(a) Supervisor(a) Responsável</span></div>
+        <div style="position:absolute;left:43.50px;top:715.80px" class="cls_008"><span class="cls_008">TOTAL DE</span></div>
+        <div style="position:absolute;left:50.70px;top:726.00px" class="cls_008"><span class="cls_008">HORAS</span></div>
+        <div style="position:absolute;left:226.80px;top:753.40px" class="cls_008"><span class="cls_008">Data:</span><span class="cls_007"> ______/______/__________</span></div>
+        <div style="position:absolute;left:150.30px;top:784.80px" class="cls_007"><span class="cls_007">___________________________________________________________</span></div>
+        <div style="position:absolute;left:204.00px;top:796.30px" class="cls_008"><span class="cls_008">Assinatura do(a) Supervisor(a) Responsável</span></div>
     </div>
 
 </body>

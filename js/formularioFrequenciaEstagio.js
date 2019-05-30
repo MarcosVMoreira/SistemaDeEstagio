@@ -181,7 +181,20 @@ $(document).ready(function () {
                             // Muda a cor da borda para vermelho
                             $(e.target).addClass('form-invalido');
                             // Tooltip
-                            tooltip($(e.target), 'O horário não deve ultrapassar o informado no formulário principal.');
+                            if(dia == 'segunda'){
+                                tooltip($(e.target), 'Na segunda-feira a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }else if(dia == 'terca'){
+                                tooltip($(e.target), 'Na terça-feira a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }else if(dia == 'quarta'){
+                                tooltip($(e.target), 'Na quarta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }else if(dia == 'quinta'){
+                                tooltip($(e.target), 'Na quinta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }else if(dia == 'sexta'){
+                                tooltip($(e.target), 'Na sexta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }else if(dia == 'sabado'){
+                                tooltip($(e.target), 'No sábado a carga horaria maxima deve ser igual a '+retorno+'.');
+                            }
+                            
                         }
                     });
 

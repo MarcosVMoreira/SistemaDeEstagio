@@ -136,8 +136,8 @@ $(document).ready(function () {
 
                 var qtdHoras = $(e.target).val().split(':');
 
-                if ((qtdHoras[0] * 1) < 6 || ((qtdHoras[0] * 1) == 6 && (qtdHoras[1] * 1) == 0)) {
-                    // Validamos se a hora é menor ou igual a 6
+                if ((qtdHoras[0] * 1) < 8 || ((qtdHoras[0] * 1) == 8 && (qtdHoras[1] * 1) == 0)) {
+                    // Validamos se a hora é menor ou igual a 8
 
                     var dataDigitada = $(e.target).parent().parent().prev().find("input[type=date]").val();
                     var date = parseDate(dataDigitada);
@@ -186,12 +186,12 @@ $(document).ready(function () {
                     });
 
                 } else {
-                    console.log("Horário ultrapassou 6 horas");
+                    console.log("Horário ultrapassou 8 horas");
 
                     // Muda a cor da borda para vermelho
                     $(e.target).addClass('form-invalido');
                     // Tooltip
-                    tooltip($(e.target), 'O horário não deve ultrapassar 6 horas diárias.');
+                    tooltip($(e.target), 'O horário não deve ultrapassar 8 horas diárias.');
                 }
             }
         });

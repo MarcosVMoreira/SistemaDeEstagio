@@ -231,12 +231,6 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 else $supervisor = $supervisor . "cargo";
                 $flag = 1;
             }
-            if ($resultado["conselhoClasseProfissional"] != "") {
-            } else {
-                if ($flag == 1) $supervisor = $supervisor . ", conselho de classe profissional";
-                else $supervisor = $supervisor . "conselho de classe profissional";
-                $flag = 1;
-            }
             if ($flag == 1) {
                 $supervisor = $supervisor . ". <br />\n";
                 $flagGlobal = 1;

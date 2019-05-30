@@ -1286,7 +1286,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="inputCargaHorariaMax">Carga horária total</label>
                                         <input type="text" class="form-control" name="inputCargaHorariaMax" value="<?php echo($cargaHorariaTotalEstagio);?>" id="inputCargaHorariaMax">
-                                        <small class="help-block text-muted"><a href="https://www.google.com/" target="_blank">Consulte aqui</a></small>
+                                        <small class="help-block text-muted"><a href="https://portal.pcs.ifsuldeminas.edu.br/extensao-menu-campus/estagio-e-emprego/tudo-sobre-estagio" target="_blank">Consulte aqui</a></small>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-7">

@@ -1133,12 +1133,35 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="radioGroupPossuiExperiencia">O(A) supervisor(a) de estágio possui experiência profissional na área do estágio?</label>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="Sim" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                            <?php
+                                                if($possuiExperienciaSupervisor == "Sim"){
+                                            ?> 
+                                                <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="Sim" checked>
+                                                <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                            <?php
+                                                } else{
+                                            ?>
+                                                    <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioPossuiExperiencia" value="Sim">
+                                                    <label class="form-check-label" for="inlineRadio1">Sim</label>
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="Não">
+                                        <?php
+                                                if($possuiExperienciaSupervisor == "Não"){
+                                            ?> 
+                                                <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="Não" checked>
+                                                <label class="form-check-label" for="inlineRadio2">Não</label>
+                                            <?php
+                                                } else{
+                                            ?>
+                                                    <input class="form-check-input" type="radio" name="radioGroupPossuiExperiencia" id="radioNaoPossuiExperiencia" value="Não">
                                             <label class="form-check-label" for="inlineRadio2">Não</label>
+                                            <?php
+                                                }
+                                            ?>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1151,9 +1174,6 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                             Dados do estágio
                         </div>
                         <div class="card-body">
-
-
-
                             <div class="form-row">
                                 <div class="col-md-4">
                                     <label for="radioGroupPossuiExperiencia">Tipo de estágio</label>

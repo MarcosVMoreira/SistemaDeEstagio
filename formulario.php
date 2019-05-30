@@ -1163,12 +1163,35 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group" id="divRemunerado">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="Estágio Obrigatório" checked>
+                                        <?php
+                                                if($tipoEstagio == "Estágio Obrigatório"){
+                                            ?>
+                                                <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="Estágio Obrigatório" checked>
                                             <label class="form-check-label" for="radioNaoRemunerado">Estágio obrigatório</label>
+                                            <?php
+                                                } else{ 
+                                            ?>
+                                                <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioNaoRemunerado" value="Estágio Obrigatório">
+                                            <label class="form-check-label" for="radioNaoRemunerado">Estágio obrigatório</label>
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="Estágio não Obrigatório">
-                                            <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
+                                            <?php
+                                                if($tipoEstagio == "Estágio não Obrigatório"){
+                                            ?>
+                                                <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="Estágio não Obrigatório" checked>
+                                                <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
+                                            <?php
+                                                } else{ 
+                                            ?>
+                                                <input class="form-check-input" type="radio" name="radioGroupEstagio" id="radioRemunerado" value="Estágio não Obrigatório">
+                                                <label class="form-check-label" for="radioRemunerado">Estágio não obrigatório</label>
+                                            <?php
+                                                }
+                                            ?>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -1185,22 +1208,74 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <label for="inputBeneficios">Benefícios</label>
                                     <div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="checkboxValeTransporte" id="checkboxValeTransporte" value="Vale Transporte">
-                                            <label class="form-check-label" for="checkboxValeTransporte">
-                                                Vale Transporte
-                                            </label>
+                                            <?php
+                                                $beneficio = array();
+                                                $beneficio = explode(",", $beneficiosEstagio);
+                                                $valeTransporte = 1;
+                                                $planoDeSaude = 1;
+                                                $valeAlimentacao = 1;
+                                                for($i = 0; $i < sizeof($beneficio); $i++){
+                                                    if($beneficio[$i] == "Vale Transporte" && $valeTransporte == 1 ){
+                                                        $valeTransporte = 2;
+                                                    } else if($beneficio[$i] == "Plano de Saúde" && $planoDeSaude == 1){
+                                                        $planoDeSaude = 2;
+                                                    } else if($beneficio[$i] == "Vale Alimentação" && $valeAlimentacao == 1){
+                                                        $valeAlimentacao = 2;
+                                                    }
+                                                }
+                                                if($valeTransporte == 2){
+                                            ?>
+                                                    <input class="form-check-input" type="checkbox" name="checkboxValeTransporte" id="checkboxValeTransporte" value="Vale Transporte" checked>
+                                                    <label class="form-check-label" for="checkboxValeTransporte">
+                                                        Vale Transporte
+                                                    </label>
+                                            <?php } else{
+                                            ?>
+                                                    <input class="form-check-input" type="checkbox" name="checkboxValeTransporte" id="checkboxValeTransporte" value="Vale Transporte">
+                                                    <label class="form-check-label" for="checkboxValeTransporte">
+                                                        Vale Transporte
+                                                    </label>
+                                            <?php
+                                            }
+                                            ?>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude" value="Plano de Saúde">
-                                            <label class="form-check-label" for="checkboxPlanoDeSaude">
-                                                Plano de Saúde
-                                            </label>
+                                            <?php
+                                                if($planoDeSaude == 2){
+                                            ?>
+                                                    <input class="form-check-input" type="checkbox" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude" value="Plano de Saúde" checked>
+                                                    <label class="form-check-label" for="checkboxPlanoDeSaude">
+                                                        Plano de Saúde
+                                                    </label>
+                                            <?php 
+                                                } else{
+                                            ?>
+                                                    <input class="form-check-input" type="checkbox" name="checkboxPlanoDeSaude" id="checkboxPlanoDeSaude" value="Plano de Saúde">
+                                                    <label class="form-check-label" for="checkboxPlanoDeSaude">
+                                                        Plano de Saúde
+                                                    </label>
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao" value="Vale Alimentação">
-                                            <label class="form-check-label" for="checkboxValeAlimentacao">
-                                                Vale Alimentação
-                                            </label>
+                                        <?php
+                                                if($valeAlimentacao == 2){
+                                            ?>
+                                                <input class="form-check-input" type="checkbox" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao" value="Vale Alimentação" checked>
+                                                <label class="form-check-label" for="checkboxValeAlimentacao">
+                                                    Vale Alimentação
+                                                </label>
+                                            <?php 
+                                                } else{
+                                            ?>
+                                                 <input class="form-check-input" type="checkbox" name="checkboxValeAlimentacao" id="checkboxValeAlimentacao" value="Vale Alimentação">
+                                                <label class="form-check-label" for="checkboxValeAlimentacao">
+                                                    Vale Alimentação
+                                                </label>
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
                                     </div>
                                 </div>
@@ -1220,12 +1295,36 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <div class="col-sm-12">
                                             <div class="form-group">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa" checked>
-                                                    <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
+                                                <?php
+                                                    if($tipoCargaHorariaEstagio == "Carga Horária Fixa"){
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa" checked>
+                                                        <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
+                                                <?php
+                                                    } else{
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa">
+                                                        <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
+                                                <?php
+                                                    }
+                                                ?>
+                                                    
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="Carga Horária Variável">
-                                                    <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
+
+                                                <?php
+                                                    if($tipoCargaHorariaEstagio == "Carga Horária Variável"){
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="Carga Horária Variável" checked>
+                                                        <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
+                                                <?php
+                                                    } else{
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioVariavel" value="Carga Horária Variável">
+                                                        <label class="form-check-label" for="radioVariavel">Carga horária variável</label>
+                                                <?php
+                                                    }
+                                                ?>
                                                 </div>
                                             </div>
                                         </div>
@@ -1256,40 +1355,118 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3" id="divDiasTrabalhados">
                                     <div class="row">Dias trabalhados</div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 10px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkSegunda" id="checkSegunda">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Segunda-feira
-                                        </label>
+                                    <?php
+                                        if($segundaEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSegunda" id="checkSegunda" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Segunda-feira
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSegunda" id="checkSegunda">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Segunda-feira
+                                            </label>
+                                    <?php
+                                        }
+                                    ?> 
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Terça-feira
-                                        </label>
+                                    <?php
+                                        if($tercaEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Terça-feira
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkTerca" id="checkTerca">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Terça-feira
+                                            </label>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Quarta-feira
-                                        </label>
+                                    <?php
+                                        if($quartaEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Quarta-feira
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkQuarta" id="checkQuarta">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Quarta-feira
+                                            </label>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Quinta-feira
-                                        </label>
+                                    <?php
+                                        if($quintaEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Quinta-feira
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkQuinta" id="checkQuinta">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Quinta-feira
+                                            </label>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Sexta-feira
-                                        </label>
+                                    <?php
+                                        if($sextaEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Sexta-feira
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSexta" id="checkSexta">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Sexta-feira
+                                            </label>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
                                     <div class="form-check" style="margin-bottom: 10px; margin-top: 32px;">
-                                        <input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado">
-                                        <label class="form-check-label" for="defaultCheck1">
-                                            Sábado
-                                        </label>
+                                    <?php
+                                        if($sabadoEstagio != NULL){
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado" checked>
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Sábado
+                                            </label>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <input class="form-check-input" type="checkbox" value="" name="checkSabado" id="checkSabado">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Sábado
+                                            </label>
+                                    <?php
+                                        }
+                                    ?>
                                     </div>
                                 </div>
 
@@ -1297,22 +1474,82 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="row">Horas trabalhadas</div>
                                     <div id="horarioEntrada">
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasSegunda" id="horasSegunda" disabled>
+                                        <?php
+                                            if($segundaEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSegunda" id="horasSegunda" value=<?php echo $segundaEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSegunda" id="horasSegunda" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasTerca" id="horasTerca" disabled>
+                                        <?php
+                                            if($tercaEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasTerca" id="horasTerca" value=<?php echo $tercaEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasTerca" id="horasTerca" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" disabled>
+                                        <?php
+                                            if($quartaEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" value=<?php echo $quartaEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" disabled>
+                                        <?php
+                                            if($quintaEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" value=<?php echo $quintaEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasSexta" id="horasSexta" disabled>
+                                        <?php
+                                            if($sextaEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSexta" id="horasSexta" value=<?php echo $sextaEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSexta" id="horasSexta" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                         <div class="form-group">
-                                            <input type="time" class="form-control" name="horasSabado" id="horasSabado" disabled>
+                                        <?php
+                                            if($sabadoEstagio != NULL){
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSabado" id="horasSabado" value=<?php echo $sabadoEstagio ?> >
+                                        <?php
+                                            } else{
+                                        ?>
+                                                <input type="time" class="form-control" name="horasSabado" id="horasSabado" disabled>
+                                        <?php
+                                            }
+                                        ?>
                                         </div>
                                     </div>
                                 </div>

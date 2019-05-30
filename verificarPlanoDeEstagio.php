@@ -149,7 +149,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $resultado = $result->fetch_assoc();
 
             if (empty($resultado)) {
-                $orientador = "Por favor preencher os dados do orientador. <br />\n";
+                $orientador = "Por favor preencher os dados do Orientador. <br />\n";
                 $flagGlobal = 1;
             } else {
                 $orientador = "Por favor preencher os seguintes dados do Orientador: ";
@@ -181,7 +181,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Concedente
-    $query = "SELECT * FROM concedentes WHERE cnpjCpf=" . $_SESSION['idEmpresa'] . "";
+    $query = "SELECT * FROM concedentes WHERE idEmpresa=" . $_SESSION['idEmpresa'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -215,12 +215,12 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
 
     // Supervisor
-    $query = "SELECT * FROM supervisor WHERE cpf=" . $_SESSION['idSupervisor'] . "";
+    $query = "SELECT * FROM supervisor WHERE idSupervisor=" . $_SESSION['idSupervisor'] . "";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $supervisor = "Por favor preencher os dados do supervisor de estágio. <br />\n";
+            $supervisor = "Por favor preencher os dados do Supervisor de estágio. <br />\n";
             $flagGlobal = 1;
         } else {
             $supervisor = "Por favor preencher os seguintes dados do Supervisor: ";

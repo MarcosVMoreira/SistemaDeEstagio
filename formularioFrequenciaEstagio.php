@@ -39,7 +39,8 @@
                     <div class="col-sm-12 col-md-4 offset-md-4">
                         <button type="submit" class="btn btn-success" id="botaoConfirmar">Salvar</button>
                     </div>
-                </div>      
+                </div>
+                <input type="hidden" id="qtdLinhas" name="qtdLinhas">
             </form>
         </div>
     </div>

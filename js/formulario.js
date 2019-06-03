@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    var estadoAnterior;
     $('input[id^=inputCpf]').mask('000.000.000-00')
         .focusout(function (e) {
             if (!validaCpf($(e.target).val())) {
@@ -254,6 +254,12 @@ $(document).ready(function () {
             '<input type="text" class="form-control" name="inputNumeroApolice" id="inputNumeroApolice">' +
             '</div>' +
             '</div>');
+        
+        if ($('#checkboxValeTransporte').prop('checked')){
+            estadoAnterior = 1;
+        } else{
+            estadoAnterior = 2;
+        }
         $('#checkboxValeTransporte').prop("checked", true);
         $('#checkboxValeTransporte').prop("disabled", true);
         $('#inputValorBolsa').prop("required", true);
@@ -264,8 +270,14 @@ $(document).ready(function () {
         $('#inputCargaHorariaMax').prop("disabled", false);
         $('#divSeguro').remove();
         $('#divApolice').remove();
-        $('#checkboxValeTransporte').prop("checked", false);
-        $('#checkboxValeTransporte').prop("disabled", false);
+        if(estadoAnterior == 1){
+            $('#checkboxValeTransporte').prop("checked", true);
+            $('#checkboxValeTransporte').prop("disabled", false);
+        } else {
+            $('#checkboxValeTransporte').prop("checked", false);
+            $('#checkboxValeTransporte').prop("disabled", false);
+        }
+        
         $('#inputValorBolsa').prop("required", false);
     });
 

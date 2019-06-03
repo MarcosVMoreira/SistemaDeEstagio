@@ -265,6 +265,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             if ($tipoCargaHorariaEstagio == NULL) {
                 $tipoCargaHorariaEstagio = "";
             }
+            $tipoCargaDiariaEstagio = $resultado["tipoCargaDiaria"];
+            if ($tipoCargaDiariaEstagio == NULL) {
+                $tipoCargaDiariaEstagio = "";
+            }
             $dataInicioEstagio = $resultado["dataInicial"];
             if ($dataInicioEstagio == NULL) {
                 $dataInicioEstagio = "";
@@ -1366,6 +1370,47 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <input type="date" class="form-control" name="inputDataFimEstagio" value="<?php echo($dataTerminoEstagio);?>" id="inputDataFimEstagio" required>
                                     </div>
                                 </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <label for="radioGroupCargaDiaria">Carga Diária Máxima</label>
+                                    <div>
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <div class="form-check form-check-inline">
+                                                <?php
+                                                    if($tipoCargaDiariaEstagio == "6h"){
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaDiaria" id="radio6h" value="6h" checked>
+                                                        <label class="form-check-label" for="radio6h">6h</label>
+                                                <?php
+                                                    } else{
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaDiaria" id="radio6h" value="6h">
+                                                        <label class="form-check-label" for="radio6h">6h</label>
+                                                <?php
+                                                    }
+                                                ?>
+                                                    
+                                                </div>
+                                                <div class="form-check form-check-inline">
+
+                                                <?php
+                                                    if($tipoCargaDiariaEstagio == "8h"){
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaDiaria" id="radio8h" value="8h" checked>
+                                                        <label class="form-check-label" for="radio8h">8h</label>
+                                                <?php
+                                                    } else{
+                                                ?>
+                                                        <input class="form-check-input" type="radio" name="radioGroupCargaDiaria" id="radio8h" value="8h">
+                                                        <label class="form-check-label" for="radio8h">8h</label>
+                                                <?php
+                                                    }
+                                                ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
 
@@ -1497,7 +1542,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($segundaEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasSegunda" id="horasSegunda" value=<?php echo $segundaEstagio ?> >
+                                                <input type="time" class="form-control" name="horasSegunda" id="horasSegunda" value=<?php echo $segundaEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>
@@ -1510,7 +1555,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($tercaEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasTerca" id="horasTerca" value=<?php echo $tercaEstagio ?> >
+                                                <input type="time" class="form-control" name="horasTerca" id="horasTerca" value=<?php echo $tercaEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>
@@ -1523,7 +1568,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($quartaEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" value=<?php echo $quartaEstagio ?> >
+                                                <input type="time" class="form-control" name="horasQuarta" id="horasQuarta" value=<?php echo $quartaEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>
@@ -1536,7 +1581,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($quintaEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" value=<?php echo $quintaEstagio ?> >
+                                                <input type="time" class="form-control" name="horasQuinta" id="horasQuinta" value=<?php echo $quintaEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>
@@ -1549,7 +1594,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($sextaEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasSexta" id="horasSexta" value=<?php echo $sextaEstagio ?> >
+                                                <input type="time" class="form-control" name="horasSexta" id="horasSexta" value=<?php echo $sextaEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>
@@ -1562,7 +1607,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <?php
                                             if($sabadoEstagio != NULL){
                                         ?>
-                                                <input type="time" class="form-control" name="horasSabado" id="horasSabado" value=<?php echo $sabadoEstagio ?> >
+                                                <input type="time" class="form-control" name="horasSabado" id="horasSabado" value=<?php echo $sabadoEstagio ?> required>
                                         <?php
                                             } else{
                                         ?>

@@ -40,7 +40,6 @@ $(document).ready(function () {
             } else {
                 element.mask("(00) 0000-0000");
             }
-
             if (!validaTelefone(phone)) {
                 $(target).addClass('form-invalido');
                 tooltip($(target), 'Digite um telefone válido.');
@@ -121,11 +120,19 @@ $(document).ready(function () {
 
         if (/* validaNome() && */ validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) &&
             $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
-
+            if($('#horasSegunda').hasClass('form-invalido')||($('#horasSegunda').val().length===0)&&$('#checkSegunda').prop('checked'))tooltip($('#horasSegunda'), 'Preencha corretamente as horas');
+            else if($('#horasTerca').hasClass('form-invalido')||$('#horasTerca').val().length===0&&$('#checkTerca').prop('checked')) tooltip($('#horasTerca'), 'Preencha corretamente as horas');
+            else if($('#horasQuarta').hasClass('form-invalido')||$('#horasQuarta').val().length===0&&$('#checkQuarta').prop('checked')) tooltip($('#horasQuarta'), 'Preencha corretamente as horas');
+            else if($('#horasQuinta').hasClass('form-invalido')||$('#horasQuinta').val().length===0&&$('#checkQuinta').prop('checked')) tooltip($('#horasQuinta'), 'Preencha corretamente as horas');
+            else if($('#horasSexta').hasClass('form-invalido')||$('#horasSexta').val().length===0&&$('#checkSexta').prop('checked')) tooltip($('#horasSexta'), 'Preencha corretamente as horas');
+            else if($('#horasSabado').hasClass('form-invalido')||$('#horasSabado').val().length===0&&$('#checkSabado').prop('checked')) tooltip($('#horasSabado'), 'Preencha corretamente as horas');
+            else{
+                //Submete o formulário
+                console.log($("#horasSegunda").val());
+                this.submit();
+            }
             //console.log("certo");
 
-            // Submete o formulário
-            this.submit();
 
         } else {
 
@@ -447,6 +454,65 @@ $(document).ready(function () {
             $('#horasSabado').val("");
             $('#horasSabado').prop("disabled", true);
         }
+    });
+    function verificarHora(e){
+        var qtdHoras = $(e.target).val().split(':');
+        var radiovalue = $("input:radio[name ='radioGroupCargaDiaria']:checked").val();
+        if(radiovalue=='8h'){
+            if ((qtdHoras[0] * 1) < 8 || ((qtdHoras[0] * 1) == 8 && (qtdHoras[1] * 1) == 0)) {
+                $(e.target).removeClass('form-invalido');
+                // Remove o tooltip
+                $(e.target).tooltip('disable');        
+            }
+            else{
+
+                    // Muda a cor da borda para vermelho
+                    $(e.target).addClass('form-invalido');
+                    // Tooltip
+                    tooltip($(e.target), 'O horário não deve ultrapassar 8 horas diárias.');
+            }
+        }else if(radiovalue=='6h'){
+            if ((qtdHoras[0] * 1) < 6 || ((qtdHoras[0] * 1) == 6 && (qtdHoras[1] * 1) == 0)) {
+                $(e.target).removeClass('form-invalido');
+                // Remove o tooltip
+                $(e.target).tooltip('disable');               
+            }
+            else{
+
+                    // Muda a cor da borda para vermelho
+                    $(e.target).addClass('form-invalido');
+                    // Tooltip
+                    tooltip($(e.target), 'O horário não deve ultrapassar 6 horas diárias.');
+            }
+        }
+    }
+    $("input[name='radioGroupCargaDiaria']").change(function(e){
+        $("#horasSegunda").triggerHandler("keyup");
+        console.log($("#horasSegunda").val());
+        $("#horasTerca").triggerHandler("keyup");
+        $("#horasQuarta").triggerHandler("keyup");
+        $("#horasQuinta").triggerHandler("keyup");
+        $("#horasSexta").triggerHandler("keyup");
+        $("#horasSabado").triggerHandler("keyup");
+
+    });
+    $("#horasSegunda").keyup(function(e){
+        verificarHora(e);
+    });
+    $("#horasTerca").keyup(function(e){
+        verificarHora(e);
+    });
+    $("#horasQuarta").keyup(function(e){
+        verificarHora(e);
+    });
+    $("#horasQuinta").keyup(function(e){
+        verificarHora(e);
+    });
+    $("#horasSexta").keyup(function(e){
+        verificarHora(e);
+    });
+    $("#horasSabado").keyup(function(e){
+        verificarHora(e);
     });
 
     $('#inputDataFimEstagio').keyup(function (e) {

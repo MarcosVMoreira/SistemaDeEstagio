@@ -293,6 +293,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     else
         $cargaHorariaTotal = NULL;
     $tipoCargaHoraria = $_POST['radioGroupCargaHoraria'];
+    $tipoCargaDiaria = $_POST['radioGroupCargaDiaria'];
     $dataInicio = $_POST['inputDataInicioEstagio'];
     $dataFim = $_POST['inputDataFimEstagio'];
     if(isset($_POST['checkSegunda'])) {
@@ -355,6 +356,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                     'areasConhecimento="' . $areasConhecimento . '", ' .
                     'objetivos="' . $objetivosAlcancados . '", ' .
                     'tipoCargaHoraria="' . $tipoCargaHoraria . '", ' .
+                    'tipoCargaDiaria="'. $tipoCargaDiaria . '", ' .
                     'cargaHorariaTotal="' . $cargaHorariaTotal . '", ' .
                     'beneficios="' . $beneficios . '"';
 

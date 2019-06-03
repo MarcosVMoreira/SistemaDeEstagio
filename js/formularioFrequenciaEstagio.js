@@ -51,57 +51,57 @@ $(document).ready(function () {
         adicionaTexto();
     });
 
-    function buscaFrequenciasJaAdicionadasPeloUsuario () {
+    function buscaFrequenciasJaAdicionadasPeloUsuario() {
         /* busca quantas linhas o usuário adicionou na última vez que inseriu dados
         de frequencia de estágio */
-    
-        $.post('ajax/buscaFrequenciasJaAdicionadasPeloUsuario.php', {
-        }, function (retorno) {
-    
+
+        $.post('ajax/buscaFrequenciasJaAdicionadasPeloUsuario.php', {}, function (retorno) {
+
             let jsonDados = JSON.parse(retorno);
-    
+
             if (!(jsonDados.quantidadeRegistros == 0)) {
                 /* adiciona quantas linhas de frequencia de estágio 
                 desse usuário tem no banco */
                 for (let i = 0; i < jsonDados.quantidadeRegistros; i++) {
                     adicionaTexto();
-                    
-                    let dataConvertida = converteDataBRparaUS(jsonDados["data" + (i+1)]);
 
-                    console.log("Data: "+jsonDados["data" + (i+1)]);
-                    console.log("Carga horária: "+jsonDados["cargaHoraria" + (i+1)]);
-                    console.log("Setor: "+jsonDados["setor" + (i+1)]);
-                    console.log("Atividade: "+jsonDados["atividade" + (i+1)]);
-                    
+                    let dataUS = jsonDados["data" + (i + 1)];
+                    //let dataConvertida = converteDataBRparaUS(dataUS);
+
+                    /*
+                    console.log("Data: " + jsonDados["data" + (i + 1)]);
+                    console.log("Carga horária: " + jsonDados["cargaHoraria" + (i + 1)]);
+                    console.log("Setor: " + jsonDados["setor" + (i + 1)]);
+                    console.log("Atividade: " + jsonDados["atividade" + (i + 1)]);
+                    */
+
                     /* ver em que formato a data e o horário estão sendo salvas no banco e adequar a forma
                     aqui nesse script. Aqui estou recebendo a data como DD/MM/AAAA e convertendo para
                     AAAA/MM/DD para conseguir colocar nos campos Date e recebendo o campo hora como XX:XX */
-                    
-                    $('#inputData' + i).val(dataConvertida);
-                    $('#inputSetor' + i).val(jsonDados["setor" + (i+1)]);
-                    $('#inputCargaHoraria' + i).val(jsonDados["cargaHoraria" + (i+1)]);
-                    $('#inputAtividade' + i).val(jsonDados["atividade" + (i+1)]);
+
+                    $('#inputData' + i).val(dataUS);
+                    $('#inputSetor' + i).val(jsonDados["setor" + (i + 1)]);
+                    $('#inputCargaHoraria' + i).val(jsonDados["cargaHoraria" + (i + 1)]);
+                    $('#inputAtividade' + i).val(jsonDados["atividade" + (i + 1)]);
+
+
                 }
-
-                $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
-
             }
 
-
-    
+            $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
         });
     }
 
-    function converteDataBRparaUS (data) {
-        var dia  = data.split("/")[0];
-        var mes  = data.split("/")[1];
-        var ano  = data.split("/")[2];
+    function converteDataBRparaUS(data) {
+        var dia = data.split("/")[0];
+        var mes = data.split("/")[1];
+        var ano = data.split("/")[2];
 
-        return ano + '-' + ("0"+mes).slice(-2) + '-' + ("0"+dia).slice(-2);
+        return ano + '-' + ("0" + mes).slice(-2) + '-' + ("0" + dia).slice(-2);
     }
 
 
-    function adicionaTexto () {
+    function adicionaTexto() {
 
         var stringlinha = $("<div class=\"form-row\" id=\"linhaDiaria" + qtdLinhas + "\">" +
             "<div class=\"col-sm-12 col-md-3\">" +

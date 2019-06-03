@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 session_start();
 include_once("conexao.php");
@@ -10,7 +10,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $raAluno = $_SESSION['ra'];
     $qtdLinhas = $_POST['qtdLinhas'];
 
-    $query = 'SELECT data FROM frequenciaestagio WHERE raAluno="' . $raAluno . '"';
+    $query = "SELECT data FROM frequenciaestagio WHERE raAluno='" . $raAluno . "'";
 
     for ($i = 0; $i < $qtdLinhas; $i++) {
         // Percorrendo todos os campos para verificar se algum já está no banco.
@@ -58,9 +58,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 */
 
                 if ($setor != '') {
-                    $query2 = "UPDATE frequenciaestagio SET cargaHoraria='" . $cargaHoraria . "', setor='" . $setor . "', atividade='" . $atividade . "'     WHERE raAluno='" . $raAluno . "'";
+                    $query2 = "UPDATE frequenciaestagio SET cargaHoraria='" . $cargaHoraria . "', setor='" . $setor . "', atividade='" . $atividade . "' WHERE raAluno='" . $raAluno . "' AND data='" .$data. "'";
                 } else {
-                    $query2 = "UPDATE frequenciaestagio SET cargaHoraria='" . $cargaHoraria . "', atividade='" . $atividade . "' WHERE raAluno='" . $raAluno . "'";
+                    $query2 = "UPDATE frequenciaestagio SET cargaHoraria='" . $cargaHoraria . "', atividade='" . $atividade . "' WHERE raAluno='" . $raAluno . "' AND data='" .$data. "'";
                 }
 
                 if (!$conexao->query($query2) === TRUE) {
@@ -70,13 +70,13 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 }
 
             }
-
-            $conexao->close();
         } else {
             echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador. (3)<br />";
             echo "Error updating record: " . $conexao->error;
             exit;
         }
     }
+
+    $conexao->close();
 }
 ?>

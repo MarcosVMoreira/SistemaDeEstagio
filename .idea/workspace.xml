@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aa0fc30d-5d3e-43bf-9188-37a47416e6a9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/formularioFrequenciaEstagio.php" beforeDir="false" afterPath="$PROJECT_DIR$/formularioFrequenciaEstagio.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php" beforeDir="false" afterPath="$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/formularioFrequenciaEstagio.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/formularioFrequenciaEstagio.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,20 +20,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/formularioFrequenciaEstagio.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
+            <state relative-caret-position="408">
+              <caret line="50" column="53" selection-start-line="50" selection-end-line="51" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/formularioFrequenciaEstagio.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="37" />
+            <state relative-caret-position="342">
+              <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginValidar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
             </state>
           </provider>
         </entry>
@@ -45,6 +64,10 @@
       <find>supervisor</find>
       <find>cpf</find>
       <find>console.log</find>
+      <find>query</find>
+      <find>close</find>
+      <find>data</find>
+      <find>hora</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -55,12 +78,12 @@
       <list>
         <option value="$PROJECT_DIR$/header.php" />
         <option value="$PROJECT_DIR$/js/formulario.js" />
-        <option value="$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php" />
         <option value="$PROJECT_DIR$/verificarFormularioRelatorioEstagio.php" />
         <option value="$PROJECT_DIR$/verificarFormularioFrequenciaEstagio.php" />
         <option value="$PROJECT_DIR$/footer.html" />
-        <option value="$PROJECT_DIR$/js/formularioFrequenciaEstagio.js" />
         <option value="$PROJECT_DIR$/formularioFrequenciaEstagio.php" />
+        <option value="$PROJECT_DIR$/js/formularioFrequenciaEstagio.js" />
+        <option value="$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php" />
       </list>
     </option>
   </component>
@@ -82,6 +105,11 @@
             <path>
               <item name="SistemaDeEstagio" type="b2602c69:ProjectViewProjectNode" />
               <item name="SistemaDeEstagio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SistemaDeEstagio" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SistemaDeEstagio" type="462c0819:PsiDirectoryNode" />
+              <item name="ajax" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -118,12 +146,12 @@
       <option name="presentableId" value="Default" />
       <updated>1558976894837</updated>
       <workItem from="1558976896562" duration="6238000" />
-      <workItem from="1559580593223" duration="224000" />
+      <workItem from="1559580593223" duration="3818000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6462000" />
+    <option name="totallyTimeSpent" value="10056000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -210,24 +238,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/formularioFrequenciaEstagio.js">
+    <entry file="file://$PROJECT_DIR$/loginValidar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="45" column="45" lean-forward="true" selection-start-line="45" selection-start-column="45" selection-end-line="45" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="37" />
+        <state relative-caret-position="357">
+          <caret line="21" column="51" lean-forward="true" selection-start-line="21" selection-start-column="51" selection-end-line="21" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/formularioFrequenciaEstagio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="42" column="67" selection-start-line="42" selection-start-column="67" selection-end-line="42" selection-end-column="67" />
+        <state relative-caret-position="408">
+          <caret line="50" column="53" selection-start-line="50" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajax/buscaFrequenciasJaAdicionadasPeloUsuario.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/formularioFrequenciaEstagio.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="63" column="44" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/formularioFrequenciaEstagioValidar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="68" column="25" lean-forward="true" selection-start-line="68" selection-start-column="25" selection-end-line="68" selection-end-column="25" />
         </state>
       </provider>
     </entry>

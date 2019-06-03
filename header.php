@@ -129,10 +129,10 @@
                                 <!-- criar uma página para fazer a chamada do download dos pdf
                                 informando pra q serve esses PDFS -->
                                     <li>
-                                        <a href='reqEstagio.pdf'>Requerimento de estágio</a>
+                                        <a href='downloadReqEstagio.php'>Requerimento de estágio</a>
                                     </li>
                                     <li>
-                                        <a href='planoEstagio.pdf'>Plano de estágio</a>
+                                        <a href='downloadPlanoEstagio.php'>Plano de estágio</a>
                                     </li>
                                 </ul>
                             </div>

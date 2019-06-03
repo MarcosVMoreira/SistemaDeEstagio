@@ -81,10 +81,13 @@ $(document).ready(function () {
                     $('#inputSetor' + i).val(jsonDados["setor" + (i+1)]);
                     $('#inputCargaHoraria' + i).val(jsonDados["cargaHoraria" + (i+1)]);
                     $('#inputAtividade' + i).val(jsonDados["atividade" + (i+1)]);
-
-
                 }
+
+                $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
+
             }
+
+
     
         });
     }

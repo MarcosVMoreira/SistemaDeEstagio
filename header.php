@@ -119,31 +119,49 @@
                             </a>
                         </li>
 
-                        <li>
-                            <a href="formulario.php">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Formulário</span>
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Coletar dados</span>
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="verificarFormularioFrequenciaEstagio.php">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Frequência de Estágio</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="verificarFormularioRelatorioEstagio.php">
-                            <i class="fas fa-file-alt"></i>
-                            <span>Relatório de Estágio</span>
-                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                <!-- criar uma página para fazer a chamada do download dos pdf
+                                informando pra q serve esses PDFS -->
+                                    <li>
+                                        <a href='reqEstagio.pdf'>Requerimento de estágio</a>
+                                    </li>
+                                    <li>
+                                        <a href='planoEstagio.pdf'>Plano de estágio</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
 
                         <li class="sidebar-dropdown">
                             <a href="#">
                                 <i class="fas fa-file-pdf"></i>
-                                <span>Gerar PDF</span>
+                                <span>Preencher dados</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="formulario.php">Formulário</a>
+                                    </li>
+                                    <li>
+                                        <a href="verificarFormularioFrequenciaEstagio.php">Frequência de Estágio</a>
+                                    </li>
+                                    <li>
+                                        <a href='verificarFormularioRelatorioEstagio.php'>Relatório de Estágio</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="sidebar-dropdown">
+                            <a href="#">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>Gerar PDF's</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>

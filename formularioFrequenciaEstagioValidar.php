@@ -8,8 +8,22 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 } else {
     // Dados do aluno
     $raAluno = $_SESSION['ra'];
+    $idEstagio = $_SESSION['idEstagio'];
     $qtdLinhas = $_POST['qtdLinhas'];
+    $cargaHorariaTotal = $_POST['CargaHorariaTotal'];
 
+    //caso tipo de estagio seja n obrigaorio salva o valor da carga horaria total de frequencia de estagio.
+    $query = "SELECT * FROM estagio WHERE idEstagio='" . $idEstagio . "'";
+    if ($result = $conexao->query($query)) {
+        $resultado = $result->fetch_assoc();
+        
+            if ($resultado["tipoEstagio"] == "Estágio não Obrigatório") { 
+                echo "oi";
+                $query2 = "UPDATE estagio SET cargaHorariaTotal='" . $cargaHorariaTotal . "' WHERE idEstagio='" . $idEstagio . "'";
+                $conexao->query($query2);
+            } 
+    }
+    
     $query = "SELECT data FROM frequenciaestagio WHERE raAluno='" . $raAluno . "'";
 
     for ($i = 0; $i < $qtdLinhas; $i++) {

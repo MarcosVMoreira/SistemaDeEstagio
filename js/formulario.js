@@ -255,6 +255,7 @@ $(document).ready(function () {
             calculaTerminoEstagio();
         }
     });
+    $('#inputNumero').mask('0000');
 
     //$('#radioRemunerado').change(function () {
     $("#divRemunerado").on("change", "#radioRemunerado", function () {

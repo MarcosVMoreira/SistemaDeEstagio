@@ -385,7 +385,10 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $conexao->close();
 
     ?>
-
+    
+    <!-- Funções -->
+    <script type="text/javascript" src="js/somenteNumeros.js"></script>
+   
     <!-- CSS do Formulário -->
     <link rel="stylesheet" href="css/formulario.css">
 
@@ -712,7 +715,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-4">
                                     <div class="form-group">
                                         <label for="inputNumero">Número</label>
-                                        <input type="text" class="form-control" name="inputNumero" value="<?php echo($numero);?>" id="inputNumero" required>
+                                        <input type="text" class="form-control" name="inputNumero" value="<?php echo($numero);?>" id="inputNumero" onkeypress="return somenteNumeros(event)" required>
                                     </div>
                                 </div>
 
@@ -735,14 +738,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-6">
                                     <div class="form-group">
                                         <label for="inputCidade">Cidade</label>
-                                        <input type="text" class="form-control" name="inputCidade" value="<?php echo($cidade);?>" id="inputCidade" required>
+                                        <input type="text" class="form-control" name="inputCidade" value="<?php echo($cidade);?>" id="inputCidade" readonly required>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-4 col-md-2">
                                     <div class="form-group">
                                         <label for="selectEstado">Estado</label>
-                                        <select class="form-control" name="selectEstado" required>
+                                        <select class="form-control" name="selectEstado" readonly required>
                                         <?php if($uf == "AC"){?>
                                             <option selected value="AC">AC</option>
                                         <?php } else{?>

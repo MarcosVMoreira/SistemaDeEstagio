@@ -117,7 +117,7 @@
                             <div class="col-sm-4 col-md-2">
                                 <div class="form-group">
                                     <label for="selectEstado">Estado</label>
-                                    <select class="form-control" name="estado">
+                                    <select class="form-control" name="selectEstado">
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>
                                         <option value="AP">AP</option>

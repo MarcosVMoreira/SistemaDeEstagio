@@ -91,11 +91,13 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "email";
                 $flag = 1;
             }
+            /*
             if ($resultado["complemento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "complemento";
                 $flag = 1;
             }
+            */
             if ($resultado["dataNascimento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "data de nascimento";
@@ -472,7 +474,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 <h5 id="nome">
                     Ops, encontramos um problema!<br/>
                 </h5>
-                Alguns dados estão faltando para que seja possível preencher o formulário de relatorio de estagio. Favor
+                Alguns dados estão faltando para que seja possível preencher o formulário de relatório de estágio. Favor
                 preencher os dados listados abaixo:<br/> <br/>
                 <?php
                 if ($flagGlobal == 1) {

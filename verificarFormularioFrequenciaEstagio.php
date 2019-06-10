@@ -17,7 +17,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     $flagGlobal = 0;
 
     //Aluno
-      $query = "SELECT * FROM alunos WHERE ra='" . $_SESSION['ra'] . "'";
+    $query = "SELECT * FROM alunos WHERE ra='" . $_SESSION['ra'] . "'";
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
 
@@ -90,11 +90,13 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "email";
                 $flag = 1;
             }
+            /*
             if ($resultado["complemento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "complemento";
                 $flag = 1;
             }
+            */
             if ($resultado["dataNascimento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "data de nascimento";
@@ -444,18 +446,18 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             <h5 id="nome">
                 Ops, encontramos um problema!<br />
             </h5>
-            Alguns dados estão faltando para que seja possível preencher o formulário de frequência de estagio. Favor preencher os dados listados abaixo:<br /> <br />
+            Alguns dados estão faltando para que seja possível preencher o formulário de frequência de estágio. Favor preencher os dados listados abaixo:<br /> <br />
             <?php
                 if ($flagGlobal == 1) {
                     echo $alunos;
                     echo $orientador;
                     echo $supervisor;
                     echo $concedentes;
-                    ?>
+            ?>
             <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
             <?php
-            } else {
-                ?>
+                } else {
+            ?>
             <script>
                 window.open('formularioFrequenciaEstagio.php', '_self');
 

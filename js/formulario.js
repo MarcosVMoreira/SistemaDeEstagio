@@ -58,7 +58,7 @@ $(document).ready(function () {
             $(e.target).tooltip('disable');
         }
     });
-
+    
     $('input[id^=inputCep]').mask('00000-000')
         .focusout(function (e) {
 
@@ -118,14 +118,26 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (/* validaNome() && */ validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) &&
-            $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
-            if($('#horasSegunda').hasClass('form-invalido')||($('#horasSegunda').val().length===0)&&$('#checkSegunda').prop('checked'))tooltip($('#horasSegunda'), 'Preencha corretamente as horas');
-            else if($('#horasTerca').hasClass('form-invalido')||$('#horasTerca').val().length===0&&$('#checkTerca').prop('checked')) tooltip($('#horasTerca'), 'Preencha corretamente as horas');
-            else if($('#horasQuarta').hasClass('form-invalido')||$('#horasQuarta').val().length===0&&$('#checkQuarta').prop('checked')) tooltip($('#horasQuarta'), 'Preencha corretamente as horas');
-            else if($('#horasQuinta').hasClass('form-invalido')||$('#horasQuinta').val().length===0&&$('#checkQuinta').prop('checked')) tooltip($('#horasQuinta'), 'Preencha corretamente as horas');
-            else if($('#horasSexta').hasClass('form-invalido')||$('#horasSexta').val().length===0&&$('#checkSexta').prop('checked')) tooltip($('#horasSexta'), 'Preencha corretamente as horas');
-            else if($('#horasSabado').hasClass('form-invalido')||$('#horasSabado').val().length===0&&$('#checkSabado').prop('checked')) tooltip($('#horasSabado'), 'Preencha corretamente as horas');
+        if (!($('input').hasClass('form-invalido'))) {
+            
+            if($('#horasSegunda').hasClass('form-invalido')||($('#horasSegunda').val().length===0)&&$('#checkSegunda').prop('checked')){
+                tooltip($('#horasSegunda'), 'Preencha corretamente as horas');
+            }   
+            else if($('#horasTerca').hasClass('form-invalido')||$('#horasTerca').val().length===0&&$('#checkTerca').prop('checked')){
+                tooltip($('#horasTerca'), 'Preencha corretamente as horas');
+            }
+            else if($('#horasQuarta').hasClass('form-invalido')||$('#horasQuarta').val().length===0&&$('#checkQuarta').prop('checked')){
+                tooltip($('#horasQuarta'), 'Preencha corretamente as horas');
+            } 
+            else if($('#horasQuinta').hasClass('form-invalido')||$('#horasQuinta').val().length===0&&$('#checkQuinta').prop('checked')){
+                tooltip($('#horasQuinta'), 'Preencha corretamente as horas');
+            } 
+            else if($('#horasSexta').hasClass('form-invalido')||$('#horasSexta').val().length===0&&$('#checkSexta').prop('checked')){
+                tooltip($('#horasSexta'), 'Preencha corretamente as horas');
+            } 
+            else if($('#horasSabado').hasClass('form-invalido')||$('#horasSabado').val().length===0&&$('#checkSabado').prop('checked')){
+                tooltip($('#horasSabado'), 'Preencha corretamente as horas');
+            } 
             else{
                 //Submete o formulário
                 console.log($("#horasSegunda").val());

@@ -13,7 +13,7 @@
    $numero = $_POST["numero"];
    $complemento = $_POST["complemento"];
    $bairro = $_POST["bairro"];
-   $estado = $_POST["estado"];
+   $estado = $_POST["selectEstado"];
    $cidade = $_POST["cidade"];
    $ra = $_POST["ra"];
    $cursoLabel = explode('-', $_POST["curso"]);

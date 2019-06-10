@@ -132,9 +132,18 @@ $(document).ready(function () {
 
         $("#linhaEstagio").append(stringlinha);
 
+        // Verifica se o usuário digitou a data no campo inputData
+        $('#inputData' + qtdLinhas).focusout(function(e){
+            if($(e.target).val() == ""){
+                $(e.target).addClass('form-invalido')
+                tooltip($(e.target), "Selecione uma data")
+            } else {
+                $(e.target).removeClass('form-invalido')
+                $(e.target).tooltip('disable')
+            }
+        });
 
         $('#inputCargaHoraria' + qtdLinhas).keyup(function (e) {
-
             if (validaHora($(e.target).val())) {
 
                 var qtdHoras = $(e.target).val().split(':');

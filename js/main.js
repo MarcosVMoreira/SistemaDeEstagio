@@ -228,6 +228,14 @@ function validaTelefone(telefone) {
     }
     return true;
 }
+function validaNome(nome){
+    if(nome.indexOf(" ")==-1)return false
+    else {
+        var nomex=nome.split(" ");
+        if(nomex[1].length==0||nomex[1]==null) return false;
+        return true;
+    }
+}
 
 function validaData(data) {
 

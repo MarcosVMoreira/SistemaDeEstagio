@@ -57,6 +57,19 @@ $(document).ready(function () {
         }
     });
 
+    $('#inputNome').focusout(function(e){
+        if(!validaNome($(e.target).val())){
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Digite seu nome completo.');
+        } else{
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+            return true;
+        }
+    });
+
     $("#inputTelefone").mask("(00) 00000-0000").focusout(function(e){
         
         if (!validaTelefone($(e.target).val())){
@@ -112,7 +125,7 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
+        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val()) && validaNome($('#inputNome').val())) {
 
             // Submete o formulário
             this.submit();

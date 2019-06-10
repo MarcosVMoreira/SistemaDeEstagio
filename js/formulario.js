@@ -113,6 +113,19 @@ $(document).ready(function () {
         reverse: true
     });
 
+
+    $('#inputDataNascimento').change(function () {
+        dataCampo = document.getElementById('inputDataNascimento')
+        dataAtual = new Date()
+
+        if( Date.parse(dataAtual) < Date.parse(dataCampo)){
+            $('#tooltipDataNascimento').tooltip('hide')
+        }else{
+            $('#tooltipDataNascimento').tooltip('toggle')
+        }
+    });
+
+
     $('#formCadastro').submit(function (evento) {
 
         // Pausa a submissão do formulário

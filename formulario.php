@@ -438,6 +438,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                     <div class="form-group">
                                         <label for="inputDataNascimento">Data de nascimento</label>
                                         <input type="date" class="form-control" name="inputDataNascimento" value="<?php echo($dataNascimento);?>" id="inputDataNascimento" required>
+                                        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Data incorreta" id="tooltipDataNascimento">
+                                            Data incorreta!
+                                        </button>
                                     </div>
                                 </div>
 

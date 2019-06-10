@@ -52,7 +52,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
 
         $conexao->close();
-        header("Location: formularioRelatorioEstagio.php");
+        header("Location: home.php");
 
     }
 }

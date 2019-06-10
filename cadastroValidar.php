@@ -26,9 +26,11 @@
    $query = "INSERT INTO alunos(nome, cpf, rg, telefoneCelular, dataNascimento, email, cep, endereco, numero, complemento, bairro, uf, cidade, ra, curso, modalidade, periodoAno, senha, campus) VALUES ('$nome', '$cpf', '$rg', '$telefone', '$dataNascimento', '$email', '$cep', '$endereco', '$numero', '$complemento', '$bairro', '$estado', '$cidade', '$ra', '$curso', '$modalidade', '$periodoAno', MD5('$senha'), '$campus')";
 
    if ($conexao->query($query) === TRUE) {
-      header ("Location: home.php");
+      echo "true";
+   } else if($conexao->error == "Duplicate entry '$ra' for key 'PRIMARY'") {
+      echo "false duplicado";
    } else {
-      echo "Error: " . $query . "<br>" . $conexao->error;
+      echo $conexao->error;
    }
       
 ?>

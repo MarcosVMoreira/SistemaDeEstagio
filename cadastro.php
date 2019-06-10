@@ -20,7 +20,7 @@
 <div class="container-fluid mt-5">
     <div class="row">
         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form action="cadastroValidar.php" method="POST" id="formCadastro" >
+            <form id="formCadastro" >
                 <div class="card">
                     <div class="card-header">
                         Dados Pessoais
@@ -117,7 +117,7 @@
                             <div class="col-sm-4 col-md-2">
                                 <div class="form-group">
                                     <label for="selectEstado">Estado</label>
-                                    <select class="form-control" name="selectEstado">
+                                    <select class="form-control" name="selectEstado" id="selectEstado">
                                         <option value="AC">AC</option>
                                         <option value="AL">AL</option>
                                         <option value="AP">AP</option>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 offset-md-7">
-                        <button class="btn btn-success" type="submit" id="botaoCriarConta">Criar Conta</button>
+                        <button class="btn btn-success" type="button" id="botaoCriarConta" onclick="salvarConta()">Criar Conta</button>
                         <a href="login.php"><button class="btn btn-danger" type="button" id="botaoCancelar">Cancelar</button></a>
                     </div>
                 </div>

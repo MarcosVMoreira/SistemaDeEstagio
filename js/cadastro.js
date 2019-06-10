@@ -40,14 +40,14 @@ function validaConfirmacaoSenha(senha, senhaConfirmada) {
 }
 
 $(document).ready(function () {
-    
+
     $('#inputCpf').mask('000.000.000-00').focusout(function (e) {
 
-        if(!validaCpf($(e.target).val())) {
+        if (!validaCpf($(e.target).val())) {
             $(e.target).addClass('form-invalido');
 
             tooltip($(e.target), 'CPF inválido.');
-            
+
         } else {
             $(e.target).removeClass('form-invalido');
 
@@ -101,17 +101,17 @@ $(document).ready(function () {
 
             return true;
         }
-        
+
     });
-    
-    $("#inputEmail").focusout(function(e){
-        
-        if (!validaEmail($(e.target).val())){
-            
+
+    $("#inputEmail").focusout(function (e) {
+
+        if (!validaEmail($(e.target).val())) {
+
             $(e.target).addClass('form-invalido');
 
             tooltip($(e.target), 'E-mail inválido.');
-            
+
         } else {
             $(e.target).removeClass('form-invalido');
 
@@ -119,13 +119,13 @@ $(document).ready(function () {
 
             return true;
         }
-        
+
     });
-    
-    $('#inputCep').mask('00000-000').focusout(function (e){
+
+    $('#inputCep').mask('00000-000').focusout(function (e) {
         validaCep(e.target);
-    });    
-    
+    });
+
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida
     $('#inputSenha').focusout(function (e) {
         validaSenha($(e.target).val());
@@ -136,7 +136,7 @@ $(document).ready(function () {
         validaConfirmacaoSenha($('#inputSenha').val(), $(e.target).val());
     })
 
-    $('#formCadastro').submit(function (evento) {
+    /*$('#formCadastro').submit(function (evento) {
 
         // Pausa a submissão do formulário
         evento.preventDefault();
@@ -153,5 +153,51 @@ $(document).ready(function () {
             $('#inputConfirmarSenha').val('');
         }
 
-    });
+    });*/
 });
+
+
+function salvarConta() {
+    if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
+        $.post('cadastroValidar.php', {
+            nome: $('#inputNome').val(),
+            cpf: $('#inputCpf').val(),
+            rg: $('#inputRg').val(),
+            telefone: $('#inputTelefone').val(),
+            dataNascimento: $('#inputDataNascimento').val(),
+            email: $('#inputEmail').val(),
+            cep: $('#inputCep').val(),
+            endereco: $('#inputEndereco').val(),
+            numero: $('#inputNumero').val(),
+            complemento: $('#inputComplemento').val(),
+            bairro: $('#inputBairro').val(),
+            estado: $('#selectEstado').val(),
+            cidade: $('#inputCidade').val(),
+            ra: $('#inputRA').val(),
+            curso: $('#selectCurso').val(),
+            periodoAno: $('#inputAno').val(),
+            campus: $('#selectCampus').val(),
+            senha: $('#inputSenha').val()
+        }, function (retorno) {
+            console.log("retorno " + retorno);
+            if (retorno == "true") {
+                window.alert("Conta cadastrada com sucesso!");
+                location.href="login.php";
+            } else if (retorno == "false duplicado") {
+                $('#inputRA').addClass('form-invalido');
+                tooltip($('#inputRA'), 'O RA digitado já foi registrado!.');
+                $('#inputRA').val('');
+                $('#inputSenha').val('');
+                $('#inputConfirmarSenha').val(''); 
+            } else {
+                window.alert("Erro no cadastro. Contate o Administrador")
+            }
+        });
+
+    } else {
+
+        // Limpa os campos de senha
+        $('#inputSenha').val('');
+        $('#inputConfirmarSenha').val('');
+    }
+}

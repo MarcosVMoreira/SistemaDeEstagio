@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+    
     var estadoAnterior;
     $('input[id^=inputCpf]').mask('000.000.000-00')
         .focusout(function (e) {
@@ -114,14 +118,19 @@ $(document).ready(function () {
     });
 
 
-    $('#inputDataNascimento').change(function () {
-        dataCampo = document.getElementById('inputDataNascimento')
+    $('#inputDataNascimento').change(function (e) {
+        
+        dataC = document.getElementById('inputDataNascimento')
+        dataCampo = dataC.value
         dataAtual = new Date()
 
-        if( Date.parse(dataAtual) < Date.parse(dataCampo)){
-            $('#tooltipDataNascimento').tooltip('hide')
+        if(Date.parse(dataAtual) < Date.parse(dataCampo)){
+            $(e.target).addClass('form-invalido');
+            tooltip($(e.target), 'Digite uma data válida.');
         }else{
-            $('#tooltipDataNascimento').tooltip('toggle')
+            $(e.target).removeClass('form-invalido');
+            $(e.target).tooltip('disable');
+            return true;
         }
     });
 

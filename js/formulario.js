@@ -256,6 +256,7 @@ $(document).ready(function () {
         }
     });
     $('#inputNumero').mask('0000');
+    $('#inputNumeroEmpresa').mask('0000');
 
     //$('#radioRemunerado').change(function () {
     $("#divRemunerado").on("change", "#radioRemunerado", function () {

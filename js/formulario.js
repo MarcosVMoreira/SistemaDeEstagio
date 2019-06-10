@@ -233,9 +233,10 @@ $(document).ready(function () {
         }
     }
 
-    $('#inputCargaHorariaMax').keyup(function () {
+    $('#inputCargaHorariaMax').mask("##0:00",{ reverse: true}).keyup(function () {   
         calculaTerminoEstagio();
     });
+    
 
     $('#inputDataInicioEstagio').keyup(function (e) {
         if (validaData($(e.target).val())) {

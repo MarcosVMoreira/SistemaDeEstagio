@@ -361,12 +361,6 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 else $estagio = $estagio . "valor da bolsa";
                 $flag = 1;
             }
-            if ($resultado["beneficios"] != "") {
-            } else {
-                if ($flag == 1) $estagio = $estagio . ", ";
-                else $estagio = $estagio . "benefícios";
-                $flag = 1;
-            }
             if ($resultado["tipoCargaHoraria"] != "") {
             } else {
                 if ($flag == 1) $estagio = $estagio . ", ";
@@ -482,6 +476,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                     echo $orientador;
                     echo $supervisor;
                     echo $concedentes;
+                    echo $estagio;
                     ?>
                     <a href="formulario.php">
                         <button type="button" class="btn btn-primary mt-5">Ir para o formulário</button>

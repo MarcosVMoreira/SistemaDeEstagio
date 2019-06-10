@@ -725,7 +725,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplemento">Complemento</label>
-                                        <input type="text" class="form-control" name="inputComplemento" value="<?php echo($complemento);?>" id="inputComplemento">
+                                        <input type="text" class="form-control" name="inputComplemento" value="<?php echo($complemento);?>" id="inputComplemento" placeholder="(opcional)">
                                     </div>
                                 </div>
                             </div>
@@ -961,7 +961,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-8">
                                     <div class="form-group">
                                         <label for="inputComplementoEmpresa">Complemento</label>
-                                        <input type="text" class="form-control" name="inputComplementoEmpresa" value="<?php echo($complementoEmpresa);?>" id="inputComplementoEmpresa">
+                                        <input type="text" class="form-control" name="inputComplementoEmpresa" value="<?php echo($complementoEmpresa);?>" id="inputComplementoEmpresa" placeholder="(opcional)">
                                     </div>
                                 </div>
                             </div>

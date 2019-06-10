@@ -149,7 +149,7 @@
                                         <a href="formulario.php">Formulário</a>
                                     </li>
                                     <li>
-                                        <a href="verificarFormularioFrequenciaEstagio.php">Frequência de Estágio</a>
+                                        <a href="formularioFrequenciaEstagio.php">Frequência de Estágio</a>
                                     </li>
                                     <li>
                                         <a href='verificarFormularioRelatorioEstagio.php'>Relatório de Estágio</a>

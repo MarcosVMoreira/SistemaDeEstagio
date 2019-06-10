@@ -1,24 +1,3 @@
-/*
-function validaNome() {
-    
-    if ($('#inputNome').val() == ''){
-        
-        ($('#inputNome').addClass('form-invalido'));
-        
-        tooltip($('#inputNome'), 'Este campo não pode ficar vazio.');
-        
-    } else {
-        
-        $('#inputNome').removeClass('form-invalido');
-        
-        $('#inputNome').tooltip('disable');
-        
-        return true;
-    }
-    
-}
-*/
-
 function validaSenha(senha) {
 
     if (senha.length < 8) {
@@ -26,6 +5,8 @@ function validaSenha(senha) {
         $('#inputSenha').addClass('form-invalido');
 
         tooltip($('#inputSenha'), 'A senha deve possuir mais de oito dígitos.');
+
+        return false;
 
     } else {
         $('#inputSenha').removeClass('form-invalido');
@@ -45,6 +26,8 @@ function validaConfirmacaoSenha(senha, senhaConfirmada) {
 
         tooltip($('#inputConfirmarSenha'), 'A confirmação de senha deve ser igual à senha.');
 
+        return false;
+
     } else {
         $('#inputConfirmarSenha').removeClass('form-invalido');
         $('#inputSenha').removeClass('form-invalido');
@@ -57,12 +40,6 @@ function validaConfirmacaoSenha(senha, senhaConfirmada) {
 }
 
 $(document).ready(function () {
-    
-    /*
-    $('#inputNome').focusout(function () {
-        validaNome();
-    })
-    */
     
     $('#inputCpf').mask('000.000.000-00').focusout(function (e) {
 
@@ -135,16 +112,13 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputConfirmarSenha').val(), $('#inputConfirmarSenha').val()) && /* validaNome() && */ validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
-            
-            //console.log("certo");
+        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val())) {
 
             // Submete o formulário
             this.submit();
 
         } else {
-
-            console.log("deu ruim");
+            
             // Limpa os campos de senha
             $('#inputSenha').val('');
             $('#inputConfirmarSenha').val('');

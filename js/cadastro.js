@@ -63,7 +63,7 @@ $(document).ready(function () {
             
             $(e.target).addClass('form-invalido');
 
-            tooltip($(e.target), 'CPF inválido.');
+            tooltip($(e.target), 'Telefone inválido.');
             
         } else {
             $(e.target).removeClass('form-invalido');

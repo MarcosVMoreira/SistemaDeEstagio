@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 06, 2019 at 09:25 PM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.3.6
+-- Host: 127.0.0.1:3306
+-- Generation Time: 10-Jun-2019 às 16:52
+-- Versão do servidor: 5.7.24
+-- versão do PHP: 7.2.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,10 +25,11 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alunos`
+-- Estrutura da tabela `alunos`
 --
 
-CREATE TABLE `alunos` (
+DROP TABLE IF EXISTS `alunos`;
+CREATE TABLE IF NOT EXISTS `alunos` (
   `rg` varchar(45) NOT NULL,
   `cpf` varchar(45) NOT NULL,
   `nome` varchar(45) NOT NULL,
@@ -51,14 +52,18 @@ CREATE TABLE `alunos` (
   `idSupervisor` int(11) DEFAULT NULL,
   `idOrientador` int(11) DEFAULT NULL,
   `idEstagio` int(11) DEFAULT NULL,
-  `idEmpresa` int(11) DEFAULT NULL
+  `idEmpresa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ra`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `alunos`
+-- Extraindo dados da tabela `alunos`
 --
 
 INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `bairro`, `numero`, `curso`, `campus`, `ra`, `telefoneCelular`, `email`, `dataNascimento`, `periodoAno`, `modalidade`, `complemento`, `senha`, `idSupervisor`, `idOrientador`, `idEstagio`, `idEmpresa`) VALUES
+('13988888', '404.007.760-14', 'abc def', 'Poços de Caldas', 'MG', '37701-494', 'Travessa Roma', 'Jardim Santa Augusta', 200, 'Engenharia de Computação', 'Poços de Caldas', '14151000100', '(35) 99999-9999', 'abcdef@abc.com', '2000-11-11', '2015', 'Superiores', '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
+('MG-12344566', '123.456.789-09', 'William Manoel Martins', 'Poços de Caldas', 'MG', '37701-039', 'Rua Barão do Campo Místico', 'Centro', 120, 'Engenharia de Computação', 'Poços de Caldas', '14151000123', '(35) 99878-6545', 'williamanoel@outlook.com', '1997-07-12', '2015', 'Superiores', '', '8097131057df05c4215db3e7e16c24de', NULL, 141, NULL, NULL),
+('13978666', '866.866.930-30', 'abs def', 'Poços de Caldas', 'MG', '37701-494', 'Travessa Roma', 'Jardim Santa Augusta', 200, 'Engenharia de Computação', 'Poços de Caldas', '14151000200', '(35) 98886-2121', 'abs@gmail.com', '2000-01-11', '2015', 'Superiores', '', 'aa1bf4646de67fd9086cf6c79007026c', 5, 142, 5, 5),
 ('13978884', '402.380.460-60', 'Felipe', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Técnico em Informática', 'Poços de Caldas', '14161000000', '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', '2015', 'Técnicos Integrados', '500', 'aa1bf4646de67fd9086cf6c79007026c', 2, 138, 2, 2),
 ('13978884', '402.380.460-60', 'Felipe Borges da Silva', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Engenharia de Computação', 'Poços de Caldas', '14161000001', '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', '2015', 'Superiores', '500', 'aa1bf4646de67fd9086cf6c79007026c', 3, 139, 3, 3),
 ('35.510.115-0', '286.181.020-32', 'Fabricio Rodriguez', 'Poços de Caldas', 'MG', '37704-300', 'Rua Antônio João Dare', 'Jardim Country Club', 10, 'Técnico em Eletrotécnica', 'Poços de Caldas', '14161000999', '(35) 98183-8383', 'fabrirodri@gmail.com', '1999-02-02', '2', 'Técnicos Integrados', 'Jardim Country Club', 'aa1bf4646de67fd9086cf6c79007026c', 4, 140, 4, 4);
@@ -66,10 +71,11 @@ INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `b
 -- --------------------------------------------------------
 
 --
--- Table structure for table `concedentes`
+-- Estrutura da tabela `concedentes`
 --
 
-CREATE TABLE `concedentes` (
+DROP TABLE IF EXISTS `concedentes`;
+CREATE TABLE IF NOT EXISTS `concedentes` (
   `nome` varchar(45) NOT NULL,
   `cnpjCpf` varchar(45) NOT NULL,
   `endereco` varchar(45) NOT NULL,
@@ -85,27 +91,30 @@ CREATE TABLE `concedentes` (
   `bairro` varchar(45) NOT NULL,
   `numero` int(11) NOT NULL,
   `descricao` varchar(3000) DEFAULT NULL,
-  `idEmpresa` int(11) NOT NULL,
-  `complemento` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,
+  `complemento` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`idEmpresa`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `concedentes`
+-- Extraindo dados da tabela `concedentes`
 --
 
 INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTceNome`, `responsavelTceCargo`, `representanteEmpresaNome`, `representanteEmpresaCargo`, `email`, `telefone`, `uf`, `cidade`, `bairro`, `numero`, `descricao`, `idEmpresa`, `complemento`) VALUES
 ('PALMA & PALMA', '00000000', 'Rua Cissa', '17750789', 'Roberto Carlos', 'Professor', 'Ronaldo Felicio', 'Diretor', 'ronaldofelicio@gmail.com', '193536363636', 'Minas Gerais', 'Poços de Caldas', 'Azaleias', 15, 'empresa da familia Palma', 1, NULL),
 ('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, 'Descricao um', 2, NULL),
 ('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, 'Descrição da Empresa', 3, NULL),
-('ALCOA ALUMINIO LTDA', '53.402.153/0001-21', 'Rua Rio de Janeiro', '37701-011', 'Fernando M. Rodriguez', 'Estagiario', 'Fernando Rodriguez', 'Estagiario', 'alcoa@alcoa.com.br', '(35) 37377-7777', 'MG', 'Poços de Caldas', 'Centro', 110, 'Empresa de produção de alumínio', 4, '110');
+('ALCOA ALUMINIO LTDA', '53.402.153/0001-21', 'Rua Rio de Janeiro', '37701-011', 'Fernando M. Rodriguez', 'Estagiario', 'Fernando Rodriguez', 'Estagiario', 'alcoa@alcoa.com.br', '(35) 37377-7777', 'MG', 'Poços de Caldas', 'Centro', 110, 'Empresa de produção de alumínio', 4, '110'),
+('ccc', '00.373.723/0001-36', 'Travessa Roma', '37701-494', 'lllll', 'auxiliar', 'kkkkkk', 'gerente', 'ccc@gmail.com', '(35) 99999-9999', 'MG', 'Poços de Caldas', 'Jardim Santa Augusta', 300, NULL, 5, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `estagio`
+-- Estrutura da tabela `estagio`
 --
 
-CREATE TABLE `estagio` (
+DROP TABLE IF EXISTS `estagio`;
+CREATE TABLE IF NOT EXISTS `estagio` (
   `tipoEstagio` varchar(45) NOT NULL,
   `valorBolsa` varchar(45) NOT NULL,
   `beneficios` varchar(255) DEFAULT NULL,
@@ -132,72 +141,81 @@ CREATE TABLE `estagio` (
   `paraleloInstitutoEstagio` varchar(3000) DEFAULT NULL,
   `consideracoesFinais` varchar(3000) DEFAULT NULL,
   `bibliografia` varchar(1000) DEFAULT NULL,
-  `idEstagio` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idEstagio` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idEstagio`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `estagio`
+-- Extraindo dados da tabela `estagio`
 --
 
 INSERT INTO `estagio` (`tipoEstagio`, `valorBolsa`, `beneficios`, `cargaHorariaTotal`, `tipoCargaHoraria`, `tipoCargaDiaria`, `dataInicial`, `dataFinal`, `segunda`, `terca`, `quarta`, `quinta`, `sexta`, `sabado`, `nomeSeguradora`, `numeroApolice`, `atividadesQueSeraoDesenvolvidas`, `areasConhecimento`, `objetivos`, `objetivosAlcancados`, `descricaoAtividade`, `atividadesQueMelhorEmpenhou`, `dificuldadesAluno`, `paraleloInstitutoEstagio`, `consideracoesFinais`, `bibliografia`, `idEstagio`) VALUES
 ('', '', NULL, '200', '', NULL, '18/03/2019', '24/05/2019', '00:00:01', '00:00:00', '00:00:00', '00:00:00', '00:00:00', '00:00:00', NULL, NULL, 'Batata Pao Queijo', 'Engenharia', 'Estagiar', 'comeu arroz', 'ferver agua', 'panela velha', 'abrir torneira', 'sal', 'alho', 'arroz com feijao', 1),
-('Estágio não Obrigatório', '2.000,00', 'Plano de Saúde', NULL, 'Carga Horária Fixa', '6h', '2019-05-21', '2019-08-16', '', '04:00', '05:00', '', '06:00', '06:00', 'Cia', 'Numero', 'Atividades', 'Areas', 'Objetivos', 'Objetivo alcançado', 'Descricao da atividade um', 'Atividade que melhor desempenhou um', 'Dificuldade do aluno um', 'Paralelo um', 'Consideracao um', 'Bibliografia um', 2),
+('Estágio Obrigatório', '2.000,00', 'Plano de Saúde', '200', 'Carga Horária Fixa', '6h', '2019-05-21', '2019-08-16', '', '04:00', '05:00', '', '06:00', '06:00', NULL, NULL, 'asd', 'asd', 'asd', 'Objetivo alcançado', 'Descricao da atividade um', 'Atividade que melhor desempenhou um', 'Dificuldade do aluno um', 'Paralelo um', 'Consideracao um', 'Bibliografia um', 2),
 ('Estágio Obrigatório', '4,00', 'Vale Transporte', '200', 'Carga Horária Fixa', '8h', '2019-05-15', '2019-11-04', '08:00', '', '', '', '', '', NULL, NULL, 'Atividades que serao desenvolvidas', 'Area de conhecimento ', 'Objetivos a serem alcançados', 'Objetivos alcançados', 'Descrição detalhada', 'Atividades que melhor desempenhou', 'Dificuldades encontradas', 'Paralelo', 'Considerações finais', 'Bibliografia', 3),
-('Estágio Obrigatório', '1.000,00', 'Vale Transporte, Plano de Saúde, Vale Alimentação', '100', 'Carga Horária Fixa', '6h', '2019-05-27', '2019-09-16', '06:00', '', '', '', '', '', NULL, NULL, 'Produção de alumínio', 'Mineração', 'Mineração de alumínio', 'Aprendizado na mineração de alumínio', 'Mineração detalhada de alumínio', 'Minerou alumínio com proficiência', 'Mineração de outros minérios', 'Minerar é difícil', 'Mineração vale a pena', 'Livro Como Minerar', 4);
+('Estágio Obrigatório', '1.000,00', 'Vale Transporte, Plano de Saúde, Vale Alimentação', '100', 'Carga Horária Fixa', '6h', '2019-05-27', '2019-09-16', '06:00', '', '', '', '', '', NULL, NULL, 'Produção de alumínio', 'Mineração', 'Mineração de alumínio', 'Aprendizado na mineração de alumínio', 'Mineração detalhada de alumínio', 'Minerou alumínio com proficiência', 'Mineração de outros minérios', 'Minerar é difícil', 'Mineração vale a pena', 'Livro Como Minerar', 4),
+('Estágio não Obrigatório', '200,00', '', '', 'Carga Horária Variável', NULL, '2016-02-02', '2016-07-07', '05:00', '', '', '05:00', '', '04:00', NULL, NULL, 'dsdfsdf', 'sdfsdfsdf', 'sdfsdfs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `frequenciaestagio`
+-- Estrutura da tabela `frequenciaestagio`
 --
 
-CREATE TABLE `frequenciaestagio` (
-  `id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `frequenciaestagio`;
+CREATE TABLE IF NOT EXISTS `frequenciaestagio` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `raAluno` varchar(45) NOT NULL,
   `data` varchar(10) NOT NULL,
   `cargaHoraria` varchar(6) NOT NULL,
   `setor` varchar(240) DEFAULT NULL,
-  `atividade` varchar(240) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `atividade` varchar(240) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `frequenciaestagio`
+-- Extraindo dados da tabela `frequenciaestagio`
 --
 
 INSERT INTO `frequenciaestagio` (`id`, `raAluno`, `data`, `cargaHoraria`, `setor`, `atividade`) VALUES
-(4, '14161000000', '2019-06-05', '05:00', 'Setor um', 'Atividade um'),
-(5, '14161000000', '2019-06-12', '06:00', 'Setor dois', 'Atividade dois'),
-(6, '14161000000', '2019-06-19', '04:00', 'Setor tres', 'Atividade tres');
+(1, '14161000000', '01/01/2001', '05:00', 'Setor um', 'Atividade um'),
+(2, '14161000000', '02/01/2001', '06:00', 'Setor dois', 'Atividade dois'),
+(3, '14161000001', '01/01/2001', '05:00', 'Setor um', 'Atividade um');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orientador`
+-- Estrutura da tabela `orientador`
 --
 
-CREATE TABLE `orientador` (
+DROP TABLE IF EXISTS `orientador`;
+CREATE TABLE IF NOT EXISTS `orientador` (
   `nome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telefone` varchar(45) DEFAULT NULL,
-  `idOrientador` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idOrientador` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idOrientador`)
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `orientador`
+-- Extraindo dados da tabela `orientador`
 --
 
 INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
 ('Marcos Vinicius Moreira', 'marcos@vinicius.moreira', '35123456789', 1),
 ('Borges da Silva', 'felipe.silva@alunos.ifsuldeminas.edu.br', '(35) 99999-9999', 138),
-('Ronaldo Rodriguez', 'ronarodri@gmail.com', '(35) 98979-8787', 140);
+('Ronaldo Rodriguez', 'ronarodri@gmail.com', '(35) 98979-8787', 140),
+('Lucas Lima de Souza', 'lucaslima123@outlook.com', '(35) 99978-6534', 141),
+('aaa bbbb', 'aaa@gmail.com', '(35) 98888-0000', 142);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supervisor`
+-- Estrutura da tabela `supervisor`
 --
 
-CREATE TABLE `supervisor` (
+DROP TABLE IF EXISTS `supervisor`;
+CREATE TABLE IF NOT EXISTS `supervisor` (
   `nome` varchar(45) NOT NULL,
   `cpf` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -206,90 +224,18 @@ CREATE TABLE `supervisor` (
   `cursoFormacao` varchar(45) NOT NULL,
   `cargo` varchar(45) NOT NULL,
   `conselhoClasseProfissional` varchar(45) DEFAULT NULL,
-  `idSupervisor` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idSupervisor` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`idSupervisor`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `supervisor`
+-- Extraindo dados da tabela `supervisor`
 --
 
 INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `cargo`, `conselhoClasseProfissional`, `idSupervisor`) VALUES
 ('Jean Albino de Melo', '123.456.768-12', 'jean@albino.demelo', '(35) 12345-6789', 'Sim', 'Engenharia de Computação', 'Professor', NULL, 2),
-('Mariana Rodriguez', '442.368.600-74', 'marirodri@gmail.com', '(35) 96666-6666', 'Não', 'Advocacia', 'Supervisor', NULL, 4);
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `alunos`
---
-ALTER TABLE `alunos`
-  ADD PRIMARY KEY (`ra`);
-
---
--- Indexes for table `concedentes`
---
-ALTER TABLE `concedentes`
-  ADD PRIMARY KEY (`idEmpresa`);
-
---
--- Indexes for table `estagio`
---
-ALTER TABLE `estagio`
-  ADD PRIMARY KEY (`idEstagio`);
-
---
--- Indexes for table `frequenciaestagio`
---
-ALTER TABLE `frequenciaestagio`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `orientador`
---
-ALTER TABLE `orientador`
-  ADD PRIMARY KEY (`idOrientador`);
-
---
--- Indexes for table `supervisor`
---
-ALTER TABLE `supervisor`
-  ADD PRIMARY KEY (`idSupervisor`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `concedentes`
---
-ALTER TABLE `concedentes`
-  MODIFY `idEmpresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `estagio`
---
-ALTER TABLE `estagio`
-  MODIFY `idEstagio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `frequenciaestagio`
---
-ALTER TABLE `frequenciaestagio`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
-
---
--- AUTO_INCREMENT for table `orientador`
---
-ALTER TABLE `orientador`
-  MODIFY `idOrientador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
-
---
--- AUTO_INCREMENT for table `supervisor`
---
-ALTER TABLE `supervisor`
-  MODIFY `idSupervisor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+('Mariana Rodriguez', '442.368.600-74', 'marirodri@gmail.com', '(35) 96666-6666', 'Não', 'Advocacia', 'Supervisor', NULL, 4),
+('ggggg hhhh', '187.943.850-09', 'gggg@gmail.com', '(21) 90000-0000', 'Sim', 'eng de computação', 'diretor', NULL, 5);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

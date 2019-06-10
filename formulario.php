@@ -91,8 +91,13 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
         }
     }
+    if($_SESSION['idOrientador'] == NULL){
+                $nomeOrientador = "";
+                $emailOrientador = "";
+                $telefoneOrientador = "";
 
-    $query = "SELECT * FROM orientador WHERE idOrientador='".$_SESSION['idOrientador']."'";
+    } else{
+        $query = "SELECT * FROM orientador WHERE idOrientador='".$_SESSION['idOrientador']."'";
 
     if ($result = $conexao->query($query)) {
         $resultado = $result->fetch_assoc();
@@ -116,213 +121,264 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
         }
     }
+    }
+    
+    if($_SESSION['idEmpresa'] == NULL){
+        $nomeEmpresa = "";
+        $cnpjEmpresa = "";
+        $emailEmpresa = "";
+        $telefoneEmpresa = "";
+        $cepEmpresa = "";
+        $enderecoEmpresa = "";
+        $numeroEmpresa = "";
+        $complementoEmpresa = "";
+        $bairroEmpresa = "";
+        $cidadeEmpresa = "";
+        $estadoEmpresa = "";
+        $representanteEmpresa = "";
+        $cargoEmpresa = "";
+        $responsavelEmpresa = "";
+        $tceCargoEmpresa = "";
 
-    $query = "SELECT * FROM concedentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
+    } else{
+        $query = "SELECT * FROM concedentes WHERE idEmpresa='".$_SESSION['idEmpresa']."'";
 
-    if ($result = $conexao->query($query)) {
-        $resultado = $result->fetch_assoc();
-        
-        if (empty($resultado)) {
-            $_SESSION['erroFormulario'] = "Erro ao buscar informações do Concedente.";
-        } else {
-
-            $nomeEmpresa = $resultado["nome"];
-            if ($nomeEmpresa == NULL) {
-                $nomeEmpresa = "";
-            }
-            $cnpjEmpresa = $resultado["cnpjCpf"];
-            if ($cnpjEmpresa == NULL) {
-                $cnpjEmpresa = "";
-            }
-            $emailEmpresa = $resultado["email"];
-            if ($emailEmpresa == NULL) {
-                $emailEmpresa = "";
-            }
-            $telefoneEmpresa = $resultado["telefone"];
-            if ($telefoneEmpresa == NULL){
-                $telefoneEmpresa = "";
-            }
-            $cepEmpresa = $resultado["cep"];
-            if ($cepEmpresa == NULL) {
-                $cepEmpresa = "";
-            }
-            $enderecoEmpresa = $resultado["endereco"];
-            if ($enderecoEmpresa == NULL) {
-                $enderecoEmpresa = "";
-            }
-            $numeroEmpresa = $resultado["numero"];
-            if ($numeroEmpresa == NULL) {
-                $numeroEmpresa = "";
-            }
-            $complementoEmpresa = $resultado["complemento"];
-            if ($complementoEmpresa == NULL) {
-                $complementoEmpresa = "";
-            }
-            $bairroEmpresa = $resultado["bairro"];
-            if ($bairroEmpresa == NULL) {
-                $bairroEmpresa = "";
-            }
-            $cidadeEmpresa = $resultado["cidade"];
-            if ($cidadeEmpresa == NULL) {
-                $cidadeEmpresa = "";
-            }
-            $estadoEmpresa = $resultado["uf"];
-            if ($estadoEmpresa == NULL) {
-                $estadoEmpresa = "";
-            }
-            $representanteEmpresa = $resultado["representanteEmpresaNome"];
-            if ($representanteEmpresa == NULL) {
-                $representanteEmpresa = "";
-            }
-            $cargoEmpresa = $resultado["representanteEmpresaCargo"];
-            if ($cargoEmpresa == NULL) {
-                $cargoEmpresa = "";
-            }
-            $responsavelEmpresa = $resultado["responsavelTceNome"];
-            if ($responsavelEmpresa == NULL) {
-                $responsavelEmpresa = "";
-            }
-            $tceCargoEmpresa = $resultado["responsavelTceCargo"];
-            if ($tceCargoEmpresa == NULL) {
-                $tceCargoEmpresa = "";
+        if ($result = $conexao->query($query)) {
+            $resultado = $result->fetch_assoc();
+            
+            if (empty($resultado)) {
+                $_SESSION['erroFormulario'] = "Erro ao buscar informações do Concedente.";
+            } else {
+    
+                $nomeEmpresa = $resultado["nome"];
+                if ($nomeEmpresa == NULL) {
+                    $nomeEmpresa = "";
+                }
+                $cnpjEmpresa = $resultado["cnpjCpf"];
+                if ($cnpjEmpresa == NULL) {
+                    $cnpjEmpresa = "";
+                }
+                $emailEmpresa = $resultado["email"];
+                if ($emailEmpresa == NULL) {
+                    $emailEmpresa = "";
+                }
+                $telefoneEmpresa = $resultado["telefone"];
+                if ($telefoneEmpresa == NULL){
+                    $telefoneEmpresa = "";
+                }
+                $cepEmpresa = $resultado["cep"];
+                if ($cepEmpresa == NULL) {
+                    $cepEmpresa = "";
+                }
+                $enderecoEmpresa = $resultado["endereco"];
+                if ($enderecoEmpresa == NULL) {
+                    $enderecoEmpresa = "";
+                }
+                $numeroEmpresa = $resultado["numero"];
+                if ($numeroEmpresa == NULL) {
+                    $numeroEmpresa = "";
+                }
+                $complementoEmpresa = $resultado["complemento"];
+                if ($complementoEmpresa == NULL) {
+                    $complementoEmpresa = "";
+                }
+                $bairroEmpresa = $resultado["bairro"];
+                if ($bairroEmpresa == NULL) {
+                    $bairroEmpresa = "";
+                }
+                $cidadeEmpresa = $resultado["cidade"];
+                if ($cidadeEmpresa == NULL) {
+                    $cidadeEmpresa = "";
+                }
+                $estadoEmpresa = $resultado["uf"];
+                if ($estadoEmpresa == NULL) {
+                    $estadoEmpresa = "";
+                }
+                $representanteEmpresa = $resultado["representanteEmpresaNome"];
+                if ($representanteEmpresa == NULL) {
+                    $representanteEmpresa = "";
+                }
+                $cargoEmpresa = $resultado["representanteEmpresaCargo"];
+                if ($cargoEmpresa == NULL) {
+                    $cargoEmpresa = "";
+                }
+                $responsavelEmpresa = $resultado["responsavelTceNome"];
+                if ($responsavelEmpresa == NULL) {
+                    $responsavelEmpresa = "";
+                }
+                $tceCargoEmpresa = $resultado["responsavelTceCargo"];
+                if ($tceCargoEmpresa == NULL) {
+                    $tceCargoEmpresa = "";
+                }
             }
         }
     }
-
-
-
-    $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
-    echo $_SESSION['idSupervisor'];
-    if ($result = $conexao->query($query)) {
-        $resultado = $result->fetch_assoc();
-        
-        if (empty($resultado)) {
-            $_SESSION['erroFormulario'] = "Erro ao buscar informações do supervisor.";
-        } else {
-
-            $nomeSupervisor = $resultado["nome"];
-            if ($nomeSupervisor == NULL) {
-                $nomeSupervisor = "";
-            }
-            $cargoSupervisor = $resultado["cargo"];
-            if ($cargoSupervisor == NULL) {
-                $cargoSupervisor = "";
-            }
-            $emailSupervisor = $resultado["email"];
-            if ($emailSupervisor == NULL) {
-                $emailSupervisor = "";
-            }
-            $telefoneSupervisor = $resultado["telefone"];
-            if ($telefoneSupervisor == NULL) {
-                $telefoneSupervisor = "";
-            }
-            $cpfSupervisor = $resultado["cpf"];
-            if ($cpfSupervisor == NULL) {
-                $cpfSupervisor = "";
-            }
-            $cursoFormacaoSupervisor = $resultado["cursoFormacao"];
-            if ($cursoFormacaoSupervisor == NULL) {
-                $cursoFormacaoSupervisor = "";
-            }
-            $conselhoClasseSupervisor = $resultado["conselhoClasseProfissional"];
-            if ($conselhoClasseSupervisor == NULL) {
-                $conselhoClasseSupervisor = "";
-            }
-            $possuiExperienciaSupervisor = $resultado["possuiExperiencia"];
-            if ($possuiExperienciaSupervisor == NULL) {
-                $possuiExperienciaSupervisor = "";
-            }
-        }
-    }
-
-
-    $query = "SELECT * FROM estagio WHERE idEstagio='".$_SESSION['idEstagio']."'";
-
-    if ($result = $conexao->query($query)) {
-        $resultado = $result->fetch_assoc();
-        
-        if (empty($resultado)) {
-            $_SESSION['fomularioErro'] = "Erro ao buscar informações de estágio.";
-        } else {
-
-            $tipoEstagio = $resultado["tipoEstagio"];
-            if ($tipoEstagio == NULL) {
-                $tipoEstagio = "";
-            }
-            $valorBolsaEstagio = $resultado["valorBolsa"];
-            if ($valorBolsaEstagio == NULL) {
-                $valorBolsaEstagio = "";
-            }
-            $beneficiosEstagio = $resultado["beneficios"];
-            if ($beneficiosEstagio == NULL) {
-                $beneficiosEstagio = "";
-            }
-            $cargaHorariaTotalEstagio = $resultado["cargaHorariaTotal"];
-            if ($cargaHorariaTotalEstagio == NULL) {
-                $cargaHorariaTotalEstagio = "";
-            }
-            $tipoCargaHorariaEstagio = $resultado["tipoCargaHoraria"];
-            if ($tipoCargaHorariaEstagio == NULL) {
-                $tipoCargaHorariaEstagio = "";
-            }
-            $tipoCargaDiariaEstagio = $resultado["tipoCargaDiaria"];
-            if ($tipoCargaDiariaEstagio == NULL) {
-                $tipoCargaDiariaEstagio = "";
-            }
-            $dataInicioEstagio = $resultado["dataInicial"];
-            if ($dataInicioEstagio == NULL) {
-                $dataInicioEstagio = "";
-            }
-            $dataTerminoEstagio = $resultado["dataFinal"];
-            if ($dataTerminoEstagio == NULL) {
-                $dataTerminoEstagio = "";
-            }
-            $segundaEstagio = $resultado["segunda"];
-            if ($segundaEstagio == NULL) {
-                $segundaEstagio = "";
-            }
-            $tercaEstagio = $resultado["terca"];
-            if ($tercaEstagio == NULL) {
-                $tercaEstagio = "";
-            }
-            $quartaEstagio = $resultado["quarta"];
-            if ($quartaEstagio == NULL) {
-                $quartaEstagio = "";
-            }
-            $quintaEstagio = $resultado["quinta"];
-            if ($quintaEstagio == NULL) {
-                $quintaEstagio = "";
-            }
-            $sextaEstagio = $resultado["sexta"];
-            if ($sextaEstagio == NULL) {
-                $sextaEstagio = "";
-            }
-            $sabadoEstagio = $resultado["sabado"];
-            if ($sabadoEstagio == NULL) {
-                $sabadoEstagio = "";
-            }
-            $atividadesASeremDesenvolvidasEstagio = $resultado["nomeSeguradora"];
-            if ($atividadesASeremDesenvolvidasEstagio == NULL) {
-                $atividadesASeremDesenvolvidasEstagio = "";
-            }
-            $areasConhecimentoEstagio = $resultado["areasConhecimento"];
-            if ($areasConhecimentoEstagio == NULL) {
-                $areasConhecimentoEstagio = "";
-            }
-            $objetivosAlcancadosEstagio = $resultado["objetivos"];
-            if ($objetivosAlcancadosEstagio == NULL) {
-                $objetivosAlcancadosEstagio = "";
-            }
-            $companhiaSeguroEstagio = $resultado["nomeSeguradora"];
-            if ($companhiaSeguroEstagio == NULL) {
-                $companhiaSeguroEstagio = "";
-            }
-            $numeroApoliceEstagio = $resultado["numeroApolice"];
-            if ($numeroApoliceEstagio == NULL) {
-                $numeroApoliceEstagio = "";
+    
+    if($_SESSION['idSupervisor'] == NULL){
+        $nomeSupervisor = "";
+        $cargoSupervisor = "";
+        $emailSupervisor = "";
+        $telefoneSupervisor = "";
+        $cpfSupervisor = "";
+        $cursoFormacaoSupervisor = "";
+        $conselhoClasseSupervisor = "";
+        $possuiExperienciaSupervisor = "";
+    } else{
+        $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
+        echo $_SESSION['idSupervisor'];
+        if ($result = $conexao->query($query)) {
+            $resultado = $result->fetch_assoc();
+            
+            if (empty($resultado)) {
+                $_SESSION['erroFormulario'] = "Erro ao buscar informações do supervisor.";
+            } else {
+    
+                $nomeSupervisor = $resultado["nome"];
+                if ($nomeSupervisor == NULL) {
+                    $nomeSupervisor = "";
+                }
+                $cargoSupervisor = $resultado["cargo"];
+                if ($cargoSupervisor == NULL) {
+                    $cargoSupervisor = "";
+                }
+                $emailSupervisor = $resultado["email"];
+                if ($emailSupervisor == NULL) {
+                    $emailSupervisor = "";
+                }
+                $telefoneSupervisor = $resultado["telefone"];
+                if ($telefoneSupervisor == NULL) {
+                    $telefoneSupervisor = "";
+                }
+                $cpfSupervisor = $resultado["cpf"];
+                if ($cpfSupervisor == NULL) {
+                    $cpfSupervisor = "";
+                }
+                $cursoFormacaoSupervisor = $resultado["cursoFormacao"];
+                if ($cursoFormacaoSupervisor == NULL) {
+                    $cursoFormacaoSupervisor = "";
+                }
+                $conselhoClasseSupervisor = $resultado["conselhoClasseProfissional"];
+                if ($conselhoClasseSupervisor == NULL) {
+                    $conselhoClasseSupervisor = "";
+                }
+                $possuiExperienciaSupervisor = $resultado["possuiExperiencia"];
+                if ($possuiExperienciaSupervisor == NULL) {
+                    $possuiExperienciaSupervisor = "";
+                }
             }
         }
     }
+    
+    if($_SESSION['idEstagio'] == NULL){
+        $tipoEstagio = "";
+        $valorBolsaEstagio = "";
+        $beneficiosEstagio = "";
+        $cargaHorariaTotalEstagio = "";
+        $tipoCargaHorariaEstagio = "";
+        $tipoCargaDiariaEstagio = "";
+        $dataInicioEstagio = "";
+        $dataTerminoEstagio = "";
+        $segundaEstagio = "";
+        $tercaEstagio = "";
+        $quartaEstagio = "";
+        $quintaEstagio = "";
+        $sextaEstagio = "";
+        $sabadoEstagio = "";
+        $atividadesASeremDesenvolvidasEstagio = "";
+        $areasConhecimentoEstagio = "";
+        $objetivosAlcancadosEstagio = "";
+        $companhiaSeguroEstagio = "";
+        $numeroApoliceEstagio = "";
+    } else{
+        $query = "SELECT * FROM estagio WHERE idEstagio='".$_SESSION['idEstagio']."'";
+
+        if ($result = $conexao->query($query)) {
+            $resultado = $result->fetch_assoc();
+            
+            if (empty($resultado)) {
+                $_SESSION['fomularioErro'] = "Erro ao buscar informações de estágio.";
+            } else {
+    
+                $tipoEstagio = $resultado["tipoEstagio"];
+                if ($tipoEstagio == NULL) {
+                    $tipoEstagio = "";
+                }
+                $valorBolsaEstagio = $resultado["valorBolsa"];
+                if ($valorBolsaEstagio == NULL) {
+                    $valorBolsaEstagio = "";
+                }
+                $beneficiosEstagio = $resultado["beneficios"];
+                if ($beneficiosEstagio == NULL) {
+                    $beneficiosEstagio = "";
+                }
+                $cargaHorariaTotalEstagio = $resultado["cargaHorariaTotal"];
+                if ($cargaHorariaTotalEstagio == NULL) {
+                    $cargaHorariaTotalEstagio = "";
+                }
+                $tipoCargaHorariaEstagio = $resultado["tipoCargaHoraria"];
+                if ($tipoCargaHorariaEstagio == NULL) {
+                    $tipoCargaHorariaEstagio = "";
+                }
+                $tipoCargaDiariaEstagio = $resultado["tipoCargaDiaria"];
+                if ($tipoCargaDiariaEstagio == NULL) {
+                    $tipoCargaDiariaEstagio = "";
+                }
+                $dataInicioEstagio = $resultado["dataInicial"];
+                if ($dataInicioEstagio == NULL) {
+                    $dataInicioEstagio = "";
+                }
+                $dataTerminoEstagio = $resultado["dataFinal"];
+                if ($dataTerminoEstagio == NULL) {
+                    $dataTerminoEstagio = "";
+                }
+                $segundaEstagio = $resultado["segunda"];
+                if ($segundaEstagio == NULL) {
+                    $segundaEstagio = "";
+                }
+                $tercaEstagio = $resultado["terca"];
+                if ($tercaEstagio == NULL) {
+                    $tercaEstagio = "";
+                }
+                $quartaEstagio = $resultado["quarta"];
+                if ($quartaEstagio == NULL) {
+                    $quartaEstagio = "";
+                }
+                $quintaEstagio = $resultado["quinta"];
+                if ($quintaEstagio == NULL) {
+                    $quintaEstagio = "";
+                }
+                $sextaEstagio = $resultado["sexta"];
+                if ($sextaEstagio == NULL) {
+                    $sextaEstagio = "";
+                }
+                $sabadoEstagio = $resultado["sabado"];
+                if ($sabadoEstagio == NULL) {
+                    $sabadoEstagio = "";
+                }
+                $atividadesASeremDesenvolvidasEstagio = $resultado["nomeSeguradora"];
+                if ($atividadesASeremDesenvolvidasEstagio == NULL) {
+                    $atividadesASeremDesenvolvidasEstagio = "";
+                }
+                $areasConhecimentoEstagio = $resultado["areasConhecimento"];
+                if ($areasConhecimentoEstagio == NULL) {
+                    $areasConhecimentoEstagio = "";
+                }
+                $objetivosAlcancadosEstagio = $resultado["objetivos"];
+                if ($objetivosAlcancadosEstagio == NULL) {
+                    $objetivosAlcancadosEstagio = "";
+                }
+                $companhiaSeguroEstagio = $resultado["nomeSeguradora"];
+                if ($companhiaSeguroEstagio == NULL) {
+                    $companhiaSeguroEstagio = "";
+                }
+                $numeroApoliceEstagio = $resultado["numeroApolice"];
+                if ($numeroApoliceEstagio == NULL) {
+                    $numeroApoliceEstagio = "";
+                }
+            }
+        }
+    }
+    
 
 
     /* close connection */
@@ -1325,7 +1381,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                                         <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa" checked>
                                                         <label class="form-check-label" for="radioFixa">Carga horária fixa</label>
                                                 <?php
-                                                    } else{
+                                                    } else {
                                                 ?>
                                                         <input class="form-check-input" type="radio" name="radioGroupCargaHoraria" id="radioFixa" value="Carga Horária Fixa">
                                                         <label class="form-check-label" for="radioFixa">Carga horária fixa</label>

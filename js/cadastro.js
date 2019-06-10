@@ -57,6 +57,22 @@ $(document).ready(function () {
         }
     });
 
+    $('#inputNumero').mask('000000');
+
+    $('#inputRA').mask('00000000000').focusout(function(e){
+        if(!validaRA($(e.target).val())){
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'RA inválido.');
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+    });
+
     $('#inputNome').focusout(function(e){
         if(!validaNome($(e.target).val())){
             $(e.target).addClass('form-invalido');
@@ -125,7 +141,7 @@ $(document).ready(function () {
         // Pausa a submissão do formulário
         evento.preventDefault();
 
-        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val()) && validaNome($('#inputNome').val())) {
+        if (validaSenha($('#inputSenha').val()) && validaConfirmacaoSenha($('#inputSenha').val(), $('#inputConfirmarSenha').val()) && validaRA($('#inputRA').val()) && validaCpf($('#inputCpf').val()) && validaTelefone($('#inputTelefone').val()) && $('#inputCep').val().length == '9' && validaEmail($('#inputEmail').val()) && validaNome($('#inputNome').val())) {
 
             // Submete o formulário
             this.submit();

@@ -268,8 +268,8 @@ $(document).ready(function () {
             calculaTerminoEstagio();
         }
     });
-    $('#inputNumero').mask('0000');
-    $('#inputNumeroEmpresa').mask('0000');
+    $('#inputNumero').mask('000000');
+    $('#inputNumeroEmpresa').mask('000000');
 
     //$('#radioRemunerado').change(function () {
     $("#divRemunerado").on("change", "#radioRemunerado", function () {

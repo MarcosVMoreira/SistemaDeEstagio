@@ -220,6 +220,11 @@ function validaEmail(email) {
     }
 }
 
+function validaRA(ra){
+    if(ra.length!=11) return false;
+    else return true;
+}
+
 function validaTelefone(telefone) {
 
     var numeroTelefone = telefone.replace(/[^0-9]/g, '');

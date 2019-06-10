@@ -222,7 +222,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $cpfSupervisor = "";
         $cursoFormacaoSupervisor = "";
         $conselhoClasseSupervisor = "";
-        $possuiExperienciaSupervisor = "";
+        $possuiExperienciaSupervisor = "Sim";
     } else{
         $query = "SELECT * FROM supervisor WHERE idSupervisor='".$_SESSION['idSupervisor']."'";
         echo $_SESSION['idSupervisor'];
@@ -270,7 +270,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     }
     
     if($_SESSION['idEstagio'] == NULL){
-        $tipoEstagio = "";
+        $tipoEstagio = "Estágio Obrigatório";
         $valorBolsaEstagio = "";
         $beneficiosEstagio = "";
         $cargaHorariaTotalEstagio = "";
@@ -355,7 +355,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 if ($sabadoEstagio == NULL) {
                     $sabadoEstagio = "";
                 }
-                $atividadesASeremDesenvolvidasEstagio = $resultado["nomeSeguradora"];
+                $atividadesASeremDesenvolvidasEstagio = $resultado["atividadesQueSeraoDesenvolvidas"];
                 if ($atividadesASeremDesenvolvidasEstagio == NULL) {
                     $atividadesASeremDesenvolvidasEstagio = "";
                 }
@@ -1284,7 +1284,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputValorBolsa">Valor da Bolsa</label>
-                                        <input type="text" class="form-control" name="inputValorBolsa" value="<?php echo($valorBolsaEstagio);?>" id="inputValorBolsa">
+                                        <input type="text" class="form-control" name="inputValorBolsa" value="<?php echo($valorBolsaEstagio);?>" id="inputValorBolsa" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-9">
@@ -1368,7 +1368,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12 col-md-3">
                                     <div class="form-group">
                                         <label for="inputCargaHorariaMax">Carga horária total</label>
-                                        <input type="text" class="form-control" name="inputCargaHorariaMax" value="<?php echo($cargaHorariaTotalEstagio);?>" id="inputCargaHorariaMax">
+                                        <input type="text" class="form-control" name="inputCargaHorariaMax" value="<?php echo($cargaHorariaTotalEstagio);?>" id="inputCargaHorariaMax" required>
                                         <small class="help-block text-muted"><a href="https://portal.pcs.ifsuldeminas.edu.br/extensao-menu-campus/estagio-e-emprego/tudo-sobre-estagio" target="_blank">Consulte aqui</a></small>
                                     </div>
                                 </div>
@@ -1689,7 +1689,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAtividadesDesenvolvidas">Atividades a serem desenvolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" value="<?php echo($atividadesASeremDesenvolvidasEstagio);?>" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputAtividadesDesenvolvidas" id="inputAtividadesDesenvolvidas" rows="3" maxlength="500" required><?php echo($atividadesASeremDesenvolvidasEstagio);?></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -1701,7 +1701,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputAreasConhecimento">Áreas de conhecimento envolvidas no estágio</label>
-                                        <textarea class="form-control" name="inputAreasConhecimento" value="<?php echo($areasConhecimentoEstagio);?>" id="inputAreasConhecimento" rows="2" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputAreasConhecimento" id="inputAreasConhecimento" rows="2" maxlength="500" required><?php echo($areasConhecimentoEstagio);?></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>
@@ -1713,7 +1713,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label for="inputObjetivos">Objetivos a serem alcançados no estágio</label>
-                                        <textarea class="form-control" name="inputObjetivos" value="<?php echo($objetivosAlcancadosEstagio);?>" id="inputObjetivos" rows="3" maxlength="500" required></textarea>
+                                        <textarea class="form-control" name="inputObjetivos" id="inputObjetivos" rows="3" maxlength="500" required><?php echo($objetivosAlcancadosEstagio);?></textarea>
                                         <small id="maxcaracter" class="form-text text-muted">
                                             Máximo 500 caracteres.
                                         </small>

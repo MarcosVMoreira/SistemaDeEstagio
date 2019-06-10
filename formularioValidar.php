@@ -396,10 +396,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 }
             }
         }
-    } if (!$conexao->query($query) === TRUE) {
+    }
+
+    if (!$conexao->query($query) === TRUE) {
         echo "Ops, parece que ocorreu um erro! Por favor, contate o administrador.<br />";
         echo "Error updating record: " . $conexao->error;
         exit;
+    } else {
+        header("Location: home.php");
     }
 
     $conexao->close();

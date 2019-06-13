@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 10-Jun-2019 às 16:52
--- Versão do servidor: 5.7.24
--- versão do PHP: 7.2.14
+-- Generation Time: 13-Jun-2019 às 18:19
+-- Versão do servidor: 5.7.26
+-- versão do PHP: 7.2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -66,6 +66,10 @@ INSERT INTO `alunos` (`rg`, `cpf`, `nome`, `cidade`, `uf`, `cep`, `endereco`, `b
 ('13978666', '866.866.930-30', 'abs def', 'Poços de Caldas', 'MG', '37701-494', 'Travessa Roma', 'Jardim Santa Augusta', 200, 'Engenharia de Computação', 'Poços de Caldas', '14151000200', '(35) 98886-2121', 'abs@gmail.com', '2000-01-11', '2015', 'Superiores', '', 'aa1bf4646de67fd9086cf6c79007026c', 5, 142, 5, 5),
 ('13978884', '402.380.460-60', 'Felipe', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Técnico em Informática', 'Poços de Caldas', '14161000000', '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', '2015', 'Técnicos Integrados', '500', 'aa1bf4646de67fd9086cf6c79007026c', 2, 138, 2, 2),
 ('13978884', '402.380.460-60', 'Felipe Borges da Silva', 'Poços de Caldas', 'MG', '37713-338', 'Rua Coronel Osmar Bento Gonçalves', 'São Bento', 10, 'Engenharia de Computação', 'Poços de Caldas', '14161000001', '(35) 98888-8888', 'felipebsilva5@gmail.com', '2000-02-02', '2015', 'Superiores', '500', 'aa1bf4646de67fd9086cf6c79007026c', 3, 139, 3, 3),
+('11111111111111111', '154.864.330-00', 'Mariana Rodriguez', 'Poços de Caldas', '', '37701-011', 'Rua Rio de Janeiro', 'Centro', 11111, 'Técnico em Informática', 'Poços de Caldas', '14161000230', '(35) 37377-7777', 'alcoa@alcoa.com.br', '2019-06-28', '7', 'Técnicos Integrados', '', 'f6fd1939bdf31481d27ac4344a2aab58', NULL, NULL, NULL, NULL),
+('11111111111111111', '154.864.330-00', 'Mariana Rodriguez', 'Poços de Caldas', 'MG', '37701-011', 'Rua Rio de Janeiro', 'Centro', 11111, 'Técnico em Informática', 'Poços de Caldas', '14161000231', '(35) 37377-7777', 'alcoa@alcoa.com.br', '2019-06-20', '7', 'Técnicos Integrados', '', '7adfca2f2aba4cd301a02b9f33ca9037', NULL, NULL, NULL, NULL),
+('11111111111111111', '154.864.330-00', 'Mariana Rodriguez', 'Poços de Caldas', '', '37701-011', 'Rua Rio de Janeiro', 'Centro', 11111, 'Técnico em Informática', 'Poços de Caldas', '14161000235', '(35) 37377-7777', 'alcoa@alcoa.com.br', '2019-06-14', '7', 'Técnicos Integrados', '', 'aa1bf4646de67fd9086cf6c79007026c', NULL, NULL, NULL, NULL),
+('53150511X', '482.313.888-00', 'Otávio Messias Palma', 'São João da Boa Vista', 'SP', '13870-579', 'Avenida Presidente João Belchior Marques Goulart', 'Parque das Nações', 267, 'Engenharia de Computação', 'Poços de Caldas', '14161000236', '(19) 98130-1389', 'otaviopalma@gmail.com', '1998-04-06', '7', 'Superiores', '', '06afa6c8b54d3cc80d269379d8b6a078', 6, 143, 6, 6),
 ('35.510.115-0', '286.181.020-32', 'Fabricio Rodriguez', 'Poços de Caldas', 'MG', '37704-300', 'Rua Antônio João Dare', 'Jardim Country Club', 10, 'Técnico em Eletrotécnica', 'Poços de Caldas', '14161000999', '(35) 98183-8383', 'fabrirodri@gmail.com', '1999-02-02', '2', 'Técnicos Integrados', 'Jardim Country Club', 'aa1bf4646de67fd9086cf6c79007026c', 4, 140, 4, 4);
 
 -- --------------------------------------------------------
@@ -94,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `concedentes` (
   `idEmpresa` int(11) NOT NULL AUTO_INCREMENT,
   `complemento` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEmpresa`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `concedentes`
@@ -105,7 +109,8 @@ INSERT INTO `concedentes` (`nome`, `cnpjCpf`, `endereco`, `cep`, `responsavelTce
 ('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, 'Descricao um', 2, NULL),
 ('Silva', '53.402.153/0001-21', 'Coronel Osmar Bento Gonçalves', '37713-338', 'Resp da assinatura', 'diretor de ti', 'Representante', 'diretor de ti', 'silva@gmail.com', '(35) 97777-7777', 'MG', 'Poços de Caldas', 'São Bento', 11, 'Descrição da Empresa', 3, NULL),
 ('ALCOA ALUMINIO LTDA', '53.402.153/0001-21', 'Rua Rio de Janeiro', '37701-011', 'Fernando M. Rodriguez', 'Estagiario', 'Fernando Rodriguez', 'Estagiario', 'alcoa@alcoa.com.br', '(35) 37377-7777', 'MG', 'Poços de Caldas', 'Centro', 110, 'Empresa de produção de alumínio', 4, '110'),
-('ccc', '00.373.723/0001-36', 'Travessa Roma', '37701-494', 'lllll', 'auxiliar', 'kkkkkk', 'gerente', 'ccc@gmail.com', '(35) 99999-9999', 'MG', 'Poços de Caldas', 'Jardim Santa Augusta', 300, NULL, 5, NULL);
+('ccc', '00.373.723/0001-36', 'Travessa Roma', '37701-494', 'lllll', 'auxiliar', 'kkkkkk', 'gerente', 'ccc@gmail.com', '(35) 99999-9999', 'MG', 'Poços de Caldas', 'Jardim Santa Augusta', 300, NULL, 5, NULL),
+('PALMA & PALMA Corretora de Seguros', '53.402.153/0001-21', 'Rua Floriano Peixoto', '13870-060', 'Marcio', 'Gerente', 'Marcelo', 'Dono', 'palma@gmail.com', '(19) 98745-6123', 'SP', 'São João da Boa Vista', 'Centro', 10, NULL, 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `estagio` (
   `bibliografia` varchar(1000) DEFAULT NULL,
   `idEstagio` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idEstagio`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `estagio`
@@ -154,7 +159,8 @@ INSERT INTO `estagio` (`tipoEstagio`, `valorBolsa`, `beneficios`, `cargaHorariaT
 ('Estágio Obrigatório', '2.000,00', 'Plano de Saúde', '200', 'Carga Horária Fixa', '6h', '2019-05-21', '2019-08-16', '', '04:00', '05:00', '', '06:00', '06:00', NULL, NULL, 'asd', 'asd', 'asd', 'Objetivo alcançado', 'Descricao da atividade um', 'Atividade que melhor desempenhou um', 'Dificuldade do aluno um', 'Paralelo um', 'Consideracao um', 'Bibliografia um', 2),
 ('Estágio Obrigatório', '4,00', 'Vale Transporte', '200', 'Carga Horária Fixa', '8h', '2019-05-15', '2019-11-04', '08:00', '', '', '', '', '', NULL, NULL, 'Atividades que serao desenvolvidas', 'Area de conhecimento ', 'Objetivos a serem alcançados', 'Objetivos alcançados', 'Descrição detalhada', 'Atividades que melhor desempenhou', 'Dificuldades encontradas', 'Paralelo', 'Considerações finais', 'Bibliografia', 3),
 ('Estágio Obrigatório', '1.000,00', 'Vale Transporte, Plano de Saúde, Vale Alimentação', '100', 'Carga Horária Fixa', '6h', '2019-05-27', '2019-09-16', '06:00', '', '', '', '', '', NULL, NULL, 'Produção de alumínio', 'Mineração', 'Mineração de alumínio', 'Aprendizado na mineração de alumínio', 'Mineração detalhada de alumínio', 'Minerou alumínio com proficiência', 'Mineração de outros minérios', 'Minerar é difícil', 'Mineração vale a pena', 'Livro Como Minerar', 4),
-('Estágio não Obrigatório', '200,00', '', '', 'Carga Horária Variável', NULL, '2016-02-02', '2016-07-07', '05:00', '', '', '05:00', '', '04:00', NULL, NULL, 'dsdfsdf', 'sdfsdfsdf', 'sdfsdfs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5);
+('Estágio não Obrigatório', '200,00', '', '', 'Carga Horária Variável', NULL, '2016-02-02', '2016-07-07', '05:00', '', '', '05:00', '', '04:00', NULL, NULL, 'dsdfsdf', 'sdfsdfsdf', 'sdfsdfs', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5),
+('Estágio Obrigatório', '0,00', 'Vale Transporte, Plano de Saúde, Vale Alimentação', '200:00', 'Carga Horária Fixa', '6h', '2019-06-14', '2019-07-31', '06:00', '06:00', '06:00', '06:00', '06:00', '', NULL, NULL, 'Atividades de estágio', 'Áreas de conhecimento', 'Objetivos a serem alcançados', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 6);
 
 -- --------------------------------------------------------
 
@@ -171,16 +177,15 @@ CREATE TABLE IF NOT EXISTS `frequenciaestagio` (
   `setor` varchar(240) DEFAULT NULL,
   `atividade` varchar(240) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `frequenciaestagio`
 --
 
 INSERT INTO `frequenciaestagio` (`id`, `raAluno`, `data`, `cargaHoraria`, `setor`, `atividade`) VALUES
-(1, '14161000000', '01/01/2001', '05:00', 'Setor um', 'Atividade um'),
-(2, '14161000000', '02/01/2001', '06:00', 'Setor dois', 'Atividade dois'),
-(3, '14161000001', '01/01/2001', '05:00', 'Setor um', 'Atividade um');
+(12, '14161000236', '2019-06-12', '06:00', 'Setor 1', 'Atividade 1'),
+(13, '14161000236', '2019-06-13', '06:00', 'Setor 2', 'Atividade 2');
 
 -- --------------------------------------------------------
 
@@ -195,7 +200,7 @@ CREATE TABLE IF NOT EXISTS `orientador` (
   `telefone` varchar(45) DEFAULT NULL,
   `idOrientador` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idOrientador`)
-) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=144 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `orientador`
@@ -206,7 +211,8 @@ INSERT INTO `orientador` (`nome`, `email`, `telefone`, `idOrientador`) VALUES
 ('Borges da Silva', 'felipe.silva@alunos.ifsuldeminas.edu.br', '(35) 99999-9999', 138),
 ('Ronaldo Rodriguez', 'ronarodri@gmail.com', '(35) 98979-8787', 140),
 ('Lucas Lima de Souza', 'lucaslima123@outlook.com', '(35) 99978-6534', 141),
-('aaa bbbb', 'aaa@gmail.com', '(35) 98888-0000', 142);
+('aaa bbbb', 'aaa@gmail.com', '(35) 98888-0000', 142),
+('Rodrigo Ortolan', 'rodrigo@gmail.com', '(19) 98745-6123', 143);
 
 -- --------------------------------------------------------
 
@@ -226,7 +232,7 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
   `conselhoClasseProfissional` varchar(45) DEFAULT NULL,
   `idSupervisor` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idSupervisor`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `supervisor`
@@ -235,7 +241,8 @@ CREATE TABLE IF NOT EXISTS `supervisor` (
 INSERT INTO `supervisor` (`nome`, `cpf`, `email`, `telefone`, `possuiExperiencia`, `cursoFormacao`, `cargo`, `conselhoClasseProfissional`, `idSupervisor`) VALUES
 ('Jean Albino de Melo', '123.456.768-12', 'jean@albino.demelo', '(35) 12345-6789', 'Sim', 'Engenharia de Computação', 'Professor', NULL, 2),
 ('Mariana Rodriguez', '442.368.600-74', 'marirodri@gmail.com', '(35) 96666-6666', 'Não', 'Advocacia', 'Supervisor', NULL, 4),
-('ggggg hhhh', '187.943.850-09', 'gggg@gmail.com', '(21) 90000-0000', 'Sim', 'eng de computação', 'diretor', NULL, 5);
+('ggggg hhhh', '187.943.850-09', 'gggg@gmail.com', '(21) 90000-0000', 'Sim', 'eng de computação', 'diretor', NULL, 5),
+('Paulo', '461.310.668-09', 'paulo@gmail.com', '(19) 78945-6123', 'Não', 'Eng de Computação', 'Professor', NULL, 6);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

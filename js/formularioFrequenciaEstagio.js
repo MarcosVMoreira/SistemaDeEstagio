@@ -65,34 +65,16 @@ $(document).ready(function () {
                 for (let i = 0; i < jsonDados.quantidadeRegistros; i++) {
                     adicionaTexto();
 
-                    let dataBR = jsonDados["data" + (i + 1)];
-                    let dataConvertida = converteDataBRparaUS(dataBR);
-
-                    /* ver em que formato a data e o horário estão sendo salvas no banco e adequar a forma
-                    aqui nesse script. Aqui estou recebendo a data como DD/MM/AAAA e convertendo para
-                    AAAA/MM/DD para conseguir colocar nos campos Date e recebendo o campo hora como XX:XX */
-
-                    $('#inputData' + i).val(dataConvertida);
+                    $('#inputData' + i).val(jsonDados["data" + (i + 1)]);
                     $('#inputSetor' + i).val(jsonDados["setor" + (i + 1)]);
                     $('#inputCargaHoraria' + i).val(jsonDados["cargaHoraria" + (i + 1)]);
                     $('#inputAtividade' + i).val(jsonDados["atividade" + (i + 1)]);
-
-
                 }
             }
 
             $('#CargaHorariaTotal').val(calculaHoraTotal(qtdLinhas));
         });
     }
-
-    function converteDataBRparaUS(data) {
-        var dia = data.split("/")[0];
-        var mes = data.split("/")[1];
-        var ano = data.split("/")[2];
-
-        return ano + '-' + ("0" + mes).slice(-2) + '-' + ("0" + dia).slice(-2);
-    }
-
 
     function adicionaTexto() {
 

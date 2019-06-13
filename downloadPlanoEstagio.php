@@ -24,7 +24,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
             <script>
                 function imprimir() {
-                    window.open('planoEstagio.pdf', '_blank');
+                    window.open('PDFS/Documentos/planoEstagio.pdf', '_blank');
                 }
             </script>
 

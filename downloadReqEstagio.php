@@ -23,7 +23,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
             <script>
                 function imprimir() {
-                    window.open('reqEstagio.pdf', '_blank');
+                    window.open('PDFS/Documentos/reqEstagio.pdf', '_blank');
                 }
             </script>
 

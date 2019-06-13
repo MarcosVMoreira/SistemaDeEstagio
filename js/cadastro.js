@@ -57,7 +57,21 @@ $(document).ready(function () {
         }
     });
 
-    $('#inputNumero').mask('000000');
+    $('#inputRg').focusout(function (e) {
+
+        if (!validaCpf($(e.target).val())) {
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Digite o seu RG.');
+
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+    });
 
     $('#inputRA').mask('00000000000').focusout(function(e){
         if(!validaRA($(e.target).val())){
@@ -124,6 +138,87 @@ $(document).ready(function () {
 
     $('#inputCep').mask('00000-000').focusout(function (e) {
         validaCep(e.target);
+    });
+
+    $("#inputEndereco").focusout(function (e) {
+
+        if (!validaEmail($(e.target).val())) {
+
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Por favor digite o endereço.');
+
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+
+    });
+
+    $('#inputNumero').mask('000000').focusout(function(e){
+        if(!validaRA($(e.target).val())){
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Número inválido.');
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+    });
+
+    $("#inputBairro").focusout(function (e) {
+
+        if (!validaEmail($(e.target).val())) {
+
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Por favor digite o bairro.');
+
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+
+    });
+    $("#inputCidade").focusout(function (e) {
+
+        if (!validaEmail($(e.target).val())) {
+
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Por favor digite a cidade.');
+
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+
+    });
+
+    $('#inputAno').mask('0000').focusout(function(e){
+        if(!validaRA($(e.target).val())){
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Número inválido.');
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
     });
 
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida

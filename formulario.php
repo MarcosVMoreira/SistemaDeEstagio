@@ -1296,7 +1296,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <div class="form-check form-check-inline">
                                             <?php
                                                 $beneficio = array();
-                                                $beneficio = explode(",", $beneficiosEstagio);
+                                                $beneficio = explode(", ", $beneficiosEstagio);
                                                 $valeTransporte = 1;
                                                 $planoDeSaude = 1;
                                                 $valeAlimentacao = 1;

@@ -471,7 +471,7 @@ $string = '<html>
         <div style="position:absolute;left:85.08px;top:455.32px" class="cls_006"><span class="cls_006">CEP: <b>'.$cepEmpresa.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:466.84px" class="cls_006"><span class="cls_006">TELEFONE: <b>'.$telefoneEmpresa.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:478.24px" class="cls_006"><span class="cls_006">E-MAIL: <b>'.$emailEmpresa.'</b></span></div>
-        <div style="position:absolute;left:85.08px;top:489.76px" class="cls_006"><span class="cls_006">ÁREA DE ESTAGIO:</span></div>
+        <div style="position:absolute;left:85.08px;top:489.76px" class="cls_006"><span class="cls_006">ÁREA DE ESTAGIO: </span><b>'.$area.'</b></div>
         <div style="position:absolute;left:85.08px;top:501.28px" class="cls_006"><span class="cls_006">PERÍODO DO ESTÁGIO: <b>'.$dataInicio.'</b> a <b>'.$dataFim.'</b></span></div>
         <div style="position:absolute;left:85.08px;top:535.84px" class="cls_006"><span class="cls_006">CARGA TOTAL DE HORAS REALIZADAS: <b>'.$cargaHoraria.'</b> horas.</span></div>
         <div style="position:absolute;left:85.08px;top:558.76px" class="cls_006"><span class="cls_006">NOME E FORMAÇÃO DO SUPERVISOR RESPONSÁVEL PELO ACOMPANHAMENTO DO</span></div>

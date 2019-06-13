@@ -352,22 +352,22 @@ $string = '<html>
         <div style="position:absolute;left:42.48px;top:359.68px" class="cls_003"><span class="cls_003">Nome da Empresa: </span><b>'.$nomeEmpresa.'</b></div>
         <div style="position:absolute;left:42.48px;top:375.16px" class="cls_003"><span class="cls_003">CNPJ: </span><b>'.$cpfCnpjEmpresa.'</b></div>
         <div style="position:absolute;left:42.48px;top:390.64px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoEmpresa.'</b></div>
-        <div style="position:absolute;left:258.47px;top:389.68px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroEmpresa.'</b></div>
+        <div style="position:absolute;left:300px;top:389.68px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroEmpresa.'</b></div>
         <div style="position:absolute;left:42.48px;top:406.24px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepEmpresa.'</b></div>
-        <div style="position:absolute;left:258.52px;top:406.24px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeEmpresa.' - '.$estadoEmpresa.'</b></div>
+        <div style="position:absolute;left:300px;top:406.24px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeEmpresa.' - '.$estadoEmpresa.'</b></div>
         <div style="position:absolute;left:450.00px;top:406.24px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneEmpresa.'</b></div>
         <div style="position:absolute;left:42.48px;top:421.72px" class="cls_003"><span class="cls_003">Representada por: </span><b>'.$representanteEmpresa.'</b></div>
-        <div style="position:absolute;left:258.44px;top:421.72px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$representanteEmpresaCargo.'</b></div>
+        <div style="position:absolute;left:300px;top:421.72px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$representanteEmpresaCargo.'</b></div>
         <div style="position:absolute;left:42.48px;top:437.20px" class="cls_003"><span class="cls_003">Responsável pela assinatura do TCE: </span><b>'.$nomeTCE.'</b></div>
-        <div style="position:absolute;left:258.50px;top:437.20px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoTCE.'</b></div>
+        <div style="position:absolute;left:300px;top:437.20px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoTCE.'</b></div>
         <div style="position:absolute;left:42.48px;top:452.80px" class="cls_003"><span class="cls_003">Supervisor de Estágio: </span><b>'.$nomeSupervisor.'</b></div>
-        <div style="position:absolute;left:258.53px;top:451.84px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoSupervisor.'</b></div>
+        <div style="position:absolute;left:300px;top:451.84px" class="cls_003"><span class="cls_003">Cargo: </span><b>'.$cargoSupervisor.'</b></div>
         <div style="position:absolute;left:255.72px;top:483.76px" class="cls_005"><span class="cls_005">ESTAGIÁRIO(A)</span></div>
         <div style="position:absolute;left:42.48px;top:502.84px" class="cls_003"><span class="cls_003">Nome: </span><b>'.$nomeAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:518.32px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoAluno.'</b></div>
-        <div style="position:absolute;left:241.15px;top:518.32px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'</b></div>
+        <div style="position:absolute;left:300px;top:518.32px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:533.80px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepAluno.'</b></div>
-        <div style="position:absolute;left:241.08px;top:533.80px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeAluno.' - '.$estadoAluno.'</b></div>
+        <div style="position:absolute;left:300pxpx;top:533.80px" class="cls_003"><span class="cls_003">Cidade: </span><b>'.$cidadeAluno.' - '.$estadoAluno.'</b></div>
         <div style="position:absolute;left:450.00px;top:533.80px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:549.40px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$cursoAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:564.88px" class="cls_003"><span class="cls_003">CPF: </span><b>'.$cpfAluno.'</b></div>

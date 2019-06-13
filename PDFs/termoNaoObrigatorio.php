@@ -294,14 +294,15 @@ $string = '<html>
         <div style="position:absolute;left:269.64px;top:530.32px" class="cls_003"><span class="cls_003">ESTAGIÁRIO</span></div>
         <div style="position:absolute;left:42.48px;top:540.64px" class="cls_003"><span class="cls_003">Nome: </span><b>'.$nomeAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:556.12px" class="cls_003"><span class="cls_003">Endereço: </span><b>'.$enderecoAluno.'</b></div>
-        <div style="position:absolute;left:294.48px;top:555.16px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'</b></div>
+        <div style="position:absolute;left:350px;top:555.16px" class="cls_003"><span class="cls_003">Bairro: </span><b>'.$bairroAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:571.72px" class="cls_003"><span class="cls_003">CEP: </span><b>'.$cepAluno.'</b></div>
-        <div style="position:absolute;left:294.51px;top:571.72px" class="cls_003"><span class="cls_003">Cidade: <b>'.$cidadeAluno.' - '.$estadoAluno.'</b></span> Fone: <b>'.$telefoneAluno.'</b></div>
+        <div style="position:absolute;left:350px;top:571.72px" class="cls_003"><span class="cls_003">Cidade: <b>'.$cidadeAluno.' - '.$estadoAluno.'</b></span></div>
         <div style="position:absolute;left:42.48px;top:587.20px" class="cls_003"><span class="cls_003">Regularmente Matriculado no Curso: </span><b>'.$cursoAluno.'</b></div>
+        <div style="position:absolute;left:350px;top:587.20px" class="cls_003"><span class="cls_003">Fone: </span><b>'.$telefoneAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:602.68px" class="cls_003"><span class="cls_003">CPF: </span><b>'.$cpfAluno.'</b></div>
-        <div style="position:absolute;left:294.52px;top:602.68px" class="cls_003"><span class="cls_003">RG: </span><b>'.$rgAluno.'</b></div>
+        <div style="position:absolute;left:350px;top:602.68px" class="cls_003"><span class="cls_003">RG: </span><b>'.$rgAluno.'</b></div>
         <div style="position:absolute;left:42.48px;top:618.28px" class="cls_003"><span class="cls_003">Data de Nascimento: </span><b>'.$nascimentoAluno.'</b></div>
-        <div style="position:absolute;left:294.45px;top:618.28px" class="cls_003"><span class="cls_003">E-mail: </span><b>'.$emailAluno.'</b></div>
+        <div style="position:absolute;left:350px;top:618.28px" class="cls_003"><span class="cls_003">E-mail: </span><b>'.$emailAluno.'</b></div>
         <div style="position:absolute;left:77.88px;top:654.28px" class="cls_003"><span class="cls_003">Celebram entre si este TERMO DE COMPROMISO DE ESTÁGIO, ajustando as seguintes cláusulas:</span></div>
         <div style="position:absolute;left:42.48px;top:675.04px" class="cls_006"><span class="cls_006">CLÁUSULA 1ª</span><span class="cls_003"> - Este Termo de Compromisso reger-se-á em pela Lei 11.788/2008, pelas normas de estágio do Instituto</span></div>
         <div style="position:absolute;left:42.48px;top:685.36px" class="cls_003"><span class="cls_003">Federal de Educação, Ciência e Tecnologia do Sul de Minas Gerais e pelo Convênio celebrado entre a CONCEDENTE e a</span></div>

@@ -133,13 +133,22 @@ $(document).ready(function () {
         $("#linhaEstagio").append(stringlinha);
 
         // Verifica se o usuário digitou a data no campo inputData
-        $('#inputData' + qtdLinhas).focusout(function(e){
-            if($(e.target).val() == ""){
+        $('#inputData' + qtdLinhas).focusout(function (e) {
+            if ($(e.target).val() == "") {
                 $(e.target).addClass('form-invalido')
                 tooltip($(e.target), "Selecione uma data")
             } else {
-                $(e.target).removeClass('form-invalido')
-                $(e.target).tooltip('disable')
+                let partesData = ($(e.target).val().split("-"))
+                let data = new Date(partesData[0], partesData[1] - 1, partesData[2]);
+
+                // Verifica se o usuário colocou uma data válida (menor ou igual ao dia atual)
+                if (data > new Date()) {
+                    $(e.target).addClass('form-invalido')
+                    tooltip($(e.target), "Data inválida")
+                } else {
+                    $(e.target).removeClass('form-invalido')
+                    $(e.target).tooltip('disable')
+                }
             }
         });
 
@@ -193,20 +202,20 @@ $(document).ready(function () {
                             // Muda a cor da borda para vermelho
                             $(e.target).addClass('form-invalido');
                             // Tooltip
-                            if(dia == 'segunda'){
-                                tooltip($(e.target), 'Na segunda-feira a carga horaria maxima deve ser igual a '+retorno+'.');
-                            }else if(dia == 'terca'){
-                                tooltip($(e.target), 'Na terça-feira a carga horaria maxima deve ser igual a '+retorno+'.');
-                            }else if(dia == 'quarta'){
-                                tooltip($(e.target), 'Na quarta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
-                            }else if(dia == 'quinta'){
-                                tooltip($(e.target), 'Na quinta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
-                            }else if(dia == 'sexta'){
-                                tooltip($(e.target), 'Na sexta-feira a carga horaria maxima deve ser igual a '+retorno+'.');
-                            }else if(dia == 'sabado'){
-                                tooltip($(e.target), 'No sábado a carga horaria maxima deve ser igual a '+retorno+'.');
+                            if (dia == 'segunda') {
+                                tooltip($(e.target), 'Na segunda-feira a carga horaria maxima deve ser igual a ' + retorno + '.');
+                            } else if (dia == 'terca') {
+                                tooltip($(e.target), 'Na terça-feira a carga horaria maxima deve ser igual a ' + retorno + '.');
+                            } else if (dia == 'quarta') {
+                                tooltip($(e.target), 'Na quarta-feira a carga horaria maxima deve ser igual a ' + retorno + '.');
+                            } else if (dia == 'quinta') {
+                                tooltip($(e.target), 'Na quinta-feira a carga horaria maxima deve ser igual a ' + retorno + '.');
+                            } else if (dia == 'sexta') {
+                                tooltip($(e.target), 'Na sexta-feira a carga horaria maxima deve ser igual a ' + retorno + '.');
+                            } else if (dia == 'sabado') {
+                                tooltip($(e.target), 'No sábado a carga horaria maxima deve ser igual a ' + retorno + '.');
                             }
-                            
+
                         }
                     });
 

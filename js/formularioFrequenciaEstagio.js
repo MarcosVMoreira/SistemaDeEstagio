@@ -65,21 +65,14 @@ $(document).ready(function () {
                 for (let i = 0; i < jsonDados.quantidadeRegistros; i++) {
                     adicionaTexto();
 
-                    let dataUS = jsonDados["data" + (i + 1)];
-                    //let dataConvertida = converteDataBRparaUS(dataUS);
-
-                    /*
-                    console.log("Data: " + jsonDados["data" + (i + 1)]);
-                    console.log("Carga horária: " + jsonDados["cargaHoraria" + (i + 1)]);
-                    console.log("Setor: " + jsonDados["setor" + (i + 1)]);
-                    console.log("Atividade: " + jsonDados["atividade" + (i + 1)]);
-                    */
+                    let dataBR = jsonDados["data" + (i + 1)];
+                    let dataConvertida = converteDataBRparaUS(dataBR);
 
                     /* ver em que formato a data e o horário estão sendo salvas no banco e adequar a forma
                     aqui nesse script. Aqui estou recebendo a data como DD/MM/AAAA e convertendo para
                     AAAA/MM/DD para conseguir colocar nos campos Date e recebendo o campo hora como XX:XX */
 
-                    $('#inputData' + i).val(dataUS);
+                    $('#inputData' + i).val(dataConvertida);
                     $('#inputSetor' + i).val(jsonDados["setor" + (i + 1)]);
                     $('#inputCargaHoraria' + i).val(jsonDados["cargaHoraria" + (i + 1)]);
                     $('#inputAtividade' + i).val(jsonDados["atividade" + (i + 1)]);

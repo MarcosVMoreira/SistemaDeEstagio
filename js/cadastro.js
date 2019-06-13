@@ -73,6 +73,23 @@ $(document).ready(function () {
         }
     });
 
+    $("#inputDataNascimento").focusout(function (e) {
+
+        if ($(e.target).val() == "") {
+            $(e.target).addClass('form-invalido');
+
+            tooltip($(e.target), 'Por favor digite a cidade.');
+
+        } else {
+            $(e.target).removeClass('form-invalido');
+
+            $(e.target).tooltip('disable');
+
+            return true;
+        }
+
+    });
+    
     $('#inputRg').focusout(function (e) {
 
         if ($(e.target).val() == "") {

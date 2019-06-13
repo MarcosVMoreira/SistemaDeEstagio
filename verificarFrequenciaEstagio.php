@@ -23,11 +23,12 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $alunos = "Por favor preencher os dados do Aluno. <br />\n";
+            $alunos = "Por favor preencher os dados do aluno. <br />\n";
             $flagGlobal = 1;
         } else {
             $alunos = "Por favor preencher os seguintes dados do Aluno: ";
-            if ($resultado["nome"] != "") { } else {
+            if ($resultado["nome"] != "") {
+            } else {
                 $alunos = $alunos . "nome";
                 $flag = 1;
             }
@@ -113,6 +114,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "modalidade";
                 $flag = 1;
             }
+            /*
             if ($resultado["idSupervisor"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "idSupervisor";
@@ -133,6 +135,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "idEmpresa";
                 $flag = 1;
             }
+            */
             if ($flag == 1) {
                 $alunos = $alunos . ". <br />\n";
                 $flagGlobal = 1;
@@ -149,11 +152,12 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+            $concedentes = "Por favor preencher os dados do concedente. <br />\n";
             $flagGlobal = 1;
         } else {
             $concedentes = "Por favor preencher os seguintes dados do Concedente: ";
-            if ($resultado["nome"] != "") { } else {
+            if ($resultado["nome"] != "") {
+            } else {
                 $concedentes = $concedentes . "nome";
                 $flag = 1;
             }
@@ -177,12 +181,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             $flagGlobal = 1;
         } else {
             $estagio = "Por favor preencher os seguintes dados do Estagio: ";
-            if ($resultado["dataInicial"] != "") { } else {
+            if ($resultado["dataInicial"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", data de início";
                 else $estagio = $estagio . "data de início";
                 $flag = 1;
             }
-            if ($resultado["dataFinal"] != "") { } else {
+            if ($resultado["dataFinal"] != "") {
+            } else {
                 if ($flag == 1) $estagio = $estagio . ", data de término";
                 else $estagio = $estagio . "data de término";
                 $flag = 1;
@@ -199,14 +205,14 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
 
     ?>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12 mt-3">
-            <h5 id="nome">
-                Ops, encontramos um problema!<br />
-            </h5>
-            Alguns dados estão faltando para que seja possível gerar o PDF da frequência de estágio. Preencha os dados listados abaixo: <br />
-            <?php
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 mt-3">
+                <h5 id="nome">
+                    Ops, encontramos um problema!<br/>
+                </h5>
+                Alguns dados estão faltando para que seja possível gerar o PDF da frequência de estágio. <br/>
+                <?php
                 if ($flagGlobal == 1) {
                     echo $alunos;
                     echo $orientador;
@@ -214,25 +220,27 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                     echo $concedentes;
                     echo $estagio;
                     ?>
-            <a href="formulario.php"><button type="button" class="btn btn-primary mt-5">Ir para o formulário</button></a>
-            <?php
-            } else {
+                    <a href="formulario.php">
+                        <button type="button" class="btn btn-primary mt-5">Ir para o formulário</button>
+                    </a>
+                <?php
+                } else {
                 ?>
-            <script>
-                window.open('PDFs/frequenciaEstagio.php', '_blank');
+                    <script>
+                        window.open('PDFs/frequenciaEstagio.php', '_blank');
 
-            </script>
-            <script>
-                window.open('home.php', '_self');
+                    </script>
+                    <script>
+                        window.open('home.php', '_self');
 
-            </script>
-            <?php
-            } ?>
+                    </script>
+                    <?php
+                } ?>
+            </div>
         </div>
     </div>
-</div>
 
-<?php
+    <?php
 }
 include("footer.html");
 ?>

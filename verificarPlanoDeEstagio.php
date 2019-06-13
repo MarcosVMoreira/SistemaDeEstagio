@@ -113,6 +113,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "modalidade";
                 $flag = 1;
             }
+            /*
             if ($resultado["idSupervisor"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "idSupervisor";
@@ -133,6 +134,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "idEmpresa";
                 $flag = 1;
             }
+            */
             if ($flag == 1) {
                 $alunos = $alunos . ". <br />\n";
                 $flagGlobal = 1;
@@ -180,6 +182,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $flag = 0;
             }
         }
+    } else {
+        $orientador = "Por favor preencher os dados do Orientador. <br />\n";
+        $flagGlobal = 1;
     }
 
     // Concedente
@@ -214,6 +219,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
             $flag = 0;
         }
+    } else {
+        $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+        $flagGlobal = 1;
     }
 
     // Supervisor
@@ -263,6 +271,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
             $flag = 0;
         }
+    } else {
+        $supervisor = "Por favor preencher os dados do Supervisor de estágio. <br />\n";
+        $flagGlobal = 1;
     }
 
     // Estágio
@@ -306,6 +317,9 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
             $flag = 0;
         }
+    } else {
+        $estagio = "Por favor preencher os dados do estágio. <br />\n";
+        $flagGlobal = 1;
     }
     ?>
 
@@ -315,7 +329,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 <h5 id="nome">
                     Ops, encontramos um problema!<br />
                 </h5>
-                Alguns dados estão faltando para que seja possível gerar o PDF do plano de estágio. Preencha os dados listados abaixo: <br />
+                Alguns dados estão faltando para que seja possível gerar o PDF do plano de estágio. <br />
                 <?php
                 if ($flagGlobal == 1) {
                     echo $alunos;

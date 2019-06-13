@@ -22,7 +22,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $alunos = "Por favor preencher os dados do Aluno. <br />\n";
+            $alunos = "Por favor preencher os dados do aluno. <br />\n";
             $flagGlobal = 1;
         } else {
             $alunos = "Por favor preencher os seguintes dados do Aluno: ";
@@ -112,6 +112,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "modalidade";
                 $flag = 1;
             }
+            /*
             if ($resultado["idSupervisor"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "idSupervisor";
@@ -132,6 +133,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "idEmpresa";
                 $flag = 1;
             }
+            */
             if ($flag == 1) {
                 $alunos = $alunos . ". <br />\n";
                 $flagGlobal = 1;
@@ -149,7 +151,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+            $concedentes = "Por favor preencher os dados do concedente. <br />\n";
             $flagGlobal = 1;
         } else {
             $concedentes = "Por favor preencher os seguintes dados do Concedente: ";
@@ -273,7 +275,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             }
         }
     } else {
-        $concedentes = "Por favor preencher os dados do orientador de estágio. <br />\n";
+        $orientador = "Por favor preencher os dados do orientador de estágio. <br />\n";
         $flagGlobal = 1;
     }
 
@@ -326,7 +328,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
             <h5 id="nome">
                 Ops, encontramos um problema!<br />
             </h5>
-            Alguns dados estão faltando para que seja possível gerar o PDF do termo de compromisso de estágio. Preencha os dados listados abaixo: <br />
+            Alguns dados estão faltando para que seja possível gerar o PDF do termo de compromisso de estágio. <br />
             <?php
                 if ($flagGlobal == 1) {
                     echo $alunos;

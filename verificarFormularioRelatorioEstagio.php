@@ -113,6 +113,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "modalidade";
                 $flag = 1;
             }
+            /*
             if ($resultado["idSupervisor"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "idSupervisor";
@@ -133,6 +134,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 $alunos = $alunos . "idEmpresa";
                 $flag = 1;
             }
+            */
             if ($flag == 1) {
                 $alunos = $alunos . ". <br />\n";
                 $flagGlobal = 1;
@@ -249,7 +251,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $concedentes = "Dados do Concedente. <br />\n";
+            $concedentes = "Por favor, preencher os dados do concedente. <br />\n";
             $flagGlobal = 1;
         } else {
             $concedentes = "Seguintes Dados do Concedente: ";
@@ -339,7 +341,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $estagio = "Dados do estágio. <br />\n";
+            $estagio = "Por favor, preencher os dados do estágio. <br />\n";
             $flagGlobal = 1;
         } else {
             $estagio = "Seguintes Dados do Estagio: ";
@@ -468,8 +470,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                 <h5 id="nome">
                     Ops, encontramos um problema!<br/>
                 </h5>
-                Alguns dados estão faltando para que seja possível preencher o formulário de relatório de estágio. Favor
-                preencher os dados listados abaixo:<br/> <br/>
+                Alguns dados estão faltando para que seja possível preencher o formulário de relatório de estágio.<br/> <br/>
                 <?php
                 if ($flagGlobal == 1) {
                     echo $alunos;

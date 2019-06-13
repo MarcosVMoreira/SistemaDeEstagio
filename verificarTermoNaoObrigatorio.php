@@ -22,7 +22,7 @@
         $resultado = $result->fetch_assoc();
 
         if (empty($resultado)) {
-            $alunos = "Por favor preencher os dados do Aluno. <br />\n";
+            $alunos = "Por favor preencher os dados do aluno. <br />\n";
             $flagGlobal = 1;
         } else {
             $alunos = "Por favor preencher os seguintes dados do Aluno: ";
@@ -90,11 +90,13 @@
                 $alunos = $alunos . "email";
                 $flag = 1;
             }
+            /*
             if ($resultado["complemento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "complemento";
                 $flag = 1;
             }
+            */
             if ($resultado["dataNascimento"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "data de nascimento";
@@ -110,6 +112,7 @@
                 $alunos = $alunos . "modalidade";
                 $flag = 1;
             }
+            /*
             if ($resultado["idSupervisor"] == "") {
                 if ($flag == 1) $alunos = $alunos . ", ";
                 $alunos = $alunos . "idSupervisor";
@@ -130,6 +133,7 @@
                 $alunos = $alunos . "idEmpresa";
                 $flag = 1;
             }
+            */
             if ($flag == 1) {
                 $alunos = $alunos . ". <br />\n";
                 $flagGlobal = 1;
@@ -145,7 +149,7 @@
             $resultado = $result->fetch_assoc();
             
             if (empty($resultado)) {
-                $concedentes = "Por favor preencher os dados do Concedente. <br />\n";
+                $concedentes = "Por favor preencher os dados do concedente. <br />\n";
                 $flagGlobal = 1;
             } else {
                 $concedentes = "Por favor preencher dados do Concedente:";
@@ -301,7 +305,7 @@
         <h5 id="nome">
                     Ops, encontramos um problema!<br />
                 </h5>
-                Alguns dados estão faltando para que seja possível gerar o PDF do temo de compromisso de estágio. Preencha os dados listados abaixo: <br />
+                Alguns dados estão faltando para que seja possível gerar o PDF do temo de compromisso de estágio. <br />
             <?php
             if($flagGlobal == 1){
                 echo $alunos;

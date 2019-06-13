@@ -393,8 +393,46 @@ $(document).ready(function () {
             '</div>' +
             '</div>');
         $('#horasSegunda').on();
+
+        $("#divHorasTrabalhadas").on("change", "#horasSegunda", function (e) {
+            verificarHora(e);
+        });
+        $("#divHorasTrabalhadas").on("change", "#horasTerca", function (e) {
+            verificarHora(e);
+        });
+        $("#divHorasTrabalhadas").on("change", "#horasQuarta", function (e) {
+            verificarHora(e);
+        });
+        $("#divHorasTrabalhadas").on("change", "#horasQuinta", function (e) {
+            verificarHora(e);
+        });
+        $("#divHorasTrabalhadas").on("change", "#horasSexta", function (e) {
+            verificarHora(e);
+        });
+        $("#divHorasTrabalhadas").on("change", "#horasSabado", function (e) {
+            verificarHora(e);
+        });
+        
     });
 
+    $("#divHorasTrabalhadas").on("change", "#horasSegunda", function (e) {
+        verificarHora(e);
+    });
+    $("#divHorasTrabalhadas").on("change", "#horasTerca", function (e) {
+        verificarHora(e);
+    });
+    $("#divHorasTrabalhadas").on("change", "#horasQuarta", function (e) {
+        verificarHora(e);
+    });
+    $("#divHorasTrabalhadas").on("change", "#horasQuinta", function (e) {
+        verificarHora(e);
+    });
+    $("#divHorasTrabalhadas").on("change", "#horasSexta", function (e) {
+        verificarHora(e);
+    });
+    $("#divHorasTrabalhadas").on("change", "#horasSabado", function (e) {
+        verificarHora(e);
+    });
 
     $('#radioVariavel').change(function () {
         $('#inputDataFimEstagio').prop("disabled", false);
@@ -492,6 +530,7 @@ $(document).ready(function () {
             $('#horasSabado').prop("disabled", true);
         }
     });
+
     function verificarHora(e){
         var qtdHoras = $(e.target).val().split(':');
         var radiovalue = $("input:radio[name ='radioGroupCargaDiaria']:checked").val();
@@ -522,7 +561,45 @@ $(document).ready(function () {
                     tooltip($(e.target), 'O horário não deve ultrapassar 6 horas diárias.');
             }
         }
+        if(qtdHoras[0] == ' '){
+            $(e.target).removeClass('form-invalido');
+            // Remove o tooltip
+            $(e.target).tooltip('disable');      
+        }
     }
+
+    $("#campoCargaDiaria").on("change", "#radio6h",function (e) {
+        $('#horasSegunda').val(""); 
+        $('#horasTerca').val(""); 
+        $('#horasQuarta').val(""); 
+        $('#horasQuinta').val(""); 
+        $('#horasSexta').val(""); 
+        $('#horasSabado').val("");   
+        $("#horasSegunda").triggerHandler("keyup");
+        console.log($("#horasSegunda").val());
+        $("#horasTerca").triggerHandler("keyup");
+        $("#horasQuarta").triggerHandler("keyup");
+        $("#horasQuinta").triggerHandler("keyup");
+        $("#horasSexta").triggerHandler("keyup");
+        $("#horasSabado").triggerHandler("keyup");           
+    });
+    $("#campoCargaDiaria").on("change", "#radio8h",function (e) {
+        $('#horasSegunda').val(""); 
+        $('#horasTerca').val(""); 
+        $('#horasQuarta').val(""); 
+        $('#horasQuinta').val(""); 
+        $('#horasSexta').val(""); 
+        $('#horasSabado').val("");   
+        $("#horasSegunda").triggerHandler("keyup");
+        console.log($("#horasSegunda").val());
+        $("#horasTerca").triggerHandler("keyup");
+        $("#horasQuarta").triggerHandler("keyup");
+        $("#horasQuinta").triggerHandler("keyup");
+        $("#horasSexta").triggerHandler("keyup");
+        $("#horasSabado").triggerHandler("keyup");
+    });
+
+    /*   CODIGO ANTIGO, BACKUP
     $("input[name='radioGroupCargaDiaria']").change(function(e){
         $("#horasSegunda").triggerHandler("keyup");
         console.log($("#horasSegunda").val());
@@ -531,26 +608,11 @@ $(document).ready(function () {
         $("#horasQuinta").triggerHandler("keyup");
         $("#horasSexta").triggerHandler("keyup");
         $("#horasSabado").triggerHandler("keyup");
-
-    });
+    });*/
+    /*
     $("#horasSegunda").keyup(function(e){
         verificarHora(e);
-    });
-    $("#horasTerca").keyup(function(e){
-        verificarHora(e);
-    });
-    $("#horasQuarta").keyup(function(e){
-        verificarHora(e);
-    });
-    $("#horasQuinta").keyup(function(e){
-        verificarHora(e);
-    });
-    $("#horasSexta").keyup(function(e){
-        verificarHora(e);
-    });
-    $("#horasSabado").keyup(function(e){
-        verificarHora(e);
-    });
+    });*/
 
     $('#inputDataFimEstagio').keyup(function (e) {
         if ($('#radioRemunerado').prop('checked') && validaData($(e.target).val()) && validaData($('#inputDataInicioEstagio').val())) {

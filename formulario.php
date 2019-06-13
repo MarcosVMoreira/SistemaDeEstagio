@@ -1432,7 +1432,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                                         <input type="date" class="form-control" name="inputDataFimEstagio" value="<?php echo($dataTerminoEstagio);?>" id="inputDataFimEstagio" required>
                                     </div>
                                 </div>
-                                <div class="col-sm-12 col-md-6">
+                                <div class="col-sm-12 col-md-6" id="campoCargaDiaria" >
                                     <label for="radioGroupCargaDiaria">Carga Diária Máxima</label>
                                     <div>
                                         <div class="col-sm-12">

@@ -57,12 +57,28 @@ $(document).ready(function () {
         }
     });
 
+    $('#inputDataNascimento').change(function (e) {
+        
+        dataC = document.getElementById('inputDataNascimento')
+        dataCampo = dataC.value
+        dataAtual = new Date()
+
+        if(Date.parse(dataAtual) < Date.parse(dataCampo)){
+            $(e.target).addClass('form-invalido');
+            tooltip($(e.target), 'Digite uma data válida.');
+        }else{
+            $(e.target).removeClass('form-invalido');
+            $(e.target).tooltip('disable');
+            return true;
+        }
+    });
+
     $('#inputRg').focusout(function (e) {
 
-        if (!validaCpf($(e.target).val())) {
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
-            tooltip($(e.target), 'Digite o seu RG.');
+            tooltip($(e.target), 'Por favor digite o RG.');
 
         } else {
             $(e.target).removeClass('form-invalido');
@@ -71,6 +87,7 @@ $(document).ready(function () {
 
             return true;
         }
+
     });
 
     $('#inputRA').mask('00000000000').focusout(function(e){
@@ -142,8 +159,7 @@ $(document).ready(function () {
 
     $("#inputEndereco").focusout(function (e) {
 
-        if (!validaEmail($(e.target).val())) {
-
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
             tooltip($(e.target), 'Por favor digite o endereço.');
@@ -159,10 +175,12 @@ $(document).ready(function () {
     });
 
     $('#inputNumero').mask('000000').focusout(function(e){
-        if(!validaRA($(e.target).val())){
+
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
-            tooltip($(e.target), 'Número inválido.');
+            tooltip($(e.target), 'Por favor digite o número.');
+
         } else {
             $(e.target).removeClass('form-invalido');
 
@@ -170,12 +188,12 @@ $(document).ready(function () {
 
             return true;
         }
+
     });
 
     $("#inputBairro").focusout(function (e) {
 
-        if (!validaEmail($(e.target).val())) {
-
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
             tooltip($(e.target), 'Por favor digite o bairro.');
@@ -189,10 +207,10 @@ $(document).ready(function () {
         }
 
     });
+
     $("#inputCidade").focusout(function (e) {
 
-        if (!validaEmail($(e.target).val())) {
-
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
             tooltip($(e.target), 'Por favor digite a cidade.');
@@ -208,10 +226,12 @@ $(document).ready(function () {
     });
 
     $('#inputAno').mask('0000').focusout(function(e){
-        if(!validaRA($(e.target).val())){
+
+        if ($(e.target).val() == "") {
             $(e.target).addClass('form-invalido');
 
-            tooltip($(e.target), 'Número inválido.');
+            tooltip($(e.target), 'Por favor digite o módulo/ano.');
+
         } else {
             $(e.target).removeClass('form-invalido');
 
@@ -219,6 +239,7 @@ $(document).ready(function () {
 
             return true;
         }
+
     });
 
     // Quando tirarmos o foco do campo senha, verifica se a senha é válida

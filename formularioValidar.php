@@ -374,12 +374,12 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
                     }
                 }
             } else {
-                $query3 = "INSERT INTO estagio (tipoEstagio, valorBolsa, dataInicial, dataFinal, segunda, terca, quarta, quinta, sexta, sabado, atividadesQueSeraoDesenvolvidas, areasConhecimento, objetivos, tipoCargaHoraria, cargaHorariaTotal, beneficios";
+                $query3 = "INSERT INTO estagio (tipoEstagio, valorBolsa, dataInicial, dataFinal, segunda, terca, quarta, quinta, sexta, sabado, atividadesQueSeraoDesenvolvidas, areasConhecimento, objetivos, tipoCargaHoraria, tipoCaraDiaria, cargaHorariaTotal, beneficios";
                 
                 if(!empty($nomeSeguradora) && !empty($numeroApolice)) {
-                    $query3 = $query3 . ", nomeSeguradora, numeroApolice) VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal', '$beneficios', '$nomeSeguradora', '$numeroApolice')";
+                    $query3 = $query3 . ", nomeSeguradora, numeroApolice) VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$tipoCargaDiaria', $cargaHorariaTotal', '$beneficios', '$nomeSeguradora', '$numeroApolice')";
                 } else {
-                    $query3 = $query3 . ") VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$cargaHorariaTotal', '$beneficios')";
+                    $query3 = $query3 . ") VALUES ('$tipoEstagio', '$valorBolsa', '$dataInicio', '$dataFim', '$segunda', '$terca', '$quarta', '$quinta', '$sexta', '$sabado', '$atividadesDesenvolvidas', '$areasConhecimento', '$objetivosAlcancados', '$tipoCargaHoraria', '$tipoCargaDiaria', '$cargaHorariaTotal', '$beneficios')";
                 }
 
                 if (!$conexao->query($query3) === TRUE) {

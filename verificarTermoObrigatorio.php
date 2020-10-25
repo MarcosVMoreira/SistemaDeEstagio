@@ -10,7 +10,7 @@ if (!((isset($_SESSION['ra']) && $_SESSION['ra'] != "") && (isset($_SESSION['nom
     include("header.php");
 
     $flag = 0;
-    $orientador = "";
+    $orientador = "blabla";
     $supervisor = "";
     $concedentes = "";
     $alunos = "";
